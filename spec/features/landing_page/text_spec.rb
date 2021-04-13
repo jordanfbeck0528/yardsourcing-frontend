@@ -25,4 +25,16 @@ RSpec.describe 'Welcome Page' do
       expect(page).to have_content('Welcome, Domo')
     end
   end
+
+  describe "sad path for invalid login" do
+    it "re renders page and shows an error message " do
+      visit root_path
+      user = User.create!(username: 'Domo', password: 'test', email: 'domo@gmail.com')
+      fill_in 'email', with: 'user'
+      fill_in 'password', with: 'pass'
+      click_button('Log In')
+      expect(current_path).to eq(root_path)
+      expect(page).to have_content('Sorry, your credentials are bad')
+    end
+  end
 end
