@@ -24,6 +24,11 @@ RSpec.describe 'Welcome Page' do
       expect(current_path).to eq(user_path(user.id))
       expect(page).to have_content('Welcome, Domo')
     end
+
+    it "shows a button to register to our site " do
+      visit root_path
+      expect(page).to have_button('Register')
+    end
   end
 
   describe "sad path for invalid login" do

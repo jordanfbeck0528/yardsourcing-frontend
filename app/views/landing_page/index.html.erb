@@ -8,4 +8,6 @@
   <%= f.label "Password: "%>
   <%= f.password_field :password %>
   <%= f.submit "Log In" %>
-<% end %>
+<% end%>
+
+<%= button_to "Register", registration_path(), method: :get %>
