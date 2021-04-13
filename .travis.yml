@@ -4,7 +4,8 @@ rbenv:
 addons:
   postgresql: 9.6
 before_install:
-  nvm install --lts
+- gem install bundler:2.1.4
+- nvm install --lts
 script:
 - bundle exec rails db:{create,migrate} RAILS_ENV=test
 - bundle exec rspec
