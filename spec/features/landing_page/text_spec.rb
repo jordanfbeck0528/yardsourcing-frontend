@@ -22,7 +22,7 @@ RSpec.describe 'Welcome Page' do
       fill_in 'password', with: user.password
       click_button('Log In')
       expect(current_path).to eq(user_path(user.id))
-      ####flash message not coming through to our dashboard 
+      expect(page).to have_content('Welcome, Domo')
     end
   end
 end
