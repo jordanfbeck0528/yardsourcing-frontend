@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   root 'landing_page#index'
   post '/login', to: 'users#login'
+  resources :users, only: [:show]
+
 end

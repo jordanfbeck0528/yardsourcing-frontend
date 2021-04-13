@@ -14,5 +14,15 @@ RSpec.describe 'Welcome Page' do
       expect(page).to have_content('Email:')
       expect(page).to have_content('Password:')
     end
+
+    it "can log in users through our database and bring them to dashboard" do
+      user = User.create!(username: 'Domo', password: 'test', email: 'domo@gmail.com')
+      visit root_path
+      fill_in 'email', with: user.email
+      fill_in 'password', with: user.password
+      click_button('Log In')
+      expect(current_path).to eq(user_path(user.id))
+      ####flash message not coming through to our dashboard 
+    end
   end
 end
