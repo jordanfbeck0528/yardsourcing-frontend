@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   post '/login', to: 'users#login'
   resources :users, only: [:show]
   get '/registration', to: 'users#new'
+  post '/registration', to: 'users#create'
+  
 end
