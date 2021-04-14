@@ -36,6 +36,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'faraday'
 gem 'json'
 gem 'bcrypt'
+gem 'omniauth', '~> 1.9'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
+gem "figaro"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
