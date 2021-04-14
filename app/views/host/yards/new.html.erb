@@ -1,0 +1,30 @@
+
+<%= form_with url: host_yards_path, local: true do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name, required: true  %><br>
+    <%= form.label :description %>
+    <%= form.text_area :description, size: "70x5" %><br>
+    <%= form.label 'Availability Information' %>
+    <%= form.text_field :availability %><br>
+    <%= form.label 'Payment Preferences' %>
+    <%= form.text_field :payment %><br>
+    <%= form.label 'Hourly Price' %>
+    <%= form.text_field :price %><br>
+    <%= form.label 'Street Address' %>
+    <%= form.text_field :street_address %><br>
+    <%= form.label :city %>
+    <%= form.text_field :city %><br>
+    <%= form.label :state %>
+    <%= form.text_field :state %><br>
+    <%= form.label 'Zipcode' %>
+    <%= form.text_field :zipcode %><br>
+    <%= form.label 'Photo 1' %>
+    <%= form.text_field :photo_url_1 %><br>
+    <%= form.label 'Photo 2' %>
+    <%= form.text_field :photo_url_2 %><br>
+    <%= form.label 'Photo 3' %>
+    <%= form.text_field :photo_url_3 %><br>
+    <p>Select all purposes you will allow others to rent your yard for</p>
+    <p>Purposes:</p>
+    <%= form.submit 'Create Yard' %>
+<% end %>

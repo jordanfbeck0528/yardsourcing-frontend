@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'As an authenticated user when I visit the host dashboard' do
   before :each do
-    @current_user = 'username_place_holder'
+    @current_user = User.create!(username: 'username', password: 'password1', email: 'email@email.com')
   end
   it "I see links to renter/host dashboard and logout" do
     visit host_dashboard_index_path
@@ -18,7 +18,7 @@ describe 'As an authenticated user when I visit the host dashboard' do
     visit host_dashboard_index_path
 
     within '.nav-bar' do
-      expect(page).to have_content("Welcome #{@current_user}")
+      expect(page).to have_content("Welcome #{@current_user.username}")
     end
   end
 
@@ -37,8 +37,12 @@ describe 'As an authenticated user when I visit the host dashboard' do
 
   end
 
-  it "I see a section for all of my yards I have created" do
+  xit "I see a section for all of my yards I have created" do
+    visit host_dashboard_index_path
 
+    within '.my-yards' do
+
+    end
   end
 
   describe "I see a section for Upcoming Bookings" do
