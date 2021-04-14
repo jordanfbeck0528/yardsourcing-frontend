@@ -9,4 +9,9 @@ Rails.application.routes.draw do
   end
 
   delete "/logout", to: "sessions#destroy"
+
+  root 'landing_page#index'
+  post '/login', to: 'users#login'
+  resources :users, only: [:show]
+  get '/registration', to: 'users#new'
 end
