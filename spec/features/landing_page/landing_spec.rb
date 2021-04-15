@@ -14,8 +14,8 @@ RSpec.describe 'Welcome Page' do
 
   describe 'it has an sad path ' do
     it 'has returns to home page if credentials are bad' do
-      visit root_path
-       OmniAuth.config.mock_auth[:google_oauth2] = :invalid_credentials
+       stub_omniauth_sad
+         visit root_path
       click_button 'Login through Google'
       expect(page).to have_content('Sorry, your credentials are bad.')
       expect(current_path).to eq('/')
@@ -24,6 +24,7 @@ RSpec.describe 'Welcome Page' do
 
   describe 'happy path' do
     it 'brings us to the correct page if google credentials are good' do
+      stub_omniauth_happy
       visit root_path
         click_button 'Login through Google'
         expect(page).to have_content('Welcome Dominic Padula')

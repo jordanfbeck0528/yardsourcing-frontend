@@ -42,19 +42,19 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
   OmniAuth.config.test_mode = true
-  OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
-  :provider => 'google_oauth2',
-  :uid => '123545',
-  :info => {
-  :name => 'Dominic Padula',
-  :email => 'thisemail@gmail.com'
-  },
-  :credentials => {
-       :token => 'token',
-       :refresh_token => "refresh token"
-     }
-   })
-
+  # OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
+  # :provider => 'google_oauth2',
+  # :uid => '123545',
+  # :info => {
+  #   :name => 'Dominic Padula',
+  #   :email => 'thisemail@gmail.com'
+  # },
+  # :credentials => {
+  #      :token => 'token',
+  #      :refresh_token => "refresh token"
+  #    }
+  #  })
+  #
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
@@ -86,4 +86,23 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+end
+
+def stub_omniauth_happy
+  OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
+  :provider => 'google_oauth2',
+  :uid => '123545',
+  :info => {
+    :name => 'Dominic Padula',
+    :email => 'thisemail@gmail.com'
+  },
+  :credentials => {
+       :token => 'token',
+       :refresh_token => "refresh token"
+     }
+   })
+end
+
+def stub_omniauth_sad
+  OmniAuth.config.mock_auth[:google_oauth2] = :invalid_credentials
 end
