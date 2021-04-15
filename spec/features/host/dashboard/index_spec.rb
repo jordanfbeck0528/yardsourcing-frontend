@@ -25,6 +25,15 @@ describe 'As an authenticated user when I visit the host dashboard' do
   end
 
   it "I see a button to create a yard" do
+    stub_request(:get, "https://localhost:3001/api/v1/purposes").
+        with(
+          headers: {
+         'Accept'=>'*/*',
+         'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+         'User-Agent'=>'Faraday v1.3.0'
+          }).
+        to_return(status: 200, body: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"name1"}},{"id":"2","type":"purpose","attributes":{"name":"name2"}}]}', headers: {})
+
     visit host_dashboard_index_path
 
     within '.header' do

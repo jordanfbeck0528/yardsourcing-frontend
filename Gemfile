@@ -43,6 +43,9 @@ gem "figaro"
 gem 'bootstrap', '~> 5.0.0.beta2'
 gem 'jquery-rails'
 gem 'popper_js', '~> 2.8.6'
+gem 'ostruct'
+gem 'figaro'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -56,6 +59,10 @@ group :development, :test do
   gem 'orderly'
   gem 'shoulda-matchers', '~> 4.0'
   gem 'launchy'
+end
+
+group :test do
+    gem 'webmock'
 end
 
 group :development do

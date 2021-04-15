@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :host do
     resources :dashboard, only: :index
-    resources :yards, only: [:new, :create]
+    resources :yards, only: [:new, :create, :show]
   end
 
   namespace :renter do
