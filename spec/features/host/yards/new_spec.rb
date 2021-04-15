@@ -12,15 +12,16 @@ describe 'As an authenticated user when I visit the new yard page' do
         to_return(status: 200, body: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"name1"}},{"id":"2","type":"purpose","attributes":{"name":"name2"}},{"id":"3","type":"purpose","attributes":{"name":"name3"}}]}', headers: {})
 
         stub_request(:post, "https://localhost:3001/api/v1/yards").
-         with(
-           body: {"headers"=>{"CONTENT_TYPE"=>"application/json"}, "params"=>"{\"yard\":{\"name\":\"name\",\"description\":\"description\",\"availability\":\"availability\",\"payment\":\"payment\",\"price\":\"25.2\",\"street_address\":\"street_address\",\"city\":\"city\",\"state\":\"state\",\"zipcode\":\"zipcode\",\"photo_url_1\":\"https://photo.com/path\",\"photo_url_2\":\"\",\"photo_url_3\":\"\",\"purposes\":[\"1\",\"3\"]}}"},
-           headers: {
-       	  'Accept'=>'*/*',
-       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-       	  'Content-Type'=>'application/x-www-form-urlencoded',
-       	  'User-Agent'=>'Faraday v1.3.0'
-           }).
-         to_return(status: 200, body: "", headers: {})
+                 with(
+                   body: {"{\"yard\":{\"name\":\"name\",\"description\":\"description\",\"availability\":\"availability\",\"payment\":\"payment\",\"price\":\"25.2\",\"street_address\":\"street_address\",\"city\":\"city\",\"state\":\"state\",\"zipcode\":\"zipcode\",\"photo_url_1\":\"https://photo.com/path\",\"photo_url_2\":\"\",\"photo_url_3\":\"\",\"purposes\":"=>{"\"1\",\"3\"}}"=>nil}},
+                   headers: {
+               	  'Accept'=>'*/*',
+               	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+               	  'Content-Type'=>'application/x-www-form-urlencoded',
+               	  'User-Agent'=>'Faraday v1.3.0'
+                   }).
+                 to_return(status: 200, body: "", headers: {})
+
 
 
     @current_user = User.create!(username: 'username', password: 'password1', email: 'email@email.com')
@@ -88,8 +89,6 @@ describe 'As an authenticated user when I visit the new yard page' do
       expect(current_path).to eq(host_dashboard_index_path)
     end
   end
-
-  it "when a form is submitted"
 
   describe 'sad path' do
     it "when I do not enter a name I cannot create a yard" do
