@@ -2,9 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'Welcome Page' do
   describe 'When I visit the Root path' do
-    # before(:each) do
-    #   Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2]
-    #  end
     it 'displays absolutely sick text to pull our Users in and get data' do
       visit root_path
       expect(page).to have_content('This is YardSourcing')
