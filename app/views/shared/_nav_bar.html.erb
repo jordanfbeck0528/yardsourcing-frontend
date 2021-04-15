@@ -1,5 +1,5 @@
 <section class='nav-bar'>
-  <h3>Welcome <%= current_user.username %>></h3>
+  <h3>Welcome <%= current_user.username %></h3>
   <%= button_to 'Host Dashboard', host_dashboard_index_path, method: :get %>
   <%= button_to 'Renter Dashboard', renter_dashboard_index_path, method: :get %>
   <%= button_to 'Logout', logout_path, method: :delete %>

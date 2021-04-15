@@ -2,7 +2,9 @@ require 'rails_helper'
 
 describe 'As an authenticated user when I visit the host dashboard' do
   before :each do
-    @current_user = User.create!(username: 'username', password: 'password1', email: 'email@email.com')
+    stub_omniauth_happy
+    visit root_path
+    click_button 'Login through Google'
   end
   it "I see links to renter/host dashboard and logout" do
     visit host_dashboard_index_path
@@ -18,7 +20,7 @@ describe 'As an authenticated user when I visit the host dashboard' do
     visit host_dashboard_index_path
 
     within '.nav-bar' do
-      expect(page).to have_content("Welcome #{@current_user.username}")
+      expect(page).to have_content("Welcome Dominic Padula")
     end
   end
 
@@ -46,11 +48,11 @@ describe 'As an authenticated user when I visit the host dashboard' do
 
   end
 
-  xit "I see a section for all of my yards I have created" do
+  it "I see a section for all of my yards I have created" do
     visit host_dashboard_index_path
 
     within '.my-yards' do
-
+      expect(page).to have_content("My Yard(s)")
     end
   end
 

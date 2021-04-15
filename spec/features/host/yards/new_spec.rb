@@ -22,13 +22,9 @@ describe 'As an authenticated user when I visit the new yard page' do
                    }).
                  to_return(status: 200, body: "", headers: {})
 
-
-
-    @current_user = User.create!(username: 'username', password: 'password1', email: 'email@email.com')
-
-    # stub_omniauth_happy
-    # visit root_path
-    # click_button 'Login through Google'
+      stub_omniauth_happy
+      visit root_path
+      click_button 'Login through Google'
   end
 
   it "I see a form with name, description, availability, payment, and price" do
@@ -70,6 +66,7 @@ describe 'As an authenticated user when I visit the new yard page' do
 
   describe 'happy path' do
     it "when I fill out the form with valid information I can create a yard" do
+
       visit new_host_yard_path
 
       fill_in :name, with: "name"
