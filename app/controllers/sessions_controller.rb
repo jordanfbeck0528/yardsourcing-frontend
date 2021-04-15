@@ -10,4 +10,9 @@ class SessionsController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def bad
+    flash[:error] = "Sorry, your credentials are bad."
+    redirect_to root_path
+  end
 end

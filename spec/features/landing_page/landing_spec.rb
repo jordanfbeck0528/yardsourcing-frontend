@@ -2,44 +2,32 @@ require 'rails_helper'
 
 RSpec.describe 'Welcome Page' do
   describe 'When I visit the Root path' do
+    # before(:each) do
+    #   Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2]
+    #  end
     it 'displays absolutely sick text to pull our Users in and get data' do
       visit root_path
       expect(page).to have_content('This is YardSourcing')
       expect(page).to have_content("You need yards, and we got 'em")
     end
+  end
 
-    it "displays a login form for previously existing Users" do
+  describe 'it has an sad path ' do
+    it 'has returns to home page if credentials are bad' do
       visit root_path
-      expect(page).to have_button('Log In')
-      expect(page).to have_content('Email:')
-      expect(page).to have_content('Password:')
-    end
-
-    it "can log in users through our database and bring them to dashboard" do
-      user = User.create!(username: 'Domo', password: 'test', email: 'domo@gmail.com')
-      visit root_path
-      fill_in 'email', with: user.email
-      fill_in 'password', with: user.password
-      click_button('Log In')
-      expect(current_path).to eq(user_path(user.id))
-      expect(page).to have_content('Welcome, Domo')
-    end
-
-    it "shows a button to register to our site " do
-      visit root_path
-      expect(page).to have_button('Register')
+       OmniAuth.config.mock_auth[:google_oauth2] = :invalid_credentials
+      click_button 'Login through Google'
+      expect(page).to have_content('Sorry, your credentials are bad.')
+      expect(current_path).to eq('/')
     end
   end
 
-  describe "sad path for invalid login" do
-    it "re renders page and shows an error message " do
+  describe 'happy path' do
+    it 'brings us to the correct page if google credentials are good' do
       visit root_path
-      user = User.create!(username: 'Domo', password: 'test', email: 'domo@gmail.com')
-      fill_in 'email', with: 'user'
-      fill_in 'password', with: 'pass'
-      click_button('Log In')
-      expect(current_path).to eq(root_path)
-      expect(page).to have_content('Sorry, your credentials are bad')
+        click_button 'Login through Google'
+        expect(page).to have_content('Welcome Dominic Padula')
+        expect(current_path).to eq('/host/dashboard')
     end
   end
 end
