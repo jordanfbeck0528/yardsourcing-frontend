@@ -25,6 +25,9 @@
     <%= form.label 'Photo 3' %>
     <%= form.text_field :photo_url_3 %><br>
     <p>Select all purposes you will allow others to rent your yard for</p>
-    <p>Purposes:</p>
+    <%= form.collection_check_boxes(:purposes, @purposes, :id, :name, include_hidden: false) do |purpose| %>
+      <%= purpose.check_box %>
+      <%= purpose.label %>
+    <% end %>
     <%= form.submit 'Create Yard' %>
 <% end %>
