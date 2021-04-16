@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'As an authenticated user when I visit the host dashboard' do
   before :each do
-    user = User.create(id:1, uid: 123545, username: 'Dominic Padula', email:'thisemail@gmail.com' )
+    user = User.create(id:1, uid: 123545, username: 'Dominic Padula', email:'thisemail@gmail.com', password: SecureRandom.hex(15) )
     stub_omniauth_happy
     response = File.open("spec/fixtures/host_yards.json")
     stub_request(:get, "#{ENV['ys_engine_url']}/api/v1/hosts/#{user.id}/yards").
