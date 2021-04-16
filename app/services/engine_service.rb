@@ -14,6 +14,19 @@ class EngineService
      end
   end
 
+  def self.yard_details(yard_id)
+    response = connection.get("/api/v1/hosts/#{yard_id}/yards")
+    data = response.body
+    JSON.parse(data, symbolize_names: true)
+  end
+
+  def self.host_yards(host_id)
+    url = "/api/v1/hosts/#{host_id}/yards"
+    response = connection.get(url)
+    data = response.body
+    JSON.parse(data, symbolize_names: true)
+  end
+
   def self.connection
     Faraday.new(url: ENV['ys_engine_url'])
   end
