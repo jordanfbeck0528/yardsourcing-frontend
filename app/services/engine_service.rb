@@ -15,14 +15,15 @@ class EngineService
   end
 
   def self.yard_details(yard_id)
-    response = connection.get("/api/v1/hosts/#{yard_id}/yards")
+    url = "/api/v1/yards/#{yard_id}"
+    response = connection.get(url)
     data = response.body
     JSON.parse(data, symbolize_names: true)
   end
 
-  def self.host_yards(host_id)
-    url = "/api/v1/hosts/#{host_id}/yards"
-    response = connection.get(url)
+  def self.host_yards
+    # url = "/api/v1/hosts/#{host_id}/yards"
+    response = connection.get('/api/v1/hosts')
     data = response.body
     JSON.parse(data, symbolize_names: true)
   end
