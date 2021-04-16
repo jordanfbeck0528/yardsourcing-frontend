@@ -10,24 +10,16 @@ class Host::YardsController < ApplicationController
   end
 
   def create
-    yard_params = {
-                    name: params[:name],
-                    description: params[:description],
-                    availability: params[:availability],
-                    payment: params[:payment],
-                    price: params[:price],
-                    street_address: params[:street_address],
-                    city: params[:city],
-                    state: params[:state],
-                    zipcode: params[:zipcode],
-                    photo_url_1: params[:photo_url_1],
-                    photo_url_2: params[:photo_url_2],
-                    photo_url_3: params[:photo_url_3],
-                    purposes: params[:purposes]
-                  }
-
+    params[:host_id] = current_user.id
     EngineService.create_yard(yard_params)
-
     redirect_to host_dashboard_index_path
+  end
+
+  private
+
+  def yard_params
+    params.permit(:host_id, :name, :description, :availability, :payment,
+                  :price, :street_address, :city, :state, :zipcode, :photo_url_1,
+                  :photo_url_2, :photo_url_3, purposes: [])
   end
 end

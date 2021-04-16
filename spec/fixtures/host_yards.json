@@ -1,0 +1,101 @@
+{
+  "data": [
+      {
+        "id": "1",
+          "type": "yard",
+          "attributes": {
+            "host_id": "1",
+            "name": "Mike's Awesome Yard",
+            "street_address": "123 Baker Street",
+            "city": "Philadelphia",
+            "state": "PA",
+            "zipcode": "19125",
+            "price": 10.50,
+            "description": "This yard is green and 1200 sf",
+            "payment": "venmo/paypal infomraiton?",
+            "availability": "weekends and weekdays after 5pm",
+            "photo_url_1": "https:picture1.org",
+            "photo_url_2": "",
+            "photo_url_3": "",
+            "purposes": {
+              "data": [
+                {
+                  "id": "1",
+                  "type": "purpose",
+                  "attributes": {
+                    "name": "Pet Rental"
+                  }
+                },
+                {
+                  "id": "2",
+                  "type": "purpose",
+                  "attributes": {
+                    "name": "Party Rental"
+                  }
+                }
+              ]
+            }
+          }
+      },
+      {
+        "id": "2",
+        "type": "yard",
+          "attributes": {
+            "host_id": "1",
+            "name": "Bohem Garden",
+            "street_address": "123 Bohem Street",
+            "city": "Philadelphia",
+            "state": "PA",
+            "zipcode": "19125",
+            "price": 20.50,
+            "description": "This yard is a garden oasis to transport you out of the city",
+            "payment": "venmo/paypal infomraiton?",
+            "availability": "all day every day",
+            "photo_url_1": "https:picture12.org",
+            "photo_url_2": "",
+            "photo_url_3": "",
+            "purposes": {
+              "data": [
+                {
+                  "id": "1",
+                  "type": "purpose",
+                  "attributes": {
+                    "name": "Pet Rental"
+                  }
+                }
+              ]
+            }
+          }
+      },
+      {
+        "id": "3",
+        "type": "yard",
+          "attributes": {
+            "host_id": "1",
+            "name": "Rooftop Party",
+            "street_address": "123 Market Street",
+            "city": "Philadelphia",
+            "state": "PA",
+            "zipcode": "19125",
+            "description": "The name says it all",
+            "price": 15.50,
+            "payment": "venmo/paypal infomraiton?",
+            "availability": "please contact for availability",
+            "photo_url_1": "https:picture31.org",
+            "photo_url_2": "",
+            "photo_url_3": "",
+            "purposes": {
+              "data": [
+                {
+                  "id": "1",
+                  "type": "purpose",
+                  "attributes": {
+                    "name": "Pet Rental"
+                  }
+                }
+              ]
+            }
+          }
+      }
+    ]
+}
