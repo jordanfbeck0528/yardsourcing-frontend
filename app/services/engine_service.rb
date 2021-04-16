@@ -24,7 +24,6 @@ class EngineService
     url = "/api/v1/hosts/#{host_id}/yards"
     response = connection.get(url)
     data = response.body
-    binding.pry
     JSON.parse(data, symbolize_names: true)
   end
 
