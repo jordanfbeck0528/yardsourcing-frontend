@@ -5,4 +5,14 @@
 
 <section class="my-yards">
   <h3>My Yard(s)</h3>
+  <% @host_yards.each do |yard| %>
+  <section id="yard-<%= yard.id%>">
+      <%= yard.name %>
+      <%= yard.description %>
+      <%= yard.address %>
+      <%= yard.price %>
+      <%= yard.purposes %>
+      <%= yard.availability %>
+    <% end %>
+    </section>
 </section>
