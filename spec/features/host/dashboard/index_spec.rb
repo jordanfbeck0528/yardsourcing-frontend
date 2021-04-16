@@ -53,6 +53,15 @@ describe 'As an authenticated user when I visit the host dashboard' do
 
     within '.my-yards' do
       expect(page).to have_content("My Yard(s)")
+        within "#yard-1" do
+          expect(page).to have_content("Mike's Awesome Yard")
+        end
+        within "#yard-2" do
+          expect(page).to have_content("Bohem Garden")
+        end
+        within "#yard-3" do
+          expect(page).to have_content("Rooftop Party")
+        end
     end
   end
 
