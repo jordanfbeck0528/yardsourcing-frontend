@@ -4,7 +4,7 @@ RSpec.describe "EngineService", type: :feature do
   describe "::all_purposes" do
     it "should return json response of all purposes" do
       response = File.open("spec/fixtures/all_purposes.json")
-      stub_request(:get, "https://localhost:3001/api/v1/purposes").
+      stub_request(:get, "#{ENV['ys_engine_url']}/api/v1/purposes").
          with(
            headers: {
        	  'Accept'=>'*/*',
@@ -37,7 +37,7 @@ RSpec.describe "EngineService", type: :feature do
                       :photo_url_2=>"",
                       :photo_url_3=>"",
                       :purposes=>["1", "3"]}
-    stub_request(:post, "https://localhost:3001/api/v1/yards").
+    stub_request(:post, "#{ENV['ys_engine_url']}/api/v1/yards").
          with(
            body: {"{\"yard\":\"{\\\"host_id\\\""=>">123545, \\\"name\\\"=>\\\"name\\\", \\\"description\\\"=>\\\"description\\\", \\\"availability\\\"=>\\\"availability\\\", \\\"payment\\\"=>\\\"payment\\\", \\\"price\\\"=>\\\"25.2\\\", \\\"street_address\\\"=>\\\"street_address\\\", \\\"city\\\"=>\\\"city\\\", \\\"state\\\"=>\\\"state\\\", \\\"zipcode\\\"=>\\\"zipcode\\\", \\\"photo_url_1\\\"=>\\\"https://photo.com/path\\\", \\\"photo_url_2\\\"=>\\\"\\\", \\\"photo_url_3\\\"=>\\\"\\\", \\\"purposes\\\"=>[\\\"1\\\", \\\"3\\\"]}\"}"},
            headers: {
@@ -56,7 +56,7 @@ RSpec.describe "EngineService", type: :feature do
   describe "::yard_details" do
     it "should return json response of all purposes" do
       response = File.open("spec/fixtures/yard_details.json")
-      stub_request(:get, "https://localhost:3001/api/v1/yards/1").
+      stub_request(:get, "#{ENV['ys_engine_url']}/api/v1/yards/1").
          with(
            headers: {
        	  'Accept'=>'*/*',
@@ -74,7 +74,7 @@ RSpec.describe "EngineService", type: :feature do
     it "should return a list of a host's yards" do
 
       response = File.open("spec/fixtures/host_yards.json")
-      stub_request(:get, "https://localhost:3001/api/v1/hosts/1/yards").
+      stub_request(:get, "#{ENV['ys_engine_url']}/api/v1/hosts/1/yards").
          with(
            headers: {
        	  'Accept'=>'*/*',
