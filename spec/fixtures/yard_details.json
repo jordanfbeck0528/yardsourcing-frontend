@@ -22,18 +22,17 @@
             "id": "1",
             "type": "purpose",
             "attributes": {
-              "name": "Pet Rental",
+              "name": "Pet Rental"
             }
           },
           {
             "id": "2",
             "type": "purpose",
             "attributes": {
-              "name": "Party Rental",
+              "name": "Party Rental"
             }
           }
         ]
-      }
       }
     }
   }
