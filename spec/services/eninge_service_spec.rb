@@ -75,7 +75,7 @@ RSpec.describe "EngineService", type: :feature do
       # stub_omniauth_happy
       # visit '/'
       # click_button 'Login through Google'
-      es = EngineService.host_yards(1)
+
       response = File.open("spec/fixtures/host_yards.json")
       stub_request(:get, "https://localhost:3001/api/v1/hosts/1/yards").
          with(
@@ -84,8 +84,9 @@ RSpec.describe "EngineService", type: :feature do
        	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
        	  'User-Agent'=>'Faraday v1.3.0'
            }).
-         to_return(status: 200, body: "", headers: {})
+         to_return(status: 200, body: response, headers: {})
 
+        es = EngineService.host_yards(1)
 
 
       many_yards_response_evaluation(es)
