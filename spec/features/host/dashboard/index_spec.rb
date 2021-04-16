@@ -62,23 +62,42 @@ describe 'As an authenticated user when I visit the host dashboard' do
   end
 
   it "I see a section for all of my yards I have created" do
-    visit host_dashboard_index_path
+      visit host_dashboard_index_path
 
-    expect(page).to have_content("Mike's Awesome Yard")
-    expect(page).to have_content("Bohem Garden")
-    expect(page).to have_content("Rooftop Party")
-    # within '.my-yards' do
-    #   expect(page).to have_content("My Yard(s)")
-    #     within "#yard-1" do
-    #       expect(page).to have_content("Mike's Awesome Yard")
-    #     end
-    #     within "#yard-2" do
-    #       expect(page).to have_content("Bohem Garden")
-    #     end
-    #     within "#yard-3" do
-    #       expect(page).to have_content("Rooftop Party")
-    #     end
-    # end
+      expect(page).to have_content("Mike's Awesome Yard")
+      expect(page).to have_content("Bohem Garden")
+      expect(page).to have_content("Rooftop Party")
+      # within '.my-yards' do
+      #   expect(page).to have_content("My Yard(s)")
+      #     within "#yard-1" do
+      #       expect(page).to have_content("Mike's Awesome Yard")
+      #     end
+      #     within "#yard-2" do
+      #       expect(page).to have_content("Bohem Garden")
+      #     end
+      #     within "#yard-3" do
+      #       expect(page).to have_content("Rooftop Party")
+      #     end
+      # end
+  end
+  it "I see a section for my yards with a note about no yards when I have not added any" do
+      visit host_dashboard_index_path
+
+      expect(page).to have_content("Mike's Awesome Yard")
+      expect(page).to have_content("Bohem Garden")
+      expect(page).to have_content("Rooftop Party")
+      # within '.my-yards' do
+      #   expect(page).to have_content("My Yard(s)")
+      #     within "#yard-1" do
+      #       expect(page).to have_content("Mike's Awesome Yard")
+      #     end
+      #     within "#yard-2" do
+      #       expect(page).to have_content("Bohem Garden")
+      #     end
+      #     within "#yard-3" do
+      #       expect(page).to have_content("Rooftop Party")
+      #     end
+      # end
   end
 
   describe "I see a section for Upcoming Bookings" do
