@@ -1,0 +1,40 @@
+{
+  "data": {
+    "id": "1",
+    "type": "yard",
+    "attributes": {
+      "host_id": "1",
+      "name": "Mike's Awesome Yard",
+      "street_address": "123 Baker Street",
+      "city": "Philadelphia",
+      "state": "PA",
+      "zipcode": "19125",
+      "price": 10.50,
+      "description": "This yard is green and 1200 sf",
+      "payment": "venmo/paypal infomraiton?",
+      "availability": "weekends and weekdays after 5pm",
+      "photo_url_1": "https:picture1.org",
+      "photo_url_2": "",
+      "photo_url_3": "",
+      "purposes": {
+        "data": [
+          {
+            "id": "1",
+            "type": "purpose",
+            "attributes": {
+              "name": "Pet Rental",
+            }
+          },
+          {
+            "id": "2",
+            "type": "purpose",
+            "attributes": {
+              "name": "Party Rental",
+            }
+          }
+        ]
+      }
+      }
+    }
+  }
+}
