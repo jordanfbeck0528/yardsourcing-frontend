@@ -75,9 +75,9 @@ RSpec.describe "EngineService", type: :feature do
       # stub_omniauth_happy
       # visit '/'
       # click_button 'Login through Google'
-      es = EngineService.host_yards
+      es = EngineService.host_yards(1)
       response = File.open("spec/fixtures/host_yards.json")
-      stub_request(:get, "https://localhost:3001/api/v1/hosts").
+      stub_request(:get, "https://localhost:3001/api/v1/hosts/1/yards").
          with(
            headers: {
        	  'Accept'=>'*/*',
