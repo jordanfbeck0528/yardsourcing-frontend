@@ -5,6 +5,7 @@ describe 'As an authenticated user when I visit the host dashboard' do
     stub_omniauth_happy
     visit root_path
     click_button 'Login through Google'
+    @user = User.find_by(uid: 123545)
   end
   it "I see links to renter/host dashboard and logout" do
     visit host_dashboard_index_path
@@ -51,6 +52,15 @@ describe 'As an authenticated user when I visit the host dashboard' do
   it "I see a section for all of my yards I have created" do
     visit host_dashboard_index_path
 
+    stub_request(:get, "https://localhost:3001/api/v1/hosts/123545/yards").
+        with(
+          headers: {
+         'Accept'=>'*/*',
+         'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+         'User-Agent'=>'Faraday v1.3.0'
+          }).
+        to_return(status: 200, body: "", headers: {})
+        
     within '.my-yards' do
       expect(page).to have_content("My Yard(s)")
         within "#yard-1" do
