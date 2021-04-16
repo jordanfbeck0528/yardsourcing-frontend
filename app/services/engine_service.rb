@@ -20,9 +20,9 @@ class EngineService
     JSON.parse(data, symbolize_names: true)
   end
 
-  def self.host_yards
-    # url = "/api/v1/hosts/#{host_id}/yards"
-    response = connection.get('/api/v1/hosts')
+  def self.host_yards(host_id)
+    url = "/api/v1/hosts/#{host_id}/yards"
+    response = connection.get(url)
     data = response.body
     JSON.parse(data, symbolize_names: true)
   end

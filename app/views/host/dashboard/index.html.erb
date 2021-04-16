@@ -5,8 +5,10 @@
 
 <section class="my-yards">
   <h3>My Yard(s)</h3>
-  <% @host_yards.each do |yard| %>
-  <section id="yard-<%= yard.id%>">
+  <% if @host_yards.empty? %>
+  <% else %>
+    <% @host_yards.each do |yard| %>
+    <section id="yard-<%= yard.id%>">
       <%= yard.name %>
       <%= yard.description %>
       <%= yard.address %>
@@ -15,4 +17,5 @@
       <%= yard.availability %>
     <% end %>
     </section>
+  <% end %>
 </section>
