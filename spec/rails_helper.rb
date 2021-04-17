@@ -88,13 +88,13 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-def stub_omniauth_happy
+def stub_omniauth_happy(uid, name, email)
   OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
   :provider => 'google_oauth2',
-  :uid => '123545',
+  :uid => uid,
   :info => {
-    :name => 'Dominic Padula',
-    :email => 'thisemail@gmail.com'
+    :name => name,
+    :email => email
   },
   :credentials => {
        :token => 'token',

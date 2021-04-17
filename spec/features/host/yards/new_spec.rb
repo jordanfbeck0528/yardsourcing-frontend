@@ -2,19 +2,22 @@ require 'rails_helper'
 
 describe 'As an authenticated user when I visit the new yard page' do
   before :each do
-    user = User.create(id:1, uid: 123545, username: 'Dominic Padula', email:'thisemail@gmail.com', password: SecureRandom.hex(15) )
-    stub_omniauth_happy
-    # user = User.find_by(uid: 123545)
-    response = File.open("spec/fixtures/host_yards.json")
-    stub_request(:get, "https://localhost:3001/api/v1/hosts/1/yards").
+    # stub omniauth user login
+    omniauth_response = stub_omniauth_happy('123545', 'Dominic Padula', 'thisemail@gmail.com')
+    @user_1 = User.from_omniauth(omniauth_response)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
+
+    yard_response = File.open("spec/fixtures/host_yards.json")
+    stub_request(:get, "https://localhost:3001/api/v1/hosts/#{@user_1.id}/yards").
         with(
           headers: {
          'Accept'=>'*/*',
          'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
          'User-Agent'=>'Faraday v1.3.0'
           }).
-        to_return(status: 200, body: response, headers: {})
+        to_return(status: 200, body: yard_response, headers: {})
 
+    purpose_response = File.open("spec/fixtures/all_purposes.json")
     stub_request(:get, "https://localhost:3001/api/v1/purposes").
         with(
           headers: {
@@ -22,21 +25,18 @@ describe 'As an authenticated user when I visit the new yard page' do
          'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
          'User-Agent'=>'Faraday v1.3.0'
           }).
-        to_return(status: 200, body: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"name1"}},{"id":"2","type":"purpose","attributes":{"name":"name2"}},{"id":"3","type":"purpose","attributes":{"name":"name3"}}]}', headers: {})
+        to_return(status: 200, body: purpose_response, headers: {})
 
-        stub_request(:post, "https://localhost:3001/api/v1/yards").
-        with(
-          body: {"{\"yard\":\"{\\\"host_id\\\""=>">#{user.id}, \\\"name\\\"=>\\\"name\\\", \\\"description\\\"=>\\\"description\\\", \\\"availability\\\"=>\\\"availability\\\", \\\"payment\\\"=>\\\"payment\\\", \\\"price\\\"=>\\\"25.2\\\", \\\"street_address\\\"=>\\\"street_address\\\", \\\"city\\\"=>\\\"city\\\", \\\"state\\\"=>\\\"state\\\", \\\"zipcode\\\"=>\\\"zipcode\\\", \\\"photo_url_1\\\"=>\\\"https://photo.com/path\\\", \\\"photo_url_2\\\"=>\\\"\\\", \\\"photo_url_3\\\"=>\\\"\\\", \\\"purposes\\\"=>[\\\"1\\\", \\\"3\\\"]}\"}"},
-          headers: {
-         'Accept'=>'*/*',
-         'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-         'Content-Type'=>'application/x-www-form-urlencoded',
-         'User-Agent'=>'Faraday v1.3.0'
-          }).
-        to_return(status: 200, body: "", headers: {})
-
-        visit root_path
-        click_button 'Login through Google'
+    stub_request(:post, "https://localhost:3001/api/v1/yards").
+    with(
+      body: {"{\"yard\":\"{\\\"host_id\\\""=>">#{@user_1.id}, \\\"name\\\"=>\\\"name\\\", \\\"description\\\"=>\\\"description\\\", \\\"availability\\\"=>\\\"availability\\\", \\\"payment\\\"=>\\\"payment\\\", \\\"price\\\"=>\\\"25.2\\\", \\\"street_address\\\"=>\\\"street_address\\\", \\\"city\\\"=>\\\"city\\\", \\\"state\\\"=>\\\"state\\\", \\\"zipcode\\\"=>\\\"zipcode\\\", \\\"photo_url_1\\\"=>\\\"https://photo.com/path\\\", \\\"photo_url_2\\\"=>\\\"\\\", \\\"photo_url_3\\\"=>\\\"\\\", \\\"purposes\\\"=>[\\\"1\\\", \\\"3\\\"]}\"}"},
+      headers: {
+     'Accept'=>'*/*',
+     'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+     'Content-Type'=>'application/x-www-form-urlencoded',
+     'User-Agent'=>'Faraday v1.3.0'
+      }).
+    to_return(status: 200, body: "", headers: {})
   end
 
   it "I see a form with name, description, availability, payment, and price" do

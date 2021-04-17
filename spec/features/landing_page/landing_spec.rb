@@ -22,11 +22,12 @@ RSpec.describe 'Welcome Page' do
 
   describe 'happy path' do
     it 'brings us to the correct page if google credentials are good' do
-      user = User.create(id:1, uid: 123545, username: 'Dominic Padula', email:'thisemail@gmail.com', password: SecureRandom.hex(15) )
-      stub_omniauth_happy
+      # user = User.create(id:1, uid: 123545, username: 'Dominic Padula', email:'thisemail@gmail.com', password: SecureRandom.hex(15) )
+      omniauth_response = stub_omniauth_happy('123545', 'Dominic Padula', 'thisemail@gmail.com')
+      user_1 = User.from_omniauth(omniauth_response)
       response = File.open("spec/fixtures/host_yards.json")
 
-      stub_request(:get, "https://localhost:3001/api/v1/hosts/1/yards").
+      stub_request(:get, "https://localhost:3001/api/v1/hosts/#{user_1.id}/yards").
          with(
            headers: {
        	  'Accept'=>'*/*',

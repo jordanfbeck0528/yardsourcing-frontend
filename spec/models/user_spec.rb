@@ -13,8 +13,8 @@ RSpec.describe User, type: :model do
   describe 'class methods' do
     describe '::from_omniauth' do
       it "finds existing user or creates based on omniauth response" do
-        uid = stub_omniauth_happy[:uid]
-        response = stub_omniauth_happy
+        response = stub_omniauth_happy('123545', 'Dominic Padula', 'thisemail@gmail.com')
+        uid = response[:uid]
 
         expect(User.find_by(uid: uid)).to be_nil
 
