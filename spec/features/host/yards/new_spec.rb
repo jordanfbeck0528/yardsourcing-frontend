@@ -59,7 +59,7 @@ describe 'As an authenticated user when I visit the new yard page' do
       VCR.use_cassette('create_yard') do
         visit new_host_yard_path
 
-        fill_in :name, with: "name"
+        fill_in :name, with: "Super Awesome Yard"
         fill_in :description, with: "description"
         fill_in :availability, with: "availability"
         fill_in :payment, with: "payment"
@@ -73,7 +73,7 @@ describe 'As an authenticated user when I visit the new yard page' do
         check "purposes_3"
         click_button 'Create Yard'
 
-        expect(current_path).to eq(yard_path(59))
+        expect(page).to have_content("Super Awesome Yard")
       end
     end
   end
