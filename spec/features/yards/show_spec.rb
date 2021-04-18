@@ -7,58 +7,53 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
     @user_1 = User.from_omniauth(omniauth_response)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
     visit new_host_yard_path
-
-    fill_in :name, with: "Yard 1"
-    fill_in :description, with: "description"
-    fill_in :availability, with: "Mondays"
-    fill_in :payment, with: "Venmo"
-    fill_in :price, with: 25.00
-    fill_in :street_address, with: "street_address"
-    fill_in :city, with: "city"
-    fill_in :state, with: "state"
-    fill_in :zipcode, with: "zipcode"
-    fill_in :photo_url_1, with: "https://photo.com/path"
-    check "purposes_1"
-    check "purposes_3"
-    click_button 'Create Yard'
-    visit new_host_yard_path
-
-    fill_in :name, with: "Yard 2"
-    fill_in :description, with: "description"
-    fill_in :availability, with: "Tuesdays"
-    fill_in :payment, with: "Venmo"
-    fill_in :price, with: 15.00
-    fill_in :street_address, with: "street_address"
-    fill_in :city, with: "city"
-    fill_in :state, with: "state"
-    fill_in :zipcode, with: "zipcode"
-    fill_in :photo_url_1, with: "https://photo.com/path"
-    check "purposes_1"
-    check "purposes_3"
-    click_button 'Create Yard'
   end
-  
+
   describe "As a host" do
     it "displays the yard's information" do
+      VCR.use_cassette('host_yard_show_page_ultimate_party') do
+        visit host_dashboard_index_path
+        click_on "Ultimate Party Yard"
 
-
-      visit host_dashboard_index_path
-      click_on "Yard 1"
-
-      expect(current_path).to eq('yards/1')
-      expect(page).to have_content('Yard 1')
-      expect(page).to have_content('description')
-      expect(page).to have_content('Mondays')
-      expect(page).to have_content('25.50')
+        expect(current_path).to eq('yards/1')
+        expect(page).to have_content('Ultimate Party Yard')
+        expect(page).to have_content('This yard is equiped with a firepit, a pool, and a pool house to accommodate all your party needs.')
+        expect(page).to have_content('123 4th St, Denver, CO, 80202')
+        expect(page).to have_content('pet rental')
+      end
     end
 
     it "displays a button to 'Edit' the yard if the current user is the host" do
+      VCR.use_cassette('host_yard_show_page_ultimate_party') do
+        visit host_dashboard_index_path
+        click_on "Ultimate Party Yard"
 
-      visit host_dashboard_index_path
-      click_on "Yard 1"
+        expect(current_path).to eq('yards/1')
+        expect(page).to have_button('Edit Yard')
+      end
+    end
+    xit "displays the yard's information" do
+      VCR.use_cassette('host_yard_show_page_hobby') do
+        visit host_dashboard_index_path
+        click_on "Large Yard for any Hobby"
 
-      expect(current_path).to eq('yards/1')
-      expect(page).to have_button('Edit Yard')
+        expect(current_path).to eq('yards/2')
+        expect(page).to have_content('Large Yard for any Hobby')
+        expect(page).to have_content('A large backyard close to the city. Equiped with a barbeque.')
+        expect(page).to have_content('20 Main St, Denver, CO, 80202')
+        expect(page).to have_content('25.50')
+      end
+    end
+
+    xit "displays a button to 'Edit' the yard if the current user is the host" do
+
+      VCR.use_cassette('host_yard_show_page_hobby') do
+        visit host_dashboard_index_path
+        click_on "Large Yard for any Hobby"
+
+        expect(current_path).to eq('yards/2')
+        expect(page).to have_button('Edit Yard')
+      end
     end
   end
   describe "As a renter" do
