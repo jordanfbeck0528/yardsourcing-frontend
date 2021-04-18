@@ -7,37 +7,6 @@ describe 'As an authenticated user when I visit the new yard page' do
     omniauth_response = stub_omniauth_happy('123545', 'Dominic Padula', 'thisemail@gmail.com')
     @user_1 = User.from_omniauth(omniauth_response)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
-
-    # yard_response = File.open("spec/fixtures/host_yards.json")
-    # stub_request(:get, "https://localhost:3001/api/v1/hosts/#{@user_1.id}/yards").
-    #   with(
-    #     headers: {
-    #    'Accept'=>'*/*',
-    #    'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-    #    'User-Agent'=>'Faraday v1.3.0'
-    #     }).
-    #   to_return(status: 200, body: yard_response, headers: {})
-    #
-    # purpose_response = File.open("spec/fixtures/all_purposes.json")
-    # stub_request(:get, "https://localhost:3001/api/v1/purposes").
-    #   with(
-    #     headers: {
-    #    'Accept'=>'*/*',
-    #    'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-    #    'User-Agent'=>'Faraday v1.3.0'
-    #     }).
-    #   to_return(status: 200, body: purpose_response, headers: {})
-
-    # stub_request(:post, "https://localhost:3001/api/v1/yards").
-    #   with(
-    #     body: {"{\"yard\":\"{\\\"host_id\\\""=>">#{@user_1.id}, \\\"name\\\"=>\\\"name\\\", \\\"description\\\"=>\\\"description\\\", \\\"availability\\\"=>\\\"availability\\\", \\\"payment\\\"=>\\\"payment\\\", \\\"price\\\"=>\\\"25.2\\\", \\\"street_address\\\"=>\\\"street_address\\\", \\\"city\\\"=>\\\"city\\\", \\\"state\\\"=>\\\"state\\\", \\\"zipcode\\\"=>\\\"zipcode\\\", \\\"photo_url_1\\\"=>\\\"https://photo.com/path\\\", \\\"photo_url_2\\\"=>\\\"\\\", \\\"photo_url_3\\\"=>\\\"\\\", \\\"purposes\\\"=>[\\\"1\\\", \\\"3\\\"]}\"}"},
-    #     headers: {
-    #    'Accept'=>'*/*',
-    #    'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-    #    'Content-Type'=>'application/x-www-form-urlencoded',
-    #    'User-Agent'=>'Faraday v1.3.0'
-    #     }).
-    #   to_return(status: 200, body: "", headers: {})
   end
 
   it "I see a form with name, description, availability, payment, and price" do
