@@ -14,7 +14,7 @@ describe 'As an authenticated user when I visit the host dashboard' do
          'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
          'User-Agent'=>'Faraday v1.3.0'
           }).
-        to_return(status: 200, body: response, headers: {})
+        to_return(status: 200, body: response, headers: {}) 
   end
 
   it "I see links to renter/host dashboard and logout" do
