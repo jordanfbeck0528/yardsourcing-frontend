@@ -73,7 +73,7 @@ describe 'As an authenticated user when I visit the new yard page' do
         check "purposes_3"
         click_button 'Create Yard'
         # require "pry"; binding.pry
-        expect(current_path).to eq(host_yard_path(7))
+        expect(current_path).to eq(host_yard_path(8))
       end
     end
   end
