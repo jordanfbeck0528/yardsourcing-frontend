@@ -4,21 +4,21 @@
       "id": "1",
         "type": "purpose",
         "attributes": {
-          "name": "Pet Rental"
+          "name": "pet rental"
         }
     },
     {
       "id": "2",
       "type": "purpose",
         "attributes": {
-          "name": "Party Rental"
+          "name": "party rental"
         }
     },
     {
       "id": "3",
       "type": "purpose",
         "attributes": {
-          "name": "Hobby Rental"
+          "name": "hobby rental"
         }
     }
   ]

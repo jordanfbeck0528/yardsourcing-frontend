@@ -42,19 +42,13 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
   OmniAuth.config.test_mode = true
-  # OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
-  # :provider => 'google_oauth2',
-  # :uid => '123545',
-  # :info => {
-  #   :name => 'Dominic Padula',
-  #   :email => 'thisemail@gmail.com'
-  # },
-  # :credentials => {
-  #      :token => 'token',
-  #      :refresh_token => "refresh token"
-  #    }
-  #  })
-  #
+
+  VCR.configure do |config|
+    config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+    config.hook_into :webmock
+    config.default_cassette_options = {re_record_interval: 7.days}
+    config.allow_http_connections_when_no_cassette = true
+  end
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
@@ -88,13 +82,13 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-def stub_omniauth_happy
+def stub_omniauth_happy(uid, name, email)
   OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
   :provider => 'google_oauth2',
-  :uid => '123545',
+  :uid => uid,
   :info => {
-    :name => 'Dominic Padula',
-    :email => 'thisemail@gmail.com'
+    :name => name,
+    :email => email
   },
   :credentials => {
        :token => 'token',

@@ -2,66 +2,53 @@ require 'rails_helper'
 
 describe 'As an authenticated user when I visit the host dashboard' do
   before :each do
-    user = User.create(id:1, uid: 123545, username: 'Dominic Padula', email:'thisemail@gmail.com', password: SecureRandom.hex(15) )
-    stub_omniauth_happy
-    response = File.open("spec/fixtures/host_yards.json")
-    stub_request(:get, "#{ENV['ys_engine_url']}/api/v1/hosts/#{user.id}/yards").
-        with(
-          headers: {
-         'Accept'=>'*/*',
-         'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-         'User-Agent'=>'Faraday v1.3.0'
-          }).
-        to_return(status: 200, body: response, headers: {})
-
-    visit root_path
-    click_button 'Login through Google'
-    @user = User.find_by(uid: 123545)
+    user = User.create!(id:1, uid: '123545', username: 'Dominic Padula', email:'thisemail@gmail.com', password: SecureRandom.hex(15) )
+    omniauth_response = stub_omniauth_happy('123545', 'Dominic Padula', 'thisemail@gmail.com')
+    @user_1 = User.from_omniauth(omniauth_response)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
   end
 
   it "I see links to renter/host dashboard and logout" do
-    visit host_dashboard_index_path
+    VCR.use_cassette('host_yards') do
+      visit host_dashboard_index_path
 
-    within '.nav-bar' do
-      expect(page).to have_button("Host Dashboard")
-      expect(page).to have_button("Renter Dashboard")
-      expect(page).to have_button("Logout")
+      within '.nav-bar' do
+        expect(page).to have_button("Host Dashboard")
+        expect(page).to have_button("Renter Dashboard")
+        expect(page).to have_button("Logout")
+      end
     end
   end
 
   it "I see a welcome message with my username" do
-    visit host_dashboard_index_path
+    VCR.use_cassette('host_yards') do
+      visit host_dashboard_index_path
 
-    within '.nav-bar' do
-      expect(page).to have_content("Welcome Dominic Padula")
+      within '.nav-bar' do
+        expect(page).to have_content("Welcome Dominic Padula")
+      end
     end
   end
 
   it "I see a button to create a yard" do
-    stub_request(:get, "https://localhost:3001/api/v1/purposes").
-        with(
-          headers: {
-         'Accept'=>'*/*',
-         'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-         'User-Agent'=>'Faraday v1.3.0'
-          }).
-        to_return(status: 200, body: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"name1"}},{"id":"2","type":"purpose","attributes":{"name":"name2"}}]}', headers: {})
+    VCR.use_cassette('all_purposes_dash') do
+      visit host_dashboard_index_path
 
-    visit host_dashboard_index_path
+      within '.header' do
+        expect(page).to have_button('Create Yard')
+        click_button 'Create Yard'
+      end
 
-    within '.header' do
-      expect(page).to have_button('Create Yard')
-      click_button 'Create Yard'
+      expect(current_path).to eq(new_host_yard_path)
     end
-
-    expect(current_path).to eq(new_host_yard_path)
   end
 
   it "Each yard is a link to that yard's show page" do
 
   end
 
-  it "I see a section for all of my yards I have created" do
+  xit "I see a section for all of my yards I have created" do
+    VCR.use_cassette('host_yards') do
       visit host_dashboard_index_path
 
       expect(page).to have_content("Mike's Awesome Yard")
@@ -79,8 +66,11 @@ describe 'As an authenticated user when I visit the host dashboard' do
       #       expect(page).to have_content("Rooftop Party")
       #     end
       # end
+    end
   end
-  it "I see a section for my yards with a note about no yards when I have not added any" do
+
+  xit "I see a section for my yards with a note about no yards when I have not added any" do
+    VCR.use_cassette('host_yards') do
       visit host_dashboard_index_path
 
       expect(page).to have_content("Mike's Awesome Yard")
@@ -98,6 +88,7 @@ describe 'As an authenticated user when I visit the host dashboard' do
       #       expect(page).to have_content("Rooftop Party")
       #     end
       # end
+    end
   end
 
   describe "I see a section for Upcoming Bookings" do
