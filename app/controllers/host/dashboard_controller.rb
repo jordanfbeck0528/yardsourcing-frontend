@@ -1,5 +1,5 @@
 class Host::DashboardController < ApplicationController
   def index
-    @host_yards = EngineService.host_yards(current_user.id)[:data]
+    @host_yards = DashboardFacade.host_yards(current_user.id)
   end
 end

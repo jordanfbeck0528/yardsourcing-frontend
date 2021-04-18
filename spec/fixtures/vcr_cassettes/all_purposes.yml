@@ -25,14 +25,14 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - b0421501-d8f4-4b12-868e-dd9b4803a2d1
+      - c377131b-b6cd-4b05-b586-f3097e45a62d
       X-Runtime:
-      - '0.084525'
+      - '0.004870'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Sun, 18 Apr 2021 04:06:25 GMT
+  recorded_at: Sun, 18 Apr 2021 16:57:47 GMT
 recorded_with: VCR 6.0.0

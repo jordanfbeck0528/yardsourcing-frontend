@@ -6,17 +6,18 @@
 <section class="my-yards">
   <h3>My Yard(s)</h3>
   <% if @host_yards.empty? %>
+    <p>Add some yards to rent! Turn your green into green!</p>
+    <%= button_to 'Create Yard', new_host_yard_path, method: :get %>
   <% else %>
     <% @host_yards.each do |yard| %>
-    <section id="yard-<% yard[:id]%>">
-      <%= yard[:attributes][:name] %>
-      <%= yard[:attributes][:description] %>
-      <%= yard[:attributes][:address] %>
-      <%= yard[:attributes][:price] %>
-      <% yard[:attributes][:purposes][:data].each do |purpose_object| %>
-        <% purpose_object[:attributes][:name] %>
+    <section id="yard-<% yard.id%>">
+      <%= yard.name %>
+      <%= yard.description %>
+      <%= yard.address %>
+      <%= yard.price %>
+      <% yard.purposes.each do |purpose| %>
+        <%= purpose %>
       <% end %>
-      <%= yard[:attributes][:availability] %>
     <% end %>
     </section>
   <% end %>
