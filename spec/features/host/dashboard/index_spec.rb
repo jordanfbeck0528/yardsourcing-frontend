@@ -47,27 +47,14 @@ describe 'As an authenticated user when I visit the host dashboard' do
 
   end
 
-  xit "I see a section for all of my yards I have created" do
+  it "I see a section for all of my yards I have created" do
     VCR.use_cassette('host_yards') do
       visit host_dashboard_index_path
 
-      expect(page).to have_content("Mike's Awesome Yard")
-      expect(page).to have_content("Bohem Garden")
-      expect(page).to have_content("Rooftop Party")
-      # within '.my-yards' do
-      #   expect(page).to have_content("My Yard(s)")
-      #     within "#yard-1" do
-      #       expect(page).to have_content("Mike's Awesome Yard")
-      #     end
-      #     within "#yard-2" do
-      #       expect(page).to have_content("Bohem Garden")
-      #     end
-      #     within "#yard-3" do
-      #       expect(page).to have_content("Rooftop Party")
-      #     end
-      # end
+        expect(page).to have_content("Ultimate Party Yard")
+      end
     end
-  end
+
 
   xit "I see a section for my yards with a note about no yards when I have not added any" do
     VCR.use_cassette('host_yards') do
