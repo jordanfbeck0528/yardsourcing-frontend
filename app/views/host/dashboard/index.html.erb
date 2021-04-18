@@ -11,13 +11,15 @@
   <% else %>
     <% @host_yards.each do |yard| %>
     <section id="yard-<% yard.id%>">
-      <%= yard.name %>
-      <%= yard.description %>
-      <%= yard.address %>
-      <%= yard.price %>
+      <%= link_to yard.name, yard_path(yard) %><br>
+      <%= yard.description %><br>
+      <%= yard.address %><br>
+      $<%= yard.price %> per hour <br>
+      Purposes:
       <% yard.purposes.each do |purpose| %>
         <%= purpose %>
       <% end %>
+      <br><br>
     <% end %>
     </section>
   <% end %>

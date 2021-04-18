@@ -50,6 +50,7 @@ describe 'As an authenticated user when I visit the host dashboard' do
   it "I see a section for all of my yards I have created" do
     VCR.use_cassette('host_yards') do
       visit host_dashboard_index_path
+      save_and_open_page
 
 
         expect(page).to have_link("Ultimate Party Yard")
