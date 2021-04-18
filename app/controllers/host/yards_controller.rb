@@ -11,8 +11,9 @@ class Host::YardsController < ApplicationController
 
   def create
     params[:host_id] = current_user.id
-    EngineService.create_yard(yard_params)
-    redirect_to host_dashboard_index_path
+    yard = EngineService.create_yard(yard_params)
+    
+    redirect_to host_yard_path(yard[:id])
   end
 
   private
