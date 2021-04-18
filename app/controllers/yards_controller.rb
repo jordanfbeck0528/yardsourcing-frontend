@@ -2,7 +2,10 @@ class YardsController < ApplicationController
 
   def show
     yard = EngineService.yard_details(params[:id])
-    @yard = OpenStruct.new({  name:        yard[:attributes][:name],
+    if yard == {}
+      @yard = {}
+    elsif
+      @yard = OpenStruct.new({  name:        yard[:attributes][:name],
                           host_id:     yard[:attributes][:host_id],
                            id:           yard[:id],
                            description:  yard[:attributes][:description],
@@ -10,16 +13,17 @@ class YardsController < ApplicationController
                            price:        yard[:attributes][:price],
                            purposes:     all_purposes(yard) })
 
-    if current_user.id == @yard.host_id
-      @button_params = {}
-      @button_params[:text] = "Edit"
-      @button_params[:path] = host_yards_path(current_user.id)
-      @button_params[:method] = :patch
-    else
-      @button_params = {}
-      @button_params[:text] = "Rent"
-      @button_params[:path] = "bookings/new"
-      @button_params[:method] = :post
+      if current_user.id == @yard.host_id
+        @button_params = {}
+        @button_params[:text] = "Edit"
+        @button_params[:path] = host_yards_path(current_user.id)
+        @button_params[:method] = :patch
+      else
+        @button_params = {}
+        @button_params[:text] = "Rent"
+        @button_params[:path] = "bookings/new"
+        @button_params[:method] = :post
+      end
     end
   end
 

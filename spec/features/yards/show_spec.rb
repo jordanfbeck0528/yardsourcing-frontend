@@ -29,7 +29,7 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
         click_on "Ultimate Party Yard"
 
         expect(current_path).to eq('/yards/2')
-        expect(page).to have_button('Edit')
+        expect(page).to have_button('Edit Yard')
       end
     end
     it "displays the yard's information" do
@@ -46,22 +46,41 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
     end
 
     it "displays a button to 'Edit' the yard if the current user is the host" do
-
       VCR.use_cassette('host_yard_show_page_hobby') do
         visit host_dashboard_index_path
         click_on "Large Yard for any Hobby"
 
         expect(current_path).to eq('/yards/3')
-        expect(page).to have_button('Edit')
+        expect(page).to have_button('Edit Yard')
       end
     end
   end
   describe "As a renter & sad path" do
     it "displays a button to 'Rent' the yard if the current user is the renter" do
-      visit yard_path(10002)
-      save_and_open_page
+      response = File.open("spec/fixtures/renter_yard_show_page.json")
+      stub_request(:get, "#{ENV['ys_engine_url']}/api/v1/yards/10652").
+         with(
+           headers: {
+          'Accept'=>'*/*',
+          'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+          'User-Agent'=>'Faraday v1.3.0'
+           }).
+           to_return(status: 200, body: response, headers: {})
+
+      visit yard_path(10652)
 
       expect(page).to have_button('Rent Yard')
+    end
+  end
+  describe "no yard matches id" do
+    it "displays a button to 'Rent' the yard if the current user is the renter" do
+      VCR.use_cassette('yard_show_page_edge_case') do
+        visit yard_path(106500002)
+
+        expect(page).to have_no_button('Rent Yard')
+        expect(page).to have_no_button('Edit Yard')
+        expect(page).to have_no_content('Availability')
+      end
     end
   end
 end

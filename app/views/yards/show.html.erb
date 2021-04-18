@@ -1,18 +1,19 @@
 <%= render 'shared/nav_bar'%>
 
-<section class="yard info">
-  <h3><%= @yard.name %></h3>
-  <p><%= @yard.address %></p><br>
-  <h4>Description:</h4><br>
-  <p><%= @yard.description %></p><br>
-  <h4>Hourly Rate:</h4><br>
-  <p>$<%= @yard.price %></p><br>
-  <h4>Availability:</h4><br>
-  <p>$<%= @yard.availability %></p><br>
-  <h4>Purposes:</h4><br>
-  <p>$<%= @yard.purposes %></p><br>
-</section>
-
-<section>
-  <%= button_to @button_params[:text], @button_params[:path], method: @button_params[:method]%>
-</section>
+<% if @yard.class == OpenStruct %>
+  <section class="yard info">
+    <h3><%= @yard.name %></h3>
+    <p><%= @yard.address %></p><br>
+    <h4>Description:</h4><br>
+    <p><%= @yard.description %></p><br>
+    <h4>Hourly Rate:</h4><br>
+    <p>$<%= @yard.price %></p><br>
+    <h4>Availability:</h4><br>
+    <p>$<%= @yard.availability %></p><br>
+    <h4>Purposes:</h4><br>
+    <p>$<%= @yard.purposes %></p><br>
+    <section>
+      <%= button_to "#{@button_params[:text]} Yard", @button_params[:path], method: @button_params[:method]%>
+    </section>
+  </section>
+<% end %>
