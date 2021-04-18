@@ -34,17 +34,18 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
       end
     end
   end
+
   it "I see the yard images if they exist" do
-    # VCR.use_cassette('host_yard_show_page_ultimate_party') do
-    #   visit yard_path(2)
-    #   within '.yard-images' do
-    #     expect(page).to have_xpath("/html/body/section[3]/img")
-    #   end
-    # end
+    VCR.use_cassette('host_yard_show_page_ultimate_party') do
+      visit yard_path(2)
+      within '.yard-images' do
+        expect(page).to have_xpath("/html/body/section[3]/img")
+      end
+    end
   end
 
   it "displays a button to 'Edit' the yard if the current user is the host" do
-    VCR.use_cassette('host_yard_show_page_ultimate_party') do
+    VCR.use_cassette('host_yards') do
       visit host_dashboard_index_path
       click_on "Ultimate Party Yard"
 
@@ -58,10 +59,13 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
       click_on "Large Yard for any Hobby"
 
       expect(current_path).to eq('/yards/3')
-      expect(page).to have_content('Large Yard for any Hobby')
-      expect(page).to have_content('A large backyard close to the city. Equiped with a barbeque.')
-      expect(page).to have_content('20 Main St Denver, CO 80202')
-      expect(page).to have_content('$25.50')
+      expect(page).to have_content('Address: 20 Main St Denver, CO 80202')
+      expect(page).to have_content('Description: A large backyard close to the city. Equiped with a barbeque.')
+      expect(page).to have_content('Availability: NEW - Most days are available')
+      expect(page).to have_content('Price per Hour: $25.50')
+      expect(page).to have_content('Payment Information: Venmo')
+      expect(page).to have_content('Purposes:')
+      expect(page).to have_content('Hobby Rental')
     end
   end
 
