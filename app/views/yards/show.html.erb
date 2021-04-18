@@ -9,7 +9,7 @@
     <p>Description: <%= @yard.description %></p>
     <p>Availability: <%= @yard.availability %></p>
     <p>Price per Hour: <%= number_to_currency(@yard.price) %></p>
-    <p>  Payment Information: <%= @yard.payment %></p>
+    <p>Payment Information: <%= @yard.payment %></p>
     <p>Purposes:</p>
     <ul>
     <% @yard.purposes.each do |purpose| %>
