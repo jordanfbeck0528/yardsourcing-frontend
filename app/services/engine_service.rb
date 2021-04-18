@@ -9,8 +9,10 @@ class EngineService
   def self.create_yard(yard_params)
     response = connection.post('/api/v1/yards') do |req|
       req.headers["CONTENT_TYPE"] = "application/json"
-      req.body = JSON.generate(yard: yard_params)
+      req.params = yard_params
     end
+    data = response.body
+    JSON.parse(data, symbolize_names: true)[:data]
   end
 
   def self.yard_details(yard_id)
