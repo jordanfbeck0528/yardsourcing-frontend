@@ -32,33 +32,34 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
         expect(page).to have_button('Edit')
       end
     end
-    xit "displays the yard's information" do
+    it "displays the yard's information" do
       VCR.use_cassette('host_yard_show_page_hobby') do
         visit host_dashboard_index_path
         click_on "Large Yard for any Hobby"
 
-        expect(current_path).to eq('yards/2')
+        expect(current_path).to eq('/yards/3')
         expect(page).to have_content('Large Yard for any Hobby')
         expect(page).to have_content('A large backyard close to the city. Equiped with a barbeque.')
         expect(page).to have_content('20 Main St, Denver, CO, 80202')
-        expect(page).to have_content('25.50')
+        expect(page).to have_content('25.5')
       end
     end
 
-    xit "displays a button to 'Edit' the yard if the current user is the host" do
+    it "displays a button to 'Edit' the yard if the current user is the host" do
 
       VCR.use_cassette('host_yard_show_page_hobby') do
         visit host_dashboard_index_path
         click_on "Large Yard for any Hobby"
 
-        expect(current_path).to eq('yards/2')
+        expect(current_path).to eq('/yards/3')
         expect(page).to have_button('Edit')
       end
     end
   end
-  describe "As a renter" do
-    xit "displays a button to 'Rent' the yard if the current user is the renter" do
-      visit 'yards/4'
+  describe "As a renter & sad path" do
+    it "displays a button to 'Rent' the yard if the current user is the renter" do
+      visit yard_path(10002)
+      save_and_open_page
 
       expect(page).to have_button('Rent Yard')
     end
