@@ -56,26 +56,22 @@ describe 'As an authenticated user when I visit the host dashboard' do
     end
 
 
-  xit "I see a section for my yards with a note about no yards when I have not added any" do
-    VCR.use_cassette('host_yards') do
-      visit host_dashboard_index_path
+  it "I see a section for my yards with a note about no yards when I have not added any" do
+    response = File.open("spec/fixtures/host_yards0.json")
+    stub_request(:get, "#{ENV['ys_engine_url']}/api/v1/hosts/1/yards").
+       with(
+         headers: {
+        'Accept'=>'*/*',
+        'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+        'User-Agent'=>'Faraday v1.3.0'
+         }).
+         to_return(status: 200, body: response, headers: {})
 
-      expect(page).to have_content("Mike's Awesome Yard")
-      expect(page).to have_content("Bohem Garden")
-      expect(page).to have_content("Rooftop Party")
-      # within '.my-yards' do
-      #   expect(page).to have_content("My Yard(s)")
-      #     within "#yard-1" do
-      #       expect(page).to have_content("Mike's Awesome Yard")
-      #     end
-      #     within "#yard-2" do
-      #       expect(page).to have_content("Bohem Garden")
-      #     end
-      #     within "#yard-3" do
-      #       expect(page).to have_content("Rooftop Party")
-      #     end
-      # end
-    end
+    visit host_dashboard_index_path
+    save_and_open_page
+
+    expect(page).to have_content("Add some yards to rent! Turn your green into green!")
+    expect(page).to have_button("Create Yard")
   end
 
   describe "I see a section for Upcoming Bookings" do

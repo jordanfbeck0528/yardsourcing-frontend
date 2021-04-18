@@ -6,6 +6,8 @@
 <section class="my-yards">
   <h3>My Yard(s)</h3>
   <% if @host_yards.empty? %>
+    <p>Add some yards to rent! Turn your green into green!</p>
+    <%= button_to 'Create Yard', new_host_yard_path, method: :get %>
   <% else %>
     <% @host_yards.each do |yard| %>
     <section id="yard-<% yard.id%>">
