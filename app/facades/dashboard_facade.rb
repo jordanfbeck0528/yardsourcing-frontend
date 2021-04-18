@@ -13,7 +13,7 @@ class DashboardFacade
   end
 
   def self.full_address(yard)
-    "#{yard[:attributes][:street_address]}, #{yard[:attributes][:city]}, #{yard[:attributes][:state]}, #{yard[:attributes][:zipcode]}"
+    "#{yard[:attributes][:street_address]} #{yard[:attributes][:city]}, #{yard[:attributes][:state]} #{yard[:attributes][:zipcode]}"
   end
 
   def self.all_purposes(yard)
