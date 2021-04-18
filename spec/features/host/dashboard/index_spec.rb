@@ -6,16 +6,6 @@ describe 'As an authenticated user when I visit the host dashboard' do
     omniauth_response = stub_omniauth_happy('123545', 'Dominic Padula', 'thisemail@gmail.com')
     @user_1 = User.from_omniauth(omniauth_response)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
-
-    # response = File.open("spec/fixtures/host_yards.json")
-    # stub_request(:get, "#{ENV['ys_engine_url']}/api/v1/hosts/#{@user_1.id}/yards").
-    #     with(
-    #       headers: {
-    #      'Accept'=>'*/*',
-    #      'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-    #      'User-Agent'=>'Faraday v1.3.0'
-    #       }).
-    #     to_return(status: 200, body: response, headers: {})
   end
 
   it "I see links to renter/host dashboard and logout" do

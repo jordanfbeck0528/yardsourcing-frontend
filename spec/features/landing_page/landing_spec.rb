@@ -27,19 +27,21 @@ RSpec.describe 'Welcome Page' do
       user_1 = User.from_omniauth(omniauth_response)
       response = File.open("spec/fixtures/host_yards.json")
 
-      stub_request(:get, "https://localhost:3001/api/v1/hosts/#{user_1.id}/yards").
-         with(
-           headers: {
-       	  'Accept'=>'*/*',
-       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-       	  'User-Agent'=>'Faraday v1.3.0'
-           }).
-         to_return(status: 200, body: response, headers: {})
-      visit root_path
+      # stub_request(:get, "https://localhost:3001/api/v1/hosts/#{user_1.id}/yards").
+      #    with(
+      #      headers: {
+      #  	  'Accept'=>'*/*',
+      #  	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+      #  	  'User-Agent'=>'Faraday v1.3.0'
+      #      }).
+      #    to_return(status: 200, body: response, headers: {})
+      VCR.use_cassette('host_yards') do
+        visit root_path
 
-      click_button 'Login through Google'
-      expect(page).to have_content('Welcome Dominic Padula')
-      expect(current_path).to eq('/host/dashboard')
+        click_button 'Login through Google'
+        expect(page).to have_content('Welcome Dominic Padula')
+        expect(current_path).to eq('/host/dashboard')
+      end
     end
   end
 end
