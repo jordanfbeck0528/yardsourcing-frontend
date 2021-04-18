@@ -35,8 +35,8 @@ describe 'As an authenticated user when I visit the host dashboard' do
       visit host_dashboard_index_path
 
       within '.header' do
-        expect(page).to have_button('Create Yard')
-        click_button 'Create Yard'
+        expect(page).to have_link('Create Yard')
+        click_on 'Create Yard'
       end
 
       expect(current_path).to eq(new_host_yard_path)
@@ -51,7 +51,9 @@ describe 'As an authenticated user when I visit the host dashboard' do
     VCR.use_cassette('host_yards') do
       visit host_dashboard_index_path
 
-        expect(page).to have_content("Ultimate Party Yard")
+
+        expect(page).to have_link("Ultimate Party Yard")
+        expect(page).to have_link("Large Yard for any Hobby")
       end
     end
 

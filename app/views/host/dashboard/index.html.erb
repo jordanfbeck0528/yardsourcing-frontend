@@ -1,6 +1,6 @@
 <%= render 'shared/nav_bar'%>
 <header class="header">
-  <%= button_to 'Create Yard', new_host_yard_path, method: :get %>
+  <%= link_to 'Create Yard', new_host_yard_path %>
 </header>
 
 <section class="my-yards">
@@ -11,13 +11,15 @@
   <% else %>
     <% @host_yards.each do |yard| %>
     <section id="yard-<% yard.id%>">
-      <%= yard.name %>
-      <%= yard.description %>
-      <%= yard.address %>
-      <%= yard.price %>
+      <%= link_to yard.name, yard_path(yard.id) %><br>
+      <%= yard.description %><br>
+      <%= yard.address %><br>
+      $<%= yard.price %> per hour <br>
+      Purposes:
       <% yard.purposes.each do |purpose| %>
         <%= purpose %>
       <% end %>
+      <br><br>
     <% end %>
     </section>
   <% end %>
