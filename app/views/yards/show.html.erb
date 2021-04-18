@@ -9,4 +9,10 @@
   <p>$<%= @yard.price %></p><br>
   <h4>Availability:</h4><br>
   <p>$<%= @yard.availability %></p><br>
+  <h4>Purposes:</h4><br>
+  <p>$<%= @yard.purposes %></p><br>
+</section>
+
+<section>
+  <%= button_to @button_params[:text], @button_params[:path], method: @button_params[:method]%>
 </section>

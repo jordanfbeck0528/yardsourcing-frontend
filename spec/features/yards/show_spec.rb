@@ -15,7 +15,7 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
         visit host_dashboard_index_path
         click_on "Ultimate Party Yard"
 
-        expect(current_path).to eq('yards/1')
+        expect(current_path).to eq('/yards/2')
         expect(page).to have_content('Ultimate Party Yard')
         expect(page).to have_content('This yard is equiped with a firepit, a pool, and a pool house to accommodate all your party needs.')
         expect(page).to have_content('123 4th St, Denver, CO, 80202')
@@ -28,8 +28,8 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
         visit host_dashboard_index_path
         click_on "Ultimate Party Yard"
 
-        expect(current_path).to eq('yards/1')
-        expect(page).to have_button('Edit Yard')
+        expect(current_path).to eq('/yards/2')
+        expect(page).to have_button('Edit')
       end
     end
     xit "displays the yard's information" do
@@ -52,7 +52,7 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
         click_on "Large Yard for any Hobby"
 
         expect(current_path).to eq('yards/2')
-        expect(page).to have_button('Edit Yard')
+        expect(page).to have_button('Edit')
       end
     end
   end
