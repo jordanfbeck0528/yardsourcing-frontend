@@ -68,7 +68,6 @@ describe 'As an authenticated user when I visit the host dashboard' do
          to_return(status: 200, body: response, headers: {})
 
     visit host_dashboard_index_path
-    save_and_open_page
 
     expect(page).to have_content("Add some yards to rent! Turn your green into green!")
     expect(page).to have_button("Create Yard")
