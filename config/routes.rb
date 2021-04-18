@@ -6,10 +6,12 @@ Rails.application.routes.draw do
 
   namespace :host do
     resources :dashboard, only: :index
-    resources :yards, only: [:new, :create, :show]
+    resources :yards, only: [:new, :create]
   end
 
   namespace :renter do
     resources :dashboard, only: :index
   end
+
+  resources :yards, only: :show
 end
