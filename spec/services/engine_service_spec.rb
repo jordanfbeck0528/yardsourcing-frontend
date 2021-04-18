@@ -66,7 +66,28 @@ RSpec.describe "EngineService", type: :feature do
          to_return(status: 200, body: response, headers: {})
        es = EngineService.yard_details(1)
 
-      yards_details_response_evaluation(es)
+       expect(es).to be_a(Hash)
+       expect(es.keys).to eq([:id, :type, :attributes])
+       expect(es[:attributes].keys).to eq([ :host_id,
+                                                   :name,
+                                                   :street_address,
+                                                   :city,
+                                                   :state,
+                                                   :zipcode,
+                                                   :price,
+                                                   :description,
+                                                   :payment,
+                                                   :availability,
+                                                   :photo_url_1,
+                                                   :photo_url_2,
+                                                   :photo_url_3,
+                                                   :purposes])
+       expect(es[:attributes][:purposes].keys).to eq([:data])
+       expect(es[:attributes][:purposes][:data]).to be_an(Array)
+       expect(es[:attributes][:purposes][:data].first).to be_a(Hash)
+       expect(es[:attributes][:purposes][:data].first.keys).to eq([:id, :type, :attributes])
+       expect(es[:attributes][:purposes][:data].first[:attributes].keys).to eq([:name])
+
     end
   end
 

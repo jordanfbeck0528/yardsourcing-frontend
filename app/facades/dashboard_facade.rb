@@ -1,5 +1,4 @@
 class DashboardFacade
-
   def self.host_yards(host_id)
     host_yards = EngineService.host_yards(host_id)
     host_yards = host_yards[:data].map do |yard|

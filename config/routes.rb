@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :yards, only: [:new, :create]
   end
 
+  resources :yards, only: [:show]
+
   namespace :renter do
     resources :dashboard, only: :index
   end
