@@ -12,7 +12,7 @@ class EngineService
       req.headers["CONTENT_TYPE"] = "application/json"
       req.params = yard_params
     end
-    binding.pry
+    
     data = response.body
     JSON.parse(data, symbolize_names: true)[:data]
   end
