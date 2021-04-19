@@ -7,10 +7,12 @@ class EngineService
   end
 
   def self.create_yard(yard_params)
+
     response = connection.post('/api/v1/yards') do |req|
       req.headers["CONTENT_TYPE"] = "application/json"
       req.params = yard_params
     end
+    binding.pry
     data = response.body
     JSON.parse(data, symbolize_names: true)[:data]
   end

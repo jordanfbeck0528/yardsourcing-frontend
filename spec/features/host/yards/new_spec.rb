@@ -79,11 +79,11 @@ describe 'As an authenticated user when I visit the new yard page' do
   end
 
   describe 'sad path' do
-    it "when I do not enter a name I cannot create a yard" do
+    xit "when I do not enter a name I cannot create a yard" do
 
     end
 
-    it "when I do not enter a street address, city, state or zipcode I cannot create a yard" do
+    xit "when I do not enter a street address, city, state or zipcode I cannot create a yard" do
 
     end
   end

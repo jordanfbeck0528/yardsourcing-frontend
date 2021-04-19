@@ -76,15 +76,15 @@ describe 'As an authenticated user when I visit the host dashboard' do
   end
 
   describe "I see a section for Upcoming Bookings" do
-    it "I see a link for dates and times for each booking" do
+    xit "I see a link for dates and times for each booking" do
 
     end
 
-    it "If pending, I see “Approve” and “Deny” buttons for each booking" do
+    xit "If pending, I see “Approve” and “Deny” buttons for each booking" do
 
     end
 
-    it "If not pending, I see the status of Approved or Rejected" do
+    xit "If not pending, I see the status of Approved or Rejected" do
 
     end
   end

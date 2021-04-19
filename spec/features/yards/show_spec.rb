@@ -44,7 +44,7 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
     end
   end
 
-  skip "displays a button to 'Rent' the yard if the current user is the renter" do
+  xit "displays a button to 'Rent' the yard if the current user is the renter" do
     VCR.use_cassette('renter_yard_show_page_ultimate_party') do
       visit renter_dashboard_index_path
       save_and_open_page
