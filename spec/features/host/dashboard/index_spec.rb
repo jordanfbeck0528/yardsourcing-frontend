@@ -57,7 +57,7 @@ describe 'As an authenticated user when I visit the host dashboard' do
       end
     end
 
-
+    #####
   it "I see a section for my yards with a note about no yards when I have not added any" do
     response = File.open("spec/fixtures/host_yards0.json")
     stub_request(:get, "#{ENV['ys_engine_url']}/api/v1/hosts/1/yards").
