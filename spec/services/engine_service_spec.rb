@@ -24,6 +24,7 @@ RSpec.describe "EngineService", type: :feature do
       id = 123545
       response = File.open("spec/fixtures/yard_details.json")
       yard_params = { :name=>"name",
+                      :email=>"email",
                       :host_id=>"123545",
                       :description=>"description",
                       :availability=>"availability",
@@ -37,9 +38,10 @@ RSpec.describe "EngineService", type: :feature do
                       :photo_url_2=>"",
                       :photo_url_3=>"",
                       :purposes=>["1", "3"]}
+
     stub_request(:post, "#{ENV['ys_engine_url']}/api/v1/yards").
          with(
-           body: {"{\"yard\":\"{\\\"host_id\\\""=>">123545, \\\"name\\\"=>\\\"name\\\", \\\"description\\\"=>\\\"description\\\", \\\"availability\\\"=>\\\"availability\\\", \\\"payment\\\"=>\\\"payment\\\", \\\"price\\\"=>\\\"25.2\\\", \\\"street_address\\\"=>\\\"street_address\\\", \\\"city\\\"=>\\\"city\\\", \\\"state\\\"=>\\\"state\\\", \\\"zipcode\\\"=>\\\"zipcode\\\", \\\"photo_url_1\\\"=>\\\"https://photo.com/path\\\", \\\"photo_url_2\\\"=>\\\"\\\", \\\"photo_url_3\\\"=>\\\"\\\", \\\"purposes\\\"=>[\\\"1\\\", \\\"3\\\"]}\"}"},
+           body: {"{\"yard\":\"{\\\"host_id\\\""=>">123545, \\\"email\\\"=>\\\"email\\\",\\\"name\\\"=>\\\"name\\\", \\\"description\\\"=>\\\"description\\\", \\\"availability\\\"=>\\\"availability\\\", \\\"payment\\\"=>\\\"payment\\\", \\\"price\\\"=>\\\"25.2\\\", \\\"street_address\\\"=>\\\"street_address\\\", \\\"city\\\"=>\\\"city\\\", \\\"state\\\"=>\\\"state\\\", \\\"zipcode\\\"=>\\\"zipcode\\\", \\\"photo_url_1\\\"=>\\\"https://photo.com/path\\\", \\\"photo_url_2\\\"=>\\\"\\\", \\\"photo_url_3\\\"=>\\\"\\\", \\\"purposes\\\"=>[\\\"1\\\", \\\"3\\\"]}\"}"},
            headers: {
        	  'Accept'=>'*/*',
        	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
@@ -69,6 +71,7 @@ RSpec.describe "EngineService", type: :feature do
        expect(es).to be_a(Hash)
        expect(es.keys).to eq([:id, :type, :attributes])
        expect(es[:attributes].keys).to eq([ :host_id,
+                                                   :email,
                                                    :name,
                                                    :street_address,
                                                    :city,
@@ -117,6 +120,7 @@ RSpec.describe "EngineService", type: :feature do
     expect(es[:data].first.keys).to eq([:id, :type, :attributes])
     expect(es[:data].first[:type]).to eq("yard")
     expect(es[:data].first[:attributes].keys).to eq([ :host_id,
+                                                :email,
                                                 :name,
                                                 :street_address,
                                                 :city,

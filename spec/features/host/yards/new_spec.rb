@@ -59,7 +59,7 @@ describe 'As an authenticated user when I visit the new yard page' do
       VCR.use_cassette('create_yard') do
         visit new_host_yard_path
 
-        fill_in :name, with: "Super Awesome Yard"
+        fill_in :name, with: "A new yard!!"
         fill_in :description, with: "description"
         fill_in :availability, with: "availability"
         fill_in :payment, with: "payment"
@@ -73,17 +73,17 @@ describe 'As an authenticated user when I visit the new yard page' do
         check "purposes_3"
         click_button 'Create Yard'
 
-        expect(page).to have_content("Super Awesome Yard")
+        expect(page).to have_content("A new yard!!")
       end
     end
   end
 
   describe 'sad path' do
-    it "when I do not enter a name I cannot create a yard" do
+    xit "when I do not enter a name I cannot create a yard" do
 
     end
 
-    it "when I do not enter a street address, city, state or zipcode I cannot create a yard" do
+    xit "when I do not enter a street address, city, state or zipcode I cannot create a yard" do
 
     end
   end

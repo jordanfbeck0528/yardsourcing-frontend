@@ -5,6 +5,7 @@
           "type": "yard",
           "attributes": {
             "host_id": "1",
+            "email": "host_email@domain.com",
             "name": "Mike's Awesome Yard",
             "street_address": "123 Baker Street",
             "city": "Philadelphia",
@@ -42,6 +43,7 @@
         "type": "yard",
           "attributes": {
             "host_id": "1",
+            "email": "host_email@domain.com",
             "name": "Bohem Garden",
             "street_address": "123 Bohem Street",
             "city": "Philadelphia",
@@ -72,6 +74,7 @@
         "type": "yard",
           "attributes": {
             "host_id": "1",
+            "email": "host_email@domain.com",
             "name": "Rooftop Party",
             "street_address": "123 Market Street",
             "city": "Philadelphia",

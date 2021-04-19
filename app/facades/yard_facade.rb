@@ -4,8 +4,9 @@ class YardFacade
     if yard == {}
       @yard = {}
     else
-      @yard = OpenStruct.new({  name:        yard[:attributes][:name],
-                                host_id:     yard[:attributes][:host_id],
+      @yard = OpenStruct.new({  name:         yard[:attributes][:name],
+                                host_id:      yard[:attributes][:host_id],
+                                email:        yard[:attributes][:email],
                                 id:           yard[:id],
                                 description:  yard[:attributes][:description],
                                 availability: yard[:attributes][:availability],

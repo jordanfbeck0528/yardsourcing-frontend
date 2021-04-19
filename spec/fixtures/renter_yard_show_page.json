@@ -4,6 +4,7 @@
     "type": "yard",
     "attributes": {
       "host_id": "304",
+      "email": "host_email@domain.com",
       "name": "Mike's Awesome Yard",
       "street_address": "123 Baker Street",
       "city": "Philadelphia",
