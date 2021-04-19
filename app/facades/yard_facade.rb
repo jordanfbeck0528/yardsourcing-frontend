@@ -1,4 +1,12 @@
 class YardFacade
+
+  def self.get_data(yard_id, user_id)
+    {
+      yard_details: yard_details(yard_id),
+      button_params: button_params(user_id)
+    }
+  end
+
   def self.yard_details(yard_id)
     yard = EngineService.yard_details(yard_id)
     if yard == {}
@@ -20,23 +28,6 @@ class YardFacade
     end
   end
 
-  def self.button_params(user_id)
-    if @yard != {}
-      if user_id == @yard.host_id
-        @button_params = {}
-        @button_params[:text] = "Edit"
-        @button_params[:path] = "/hosts/#{@yard.host_id}/yards/#{@yard.id}"
-        @button_params[:method] = :patch
-      else
-        @button_params = {}
-        @button_params[:text] = "Rent"
-        @button_params[:path] = "/bookings/new"
-        @button_params[:method] = :post
-      end
-    end
-    @button_params
-  end
-
   def self.full_address(yard)
     "#{yard[:attributes][:street_address]} #{yard[:attributes][:city]}, #{yard[:attributes][:state]} #{yard[:attributes][:zipcode]}"
   end
@@ -45,5 +36,22 @@ class YardFacade
     yard[:attributes][:purposes][:data].map do |purpose|
       purpose[:attributes][:name]
     end
+  end
+
+  def self.button_params(user_id)
+    if @yard != {}
+      if user_id == @yard.host_id
+        button_params = {}
+        button_params[:text] = "Edit"
+        button_params[:path] = "/host/yards/#{@yard.id}"
+        button_params[:method] = :patch
+      else
+        button_params = {}
+        button_params[:text] = "Rent"
+        button_params[:path] = "/bookings/new"
+        button_params[:method] = :post
+      end
+    end
+    button_params
   end
 end

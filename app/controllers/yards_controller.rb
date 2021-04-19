@@ -1,6 +1,7 @@
 class YardsController < ApplicationController
   def show
-    @yard = YardFacade.yard_details(params[:id])
-    @button_params = YardFacade.button_params(current_user.id)
+    data = YardFacade.get_data(params[:id], current_user.id)
+    @yard = data[:yard_details]
+    @button_params = data[:button_params]
   end
 end
