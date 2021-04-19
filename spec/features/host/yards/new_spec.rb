@@ -79,7 +79,24 @@ describe 'As an authenticated user when I visit the new yard page' do
   end
 
   describe 'sad path' do
-    xit "when I do not enter a name I cannot create a yard" do
+    it "when I do not enter a name I cannot create a yard" do
+      VCR.use_cassette('bad-yard') do
+        visit new_host_yard_path
+
+        fill_in :description, with: "description"
+        fill_in :availability, with: "availability"
+        fill_in :payment, with: "payment"
+        fill_in :price, with: 25.20
+        fill_in :street_address, with: "street_address"
+        fill_in :city, with: "city"
+        fill_in :state, with: "state"
+        fill_in :zipcode, with: "zipcode"
+        fill_in :photo_url_1, with: "https://photo.com/path"
+        check "purposes_1"
+        check "purposes_3"
+        click_button 'Create Yard'
+
+      end 
 
     end
 
