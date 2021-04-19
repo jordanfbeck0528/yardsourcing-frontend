@@ -1,5 +1,4 @@
 class DashboardFacade
-
   def self.host_yards(host_id)
     host_yards = EngineService.host_yards(host_id)
     host_yards = host_yards[:data].map do |yard|
@@ -13,7 +12,7 @@ class DashboardFacade
   end
 
   def self.full_address(yard)
-    "#{yard[:attributes][:street_address]}, #{yard[:attributes][:city]}, #{yard[:attributes][:state]}, #{yard[:attributes][:zipcode]}"
+    "#{yard[:attributes][:street_address]} #{yard[:attributes][:city]}, #{yard[:attributes][:state]} #{yard[:attributes][:zipcode]}"
   end
 
   def self.all_purposes(yard)

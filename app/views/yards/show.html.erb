@@ -1,19 +1,35 @@
 <%= render 'shared/nav_bar'%>
 
 <% if @yard.class == OpenStruct %>
-  <section class="yard info">
-    <h3><%= @yard.name %></h3>
-    <p><%= @yard.address %></p><br>
-    <h4>Description:</h4><br>
-    <p><%= @yard.description %></p><br>
-    <h4>Hourly Rate:</h4><br>
-    <p>$<%= @yard.price %></p><br>
-    <h4>Availability:</h4><br>
-    <p>$<%= @yard.availability %></p><br>
-    <h4>Purposes:</h4><br>
-    <p>$<%= @yard.purposes %></p><br>
-    <section>
-      <%= button_to "#{@button_params[:text]} Yard", @button_params[:path], method: @button_params[:method]%>
-    </section>
+  <header class="header">
+    <h2><%= @yard.name %></h2>
+  </header>
+  <section class="yard-details">
+    <p>Address: <%= @yard.address %></p>
+    <p>Description: <%= @yard.description %></p>
+    <p>Availability: <%= @yard.availability %></p>
+    <p>Price per Hour: <%= number_to_currency(@yard.price) %></p>
+    <p>Payment Information: <%= @yard.payment %></p>
+    <p>Purposes:</p>
+    <ul>
+    <% @yard.purposes.each do |purpose| %>
+      <li><%= purpose.titleize %></li>
+    <% end %>
+    </ul>
+  </section>
+
+  <section class="yard-images">
+    <% if !@yard.photo_url_1.blank? %>
+      <%= image_tag(@yard.photo_url_1, size: '500')  %>
+    <% end %>
+    <% if !@yard.photo_url_2.blank? %>
+      <%= image_tag(@yard.photo_url_2, size: '500')  %>
+    <% end %>
+    <% if !@yard.photo_url_3.blank? %>
+      <%= image_tag(@yard.photo_url_3, size: '500')  %>
+    <% end %>
+  </section>
+  <section>
+    <%= button_to "#{@button_params[:text]} Yard", @button_params[:path], method: @button_params[:method]%>
   </section>
 <% end %>

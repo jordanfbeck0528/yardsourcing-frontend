@@ -3,9 +3,9 @@ class Host::YardsController < ApplicationController
   def new
     info = EngineService.all_purposes
 
-    @purposes = info[:data].reduce([]) do |array, obj_info|
-      array << OpenStruct.new(obj_info)
-      array
+    @purposes = info[:data].map do |obj_info|
+      OpenStruct.new({ id: obj_info[:id],
+                       name: obj_info[:attributes][:name].titleize})
     end
   end
 

@@ -17,7 +17,7 @@
       $<%= yard.price %> per hour <br>
       Purposes:
       <% yard.purposes.each do |purpose| %>
-        <%= purpose %>
+        <%= purpose.titleize %>
       <% end %>
       <br><br>
     <% end %>
