@@ -93,4 +93,17 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
       end
     end
   end
+  describe "Sad path for engine failure" do
+    it 'Displays an error, and re-directs when engine errors.' do
+
+      visit yard_path(1)
+
+      error = 'Data cannot be accessed at this time'
+      response = stub_request(:get, "#{ENV['ys_engine_url']}/api/v1/yards/1")
+      .to_return(status: [500, error], headers: {})
+
+      expect(page).to have_content(error)
+      expect(current_path).to eq(host_dashboard_index_path)
+    end
+  end
 end
