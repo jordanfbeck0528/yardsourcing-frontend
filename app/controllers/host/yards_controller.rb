@@ -1,8 +1,10 @@
 # require "services/y_s_engine_service"
 class Host::YardsController < ApplicationController
   before_action :set_purposes, only: [:new, :create]
+
   def new
   end
+
   def create
     params[:host_id] = current_user.id
     params[:email] = current_user.email
@@ -14,6 +16,8 @@ class Host::YardsController < ApplicationController
       redirect_to yard_path(yard[:data][:id])
     end
   end
+
+
   private
   def yard_params
     params.permit(:host_id, :email, :name, :description, :availability, :payment,
