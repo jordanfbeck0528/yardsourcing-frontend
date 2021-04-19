@@ -11,8 +11,8 @@ class EngineService
       req.params = yard_params
     end
 
-    JSON.parse(response.body, symbolize_names: true)[:data]
-  end
+    JSON.parse(response.body, symbolize_names: true)
+  end 
 
   def self.yard_details(yard_id)
     response = connection.get("/api/v1/yards/#{yard_id}")

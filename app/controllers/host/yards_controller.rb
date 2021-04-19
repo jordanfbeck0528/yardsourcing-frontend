@@ -15,7 +15,7 @@ class Host::YardsController < ApplicationController
 
     yard = EngineService.create_yard(yard_params)
 
-    redirect_to yard_path(yard[:id])
+    redirect_to yard_path(yard[:data][:id])
   end
 
   private
