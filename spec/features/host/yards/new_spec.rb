@@ -175,5 +175,25 @@ describe 'As an authenticated user when I visit the new yard page' do
         end
       end
     end
+
+    it 'errors out when I do not enter 1 purpose ' do
+      VCR.use_cassette('create_yard') do
+        VCR.use_cassette('bad-yard-purposes') do
+          visit new_host_yard_path
+          fill_in :name, with: "A new yard!!"
+          fill_in :description, with: "description"
+          fill_in :availability, with: "availability"
+          fill_in :payment, with: "payment"
+          fill_in :price, with: 25.20
+          fill_in :street_address, with: "street_address"
+          fill_in :city, with: "city"
+          fill_in :state, with: "state"
+          fill_in :zipcode, with: "zipcode"
+          fill_in :photo_url_1, with: "https://photo.com/path"
+          click_button 'Create Yard'
+          expect(page).to have_content("You must select at least one purpose")
+        end
+      end
+    end
   end
 end
