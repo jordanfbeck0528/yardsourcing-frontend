@@ -10,7 +10,7 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
 
   it "I see links to renter/host dashboard and logout" do
     VCR.use_cassette('host_yard_show_page_ultimate_party') do
-      visit yard_path(1)
+      visit yard_path(2)
       within '.nav-bar' do
         expect(page).to have_button("Host Dashboard")
         expect(page).to have_button("Renter Dashboard")
@@ -21,7 +21,7 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
 
   it "I see the yard information" do
     VCR.use_cassette('host_yard_show_page_ultimate_party') do
-      visit yard_path(1)
+      visit yard_path(2)
       within '.yard-details' do
         expect(page).to have_content('Address: 123 4th St Denver, CO 80202')
         expect(page).to have_content('Description: This yard is equiped with a firepit, a pool, and a pool house to accommodate all your party needs.')
@@ -37,7 +37,7 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
 
   it "I see the yard images if they exist" do
     VCR.use_cassette('host_yard_show_page_ultimate_party') do
-      visit yard_path(1)
+      visit yard_path(2)
       within '.yard-images' do
         expect(page).to have_xpath("/html/body/section[3]/img")
       end
@@ -50,7 +50,7 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
       save_and_open_page
       click_on "Large Yard for any Hobby"
 
-      expect(current_path).to eq('/yards/2')
+      expect(current_path).to eq('/yards/3')
       expect(page).to have_button('Rent Yard')
     end
   end
@@ -60,7 +60,7 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
       visit host_dashboard_index_path
       click_on "Large Yard for any Hobby"
 
-      expect(current_path).to eq('/yards/2')
+      expect(current_path).to eq('/yards/3')
       expect(page).to have_button('Edit Yard')
     end
   end
