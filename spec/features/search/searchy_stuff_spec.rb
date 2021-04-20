@@ -79,7 +79,7 @@ RSpec.describe 'Search Page' do
       VCR.use_cassette('all_purposes_long_search_zip') do
         purposes = EngineService.all_purposes
         visit search_index_path
-        fill_in :location, with: '802'
+        fill_in :location, with: '8021902'
         check "#{purposes[:data][0][:attributes][:name].titleize}"
         click_button 'Yard Me'
         expect(page).to have_content('Invalid zipcode')
