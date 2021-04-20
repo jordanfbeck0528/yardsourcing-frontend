@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get "/host/yards/:yard_id", to: "host/yards#update"
 
+  resources :search, only: [:index]
+
   resources :yards, only: [:show]
 
   namespace :renter do
