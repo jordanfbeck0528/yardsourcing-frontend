@@ -10,7 +10,7 @@
     <%= button_to 'Create Yard', new_host_yard_path, method: :get %>
   <% else %>
     <% @host_yards.each do |yard| %>
-    <section id="yard-<% yard.id%>">
+    <section class="yard_info" id="yard-<% yard.id%>">
       <%= link_to yard.name, yard_path(yard.id) %><br>
       <%= yard.description %><br>
       <%= yard.address %><br>
