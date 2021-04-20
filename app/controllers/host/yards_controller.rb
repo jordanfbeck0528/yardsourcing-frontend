@@ -3,6 +3,7 @@ class Host::YardsController < ApplicationController
   before_action :set_purposes, only: [:new, :create, :update, :edit]
 
   def new
+    @yard = YardFacade.yard_object(params)
   end
 
   def create
@@ -10,6 +11,7 @@ class Host::YardsController < ApplicationController
     params[:email] = current_user.email
     yard = EngineService.create_yard(yard_params)
     if yard.include?(:error)
+      @yard = YardFacade.yard_object(params)
       flash[:error] = yard[:error]
       render :new, obj: @purposes
     else
