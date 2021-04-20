@@ -1,5 +1,6 @@
 class Renter::DashboardController < ApplicationController
   def index
-    # @host_yards = DashboardFacade.host_yards(current_user.id)
+    @renter_yards_approved = DashboardFacade.renter_yards(current_user.id, 'approved')
+    binding.pry
   end
 end
