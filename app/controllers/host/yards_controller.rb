@@ -19,6 +19,10 @@ class Host::YardsController < ApplicationController
     end
   end
 
+  def show
+    @yard = YardFacade.yard_details(params[:id])
+  end
+
   def edit
     @yard = YardFacade.yard_form_info(params[:id])
   end

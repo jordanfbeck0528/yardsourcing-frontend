@@ -1,8 +1,8 @@
 <%= render 'shared/nav_bar'%>
 
 <%= render partial: 'shared/yard_show', locals: {
-        button_text: "Rent Yard",
-        url: new_yard_booking_path(@yard.id),
+        button_text: "Edit Yard",
+        url: edit_host_yard_path(@yard.id),
         yard: @yard,
         method: :get
 }%>

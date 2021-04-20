@@ -11,7 +11,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
   describe "happy path" do
     VCR.use_cassette('edit_yard_happy') do
       it "I see a form prepopulated with the yards stored information" do
-        visit yard_path(3)
+        visit host_yard_path(3)
         click_on "Edit Yard"
 
         expect(page).to have_field('name')
@@ -36,7 +36,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
     end
     it "When the form is submitted it updates the yard" do
       VCR.use_cassette('edit_yard_happy_submit') do
-        visit yard_path(3)
+        visit host_yard_path(3)
         click_on "Edit Yard"
 
         fill_in :name, with: "PaRtY HoUsE!!"
@@ -55,7 +55,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
 
         expect(page).to have_content("PaRtY HoUsE!!")
 
-        visit yard_path(3)
+        visit host_yard_path(3)
         click_on "Edit Yard"
 
         fill_in :name, with: "Large Yard for any Hobby"

@@ -11,7 +11,7 @@
   <% else %>
     <% @host_yards.each do |yard| %>
     <section class="yard_info" id="yard-<% yard.id%>">
-      <%= link_to yard.name, yard_path(yard.id) %><br>
+      <%= link_to yard.name, host_yard_path(yard.id) %><br>
       <%= yard.description %><br>
       <%= yard.address %><br>
       $<%= yard.price %> per hour <br>
