@@ -29,12 +29,20 @@ describe 'As an authenticated user when I visit the renters dashboard' do
       expect(page).to have_button('Find your next yard')
     end
 
-    # need to unskip after initial search info (issue number 13) is complete
-    xit 'I click on the find your next yard button, and it takes you to the search index path' do
+    it 'I click on the find your next yard button, and it takes you to the search index path' do
       visit renter_dashboard_index_path
 
       click_on 'Find your next yard'
       expect(current_path).to eq(search_index_path)
+    end
+
+    it 'I see a list of approved upcoming boookings' do
+      VCR.use_cassette('approved_bookings') do
+        visit renter_dashboard_index_path
+        within('.upcoming-bookings') do
+          expect(page).to have_content('Pet Birthday Party')
+        end
+      end
     end
   end
 end
