@@ -23,7 +23,7 @@ class EngineService
     JSON.parse(response.body, symbolize_names: true)
   end
 
-  def self.renter_yards(renter_id, status)
+  def self.renter_bookings_by_status(renter_id, status)
     response = connection.get("/api/v1/renters/#{renter_id}/bookings?status=#{status}")
     JSON.parse(response.body, symbolize_names: true)
   end

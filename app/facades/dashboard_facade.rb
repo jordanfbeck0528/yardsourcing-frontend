@@ -1,4 +1,11 @@
 class DashboardFacade
+  def self.get_bookings_by_status(renter_id)
+    {
+      approved_bookings: renter_bookings_by_status(renter_id, 'approved'),
+      pending_bookings: renter_bookings_by_status(renter_id, 'pending')
+    }
+  end
+
   def self.host_yards(host_id)
     host_yards = EngineService.host_yards(host_id)
     host_yards = host_yards[:data].map do |yard|
@@ -11,8 +18,8 @@ class DashboardFacade
       end
   end
 
-  def self.renter_yards(renter_id, status)
-    renter_yards = EngineService.renter_yards(renter_id, status)
+  def self.renter_bookings_by_status(renter_id, status)
+    renter_yards = EngineService.renter_bookings_by_status(renter_id, status)
     renter_yards = renter_yards[:data].map do |yard|
       yard_info = yard_info(yard[:attributes][:yard_id])
       OpenStruct.new({ yard_id:    yard[:attributes][:yard_id],
