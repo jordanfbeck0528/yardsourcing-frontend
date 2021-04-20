@@ -44,7 +44,7 @@ class YardFacade
         button_params = {}
         button_params[:text] = "Edit"
         button_params[:path] = "/host/yards/#{@yard.id}"
-        button_params[:method] = :patch
+        button_params[:method] = :get
       else
         button_params = {}
         button_params[:text] = "Rent"
