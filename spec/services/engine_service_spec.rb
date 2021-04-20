@@ -126,7 +126,7 @@ RSpec.describe "EngineService", type: :feature do
     it "should return a list of a host's bookings" do
       VCR.use_cassette 'bookings/host-bookings-service' do
         es = EngineService.host_bookings(1)
-        many_bookings_response_evaluation(es)
+        many_host_bookings_response_evaluation(es)
       end
     end
   end
@@ -193,6 +193,21 @@ RSpec.describe "EngineService", type: :feature do
   end
 
   def many_bookings_response_evaluation(es)
+    expect(es[:data]).to be_an(Array)
+    expect(es[:data].first).to be_a(Hash)
+    expect(es[:data].first.keys).to eq([:id, :type, :attributes])
+    expect(es[:data].first[:type]).to eq("booking")
+    expect(es[:data].first[:attributes].keys).to eq([:status,
+                                                    :yard_id,
+                                                    :booking_name,
+                                                    :renter_id,
+                                                    :date,
+                                                    :time,
+                                                    :duration,
+                                                    :description])
+  end
+
+  def many_host_bookings_response_evaluation(es)
     expect(es[:data]).to be_an(Array)
     expect(es[:data].first).to be_a(Hash)
     expect(es[:data].first.keys).to eq([:id, :type, :attributes])
