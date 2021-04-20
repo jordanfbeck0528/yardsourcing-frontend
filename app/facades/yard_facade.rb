@@ -54,6 +54,31 @@ class YardFacade
     button_params
   end
 
+
+  def self.yards_in_location(yard_params)
+    yards = EngineService.yards_in_location(yard_params)
+    if yards[:data].nil? || yards[:data].empty?
+      @yards = yards
+    else
+      @yards = yards[:data].map do |yard|
+      OpenStruct.new({          name:         yard[:attributes][:name],
+                                host_id:      yard[:attributes][:host_id],
+                                email:        yard[:attributes][:email],
+                                id:           yard[:id],
+                                description:  yard[:attributes][:description],
+                                availability: yard[:attributes][:availability],
+                                address:      full_address(yard),
+                                price:        yard[:attributes][:price],
+                                purposes:     all_purposes(yard),
+                                payment:      yard[:attributes][:payment],
+                                photo_url_1:  yard[:attributes][:photo_url_1],
+                                photo_url_2:  yard[:attributes][:photo_url_2],
+                                photo_url_3:  yard[:attributes][:photo_url_3] })
+      end
+    end
+    @yards
+  end
+
   def self.yard_form_info(yard_id)
     yard = EngineService.yard_details(yard_id)
     if yard == {}
