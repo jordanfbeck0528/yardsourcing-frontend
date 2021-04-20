@@ -10,6 +10,7 @@ class EngineService
       req.headers["CONTENT_TYPE"] = "application/json"
       req.params = yard_params
     end
+
     JSON.parse(response.body, symbolize_names: true)
   end
 

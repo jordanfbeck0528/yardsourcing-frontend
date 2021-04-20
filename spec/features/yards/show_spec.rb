@@ -64,7 +64,7 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
       expect(page).to have_button('Edit Yard')
     end
   end
-  #######
+
   describe "As a renter & sad path" do
     it "displays a button to 'Rent' the yard if the current user is the renter" do
       response = File.open("spec/fixtures/renter_yard_show_page.json")
