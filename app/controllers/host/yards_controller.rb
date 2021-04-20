@@ -1,23 +1,23 @@
 # require "services/y_s_engine_service"
 class Host::YardsController < ApplicationController
+  before_action :set_purposes, only: [:new, :create]
+
   def new
     @purposes = set_purposes
-    # info = EngineService.all_purposes
-    #
-    # @purposes = info[:data].map do |obj_info|
-    #   OpenStruct.new({ id: obj_info[:id],
-    #                    name: obj_info[:attributes][:name].titleize})
-    # end
   end
 
   def create
     params[:host_id] = current_user.id
     params[:email] = current_user.email
-
     yard = EngineService.create_yard(yard_params)
-
-    redirect_to yard_path(yard[:id])
+    if yard.include?(:error)
+      flash[:error] = yard[:error]
+      render :new, obj: @purposes
+    else
+      redirect_to yard_path(yard[:data][:id])
+    end
   end
+
 
   def update
     if params[:_method] == "patch"
@@ -33,7 +33,6 @@ class Host::YardsController < ApplicationController
   end
 
   private
-
   def yard_params
     params.permit( :id, :host_id, :email, :name, :description, :availability, :payment,
                   :price, :street_address, :city, :state, :zipcode, :photo_url_1,
@@ -42,7 +41,6 @@ class Host::YardsController < ApplicationController
 
   def set_purposes
     info = EngineService.all_purposes
-
     info[:data].map do |obj_info|
       OpenStruct.new({ id: obj_info[:id],
                        name: obj_info[:attributes][:name].titleize})
