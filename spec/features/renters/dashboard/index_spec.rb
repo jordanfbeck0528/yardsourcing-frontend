@@ -13,14 +13,14 @@ describe 'As an authenticated user when I visit the renters dashboard' do
       visit renter_dashboard_index_path
 
       within('.upcoming-bookings') do
-        expect(page).to have_content("Upcoming Booking's:")
+        expect(page).to have_content("Upcoming Bookings:")
       end
     end
     it 'I see a pending bookings section' do
       visit renter_dashboard_index_path
 
       within('.pending-bookings') do
-        expect(page).to have_content("Pending Booking's:")
+        expect(page).to have_content("Pending Bookings:")
       end
     end
     it 'I see a find your next yard button' do
@@ -58,7 +58,6 @@ describe 'As an authenticated user when I visit the renters dashboard' do
           expect(page).to have_content("Date: 04/25/2021")
           expect(page).to have_content("Duration: 3 hours")
           expect(page).to have_content("Total Cost: $60.00")
-          expect(page).to have_content("Image:")
           expect(page).to have_xpath("//img[@src = 'https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg']")
         end
       end
@@ -86,7 +85,7 @@ describe 'As an authenticated user when I visit the renters dashboard' do
           expect(page).to have_content("Date: 05/05/2021")
           expect(page).to have_content("Duration: 2 hours")
           expect(page).to have_content("Total Cost: $31.00")
-          expect(page).to have_content("Image: No image")
+          expect(page).to have_content("No image")
         end
       end
     end
