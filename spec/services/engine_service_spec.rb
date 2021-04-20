@@ -148,13 +148,13 @@ RSpec.describe "EngineService", type: :feature do
                                                 :city,
                                                 :state,
                                                 :zipcode,
-                                                :price,
                                                 :description,
-                                                :payment,
                                                 :availability,
+                                                :payment,
                                                 :photo_url_1,
                                                 :photo_url_2,
                                                 :photo_url_3,
+                                                :price,
                                                 :purposes])
     expect(es[:data][:attributes][:purposes].keys).to eq([:data])
     expect(es[:data][:attributes][:purposes][:data]).to be_an(Array)

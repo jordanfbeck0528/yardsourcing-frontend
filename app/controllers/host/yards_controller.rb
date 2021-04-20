@@ -74,6 +74,7 @@ class Host::YardsController < ApplicationController
                                 photo_url_3:    yard[:attributes][:photo_url_3] })
     end
   end
+  
   def all_yard_purposes(yard)
     yard[:attributes][:purposes][:data].map do |purpose|
       purpose
