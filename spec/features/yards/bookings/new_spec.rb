@@ -24,7 +24,6 @@ RSpec.describe "New Booking Page" do
 
     describe 'happy path' do
       it "when I fill out the form with valid information I can create a booking" do
-
         VCR.use_cassette('booking/create_booking') do
           visit new_yard_booking_path(2)
           fill_in :booking_name, with: "A new booking!!"
@@ -42,126 +41,74 @@ RSpec.describe "New Booking Page" do
 
     describe 'sad path' do
       it "when I do not enter a name I cannot create a booking" do
-        VCR.use_cassette('all_purposes') do
-          VCR.use_cassette('booking/bad-booking') do
-            visit new_yard_booking_path(2)
-            fill_in :description, with: "description"
-            fill_in :availability, with: "availability"
-            fill_in :payment, with: "payment"
-            fill_in :price, with: 25.20
-            fill_in :street_address, with: "street_address"
-            fill_in :city, with: "city"
-            fill_in :state, with: "state"
-            fill_in :zipcode, with: "zipcode"
-            fill_in :photo_url_1, with: "https://photo.com/path"
-            check "purposes_1"
-            check "purposes_3"
-            click_button 'Create Booking'
-            expect(page).to have_content("Validation failed: Name can't be blank")
-          end
+        VCR.use_cassette('booking/bad-booking') do
+          visit new_yard_booking_path(2)
+          fill_in :date, with: Date.new(2021, 05,05)
+          fill_in :time, with: Time.new(2021,05,05,12)
+          fill_in :duration, with: 2
+          fill_in :description, with: 'description'
+          click_button 'Create Booking'
+          expect(page).to have_content("Validation failed: Booking name can't be blank")
         end
       end
       it "when I do not enter a date I cannot create a booking" do
-        VCR.use_cassette('all_purposes') do
-          VCR.use_cassette('booking/bad-booking-date') do
-            visit new_yard_booking_path(2)
-            fill_in :name, with: "A new booking!!"
-            fill_in :description, with: "description"
-            fill_in :availability, with: "availability"
-            fill_in :payment, with: "payment"
-            fill_in :price, with: 25.20
-            fill_in :city, with: "city"
-            fill_in :state, with: "state"
-            fill_in :zipcode, with: "zipcode"
-            fill_in :photo_url_1, with: "https://photo.com/path"
-            check "purposes_1"
-            check "purposes_3"
-            click_button 'Create Booking'
-            expect(page).to have_content("Validation failed: Street address can't be blank")
-          end
+        VCR.use_cassette('booking/bad-booking-date') do
+          visit new_yard_booking_path(2)
+          fill_in :booking_name, with: "A new booking!!"
+          fill_in :time, with: Time.new(2021,05,05,12)
+          fill_in :duration, with: 2
+          fill_in :description, with: 'description'
+          click_button 'Create Booking'
+          expect(page).to have_content("Validation failed: Date can't be blank")
         end
       end
 
       it 'when I do not enter a time I cannot create a booking' do
-        VCR.use_cassette('all_purposes') do
-          VCR.use_cassette('booking/bad-booking-time') do
-            visit new_yard_booking_path(2)
-            fill_in :name, with: "A new booking!!"
-            fill_in :description, with: "description"
-            fill_in :availability, with: "availability"
-            fill_in :payment, with: "payment"
-            fill_in :price, with: 25.20
-            fill_in :street_address, with: "street_address"
-            fill_in :state, with: "state"
-            fill_in :zipcode, with: "zipcode"
-            fill_in :photo_url_1, with: "https://photo.com/path"
-            check "purposes_1"
-            check "purposes_3"
-            click_button 'Create Booking'
-            expect(page).to have_content("Validation failed: City can't be blank")
-          end
+        VCR.use_cassette('booking/bad-booking-time') do
+          visit new_yard_booking_path(2)
+          fill_in :booking_name, with: "A new booking!!"
+          fill_in :date, with: Date.new(2021, 05,05)
+          fill_in :duration, with: 2
+          fill_in :description, with: 'description'
+          click_button 'Create Booking'
+          expect(page).to have_content("Validation failed: Time can't be blank")
         end
       end
 
       it 'when I do not enter a duration I cannot create a booking' do
-        VCR.use_cassette('all_purposes') do
-          VCR.use_cassette('booking/bad-booking-duration') do
-            visit new_yard_booking_path(2)
-            fill_in :name, with: "A new booking!!"
-            fill_in :description, with: "description"
-            fill_in :availability, with: "availability"
-            fill_in :payment, with: "payment"
-            fill_in :price, with: 25.20
-            fill_in :street_address, with: "street_address"
-            fill_in :city, with: "city"
-            fill_in :zipcode, with: "zipcode"
-            fill_in :photo_url_1, with: "https://photo.com/path"
-            check "purposes_1"
-            check "purposes_3"
-            click_button 'Create Booking'
-            expect(page).to have_content("Validation failed: State can't be blank")
-          end
+        VCR.use_cassette('booking/bad-booking-duration') do
+          visit new_yard_booking_path(2)
+          fill_in :booking_name, with: "A new booking!!"
+          fill_in :date, with: Date.new(2021, 05,05)
+          fill_in :time, with: Time.new(2021,05,05,12)
+          fill_in :description, with: 'description'
+          click_button 'Create Booking'
+          expect(page).to have_content("Validation failed: Duration can't be blank")
         end
       end
 
       it 'when I do not enter a description I cannot create a booking' do
-        VCR.use_cassette('all_purposes') do
-          VCR.use_cassette('booking/bad-booking-description') do
-            visit new_yard_booking_path(2)
-            fill_in :name, with: "A new booking!!"
-            fill_in :description, with: "description"
-            fill_in :availability, with: "availability"
-            fill_in :payment, with: "payment"
-            fill_in :price, with: 25.20
-            fill_in :street_address, with: "street_address"
-            fill_in :city, with: "city"
-            fill_in :state, with: "state"
-            fill_in :photo_url_1, with: "https://photo.com/path"
-            check "purposes_1"
-            check "purposes_3"
-            click_button 'Create Booking'
-            expect(page).to have_content("Validation failed: Zipcode can't be blank")
-          end
+        VCR.use_cassette('booking/bad-booking-description') do
+          visit new_yard_booking_path(2)
+          fill_in :booking_name, with: "A new booking!!"
+          fill_in :date, with: Date.new(2021, 05,05)
+          fill_in :time, with: Time.new(2021,05,05,12)
+          fill_in :duration, with: 2
+          click_button 'Create Booking'
+          expect(page).to have_content("Validation failed: Description can't be blank")
         end
       end
 
       it 'when I enter a date from the past I cannot create a booking' do
-        VCR.use_cassette('create_booking') do
-          VCR.use_cassette('booking/bad-booking-date-from-the-past') do
-            visit new_yard_booking_path(2)
-            fill_in :name, with: "A new booking!!"
-            fill_in :description, with: "description"
-            fill_in :availability, with: "availability"
-            fill_in :payment, with: "payment"
-            fill_in :price, with: 25.20
-            fill_in :street_address, with: "street_address"
-            fill_in :city, with: "city"
-            fill_in :state, with: "state"
-            fill_in :zipcode, with: "zipcode"
-            fill_in :photo_url_1, with: "https://photo.com/path"
-            click_button 'Create Booking'
-            expect(page).to have_content("You must select at least one purpose")
-          end
+        VCR.use_cassette('booking/bad-booking-date-from-the-past') do
+          visit new_yard_booking_path(2)
+          fill_in :booking_name, with: "A new booking!!"
+          fill_in :date, with: Date.new(2021, 03,05)
+          fill_in :time, with: Time.new(2021,05,05,12)
+          fill_in :duration, with: 2
+          fill_in :description, with: 'description'
+          click_button 'Create Booking'
+          expect(page).to have_content("Validation failed: Date Booking Date can't be in the past")
         end
       end
     end
