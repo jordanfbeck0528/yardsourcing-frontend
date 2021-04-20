@@ -23,6 +23,14 @@ class EngineService
     JSON.parse(response.body, symbolize_names: true)
   end
 
+  def self.yards_in_location(yard_params)
+    response = connection.get('/api/v1/yards/yard_search') do |req|
+      req.headers["CONTENT_TYPE"] = "application/json"
+      req.params = yard_params
+    end
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
   def self.connection
     Faraday.new(url: ENV['ys_engine_url'])
   end

@@ -35,12 +35,46 @@ RSpec.describe 'Search Page' do
     it "when filled in the form brings you to the yards/search" do
       VCR.use_cassette('all_purposes') do
         VCR.use_cassette('create_search') do
-          visit search_index_path
-          fill_in :location, with: '46311'
-          check 'purposes_1'
-          click_button 'Yard Me'
+          VCR.use_cassette('all_purposes2') do
+            visit search_index_path
+            fill_in :location, with: '80202'
+            click_button 'Yard Me'
+            expect(page).to have_content("")
+          end
         end
       end
+    end
+  end
+
+  describe 'sad path' do
+    it 'errors out when you do not enter valid zip code' do
+      VCR.use_cassette('all_purposes') do
+        VCR.use_cassette('bad_zip_search') do
+          visit search_index_path
+          fill_in :location, with: '802'
+          check 'purposes_1'
+          click_button 'Yard Me'
+          expect(page).to have_content('Invalid zipcode')
+          expect(page).to have_content("Find your dream yard:")
+          expect(page).to have_content("Where will you yard?")
+          expect(page).to have_content("How will you spend your time yarding?")
+        end
+      end
+    end
+
+    it 'errors out when you enter a zipcode that is too long' do
+      VCR.use_cassette('all_purposes') do
+        VCR.use_cassette('bad_zip_search') do
+          visit search_index_path
+          fill_in :location, with: '802'
+          check 'purposes_1'
+          click_button 'Yard Me'
+          expect(page).to have_content('Invalid zipcode')
+          expect(page).to have_content("Find your dream yard:")
+          expect(page).to have_content("Where will you yard?")
+          expect(page).to have_content("How will you spend your time yarding?")
+        end
+      end 
     end
   end
 end
