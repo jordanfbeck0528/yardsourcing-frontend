@@ -3,4 +3,7 @@ class SearchController < ApplicationController
 
   def index
   end
+
+  def find_yards 
+  end
 end

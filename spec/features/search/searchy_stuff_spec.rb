@@ -31,5 +31,16 @@ RSpec.describe 'Search Page' do
         expect(page).to have_button('Yard Me')
       end
     end
+
+    it "when filled in the form brings you to the yards/search" do
+      VCR.use_cassette('all_purposes') do
+        VCR.use_cassette('create_search') do
+          visit search_index_path
+          fill_in :location, with: '46311'
+          check 'purposes_1'
+          click_button 'Yard Me'
+        end
+      end
+    end
   end
 end
