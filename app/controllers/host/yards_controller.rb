@@ -20,8 +20,11 @@ class Host::YardsController < ApplicationController
   end
 
   def update
-    @yard = "yard"
     @purposes = set_purposes
+    yard = EngineService.update_yard(yard_params)
+    binding.pry
+
+    redirect_to yard_path(yard[:id])
   end
 
   private

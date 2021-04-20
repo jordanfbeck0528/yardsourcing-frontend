@@ -9,33 +9,35 @@ describe 'As an authenticated user when I visit the edit yard page' do
   end
 
   describe "happy path" do
-    it "I see a form prepopulated with the yards stored information" do
-      visit yard_path(2)
-      click_on "Edit Yard"
+    VCR.use_cassette('edit_yard_happy') do
+      it "I see a form prepopulated with the yards stored information" do
+        visit yard_path(2)
+        click_on "Edit Yard"
 
-      expect(page).to have_field('name')
-      expect(page).to have_field('description')
-      expect(page).to have_field('availability')
-      expect(page).to have_field('payment')
-      expect(page).to have_field('price')
-      expect(page).to have_field('street_address')
-      expect(page).to have_field('city')
-      expect(page).to have_field('state')
-      expect(page).to have_field('zipcode')
-      expect(page).to have_field('photo_url_1')
-      expect(page).to have_field('photo_url_2')
-      expect(page).to have_field('photo_url_3')
-      expect(page).to have_content('Select all purposes you will allow others to rent your yard for')
-      expect(page).to have_unchecked_field('purposes_1')
-      expect(page).to have_unchecked_field('purposes_2')
-      expect(page).to have_unchecked_field('purposes_3')
-      expect(page).to have_button('Update Yard')
-      expect(page).to have_content('Ultimate Yard Party')
-      expect(page).to have_content('123 4th St Denver, CO 80202')
-      expect(page).to have_content('Available on weekends in May')
-      expect(page).to have_content('$20.00')
-      expect(page).to have_content('This yard is equiped with a firepit, a pool, and a pool house to accommodate all your party needs.')
+        expect(page).to have_field('name')
+        expect(page).to have_field('description')
+        expect(page).to have_field('availability')
+        expect(page).to have_field('payment')
+        expect(page).to have_field('price')
+        expect(page).to have_field('street_address')
+        expect(page).to have_field('city')
+        expect(page).to have_field('state')
+        expect(page).to have_field('zipcode')
+        expect(page).to have_field('photo_url_1')
+        expect(page).to have_field('photo_url_2')
+        expect(page).to have_field('photo_url_3')
+        expect(page).to have_content('Select all purposes you will allow others to rent your yard for')
+        expect(page).to have_unchecked_field('purposes_1')
+        expect(page).to have_unchecked_field('purposes_2')
+        expect(page).to have_unchecked_field('purposes_3')
+        expect(page).to have_button('Update Yard')
+        expect(page).to have_content('Ultimate Yard Party')
+        expect(page).to have_content('123 4th St Denver, CO 80202')
+        expect(page).to have_content('Available on weekends in May')
+        expect(page).to have_content('$20.00')
+        expect(page).to have_content('This yard is equiped with a firepit, a pool, and a pool house to accommodate all your party needs.')
 
+      end
     end
     xit "When the form is submitted it updates the yard" do
 
