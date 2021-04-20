@@ -10,10 +10,8 @@ describe 'As an authenticated user when I visit the edit yard page' do
 
   describe "happy path" do
     it "I see a form prepopulated with the yards stored information" do
-      visit host_dashboard_index_path
-      click_on "Ultimate Party Yard"
+      visit yard_path(2)
       click_on "Edit Yard"
-      save_and_open_page
 
       expect(page).to have_field('name')
       expect(page).to have_field('description')
@@ -32,6 +30,12 @@ describe 'As an authenticated user when I visit the edit yard page' do
       expect(page).to have_unchecked_field('purposes_2')
       expect(page).to have_unchecked_field('purposes_3')
       expect(page).to have_button('Update Yard')
+      expect(page).to have_content('Ultimate Yard Party')
+      expect(page).to have_content('123 4th St Denver, CO 80202')
+      expect(page).to have_content('Available on weekends in May')
+      expect(page).to have_content('$20.00')
+      expect(page).to have_content('This yard is equiped with a firepit, a pool, and a pool house to accommodate all your party needs.')
+
     end
     xit "When the form is submitted it updates the yard" do
 
