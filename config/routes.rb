@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
   resources :search, only: [:index]
 
-  resources :yards, only: [:show]
+  resources :yards, only: [:show] do
+    resources :bookings, only: [:new]
+  end
 
   namespace :renter do
     resources :dashboard, only: :index
