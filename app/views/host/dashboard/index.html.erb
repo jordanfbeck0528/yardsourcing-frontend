@@ -9,18 +9,51 @@
     <p>Add some yards to rent! Turn your green into green!</p>
     <%= button_to 'Create Yard', new_host_yard_path, method: :get %>
   <% else %>
-    <% @host_yards.each do |yard| %>
-    <section class="yard_info" id="yard-<% yard.id%>">
-      <%= link_to yard.name, yard_path(yard.id) %><br>
-      <%= yard.description %><br>
-      <%= yard.address %><br>
-      $<%= yard.price %> per hour <br>
-      Purposes:
-      <% yard.purposes.each do |purpose| %>
-        <%= purpose.titleize %>
-      <% end %>
-      <br><br>
-    <% end %>
-    </section>
+    <div class="container">
+      <div class="row">
+        <% @host_yards.each do |yard| %>
+        <div class= "card dashboard">
+          <div class="card-body">
+            <div class="card-title name"><%= link_to yard.name, yard_path(yard.id) %></div>
+            Description: <%= yard.description %><br>
+            Address: <%= yard.address %><br>
+            Rate: $<%= yard.price %> per hour <br>
+            Purposes:
+            <ul>
+            <% yard.purposes.each do |purpose| %>
+              <li><%= purpose.titleize %></li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
   <% end %>
+</section>
+
+<section class="my-upcoming-bookings">
+  <h3>My Upcoming Bookings(s)</h3>
+  <div class="container">
+    <div class="row">
+      <% @bookings&.each do |booking| %>
+      <div id='booking-<%= booking.id %>' class= "card dashboard">
+        <div class="card-body">
+          <div class="card-title name"><%= link_to booking.name, 'booking_path(booking.id)' %></div>
+          Status: <%= booking.status.titleize %><br>
+          Date: <%= booking.date %><br>
+          Time: <%= booking.time %><br>
+          Duration in Hours: <%= booking.duration %><br>
+          Description: <%= booking.description %><br>
+          <% if booking.status == 'pending' %>
+          <div>
+            <%= button_to 'Approve' %><br>
+            <%= button_to 'Reject' %><br>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </section>
