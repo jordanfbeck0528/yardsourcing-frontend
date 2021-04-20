@@ -43,7 +43,7 @@ class YardFacade
       if user_id == @yard.host_id
         button_params = {}
         button_params[:text] = "Edit"
-        button_params[:path] = "/host/yards/#{@yard.id}"
+        button_params[:path] = "/host/yards/#{@yard.id}/edit"
         button_params[:method] = :get
       else
         button_params = {}

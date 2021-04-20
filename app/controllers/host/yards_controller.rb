@@ -1,6 +1,6 @@
 # require "services/y_s_engine_service"
 class Host::YardsController < ApplicationController
-  before_action :set_purposes, only: [:new, :create, :update]
+  before_action :set_purposes, only: [:new, :create, :update, :edit]
 
   def new
   end
@@ -17,16 +17,22 @@ class Host::YardsController < ApplicationController
     end
   end
 
+  def edit
+    @yard = yard_details(params[:id])
+  end
 
   def update
-    if params[:_method] == "patch"
-      params[:host_id] = current_user.id
-      params[:email] = current_user.email
-      params[:id] = params[:id]
-      yard = EngineService.update_yard(yard_params)
+    params[:_method] == "patch"
+    params[:host_id] = current_user.id
+    params[:email] = current_user.email
+    params[:id] = params[:id]
+    yard = EngineService.update_yard(yard_params)
+    @yard = yard_details(params[:id])
+      if yard[:error]
+        flash[:error] = yard[:error]
+        render :edit
+      else
       redirect_to yard_path(params[:id])
-    else
-      @yard = yard_details(params[:yard_id])
     end
   end
 
@@ -70,7 +76,7 @@ class Host::YardsController < ApplicationController
   end
   def all_yard_purposes(yard)
     yard[:attributes][:purposes][:data].map do |purpose|
-      purpose[:attributes][:name]
+      purpose
     end
   end
 end

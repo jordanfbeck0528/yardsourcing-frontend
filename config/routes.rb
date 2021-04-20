@@ -6,10 +6,8 @@ Rails.application.routes.draw do
 
   namespace :host do
     resources :dashboard, only: :index
-    resources :yards, only: [:new, :create, :update]
+    resources :yards, except: [:show, :destroy]
   end
-
-  get "/host/yards/:yard_id", to: "host/yards#update"
 
   resources :search, only: [:index]
 

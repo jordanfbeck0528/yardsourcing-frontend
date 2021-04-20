@@ -67,69 +67,87 @@ describe 'As an authenticated user when I visit the edit yard page' do
       end
     end
   end
-  xdescribe "sad path" do
+  describe "sad path" do
     it "flashes an error message when a name is left blank" do
       VCR.use_cassette('edit_yard_sad_no_name') do
-        visit yard_path(2)
-        click_on "Edit Yard"
+        visit edit_host_yard_path(2)
 
-        fill_in :name, with: nil
+        check "purposes_1"
+        fill_in :name, with: ""
         click_button 'Update Yard'
 
-        expect(page).to have_content("Validation failed: name can't be blank")
+        expect(current_path).to eq(host_yard_path(2))
       end
     end
     it "flashes an error message when a street_address is left blank" do
       VCR.use_cassette('edit_yard_sad_no_street') do
-        visit yard_path(2)
-        click_on "Edit Yard"
+        visit edit_host_yard_path(2)
+        check "purposes_1"
+        fill_in :street_address, with: ""
 
-        expect(page).to have_content("Validation failed: street address can't be blank")
+        expect(current_path).to eq(edit_host_yard_path(2))
       end
     end
     it "flashes an error message when a city is left blank" do
+      VCR.use_cassette('edit_yard_sad_no_city') do
+        visit edit_host_yard_path(2)
+        check "purposes_1"
+        fill_in :city, with: ""
 
-      fill_in :city, with: ""
-      click_button 'Create Yard'
-      expect(page).to have_content("Validation failed: city can't be blank")
+        expect(current_path).to eq(edit_host_yard_path(2))
+      end
     end
     it "flashes an error message when a state is left blank" do
+      VCR.use_cassette('edit_yard_sad_no_state') do
+        visit edit_host_yard_path(2)
+        check "purposes_1"
+        fill_in :state, with: ""
 
-      fill_in :state, with: ""
-      click_button 'Create Yard'
-      expect(page).to have_content("Validation failed: state can't be blank")
+        expect(current_path).to eq(edit_host_yard_path(2))
+      end
     end
     it "flashes an error message when a zipcode is left blank" do
+      VCR.use_cassette('edit_yard_sad_no_zipcode') do
+        visit edit_host_yard_path(2)
+        check "purposes_1"
+        fill_in :zipcode, with: ""
 
-      fill_in :state, with: ""
-      click_button 'Create Yard'
-      expect(page).to have_content("Validation failed: zipcode can't be blank")
+        expect(current_path).to eq(edit_host_yard_path(2))
+      end
     end
     it "flashes an error message when a description is left blank" do
+      VCR.use_cassette('edit_yard_sad_no_description') do
+        visit edit_host_yard_path(2)
+        check "purposes_1"
+        fill_in :description, with: ""
 
-      fill_in :description, with: ""
-      click_button 'Create Yard'
-      expect(page).to have_content("Validation failed: description can't be blank")
+        expect(current_path).to eq(edit_host_yard_path(2))
+      end
     end
     it "flashes an error message when a availability is left blank" do
+      VCR.use_cassette('edit_yard_sad_no_availability') do
+        visit edit_host_yard_path(2)
+        check "purposes_1"
+        fill_in :availability, with: ""
 
-      fill_in :availability, with: ""
-      click_button 'Create Yard'
-      expect(page).to have_content("Validation failed: availability can't be blank")
+        expect(current_path).to eq(edit_host_yard_path(2))
+      end
     end
     it "flashes an error message when a payment is left blank" do
+      VCR.use_cassette('edit_yard_sad_no_payment') do
+        visit edit_host_yard_path(2)
+        check "purposes_1"
+        fill_in :payment, with: ""
 
-      fill_in :payment, with: ""
-      click_button 'Create Yard'
-      expect(page).to have_content("Validation failed: payment can't be blank")
+        expect(current_path).to eq(edit_host_yard_path(2))
+      end
     end
     it "flashes an error message when a purpose is not selected" do
+      VCR.use_cassette('edit_yard_sad_no_purposes') do
+        visit edit_host_yard_path(2)
 
-      fill_in :payment, with: ""
-      uncheck "purposes_1"
-      uncheck "purposes_2"
-      uncheck "purposes_3"
-      expect(page).to have_content("Validation failed: payment can't be blank")
+        expect(current_path).to eq(edit_host_yard_path(2))
+      end
     end
   end
 end
