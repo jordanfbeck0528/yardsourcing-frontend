@@ -15,7 +15,8 @@ class DashboardFacade
     renter_yards = EngineService.renter_yards(renter_id, status)
     renter_yards = renter_yards[:data].map do |yard|
       yard_info = yard_info(yard[:attributes][:yard_id])
-      OpenStruct.new({ name:       yard[:attributes][:booking_name],
+      OpenStruct.new({ yard_id:    yard[:attributes][:yard_id],
+                       name:       yard[:attributes][:booking_name],
                        address:    full_address(yard_info),
                        date:       yard[:attributes][:date],
                        duration:   yard[:attributes][:duration],
