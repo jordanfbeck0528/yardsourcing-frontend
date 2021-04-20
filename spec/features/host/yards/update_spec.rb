@@ -1,7 +1,5 @@
 require 'rails_helper'
 
-require 'rails_helper'
-
 describe 'As an authenticated user when I visit the edit yard page' do
   before :each do
     user = User.create!(id:1, uid: '123545', username: 'Dominic Padula', email:'thisemail@gmail.com', password: SecureRandom.hex(15) )
@@ -12,17 +10,104 @@ describe 'As an authenticated user when I visit the edit yard page' do
 
   describe "happy path" do
     it "I see a form prepopulated with the yards stored information" do
-      visit host_yards_path
+      visit host_dashboard_index_path
+      click_on "Ultimate Party Yard"
+      click_on "Edit Yard"
       save_and_open_page
 
+      expect(page).to have_field('name')
+      expect(page).to have_field('description')
+      expect(page).to have_field('availability')
+      expect(page).to have_field('payment')
+      expect(page).to have_field('price')
+      expect(page).to have_field('street_address')
+      expect(page).to have_field('city')
+      expect(page).to have_field('state')
+      expect(page).to have_field('zipcode')
+      expect(page).to have_field('photo_url_1')
+      expect(page).to have_field('photo_url_2')
+      expect(page).to have_field('photo_url_3')
+      expect(page).to have_content('Select all purposes you will allow others to rent your yard for')
+      expect(page).to have_unchecked_field('purposes_1')
+      expect(page).to have_unchecked_field('purposes_2')
+      expect(page).to have_unchecked_field('purposes_3')
+      expect(page).to have_button('Update Yard')
     end
-    it "When the form is submitted it updates the yard" do
+    xit "When the form is submitted it updates the yard" do
 
+      fill_in :name, with: "A new yard name!!"
+      fill_in :description, with: "description"
+      fill_in :availability, with: "availability"
+      fill_in :payment, with: "cash cash cash"
+      fill_in :price, with: 125.20
+      fill_in :street_address, with: "street_address"
+      fill_in :city, with: "city"
+      fill_in :state, with: "state"
+      fill_in :zipcode, with: "zipcode"
+      fill_in :photo_url_1, with: "https://photo.com/path"
+      check "purposes_1"
+      check "purposes_3"
+      click_button 'Create Yard'
+
+      expect(page).to have_content("A new yard name!!")
     end
   end
   describe "sad path" do
-    it "flashes an error message when a required section is left blank" do
+    it "flashes an error message when a name is left blank" do
 
+      fill_in :name, with: ""
+      click_button 'Create Yard'
+      expect(page).to have_content("Validation failed: name can't be blank")
+    end
+    it "flashes an error message when a street_address is left blank" do
+
+      fill_in :street_address, with: ""
+      click_button 'Create Yard'
+      expect(page).to have_content("Validation failed: street address can't be blank")
+    end
+    it "flashes an error message when a city is left blank" do
+
+      fill_in :city, with: ""
+      click_button 'Create Yard'
+      expect(page).to have_content("Validation failed: city can't be blank")
+    end
+    it "flashes an error message when a state is left blank" do
+
+      fill_in :state, with: ""
+      click_button 'Create Yard'
+      expect(page).to have_content("Validation failed: state can't be blank")
+    end
+    it "flashes an error message when a zipcode is left blank" do
+
+      fill_in :state, with: ""
+      click_button 'Create Yard'
+      expect(page).to have_content("Validation failed: zipcode can't be blank")
+    end
+    it "flashes an error message when a description is left blank" do
+
+      fill_in :description, with: ""
+      click_button 'Create Yard'
+      expect(page).to have_content("Validation failed: description can't be blank")
+    end
+    it "flashes an error message when a availability is left blank" do
+
+      fill_in :availability, with: ""
+      click_button 'Create Yard'
+      expect(page).to have_content("Validation failed: availability can't be blank")
+    end
+    it "flashes an error message when a payment is left blank" do
+
+      fill_in :payment, with: ""
+      click_button 'Create Yard'
+      expect(page).to have_content("Validation failed: payment can't be blank")
+    end
+    it "flashes an error message when a purpose is not selected" do
+
+      fill_in :payment, with: ""
+      uncheck "purposes_1"
+      uncheck "purposes_2"
+      uncheck "purposes_3"
+      expect(page).to have_content("Validation failed: payment can't be blank")
     end
   end
 end
