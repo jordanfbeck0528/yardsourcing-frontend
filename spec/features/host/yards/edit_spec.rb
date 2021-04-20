@@ -31,7 +31,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
         expect(page).to have_unchecked_field('purposes_2')
         expect(page).to have_unchecked_field('purposes_3')
         expect(page).to have_button('Update Yard')
-        expect(page).to have_content('Ultimate Party Yard')
+        expect(page).to have_content('Large Yard for any Hobby')
       end
     end
     it "When the form is submitted it updates the yard" do
