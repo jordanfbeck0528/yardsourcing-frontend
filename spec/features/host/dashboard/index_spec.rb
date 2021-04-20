@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'As an authenticated user when I visit the host dashboard' do
   before :each do
-    user = User.create!(id:1, uid: '123545', username: 'Dominic Padula', email:'thisemail@gmail.com', password: SecureRandom.hex(15) )
+    user = User.create!(id:1, uid: '123545', username: 'Dominic Padula', email:'thisemail@gmail.com' )
     omniauth_response = stub_omniauth_happy('123545', 'Dominic Padula', 'thisemail@gmail.com')
     @user_1 = User.from_omniauth(omniauth_response)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
