@@ -1,5 +1,4 @@
 class YardFacade
-
   def self.get_data(yard_id, user_id)
     {
       yard_details: yard_details(yard_id),

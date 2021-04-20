@@ -32,6 +32,11 @@ class EngineService
     JSON.parse(response.body, symbolize_names: true)
   end
 
+  def self.renter_bookings_by_status(renter_id, status)
+    response = connection.get("/api/v1/renters/#{renter_id}/bookings?status=#{status}")
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
   def self.create_booking(booking_params)
     response = connection.post('/api/v1/bookings') do |req|
       req.headers["CONTENT_TYPE"] = "application/json"

@@ -80,26 +80,25 @@ RSpec.describe "EngineService", type: :feature do
        expect(es).to be_a(Hash)
        expect(es.keys).to eq([:id, :type, :attributes])
        expect(es[:attributes].keys).to eq([ :host_id,
-                                                   :email,
-                                                   :name,
-                                                   :street_address,
-                                                   :city,
-                                                   :state,
-                                                   :zipcode,
-                                                   :price,
-                                                   :description,
-                                                   :payment,
-                                                   :availability,
-                                                   :photo_url_1,
-                                                   :photo_url_2,
-                                                   :photo_url_3,
-                                                   :purposes])
+                                            :email,
+                                            :name,
+                                            :street_address,
+                                            :city,
+                                            :state,
+                                            :zipcode,
+                                            :price,
+                                            :description,
+                                            :payment,
+                                            :availability,
+                                            :photo_url_1,
+                                            :photo_url_2,
+                                            :photo_url_3,
+                                            :purposes])
        expect(es[:attributes][:purposes].keys).to eq([:data])
        expect(es[:attributes][:purposes][:data]).to be_an(Array)
        expect(es[:attributes][:purposes][:data].first).to be_a(Hash)
        expect(es[:attributes][:purposes][:data].first.keys).to eq([:id, :type, :attributes])
        expect(es[:attributes][:purposes][:data].first[:attributes].keys).to eq([:name])
-
     end
   end
 
@@ -120,6 +119,42 @@ RSpec.describe "EngineService", type: :feature do
 
 
       many_yards_response_evaluation(es)
+    end
+  end
+
+  describe "::renter_bookings_by_status(renter_id, status)" do
+    it "should return a list of a bookings by approved status" do
+      response = File.open("spec/fixtures/approved_bookings.json")
+
+      stub_request(:get, "#{ENV['ys_engine_url']}/api/v1/renters/1/bookings?status=approved").
+         with(
+           headers: {
+       	  'Accept'=>'*/*',
+       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+       	  'User-Agent'=>'Faraday v1.3.0'
+           }).
+         to_return(status: 200, body: response, headers: {})
+
+        es = EngineService.renter_bookings_by_status(1, 'approved')
+
+      many_bookings_response_evaluation(es)
+    end
+
+    it "should return a list of a bookings by pending status" do
+      response = File.open("spec/fixtures/pending_bookings.json")
+
+      stub_request(:get, "#{ENV['ys_engine_url']}/api/v1/renters/1/bookings?status=pending").
+         with(
+           headers: {
+       	  'Accept'=>'*/*',
+       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+       	  'User-Agent'=>'Faraday v1.3.0'
+           }).
+         to_return(status: 200, body: response, headers: {})
+
+        es = EngineService.renter_bookings_by_status(1, 'pending')
+
+      many_bookings_response_evaluation(es)
     end
   end
 
@@ -190,5 +225,19 @@ RSpec.describe "EngineService", type: :feature do
     expect(es[:data].first.keys).to eq([:id, :type, :attributes])
     expect(es[:data].first[:type]).to eq("purpose")
     expect(es[:data].first[:attributes].keys).to eq([:name])
+  end
+
+  def many_bookings_response_evaluation(es)
+    expect(es[:data]).to be_an(Array)
+    expect(es[:data].first).to be_a(Hash)
+    expect(es[:data].first.keys).to eq([:id, :type, :attributes])
+    expect(es[:data].first[:type]).to eq("booking")
+    expect(es[:data].first[:attributes].keys).to eq([ :yard_id,
+                                                      :name,
+                                                      :address,
+                                                      :date,
+                                                      :duration,
+                                                      :total_cost,
+                                                      :img])
   end
 end
