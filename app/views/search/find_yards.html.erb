@@ -1,1 +1,7 @@
-<%= @yards %>
+<% if @yards.include?(:data) %>
+<%= "No yards match your specific parameters" %>
+<%else%>
+<% @yards.each do |yard| %>
+<%= yard.name %>
+<%end %>
+<%end %>
