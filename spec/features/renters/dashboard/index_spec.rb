@@ -39,13 +39,28 @@ describe 'As an authenticated user when I visit the renters dashboard' do
     it 'I see a list of approved upcoming boookings' do
       VCR.use_cassette('approved_bookings') do
         visit renter_dashboard_index_path
-        
+
         within('.upcoming-bookings') do
           expect(page).to have_link('Pet Birthday Party')
         end
 
         click_link 'Pet Birthday Party'
         expect(current_path).to eq(yard_path(2))
+      end
+    end
+
+    it 'I see a list of approved upcoming boookings' do
+      VCR.use_cassette('approved_bookings') do
+        visit renter_dashboard_index_path
+
+        within('.upcoming-bookings') do
+          expect(page).to have_content("Address: 123 4th St Denver, CO 80202")
+          expect(page).to have_content("Date: 04/25/2021")
+          expect(page).to have_content("Duration: 3 hours")
+          expect(page).to have_content("Total Cost: $60.00")
+          expect(page).to have_content("Image:")
+          expect(page).to have_xpath("//img[@src = 'https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg']")
+        end
       end
     end
   end
