@@ -5,7 +5,7 @@ class SearchController < ApplicationController
   end
 
   def find_yards
-    @yards = EngineService.yards_in_location(yard_params)
+    @yards = YardFacade.yards_in_location(yard_params)
     if @yards.include?(:error)
       flash[:error] = @yards[:error]
       render :index, obj: @purposes
