@@ -18,6 +18,10 @@ class Host::YardsController < ApplicationController
     redirect_to yard_path(yard[:id])
   end
 
+  def update
+    binding.pry
+  end
+
   private
 
   def yard_params
