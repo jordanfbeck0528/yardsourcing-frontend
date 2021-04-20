@@ -1,6 +1,9 @@
 <%= render 'shared/nav_bar'%>
 <section class='upcoming-bookings'>
   <h2>Upcoming Booking's:</h2>
+  <% @renter_yards_approved.each do |yard| %>
+    <%= link_to "#{yard.name}", yard_path(yard.yard_id) %>
+  <% end %>
 </section>
 
 <section class='pending-bookings'>
