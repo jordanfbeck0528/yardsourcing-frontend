@@ -39,9 +39,13 @@ describe 'As an authenticated user when I visit the renters dashboard' do
     it 'I see a list of approved upcoming boookings' do
       VCR.use_cassette('approved_bookings') do
         visit renter_dashboard_index_path
+        
         within('.upcoming-bookings') do
-          expect(page).to have_content('Pet Birthday Party')
+          expect(page).to have_link('Pet Birthday Party')
         end
+
+        click_link 'Pet Birthday Party'
+        expect(current_path).to eq(yard_path(2))
       end
     end
   end
