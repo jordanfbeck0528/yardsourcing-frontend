@@ -1,10 +1,33 @@
 <%= render 'shared/nav_bar'%>
 <section class='upcoming-bookings'>
   <h2>Upcoming Booking's:</h2>
+  <% @renter_yards_approved.each do |yard| %>
+    <%= link_to "#{yard.name}", yard_path(yard.yard_id) %>
+    <p>Address: <%= yard.address %></p>
+    <p>Date: <%= yard.date.strftime('%m/%d/%Y') %></p>
+    <p>Duration: <%= yard.duration %> hours</p>
+    <p>Total Cost: $<%= '%.2f' % yard.total_cost %></p>
+    <p>Image: <% if yard.img %>
+                <%= image_tag(yard.img, size: '500')  %>
+              <% end %></p>
+  <% end %>
 </section>
 
 <section class='pending-bookings'>
   <h2>Pending Booking's:</h2>
+  <% @renter_yards_pending.each do |yard| %>
+    <%= link_to "#{yard.name}", yard_path(yard.yard_id) %>
+    <p>Address: <%= yard.address %></p>
+    <p>Date: <%= yard.date.strftime('%m/%d/%Y') %></p>
+    <p>Duration: <%= yard.duration %> hours</p>
+    <p>Total Cost: $<%= '%.2f' % yard.total_cost %></p>
+    <p>Image:
+      <% if !yard.img.blank? %>
+         <%= image_tag(yard.img, size: '500')  %>
+      <% else %>
+        No image
+      <% end %></p>
+  <% end %>
 </section>
 
 <%= button_to 'Find your next yard', search_index_path, method: :get %>

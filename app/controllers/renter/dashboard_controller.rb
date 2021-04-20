@@ -1,5 +1,8 @@
 class Renter::DashboardController < ApplicationController
   def index
-    # @host_yards = DashboardFacade.host_yards(current_user.id)
+    data = DashboardFacade.get_bookings_by_status(current_user.id)
+
+    @renter_yards_approved = data[:approved_bookings]
+    @renter_yards_pending = data[:pending_bookings]
   end
 end
