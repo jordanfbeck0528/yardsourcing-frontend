@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :search, only: [:index]
 
   resources :yards, only: [:show] do
-    resources :bookings, only: [:new]
+    resources :bookings, only: [:new, :create]
   end
 
   namespace :renter do
