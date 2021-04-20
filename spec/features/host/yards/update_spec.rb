@@ -73,16 +73,19 @@ describe 'As an authenticated user when I visit the edit yard page' do
         visit yard_path(2)
         click_on "Edit Yard"
 
-        fill_in :name, with: ""
+        fill_in :name, with: nil
         click_button 'Update Yard'
+
         expect(page).to have_content("Validation failed: name can't be blank")
       end
     end
     it "flashes an error message when a street_address is left blank" do
+      VCR.use_cassette('edit_yard_sad_no_street') do
+        visit yard_path(2)
+        click_on "Edit Yard"
 
-      fill_in :street_address, with: ""
-      click_button 'Create Yard'
-      expect(page).to have_content("Validation failed: street address can't be blank")
+        expect(page).to have_content("Validation failed: street address can't be blank")
+      end
     end
     it "flashes an error message when a city is left blank" do
 
