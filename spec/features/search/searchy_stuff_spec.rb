@@ -15,13 +15,20 @@ RSpec.describe 'Search Page' do
         expect(page).to have_content("Find your dream yard:")
         expect(page).to have_content("Where will you yard?")
         expect(page).to have_content("How will you spend your time yarding?")
+        expect(page).to have_content('Pet Rental')
+        expect(page).to have_content('Party Rental')
+        expect(page).to have_content('Hobby Rental')
       end
     end
 
     it 'displays form with location prefilled in' do
       VCR.use_cassette('all_purposes') do
         visit search_index_path
-        save_and_open_page
+        expect(page).to have_field('location')
+        expect(page).to have_unchecked_field('purposes_1')
+        expect(page).to have_unchecked_field('purposes_2')
+        expect(page).to have_unchecked_field('purposes_3')
+        expect(page).to have_button('Yard Me')
       end
     end
   end
