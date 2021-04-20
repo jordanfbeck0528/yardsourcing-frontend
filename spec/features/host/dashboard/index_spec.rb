@@ -43,13 +43,13 @@ describe 'As an authenticated user when I visit the host dashboard' do
     end
   end
 
-  it "Each yard is a link to that yard's show page" do
-
-  end
+  it "Each yard is a link to that yard's show page"
 
   it "I see a section for all of my yards I have created" do
     VCR.use_cassette('host_yards') do
       visit host_dashboard_index_path
+
+      save_and_open_page
 
       expect(page).to have_link("Ultimate Party Yard")
       expect(page).to have_link("Large Yard for any Hobby")
