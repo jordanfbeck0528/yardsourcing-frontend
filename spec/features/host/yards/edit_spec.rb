@@ -58,7 +58,6 @@ describe 'As an authenticated user when I visit the edit yard page' do
         visit yard_path(3)
         click_on "Edit Yard"
 
-
         fill_in :name, with: "Large Yard for any Hobby"
         check "purposes_1"
         check "purposes_3"
