@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
   before :each do
-    user = User.create!(id:1, uid: '123545', username: 'Dominic Padula', email:'thisemail@gmail.com', password: SecureRandom.hex(15) )
+    user = User.create!(id:1, uid: '123545', username: 'Dominic Padula', email:'thisemail@gmail.com')
     omniauth_response = stub_omniauth_happy('123545', 'Dominic Padula', 'thisemail@gmail.com')
     @user_1 = User.from_omniauth(omniauth_response)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
@@ -91,6 +91,19 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
         expect(page).to have_no_button('Edit Yard')
         expect(page).to have_no_content('Availability')
       end
+    end
+  end
+  describe "Sad path for engine failure" do
+    it 'Displays an error, and re-directs when engine errors.' do
+
+      visit yard_path(1)
+
+      error = 'Data cannot be accessed at this time'
+      response = stub_request(:get, "#{ENV['ys_engine_url']}/api/v1/yards/1")
+      .to_return(status: [500, error], headers: {})
+
+      expect(page).to have_content(error)
+      expect(current_path).to eq(host_dashboard_index_path)
     end
   end
 end
