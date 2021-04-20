@@ -40,7 +40,6 @@ RSpec.describe 'Search Page' do
         click_button 'Yard Me'
         expect(current_path).to eq('/search/yards')
         expect(page).to have_content("Ultimate Party Yard")
-        expect(page).to have_content('Large Yard for any Hobby')
         expect(page).to have_content('Multipurpose Yard')
       end
     end

@@ -39,6 +39,7 @@ class EngineService
       req.headers["CONTENT_TYPE"] = "application/json"
       req.params = yard_params
     end
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.renter_bookings_by_status(renter_id, status)

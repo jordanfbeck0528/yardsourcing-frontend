@@ -206,6 +206,7 @@ RSpec.describe "EngineService", type: :feature do
     expect(es[:data][:attributes][:purposes][:data].first.keys).to eq([:id, :type, :attributes])
     expect(es[:data][:attributes][:purposes][:data].first[:attributes].keys).to eq([:name])
   end
+
   def booking_details_response_evaluation(es)
     expect(es[:data]).to be_a(Hash)
     expect(es[:data].keys).to eq([:id, :type, :attributes])
