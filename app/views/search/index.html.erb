@@ -3,7 +3,7 @@
 <%= form.label "Where will you yard?" %>
 <%= form.text_area :location, placeholder: "Enter zipcode, address or cross streets", :required => true, size: "25X7" %>
 <%= form.label "How will you spend your time yarding?" %>
-<%= form.collection_check_boxes(:purposes, @purposes, :id, :name, include_hidden: false) do |purpose| %>
+<%= form.collection_check_boxes(:purposes, @purposes, :name, :name, include_hidden: false) do |purpose| %>
   <%= purpose.check_box %>
   <%= purpose.label %>
 <% end %>
