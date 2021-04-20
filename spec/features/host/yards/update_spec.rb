@@ -39,7 +39,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
         visit yard_path(2)
         click_on "Edit Yard"
 
-        fill_in :name, with: "A new yard name!!"
+        fill_in :name, with: "PaRtY HoUsE!!"
         fill_in :description, with: "description"
         fill_in :availability, with: "availability"
         fill_in :payment, with: "cash cash cash"
@@ -53,16 +53,30 @@ describe 'As an authenticated user when I visit the edit yard page' do
         check "purposes_3"
         click_button 'Update Yard'
 
-        expect(page).to have_content("A new yard name!!")
+        expect(page).to have_content("PaRtY HoUsE!!")
+
+        visit yard_path(2)
+        click_on "Edit Yard"
+
+
+        fill_in :name, with: "Ultimate Party Yard"
+        check "purposes_1"
+        check "purposes_3"
+        click_button 'Update Yard'
+        expect(page).to have_content('Ultimate Party Yard')
       end
     end
   end
   xdescribe "sad path" do
     it "flashes an error message when a name is left blank" do
+      VCR.use_cassette('edit_yard_sad_no_name') do
+        visit yard_path(2)
+        click_on "Edit Yard"
 
-      fill_in :name, with: ""
-      click_button 'Create Yard'
-      expect(page).to have_content("Validation failed: name can't be blank")
+        fill_in :name, with: ""
+        click_button 'Update Yard'
+        expect(page).to have_content("Validation failed: name can't be blank")
+      end
     end
     it "flashes an error message when a street_address is left blank" do
 

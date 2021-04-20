@@ -20,18 +20,22 @@ class Host::YardsController < ApplicationController
   end
 
   def update
-    @purposes = set_purposes
-
-    @yard = yard_details(params[:id])
-    yard = EngineService.update_yard(yard_params)
-
-    # redirect_to yard_path(params[:id])
+    if params[:_method] == "patch"
+      params[:host_id] = current_user.id
+      params[:email] = current_user.email
+      params[:id] = params[:id]
+      yard = EngineService.update_yard(yard_params)
+      redirect_to yard_path(params[:id])
+    else
+      @purposes = set_purposes
+      @yard = yard_details(params[:yard_id])
+    end
   end
 
   private
 
   def yard_params
-    params.permit(:host_id, :email, :name, :description, :availability, :payment,
+    params.permit( :id, :host_id, :email, :name, :description, :availability, :payment,
                   :price, :street_address, :city, :state, :zipcode, :photo_url_1,
                   :photo_url_2, :photo_url_3, purposes: [])
   end
@@ -44,15 +48,15 @@ class Host::YardsController < ApplicationController
                        name: obj_info[:attributes][:name].titleize})
     end
   end
-  
+
   def yard_details(yard_id)
     yard = EngineService.yard_details(yard_id)
     if yard == {}
-      @yard = {}
+      {}
     else
-      @yard = OpenStruct.new({  name:           yard[:attributes][:name],
-                                host_id:        yard[:attributes][:host_id],
-                                email:          yard[:attributes][:email],
+      OpenStruct.new({          name:           yard[:attributes][:name],
+                                host_id:        current_user.id,
+                                email:          current_user.email,
                                 id:             yard[:id],
                                 description:    yard[:attributes][:description],
                                 availability:   yard[:attributes][:availability],

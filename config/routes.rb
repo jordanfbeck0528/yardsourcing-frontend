@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :yards, only: [:new, :create, :update]
   end
 
+  get "/host/yards/:yard_id", to: "host/yards#update"
+
   resources :yards, only: [:show]
 
   namespace :renter do

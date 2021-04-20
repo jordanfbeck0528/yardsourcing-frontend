@@ -15,7 +15,7 @@ class EngineService
   end
 
   def self.update_yard(yard_params)
-    response = connection.post("/api/v1/yards/#{yard_params[:id]}") do |req|
+    response = connection.put("/api/v1/yards/#{yard_params[:id]}") do |req|
       req.headers["CONTENT_TYPE"] = "application/json"
       req.params = yard_params
     end
