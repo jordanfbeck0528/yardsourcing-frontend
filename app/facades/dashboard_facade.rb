@@ -18,7 +18,7 @@ class DashboardFacade
       OpenStruct.new({ yard_id:    yard[:attributes][:yard_id],
                        name:       yard[:attributes][:booking_name],
                        address:    full_address(yard_info),
-                       date:       yard[:attributes][:date],
+                       date:       yard[:attributes][:date].to_date,
                        duration:   yard[:attributes][:duration],
                        total_cost: total_cost(yard[:attributes][:duration], yard_info[:attributes][:price]),
                        img:        yard_info[:attributes][:photo_url_1] })
@@ -40,6 +40,6 @@ class DashboardFacade
   end
 
   def self.total_cost(duration, price)
-    (duration * price).round(2)
+    duration * price
   end
 end
