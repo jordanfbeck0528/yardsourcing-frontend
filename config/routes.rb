@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   namespace :host do
     resources :dashboard, only: :index
-    resources :yards, only: [:new, :create]
+    resources :yards, except: [:show, :destroy]
   end
 
   get 'search/yards', to: 'search#find_yards'
