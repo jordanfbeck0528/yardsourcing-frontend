@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     resources :yards, only: [:new, :create]
   end
 
+  get 'search/yards', to: 'search#find_yards'
+  resources :search, only: [:index]
+
   resources :yards, only: [:show]
 
   namespace :renter do
