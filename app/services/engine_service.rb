@@ -37,6 +37,14 @@ class EngineService
     JSON.parse(response.body, symbolize_names: true)
   end
 
+  def self.create_booking(booking_params)
+    response = connection.post('/api/v1/bookings') do |req|
+      req.headers["CONTENT_TYPE"] = "application/json"
+      req.params = booking_params
+    end
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
   def self.connection
     Faraday.new(url: ENV['ys_engine_url'])
   end
