@@ -1,0 +1,14 @@
+<h1>Yard: <%= @yard.name %></h1>
+<%= form_with url: yard_bookings_path, local: true do |form| %>
+  <%= form.label :booking_name %>
+  <%= form.text_field :booking_name, required: true  %><br>
+  <%= form.label 'Date' %>
+  <%= form.date_field :date %><br>
+  <%= form.label 'Time' %>
+  <%= form.time_field :time %><br>
+  <%= form.label 'Duration in Hours' %>
+  <%= form.number_field :duration %><br>
+  <%= form.label :description %>
+  <%= form.text_area :description, size: "70x5" %><br>
+  <%= form.submit 'Create Booking' %>
+<% end %>
