@@ -37,9 +37,11 @@ class EngineService
       req.headers["CONTENT_TYPE"] = "application/json"
       req.params = booking_params
     end
-    
-    def self.host_bookings(host_id)
-      response = connection.get("/api/v1/hosts/#{host_id}/bookings")
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def self.host_bookings(host_id)
+    response = connection.get("/api/v1/hosts/#{host_id}/bookings")
     JSON.parse(response.body, symbolize_names: true)
   end
 

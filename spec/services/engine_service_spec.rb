@@ -125,7 +125,7 @@ RSpec.describe "EngineService", type: :feature do
 
   describe "::host_bookings(host_id)" do
     it "should return a list of a host's bookings" do
-      VCR.use_cassette 'bookings/host-bookings' do
+      VCR.use_cassette 'bookings/host-bookings-service' do
         es = EngineService.host_bookings(1)
         many_bookings_response_evaluation(es)
       end
@@ -195,6 +195,7 @@ RSpec.describe "EngineService", type: :feature do
     expect(es[:data][:attributes][:purposes][:data].first.keys).to eq([:id, :type, :attributes])
     expect(es[:data][:attributes][:purposes][:data].first[:attributes].keys).to eq([:name])
   end
+
   def booking_details_response_evaluation(es)
     expect(es[:data]).to be_a(Hash)
     expect(es[:data].keys).to eq([:id, :type, :attributes])
