@@ -1,6 +1,10 @@
 # Yardsourcing
 
-<Compelling Application description goes here>
+Have you ever been sitting in your 5th floor apartment wishing you could bask in the sun on a lawn chair? Now you can and you don't even need to leave your city! Do you need some spare cash and have own a private outdoor space? If you answered yes to either of these quetions, you need **Yardsourcing**!
+
+Yardsourcing is a web application that allows users to create accounts via Google login, browse yards available for rent by location or list their own outdoor space! Whether you need a pet friendly yard, a party yard or a place to do your outdoor hobby - Yardsourcing has you covered!
+
+*Turn your extra green into green.*
 
 ### Created by:
 - [Alexa Morales Smyth](https://github.com/amsmyth1) | [LinkedIn](https://www.linkedin.com/in/moralesalexa/)
@@ -26,7 +30,7 @@ This project was tested with:
   - [Installing](#installing)
 - [Database Schema](#database-schema)  
 - [Application Features](#application-features)
-  - [Feature 1](#feature-1)
+  - [OmniAuth and Google](#omniauth-and-google-integrations)
 - [Testing](#testing)
 - [How to Contribute](#how-to-contribute)
 - [Roadmap](#roadmap)
@@ -100,11 +104,36 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Database Schema
 
-- [Database Schema](https:url_of_picture)
+<img src="Schema_yardsourcing.png" width="400">
+
+### Project Architecture
+
+<img src="ys_design.png" width="600">
+
 
 ### Application Features
-##### Feature 1
-- Some really good info
+
+##### OmniAuth and Google Integrations
+- OmniAuth and Google Integration
+
+##### Host Yard Create, Delete, Update
+- About this feature  
+
+##### Yard Search
+- About this feature  
+
+##### Renting a yard (Create a booking)
+- About this feature  
+
+##### Renter Dashboard
+- About this feature  
+
+##### Host Dashboard
+- About this feature  
+
+##### Email booking updates
+- About this feature  
+
 
 ### Testing
 ##### Running Tests
