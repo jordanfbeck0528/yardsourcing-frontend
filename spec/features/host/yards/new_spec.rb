@@ -48,7 +48,7 @@ describe 'As an authenticated user when I visit the new yard page' do
       expect(page).to have_button('Create Yard')
     end
   end
-  #######
+
   describe 'happy path' do
     it "when I fill out the form with valid information I can create a yard" do
       VCR.use_cassette('create_yard') do
