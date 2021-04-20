@@ -28,8 +28,8 @@ describe 'As an authenticated user when I visit the renters dashboard' do
 
       expect(page).to have_button('Find your next yard')
     end
-    #need to unskip after initial search info is complete
-    #issue number 13
+
+    # need to unskip after initial search info (issue number 13) is complete
     xit 'I click on the find your next yard button, and it takes you to the search index path' do
       visit renter_dashboard_index_path
 
