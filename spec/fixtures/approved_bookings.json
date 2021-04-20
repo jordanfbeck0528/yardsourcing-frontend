@@ -1,0 +1,17 @@
+{
+  "data": [
+      {
+          "id": "1",
+          "type": "booking",
+          "attributes": {
+              "yard_id": 2,
+              "name": "Pet Birthday Party",
+              "address": "123 4th St Denver, CO 80202",
+              "date": "2021-04-25",
+              "duration": 3,
+              "total_cost": "60.00",
+              "img": "https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg"
+          }
+      }
+  ]
+}

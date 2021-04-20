@@ -39,7 +39,6 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
   xit "displays a button to 'Rent' the yard if the current user is the renter" do
     VCR.use_cassette('renter_yard_show_page_ultimate_party') do
       visit renter_dashboard_index_path
-      save_and_open_page
       click_on "Large Yard for any Hobby"
 
       expect(current_path).to eq('/yards/3')
