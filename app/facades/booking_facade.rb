@@ -16,7 +16,8 @@ class BookingFacade
                        time:         get_time(booking),
                        duration:     booking[:attributes][:duration],
                        description:  booking[:attributes][:description],
-                       total_cost:   total_cost(booking[:attributes][:duration], yard_info[:attributes][:price])})
+                       total_cost:   total_cost(booking[:attributes][:duration], yard_info[:attributes][:price]),
+                       coords: get_coords(full_address(yard_info)) })
     end
   end
 
@@ -36,5 +37,11 @@ class BookingFacade
     d = booking[:attributes][:date].to_date
     t = booking[:attributes][:time].to_time
     dt = DateTime.new(d.year, d.month, d.day, t.hour, t.min)
+  end
+
+  def self.get_coords(full_address)
+    Geokit::Geocoders::MapQuestGeocoder.key = ENV['mapquest_key']
+    Geokit::Geocoders::provider_order = [:mapquest]
+    Geokit::Geocoders::MapQuestGeocoder.geocode full_address
   end
 end

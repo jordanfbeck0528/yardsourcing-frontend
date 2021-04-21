@@ -1,10 +1,13 @@
+<script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api_key']%>&callback=initMap&libraries=&v=weekly"
+async
+></script>
 <%= render 'shared/nav_bar'%>
 <header class="header">
   <h2><%= @booking.name %></h2>
 </header>
 <section class="booking-details">
   <p>Yard: <%= link_to "#{@booking.yard_name}", yard_path(@booking.yard_id) %>
-  <p>Address: <%= @booking.address %></p>
+  <p>Address: <%= link_to @booking.address, "https://www.google.com/maps/?q=#{@booking.address}"%></p>
   <p>Status: <%= @booking.status.titleize %></p>
   <p>Date: <%= @booking.date.strftime('%m/%d/%Y') %></p>
   <p>Time: <%= @booking.time.strftime("%I:%M%p") %></p>
@@ -13,3 +16,28 @@
   <p>Description: <%= @booking.description %></p>
   <%= button_to 'Delete Booking', '' %>
 </section>
+
+<div id="map" style="width: 750px; height: 300px;">
+  <script type="text/javascript">
+    function initMap()
+    {
+      var location =  { lat: <%= @booking.coords.lat %>, lng: <%= @booking.coords.lng %> } ;
+
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 13,
+        center: location
+      });
+
+      var marker = new google.maps.Marker({
+        position: location,
+        map: map
+      });
+
+      var infowindow = new google.maps.InfoWindow();
+
+      google.maps.event.addListener(marker, "click", () => {
+        window.location.href = "https://www.google.com/maps/?q=" + '<%= @booking.coords.full_address %>';
+      });
+    }
+  </script>
+</div>

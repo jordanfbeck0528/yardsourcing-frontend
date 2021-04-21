@@ -22,7 +22,7 @@ class DashboardFacade
                         description:  yard[:attributes][:description],
                         address:      full_address(yard),
                         price:        yard[:attributes][:price],
-                        purposes:        all_purposes(yard),
+                        purposes:     all_purposes(yard),
                         photo_url_1:  yard[:attributes][:photo_url_1] })
       end
   end
@@ -43,7 +43,7 @@ class DashboardFacade
 
   def self.booking_struct(booking)
     yard_info = yard_info(booking[:attributes][:yard_id])
-    OpenStruct.new({ id:          booking[:id],
+    OpenStruct.new({ id:         booking[:id],
                      yard_id:    booking[:attributes][:yard_id],
                      yard_name:  yard_info[:attributes][:name],
                      status:     booking[:attributes][:status],
