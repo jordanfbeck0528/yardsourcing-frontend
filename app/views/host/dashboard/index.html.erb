@@ -24,6 +24,11 @@
               <li><%= purpose.titleize %></li>
             <% end %>
             </ul>
+            <p><% if !yard.img.blank? %>
+               <%= image_tag(booking.img, size: '250')  %>
+            <% else %>
+              No image
+            <% end %></p>
           </div>
         </div>
         <% end %>
@@ -47,6 +52,11 @@
           <p>Time: <%= booking.time.strftime("%I:%M%p") %></p>
           <p>Duration: <%= booking.duration %> hours</p>
           <p>Total Cost: $<%= '%.2f' % booking.total_cost %></p>
+          <p><% if !booking.img.blank? %>
+             <%= image_tag(booking.img, size: '250')  %>
+          <% else %>
+            No image
+          <% end %></p>
           <% if booking.status == 'pending' %>
           <div>
             <%= button_to("Approve", "/bookings/#{booking.id}", method: :patch, params: {status: :approved}, class: "btn btn-outline-secondary") %>
@@ -54,7 +64,7 @@
           </div>
           <% end %>
           <% if ((Time.parse(booking.time.to_s) - Time.parse(DateTime.now.to_s))/3600) > 48 %>
-          <%= button_to 'Cancel Booking', "/bookings/#{booking.id}", method: :delete , class: "btn btn-outline-secondary"%>
+          <%= button_to 'Cancel Booking', "/bookings/#{booking.id}", method: :delete, params: {host: :true}, class: "btn btn-outline-secondary"%>
           <% end  %>
         </div>
       </div>
