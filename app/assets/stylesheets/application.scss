@@ -12,13 +12,13 @@
  *
  */
  @import "bootstrap";
- $background_green: rgb(166, 195, 166);
+ $background_green: #BDD9BF;
 
  .dashboard {
   margin: 10px;
   padding: 10px;
   width: 25rem;
-  background-color: rgb(225, 225, 225);
+  background-color: #b0ad9e;
 }
 
 .nav-bar {
@@ -34,6 +34,6 @@
  }
 
 .btn-secondary {
-   background-color: rgb(225, 225, 225);
    color: black;
+   background-color: #b0ad9e;
  }

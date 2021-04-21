@@ -59,12 +59,12 @@
           <% end %></p>
           <% if booking.status == 'pending' %>
           <div>
-            <%= button_to("Approve", "/bookings/#{booking.id}", method: :patch, params: {status: :approved}, class: "btn btn-outline-secondary") %>
-            <%= button_to("Reject", "/bookings/#{booking.id}", method: :patch, params: {status: :rejected}, class: "btn btn-outline-secondary") %>
+            <%= button_to("Approve", "/bookings/#{booking.id}", method: :patch, params: {status: :approved}, class: "btn btn-light") %>
+            <%= button_to("Reject", "/bookings/#{booking.id}", method: :patch, params: {status: :rejected}, class: "btn btn-light") %>
           </div>
           <% end %>
           <% if ((Time.parse(booking.time.to_s) - Time.parse(DateTime.now.to_s))/3600) > 48 %>
-          <%= button_to 'Cancel Booking', "/bookings/#{booking.id}", method: :delete, params: {host: :true}, class: "btn btn-outline-secondary"%>
+          <%= button_to 'Cancel Booking', "/bookings/#{booking.id}", method: :delete, params: {host: :true}, class: "btn btn-light"%>
           <% end  %>
         </div>
       </div>

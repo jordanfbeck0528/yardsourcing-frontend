@@ -23,7 +23,7 @@
               No image
             <% end %></p>
             <% if ((Time.parse(booking.time.to_s) - Time.parse(DateTime.now.to_s))/3600) > 48 %>
-              <%= button_to 'Cancel Booking', "/bookings/#{booking.id}", method: :delete , class: "btn btn-outline-secondary"%>
+              <%= button_to 'Cancel Booking', "/bookings/#{booking.id}", method: :delete , class: "btn btn-light"%>
             <% end  %>
           </div>
         </div>
@@ -52,7 +52,7 @@
               No image
             <% end %></p>
             <% if ((Time.parse(booking.time.to_s) - Time.parse(DateTime.now.to_s))/3600) > 48 %>
-              <%= button_to 'Cancel Booking', "/bookings/#{booking.id}", method: :delete , class: "btn btn-outline-secondary"%>
+              <%= button_to 'Cancel Booking', "/bookings/#{booking.id}", method: :delete , class: "btn btn-light"%>
             <% end  %>
           </div>
         </div>
