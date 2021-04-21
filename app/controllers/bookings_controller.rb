@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
   before_action :set_yard, only: [:new, :create]
 
+  def show
+    @booking = BookingFacade.get_booking(params[:id])
+  end
+
   def create
     params[:renter_id] = current_user.id
     params[:renter_email] = current_user.email
@@ -13,6 +17,20 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    booking = EngineService.update_booking_status({id: params[:id], status: params[:status]})
+    redirect_to host_dashboard_index_path
+  end
+
+  def destroy
+    booking = EngineService.delete_booking({id: params[:id]})
+    if params[:host]
+      redirect_to host_dashboard_index_path
+    else
+      redirect_to renter_dashboard_index_path
+    end
+  end
+
   private
 
   def booking_params
@@ -20,7 +38,6 @@ class BookingsController < ApplicationController
   end
 
   def set_yard
-    data = YardFacade.get_data(params[:yard_id], current_user.id)
-    @yard = data[:yard_details]
+    @yard = YardFacade.yard_details(params[:yard_id])
   end
 end

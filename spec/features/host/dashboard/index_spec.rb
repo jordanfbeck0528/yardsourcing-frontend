@@ -35,7 +35,7 @@ describe 'As an authenticated user when I visit the host dashboard' do
       visit host_dashboard_index_path
 
       within '.header' do
-        expect(page).to have_link('Create Yard')
+        expect(page).to have_button('Create Yard')
         click_on 'Create Yard'
       end
 
@@ -52,20 +52,17 @@ describe 'As an authenticated user when I visit the host dashboard' do
   end
 
   it "I see a section for my yards with a note about no yards when I have not added any" do
-    response = File.open("spec/fixtures/host_yards0.json")
-    stub_request(:get, "#{ENV['ys_engine_url']}/api/v1/hosts/1/yards").
-       with(
-         headers: {
-        'Accept'=>'*/*',
-        'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-        'User-Agent'=>'Faraday v1.3.0'
-         }).
-         to_return(status: 200, body: response, headers: {})
+    user = User.create!(id:100, uid: '899980', username: 'Mickey Mouse', email:'mousey@mouse.com' )
+    omniauth_response_2 = stub_omniauth_happy('899980', 'Mickey Mouse', 'mousey@mouse.com')
+    user_2 = User.from_omniauth(omniauth_response_2)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user_2)
 
-    visit host_dashboard_index_path
+    VCR.use_cassette('no_host_yards') do
+      visit host_dashboard_index_path
 
-    expect(page).to have_content("Add some yards to rent! Turn your green into green!")
-    expect(page).to have_button("Create Yard")
+      expect(page).to have_content("Add some yards to rent! Turn your green into green!")
+      expect(page).to have_button("Create Yard")
+    end
   end
 
   describe "I see a section for Upcoming Bookings" do
@@ -84,10 +81,51 @@ describe 'As an authenticated user when I visit the host dashboard' do
     describe "If pending, I see “Approve” and “Deny” buttons for each booking" do
       it "If I click Approve, the status changes to approve and I no longer see buttons" do
         VCR.use_cassette('bookings/host_bookings_approved') do
+          booking_params = {:renter_id=>"1",
+                          :renter_email=>"renter@renter.com",
+                          :yard_id=>"2",
+                          :booking_name=>"A new booking!!",
+                          :date=>"2021-05-05",
+                          :time=>"2021-05-05 12:00:00 -0500",
+                          :duration=>"2",
+                          :description=>"description"}
+
+          es = EngineService.create_booking(booking_params)
           visit host_dashboard_index_path
-          within '#booking-3' do
+          within "#booking-#{es[:data][:id]}" do
             expect(page).to have_button("Approve")
             expect(page).to have_button("Reject")
+            click_on "Approve"
+          end
+          within "#booking-#{es[:data][:id]}" do
+            expect(page).to have_content("Approved")
+            expect(page).to_not have_button("Approve")
+            expect(page).to_not have_button("Reject")
+          end
+        end
+      end
+      it "If I click Rejected, the status changes to approve and I no longer see buttons" do
+        VCR.use_cassette('bookings/host_bookings_rejected') do
+          booking_params = {:renter_id=>"1",
+                          :renter_email=>"renter@renter.com",
+                          :yard_id=>"2",
+                          :booking_name=>"A new booking!!",
+                          :date=>"2021-05-05",
+                          :time=>"2021-05-05 12:00:00 -0500",
+                          :duration=>"2",
+                          :description=>"description"}
+
+          es = EngineService.create_booking(booking_params)
+          visit host_dashboard_index_path
+          within "#booking-#{es[:data][:id]}" do
+            expect(page).to have_button("Approve")
+            expect(page).to have_button("Reject")
+            click_on "Reject"
+          end
+          within "#booking-#{es[:data][:id]}" do
+            expect(page).to have_content("Rejected")
+            expect(page).to_not have_button("Approve")
+            expect(page).to_not have_button("Reject")
           end
         end
       end
@@ -100,6 +138,28 @@ describe 'As an authenticated user when I visit the host dashboard' do
             expect(page).to_not have_button("Approve")
             expect(page).to_not have_button("Reject")
           end
+        end
+      end
+    end
+    describe "I see a button for cancel booking if the booking is more than 48 hours away" do
+      it "If not within 48 hours, I see the Cancle Booking button" do
+        VCR.use_cassette('bookings/host_bookings_cancel') do
+          booking_params = {:renter_id=>"1",
+                          :renter_email=>"renter@renter.com",
+                          :yard_id=>"2",
+                          :booking_name=>"DELETE THIS BOOKING",
+                          :date=>"2021-05-05",
+                          :time=>"2021-05-05 12:00:00 -0500",
+                          :duration=>"2",
+                          :description=>"description"}
+
+          es = EngineService.create_booking(booking_params)
+          visit host_dashboard_index_path
+          within "#booking-#{es[:data][:id]}" do
+            expect(page).to have_button("Cancel Booking")
+            click_button "Cancel Booking"
+          end
+          expect(page).to_not have_content("DELETE THIS BOOKING")
         end
       end
     end

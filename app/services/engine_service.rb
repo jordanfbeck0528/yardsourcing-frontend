@@ -48,6 +48,11 @@ class EngineService
     JSON.parse(response.body, symbolize_names: true)
   end
 
+  def self.booking_details(booking_id)
+    response = connection.get("/api/v1/bookings/#{booking_id}")
+    JSON.parse(response.body, symbolize_names: true)[:data]
+  end
+
   def self.renter_bookings_by_status(renter_id, status)
     response = connection.get("/api/v1/renters/#{renter_id}/bookings?status=#{status}")
     JSON.parse(response.body, symbolize_names: true)
@@ -55,6 +60,22 @@ class EngineService
 
   def self.create_booking(booking_params)
     response = connection.post('/api/v1/bookings') do |req|
+      req.headers["CONTENT_TYPE"] = "application/json"
+      req.params = booking_params
+    end
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def self.update_booking_status(booking_params)
+    response = connection.put("/api/v1/bookings/#{booking_params[:id]}") do |req|
+      req.headers["CONTENT_TYPE"] = "application/json"
+      req.params = booking_params
+    end
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def self.delete_booking(booking_params)
+    response = connection.delete("/api/v1/bookings/#{booking_params[:id]}") do |req|
       req.headers["CONTENT_TYPE"] = "application/json"
       req.params = booking_params
     end

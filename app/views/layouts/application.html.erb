@@ -9,7 +9,7 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
+  <body class='landing'>
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, class: name %>
     <% end %>

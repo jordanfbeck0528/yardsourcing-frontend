@@ -36,7 +36,7 @@ RSpec.describe 'Search Page' do
     it "when filled in the form brings you to the yards/search" do
       VCR.use_cassette('all_purposes_create_search') do
         visit search_index_path
-        fill_in :location, with: '80202'
+        fill_in :location, with: '80205'
         click_button 'Yard Me'
         expect(current_path).to eq('/search/yards')
         expect(page).to have_content("Ultimate Party Yard")
@@ -48,7 +48,7 @@ RSpec.describe 'Search Page' do
       VCR.use_cassette('all_purposes_create_search_with_purpose') do
         purposes = EngineService.all_purposes
         visit search_index_path
-        fill_in :location, with: '80202'
+        fill_in :location, with: '80205'
         check "#{purposes[:data][0][:attributes][:name].titleize}"
         click_button 'Yard Me'
         expect(current_path).to eq('/search/yards')

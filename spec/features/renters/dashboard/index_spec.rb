@@ -7,33 +7,48 @@ describe 'As an authenticated user when I visit the renters dashboard' do
     @user_1 = User.from_omniauth(omniauth_response)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
   end
+  it "No bookings available" do
+    user = User.create!(id:200, uid: '899981', username: 'Minnie Mouse', email:'minnie@mouse.com' )
+     omniauth_response_3 = stub_omniauth_happy('899981', 'Minnie Mouse', 'minnie@mouse.com')
+     user_3 = User.from_omniauth(omniauth_response_3)
+     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user_3)
 
+     VCR.use_cassette('bookings/no_bookings') do
+       visit renter_dashboard_index_path
+
+       within('.upcoming-bookings') do
+         expect(page).to have_content("Upcoming Bookings:")
+       end
+     end
+  end
   describe 'Happy Path' do
     it 'I see an upcoming booking section' do
-      visit renter_dashboard_index_path
+      VCR.use_cassette('upcoming_bookings') do
+        visit renter_dashboard_index_path
 
-      within('.upcoming-bookings') do
-        expect(page).to have_content("Upcoming Bookings:")
+        within('.upcoming-bookings') do
+          expect(page).to have_content("Upcoming Bookings:")
+        end
       end
     end
+
     it 'I see a pending bookings section' do
-      visit renter_dashboard_index_path
+      VCR.use_cassette('pending_booking') do
+        visit renter_dashboard_index_path
 
-      within('.pending-bookings') do
-        expect(page).to have_content("Pending Bookings:")
+        within('.pending-bookings') do
+          expect(page).to have_content("Pending Bookings:")
+        end
       end
-    end
-    it 'I see a find your next yard button' do
-      visit renter_dashboard_index_path
-
-      expect(page).to have_button('Find your next yard')
     end
 
     it 'I click on the find your next yard button, and it takes you to the search index path' do
-      visit renter_dashboard_index_path
+      VCR.use_cassette('search_yards') do
+        visit renter_dashboard_index_path
 
-      click_on 'Find your next yard'
-      expect(current_path).to eq(search_index_path)
+        click_on 'Find your next yard'
+        expect(current_path).to eq(search_index_path)
+      end
     end
 
     it 'I see a list of approved upcoming boookings' do
@@ -45,7 +60,7 @@ describe 'As an authenticated user when I visit the renters dashboard' do
         end
 
         click_link 'Pet Birthday Party'
-        expect(current_path).to eq(yard_path(2))
+        expect(current_path).to eq(booking_path(1))
       end
     end
 
@@ -54,7 +69,7 @@ describe 'As an authenticated user when I visit the renters dashboard' do
         visit renter_dashboard_index_path
 
         within('.upcoming-bookings') do
-          expect(page).to have_content("Address: 123 4th St Denver, CO 80202")
+          expect(page).to have_content("Address: 2001 Blake St Denver, CO 80205")
           expect(page).to have_content("Date: 04/25/2021")
           expect(page).to have_content("Duration: 3 hours")
           expect(page).to have_content("Total Cost: $60.00")
@@ -72,7 +87,7 @@ describe 'As an authenticated user when I visit the renters dashboard' do
         end
 
         click_link 'Spotlight Tag'
-        expect(current_path).to eq(yard_path(4))
+        expect(current_path).to eq(booking_path(5))
       end
     end
 
@@ -81,11 +96,44 @@ describe 'As an authenticated user when I visit the renters dashboard' do
         visit renter_dashboard_index_path
 
         within('.pending-bookings') do
-          expect(page).to have_content("Address: 320 Seattle Lane Denver, CO 80202")
+          expect(page).to have_content("Address: 3181 E 23rd Ave Denver, CO 80205")
           expect(page).to have_content("Date: 05/05/2021")
           expect(page).to have_content("Duration: 2 hours")
           expect(page).to have_content("Total Cost: $31.00")
           expect(page).to have_content("No image")
+        end
+      end
+    end
+    it 'I can click on the yard link' do
+      VCR.use_cassette('pending_bookings') do
+        visit renter_dashboard_index_path
+        within('.pending-bookings') do
+          expect(page).to have_link('Multipurpose Yard')
+        end
+
+        click_link 'Multipurpose Yard'
+        expect(current_path).to eq(yard_path(4))
+      end
+    end
+    describe "I see a button for cancel booking if the booking is more than 48 hours away" do
+      it "If not pending, I see the status of Approved or Rejected" do
+        VCR.use_cassette('bookings/renter_bookings_cancel') do
+          booking_params = {:renter_id=>"1",
+                          :renter_email=>"renter@renter.com",
+                          :yard_id=>"2",
+                          :booking_name=>"DLT THIS BOOKING",
+                          :date=>"2021-05-05",
+                          :time=>"2021-05-05 12:00:00 -0500",
+                          :duration=>"2",
+                          :description=>"description"}
+
+          es = EngineService.create_booking(booking_params)
+          visit renter_dashboard_index_path
+          within "#booking-#{es[:data][:id]}" do
+            expect(page).to have_button("Cancel Booking")
+            click_button "Cancel Booking"
+          end
+          expect(page).to_not have_content("DLT THIS BOOKING")
         end
       end
     end

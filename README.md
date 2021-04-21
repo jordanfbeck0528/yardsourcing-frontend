@@ -93,8 +93,10 @@ These instructions will get you a copy of the project up and running on your loc
 
   6. Inside of the application.yml create the environment variables for your google client_id and client_secret as. At the bottom of the file enter the following:
   ```
-  GOOGLE_CLIENT_ID: <your client_id goes here>
-  GOOGLE_CLIENT_SECRET: <your client_secret goes here>
+  GOOGLE_CLIENT_ID: '<GOOGLE_CLIENT_ID>'
+  GOOGLE_CLIENT_SECRET: '<GOOGLE_CLIENT_SECRET'
+  ys_engine_url: 'http://localhost:3001'
+  mapquest_key: '<MAPQUEST_KEY>'
   ```
 
   7. Start rails server

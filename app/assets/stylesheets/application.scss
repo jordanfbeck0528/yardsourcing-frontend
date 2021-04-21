@@ -12,9 +12,49 @@
  *
  */
  @import "bootstrap";
+ $background_green: #BDD9BF;
+ $landing_grey: rgb(100, 108, 100);
+
+
 
  .dashboard {
   margin: 10px;
   padding: 10px;
   width: 25rem;
+  background-color: #b0ad9e;
+}
+
+.nav-bar {
+   padding: 10px;
+}
+
+#form-small {
+  size: 10px;
+}
+
+.landing {
+   background: $background_green;
+ }
+
+.btn-secondary {
+   color: black;
+   background-color: #b0ad9e;
+ }
+.photo_size {
+  width: 20rem;
+}
+
+.carousel-inner img {
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+    min-height:200px;
+}
+
+.landing {
+  background: $background_green;
+}
+
+.btn {
+  color: white;
+  background: $landing_grey;
 }
