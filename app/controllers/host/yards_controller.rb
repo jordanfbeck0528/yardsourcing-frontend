@@ -15,7 +15,7 @@ class Host::YardsController < ApplicationController
       flash[:error] = yard[:error]
       render :new, obj: @purposes
     else
-      redirect_to yard_path(yard[:data][:id])
+      redirect_to host_yard_path(yard[:data][:id])
     end
   end
 
