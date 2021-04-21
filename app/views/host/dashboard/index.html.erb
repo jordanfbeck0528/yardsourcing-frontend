@@ -1,13 +1,13 @@
 <%= render 'shared/nav_bar'%>
 <header class="header">
-  <%= button_to 'Create Yard', new_host_yard_path, method: :get, class: "btn btn-outline-secondary"%>
+  <%= button_to 'Create Yard', new_host_yard_path, method: :get, class: "btn btn-secondary"%>
 </header>
 
 <section class="my-yards">
   <h3>My Yard(s)</h3>
   <% if @host_yards.empty? %>
     <p>Add some yards to rent! Turn your green into green!</p>
-    <%= button_to 'Create Yard', new_host_yard_path, method: :get %>
+    <%= button_to 'Create Yard', new_host_yard_path, method: :get, class:'btn btn-secondary' %>
   <% else %>
     <div class="container">
       <div class="row">
