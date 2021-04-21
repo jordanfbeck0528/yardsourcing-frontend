@@ -45,7 +45,7 @@ describe 'As an authenticated user when I visit the renters dashboard' do
         end
 
         click_link 'Pet Birthday Party'
-        expect(current_path).to eq(yard_path(2))
+        expect(current_path).to eq(booking_path(1))
       end
     end
 
@@ -72,7 +72,7 @@ describe 'As an authenticated user when I visit the renters dashboard' do
         end
 
         click_link 'Spotlight Tag'
-        expect(current_path).to eq(yard_path(4))
+        expect(current_path).to eq(booking_path(5))
       end
     end
 
@@ -87,6 +87,17 @@ describe 'As an authenticated user when I visit the renters dashboard' do
           expect(page).to have_content("Total Cost: $31.00")
           expect(page).to have_content("No image")
         end
+      end
+    end
+    it 'I can click on the yard link' do
+      VCR.use_cassette('pending_bookings') do
+        visit renter_dashboard_index_path
+        within('.pending-bookings') do
+          expect(page).to have_link('Multipurpose Yard')
+        end
+
+        click_link 'Multipurpose Yard'
+        expect(current_path).to eq(yard_path(4))
       end
     end
   end

@@ -49,8 +49,10 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
   it "displays a button to 'Edit' the yard if the current user is the host" do
     VCR.use_cassette('host_yard_show_page_hobby') do
       visit host_dashboard_index_path
-      click_on "Large Yard for any Hobby"
 
+      within ".my-yards" do
+        click_on "Large Yard for any Hobby"
+      end
       expect(current_path).to eq('/yards/3')
       expect(page).to have_button('Edit Yard')
     end

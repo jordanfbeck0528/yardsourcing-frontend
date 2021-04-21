@@ -39,12 +39,13 @@
       <% @bookings&.each do |booking| %>
       <div id='booking-<%= booking.id %>' class= "card dashboard">
         <div class="card-body">
-          <div class="card-title name"><%= link_to booking.name, 'booking_path(booking.id)' %></div>
-          Status: <%= booking.status.titleize %><br>
-          Date: <%= booking.date %><br>
-          Time: <%= booking.time %><br>
-          Duration in Hours: <%= booking.duration %><br>
-          Description: <%= booking.description %><br>
+          <div class="card-title name"><%= link_to "#{booking.name}", booking_path(booking.id) %></div>
+          <p>Yard: <%= link_to "#{booking.yard_name}", yard_path(booking.yard_id) %>
+          <p>Address: <%= booking.address %></p>
+          <p>Date: <%= booking.date.strftime('%m/%d/%Y') %></p>
+          <p>Time: <%= booking.time.strftime("%I:%M%p") %></p>
+          <p>Duration: <%= booking.duration %> hours</p>
+          <p>Total Cost: $<%= '%.2f' % booking.total_cost %></p>
           <% if booking.status == 'pending' %>
           <div>
             <%= button_to 'Approve' %><br>
