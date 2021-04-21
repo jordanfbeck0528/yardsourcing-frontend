@@ -38,4 +38,14 @@ RSpec.describe "As an authenticated user when I visit the Booking Show Page" do
       end
     end
   end
+
+  xit "I see the booking information" do
+    VCR.use_cassette('booking/show_booking') do
+      visit booking_path(1)
+      within '.booking-details' do
+        expect(page).to have_button("Delete Booking")
+        click_button("Delete Booking")
+      end
+    end
+  end
 end
