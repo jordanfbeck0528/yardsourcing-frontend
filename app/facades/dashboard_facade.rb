@@ -22,7 +22,8 @@ class DashboardFacade
                         description:  yard[:attributes][:description],
                         address:      full_address(yard),
                         price:        yard[:attributes][:price],
-                        purposes:        all_purposes(yard) })
+                        purposes:        all_purposes(yard),
+                        photo_url_1:  yard[:attributes][:photo_url_1] })
       end
   end
 
@@ -49,7 +50,7 @@ class DashboardFacade
                      name:       booking[:attributes][:booking_name],
                      address:    full_address(yard_info),
                      date:       booking[:attributes][:date].to_date,
-                     time:        booking[:attributes][:time].to_time,
+                     time:       get_time(booking),
                      duration:   booking[:attributes][:duration],
                      total_cost: total_cost(booking[:attributes][:duration], yard_info[:attributes][:price]),
                      img:        yard_info[:attributes][:photo_url_1] })
@@ -71,5 +72,11 @@ class DashboardFacade
 
   def self.total_cost(duration, price)
     duration * price
+  end
+
+  def self.get_time(booking)
+    d = booking[:attributes][:date].to_date
+    t = booking[:attributes][:time].to_time
+    dt = DateTime.new(d.year, d.month, d.day, t.hour, t.min)
   end
 end
