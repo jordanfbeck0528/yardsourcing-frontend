@@ -39,7 +39,6 @@ class BookingsController < ApplicationController
   end
 
   def set_yard
-    data = YardFacade.get_data(params[:yard_id], current_user.id)
-    @yard = data[:yard_details]
+    @yard = YardFacade.yard_details(params[:yard_id])
   end
 end

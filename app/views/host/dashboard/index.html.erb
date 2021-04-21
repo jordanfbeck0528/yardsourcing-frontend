@@ -14,7 +14,7 @@
         <% @host_yards.each do |yard| %>
         <div class= "card dashboard">
           <div class="card-body">
-            <div class="card-title name"><%= link_to yard.name, yard_path(yard.id) %></div>
+            <div class="card-title name"><%= link_to yard.name, host_yard_path(yard.id) %></div>
             Description: <%= yard.description %><br>
             Address: <%= yard.address %><br>
             Rate: $<%= yard.price %> per hour <br>

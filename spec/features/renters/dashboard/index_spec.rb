@@ -10,30 +10,32 @@ describe 'As an authenticated user when I visit the renters dashboard' do
 
   describe 'Happy Path' do
     it 'I see an upcoming booking section' do
-      visit renter_dashboard_index_path
+      VCR.use_cassette('upcoming_bookings') do
+        visit renter_dashboard_index_path
 
-      within('.upcoming-bookings') do
-        expect(page).to have_content("Upcoming Bookings:")
+        within('.upcoming-bookings') do
+          expect(page).to have_content("Upcoming Bookings:")
+        end
       end
     end
+
     it 'I see a pending bookings section' do
-      visit renter_dashboard_index_path
+      VCR.use_cassette('pending_booking') do
+        visit renter_dashboard_index_path
 
-      within('.pending-bookings') do
-        expect(page).to have_content("Pending Bookings:")
+        within('.pending-bookings') do
+          expect(page).to have_content("Pending Bookings:")
+        end
       end
-    end
-    it 'I see a find your next yard button' do
-      visit renter_dashboard_index_path
-
-      expect(page).to have_button('Find your next yard')
     end
 
     it 'I click on the find your next yard button, and it takes you to the search index path' do
-      visit renter_dashboard_index_path
+      VCR.use_cassette('search_yards') do
+        visit renter_dashboard_index_path
 
-      click_on 'Find your next yard'
-      expect(current_path).to eq(search_index_path)
+        click_on 'Find your next yard'
+        expect(current_path).to eq(search_index_path)
+      end
     end
 
     it 'I see a list of approved upcoming boookings' do

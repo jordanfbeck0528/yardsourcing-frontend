@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   namespace :host do
     resources :dashboard, only: :index
-    resources :yards, except: [:show, :destroy]
+    resources :yards, except: [:destroy]
   end
 
   get 'search/yards', to: 'search#find_yards'
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   namespace :renter do
-    resources :dashboard, only: :index
+    resources :dashboard, only: [:index]
   end
 
   resources :bookings, only: [:show, :update]

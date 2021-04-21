@@ -1,5 +1,6 @@
 <%= render 'shared/nav_bar'%>
 
+<<<<<<< HEAD
 <% if @yard.class == OpenStruct %>
   <header class="header">
     <h2><%= @yard.name %></h2>
@@ -33,3 +34,11 @@
     <%= button_to "#{@button_params[:text]} Yard", @button_params[:path], method: @button_params[:method], class: "btn btn-outline-secondary"%>
   </section>
 <% end %>
+=======
+<%= render partial: 'shared/yard_show', locals: {
+        button_text: "Rent Yard",
+        url: new_yard_booking_path(@yard.id),
+        yard: @yard,
+        method: :get
+}%>
+>>>>>>> main
