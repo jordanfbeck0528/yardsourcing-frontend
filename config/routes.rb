@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   namespace :renter do
     resources :dashboard, only: [:index]
   end
+
+  resources :bookings, only: [:show, :update]
 end

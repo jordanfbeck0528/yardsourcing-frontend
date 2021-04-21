@@ -1,0 +1,15 @@
+<%= render 'shared/nav_bar'%>
+<header class="header">
+  <h2><%= @booking.name %></h2>
+</header>
+<section class="booking-details">
+  <p>Yard: <%= link_to "#{@booking.yard_name}", yard_path(@booking.yard_id) %>
+  <p>Address: <%= @booking.address %></p>
+  <p>Status: <%= @booking.status.titleize %></p>
+  <p>Date: <%= @booking.date.strftime('%m/%d/%Y') %></p>
+  <p>Time: <%= @booking.time.strftime("%I:%M%p") %></p>
+  <p>Duration: <%= @booking.duration %> hours</p>
+  <p>Total Cost: $<%= '%.2f' % @booking.total_cost %></p>
+  <p>Description: <%= @booking.description %></p>
+  <%= button_to 'Delete Booking', '' %>
+</section>

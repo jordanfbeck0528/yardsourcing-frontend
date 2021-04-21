@@ -47,7 +47,7 @@ describe 'As an authenticated user when I visit the renters dashboard' do
         end
 
         click_link 'Pet Birthday Party'
-        expect(current_path).to eq(yard_path(2))
+        expect(current_path).to eq(booking_path(1))
       end
     end
 
@@ -56,7 +56,7 @@ describe 'As an authenticated user when I visit the renters dashboard' do
         visit renter_dashboard_index_path
 
         within('.upcoming-bookings') do
-          expect(page).to have_content("Address: 123 4th St Denver, CO 80202")
+          expect(page).to have_content("Address: 2001 Blake St Denver, CO 80205")
           expect(page).to have_content("Date: 04/25/2021")
           expect(page).to have_content("Duration: 3 hours")
           expect(page).to have_content("Total Cost: $60.00")
@@ -74,7 +74,7 @@ describe 'As an authenticated user when I visit the renters dashboard' do
         end
 
         click_link 'Spotlight Tag'
-        expect(current_path).to eq(yard_path(4))
+        expect(current_path).to eq(booking_path(5))
       end
     end
 
@@ -83,12 +83,23 @@ describe 'As an authenticated user when I visit the renters dashboard' do
         visit renter_dashboard_index_path
 
         within('.pending-bookings') do
-          expect(page).to have_content("Address: 320 Seattle Lane Denver, CO 80202")
+          expect(page).to have_content("Address: 3181 E 23rd Ave Denver, CO 80205")
           expect(page).to have_content("Date: 05/05/2021")
           expect(page).to have_content("Duration: 2 hours")
           expect(page).to have_content("Total Cost: $31.00")
           expect(page).to have_content("No image")
         end
+      end
+    end
+    it 'I can click on the yard link' do
+      VCR.use_cassette('pending_bookings') do
+        visit renter_dashboard_index_path
+        within('.pending-bookings') do
+          expect(page).to have_link('Multipurpose Yard')
+        end
+
+        click_link 'Multipurpose Yard'
+        expect(current_path).to eq(yard_path(4))
       end
     end
   end

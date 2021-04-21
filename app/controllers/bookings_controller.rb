@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
   before_action :set_yard, only: [:new, :create]
 
+  def show
+    @booking = BookingFacade.get_booking(params[:id])
+  end
+
   def create
     params[:renter_id] = current_user.id
     params[:renter_email] = current_user.email
@@ -11,6 +15,16 @@ class BookingsController < ApplicationController
     else
       redirect_to renter_dashboard_index_path
     end
+  end
+
+  def update
+    booking = EngineService.update_booking_status({id: params[:id], status: params[:status]})
+    redirect_to host_dashboard_index_path
+  end
+
+  def delete
+    booking = EngineService.delete_booking({id: params[:id]})
+    redirect_to renter_dashboard_index_path
   end
 
   private

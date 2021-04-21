@@ -1,6 +1,6 @@
 <%= render 'shared/nav_bar'%>
 <header class="header">
-  <%= link_to 'Create Yard', new_host_yard_path %>
+  <%= button_to 'Create Yard', new_host_yard_path, method: :get, class: "btn btn-outline-secondary"%>
 </header>
 
 <section class="my-yards">
@@ -39,18 +39,22 @@
       <% @bookings&.each do |booking| %>
       <div id='booking-<%= booking.id %>' class= "card dashboard">
         <div class="card-body">
-          <div class="card-title name"><%= link_to booking.name, 'booking_path(booking.id)' %></div>
-          Status: <%= booking.status.titleize %><br>
-          Date: <%= booking.date %><br>
-          Time: <%= booking.time %><br>
-          Duration in Hours: <%= booking.duration %><br>
-          Description: <%= booking.description %><br>
+          <div class="card-title name"><%= link_to "#{booking.name}", booking_path(booking.id) %></div>
+          <p>Yard: <%= link_to "#{booking.yard_name}", yard_path(booking.yard_id) %>
+          <p>Status: <%= booking.status.titleize %></p>
+          <p>Address: <%= booking.address %></p>
+          <p>Date: <%= booking.date.strftime('%m/%d/%Y') %></p>
+          <p>Time: <%= booking.time.strftime("%I:%M%p") %></p>
+          <p>Duration: <%= booking.duration %> hours</p>
+          <p>Total Cost: $<%= '%.2f' % booking.total_cost %></p>
           <% if booking.status == 'pending' %>
           <div>
-            <%= button_to 'Approve' %><br>
-            <%= button_to 'Reject' %><br>
+            <%= button_to("Approve", "/bookings/#{booking.id}", method: :patch, params: {status: :approved}, class: "btn btn-outline-secondary") %>
+            <%= button_to("Reject", "/bookings/#{booking.id}", method: :patch, params: {status: :rejected}, class: "btn btn-outline-secondary") %>
           </div>
           <% end %>
+          <%= button_to 'Cancel Booking', '', class: "btn btn-outline-secondary"%>
+
         </div>
       </div>
       <% end %>
