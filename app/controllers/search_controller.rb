@@ -6,11 +6,11 @@ class SearchController < ApplicationController
 
   def find_yards
     downcase_params
-    @data = YardFacade.yards_in_location(yard_params)
+    @yards = YardFacade.yards_in_location(yard_params)
     
-    if @data.yards.include?(:error)
-      flash[:error] = @data.yards[:error]
-      render :index, obj: @data.yards
+    if @yards.include?(:error)
+      flash[:error] = @yards[:error]
+      render :index, obj: @yards
     else
       render :find_yards
     end
