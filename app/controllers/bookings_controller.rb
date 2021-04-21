@@ -3,11 +3,6 @@ class BookingsController < ApplicationController
 
   def show
     @booking = BookingFacade.get_booking(params[:id])
-
-    # if @booking.empty?
-    #   flash[:error] = 'Data cannot be accessed at this time'
-    #   redirect_to host_dashboard_index_path
-    # end
   end
 
   def create
