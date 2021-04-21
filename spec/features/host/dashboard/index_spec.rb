@@ -70,7 +70,6 @@ describe 'As an authenticated user when I visit the host dashboard' do
       VCR.use_cassette('bookings/host_bookings') do
         visit host_dashboard_index_path
         within '.my-upcoming-bookings' do
-          save_and_open_page
           expect(page).to have_link("Pet Birthday Party")
           expect(page).to have_link("3 Year Old Birthday Party")
           # expect(page).to have_link("Barbeque with Friends")
