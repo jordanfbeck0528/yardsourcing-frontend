@@ -28,7 +28,7 @@ class EngineService
 
   def self.yard_details(yard_id)
     cache_key = ["yard", yard_id]
-    result = Rails.cache.fetch(cache_key, expires_in: 5.minutes) do
+    result = Rails.cache.fetch(cache_key, expires_in: 10.minutes) do
       response = connection.get("/api/v1/yards/#{yard_id}")
       JSON.parse(response.body, symbolize_names: true)[:data]
     end
