@@ -48,19 +48,11 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
 
   describe "As a renter & sad path" do
     it "displays a button to 'Rent' the yard if the current user is the renter" do
-      response = File.open("spec/fixtures/renter_yard_show_page.json")
-      stub_request(:get, "#{ENV['ys_engine_url']}/api/v1/yards/10652").
-         with(
-           headers: {
-          'Accept'=>'*/*',
-          'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-          'User-Agent'=>'Faraday v1.3.0'
-           }).
-           to_return(status: 200, body: response, headers: {})
+      VCR.use_cassette('renter_yard_show') do
+        visit yard_path(4)
 
-      visit yard_path(10652)
-
-      expect(page).to have_button('Rent Yard')
+        expect(page).to have_button('Rent Yard')
+      end
     end
   end
   describe "no yard matches id" do
