@@ -3,25 +3,17 @@ require 'rails_helper'
 RSpec.describe "EngineService", type: :feature do
   describe "::all_purposes" do
     it "should return json response of all purposes" do
-      response = File.open("spec/fixtures/all_purposes.json")
-      stub_request(:get, "#{ENV['ys_engine_url']}/api/v1/purposes").
-         with(
-           headers: {
-       	  'Accept'=>'*/*',
-       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-       	  'User-Agent'=>'Faraday v1.3.0'
-          }).
-        to_return(status: 200, body: response, headers: {})
+      VCR.use_cassette('engine/all_purposes') do
+        es = EngineService.all_purposes
 
-      es = EngineService.all_purposes
-
-      many_purposes_response_evaluation(es)
+        many_purposes_response_evaluation(es)
+      end
     end
   end
 
   describe "::create_yard(yard_params)" do
     it "Creates a yards and a json record is returned" do
-      VCR.use_cassette "create_yard_service" do
+      VCR.use_cassette('engine/create_yard') do
         yard_params = { :name=>"name",
                         :email=>"email@email.com",
                         :host_id=>"123545",
@@ -47,7 +39,7 @@ RSpec.describe "EngineService", type: :feature do
 
   describe "::create_booking(booking_params)" do
     it "Creates a booking and a json record is returned" do
-      VCR.use_cassette "booking/create-booking-service" do
+      VCR.use_cassette('engine/create_booking') do
         booking_params = { :renter_id=>"1",
                         :renter_email=>"renter@renter.com",
                         :yard_id=>"2",
@@ -66,7 +58,7 @@ RSpec.describe "EngineService", type: :feature do
 
   describe "::update_booking_status(booking_params)" do
     it "Creates a booking and a json record is returned" do
-      VCR.use_cassette "booking/update-booking-service" do
+      VCR.use_cassette('engine/update_booking') do
         booking_params = { id: 100,
                         :renter_id=>"1",
                         :renter_email=>"renter@renter.com",
@@ -88,7 +80,7 @@ RSpec.describe "EngineService", type: :feature do
   end
   describe "::delete_booking(booking_params)" do
     it "Creates a booking and a json record is returned" do
-      VCR.use_cassette "booking/delete-booking-service" do
+      VCR.use_cassette('engine/delete_booking') do
         booking_params = {:renter_id=>"1",
                         :renter_email=>"renter@renter.com",
                         :yard_id=>"2",
@@ -120,60 +112,43 @@ RSpec.describe "EngineService", type: :feature do
   end
 
   describe "::yard_details" do
-    it "should return json response of all purposes" do
-      response = File.open("spec/fixtures/yard_details.json")
-      stub_request(:get, "#{ENV['ys_engine_url']}/api/v1/yards/1").
-         with(
-           headers: {
-       	  'Accept'=>'*/*',
-       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-       	  'User-Agent'=>'Faraday v1.3.0'
-           }).
-         to_return(status: 200, body: response, headers: {})
-       es = EngineService.yard_details(2)
+    it "should return json response of yard details" do
+      VCR.use_cassette('engine/yard_details') do
+        es = EngineService.yard_details(2)
 
-       expect(es).to be_a(Hash)
-       expect(es.keys).to eq([:id, :type, :attributes])
-       expect(es[:attributes].keys).to eq([ :host_id,
-                                            :name,
-                                            :street_address,
-                                            :city,
-                                            :state,
-                                            :zipcode,
-                                            :description,
-                                            :availability,
-                                            :payment,
-                                            :photo_url_1,
-                                            :photo_url_2,
-                                            :photo_url_3,
-                                            :price,
-                                            :purposes
-                                            ])
-       expect(es[:attributes][:purposes].keys).to eq([:data])
-       expect(es[:attributes][:purposes][:data]).to be_an(Array)
-       expect(es[:attributes][:purposes][:data].first).to be_a(Hash)
-       expect(es[:attributes][:purposes][:data].first.keys).to eq([:id, :type, :attributes])
-       expect(es[:attributes][:purposes][:data].first[:attributes].keys).to eq([:name])
+        expect(es).to be_a(Hash)
+        expect(es.keys).to eq([:id, :type, :attributes])
+        expect(es[:attributes].keys).to eq([ :host_id,
+                                              :name,
+                                              :street_address,
+                                              :city,
+                                              :state,
+                                              :zipcode,
+                                              :description,
+                                              :availability,
+                                              :payment,
+                                              :photo_url_1,
+                                              :photo_url_2,
+                                              :photo_url_3,
+                                              :price,
+                                              :purposes
+                                              ])
+        expect(es[:attributes][:purposes].keys).to eq([:data])
+        expect(es[:attributes][:purposes][:data]).to be_an(Array)
+        expect(es[:attributes][:purposes][:data].first).to be_a(Hash)
+        expect(es[:attributes][:purposes][:data].first.keys).to eq([:id, :type, :attributes])
+        expect(es[:attributes][:purposes][:data].first[:attributes].keys).to eq([:name])
+      end
     end
   end
 
   describe "::host_yards(host_id)" do
     it "should return a list of a host's yards" do
-
-      response = File.open("spec/fixtures/host_yards.json")
-      stub_request(:get, "#{ENV['ys_engine_url']}/api/v1/hosts/1/yards").
-         with(
-           headers: {
-       	  'Accept'=>'*/*',
-       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-       	  'User-Agent'=>'Faraday v1.3.0'
-           }).
-         to_return(status: 200, body: response, headers: {})
-
+      VCR.use_cassette('engine/host_yards') do
         es = EngineService.host_yards(1)
 
-
-      many_yards_response_evaluation(es)
+        many_yards_response_evaluation(es)
+      end
     end
   end
 
@@ -188,37 +163,19 @@ RSpec.describe "EngineService", type: :feature do
 
   describe "::renter_bookings_by_status(renter_id, status)" do
     it "should return a list of a bookings by approved status" do
-      response = File.open("spec/fixtures/approved_bookings.json")
-
-      stub_request(:get, "#{ENV['ys_engine_url']}/api/v1/renters/1/bookings?status=approved").
-         with(
-           headers: {
-       	  'Accept'=>'*/*',
-       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-       	  'User-Agent'=>'Faraday v1.3.0'
-           }).
-         to_return(status: 200, body: response, headers: {})
-
+      VCR.use_cassette('engine/approved_bookings') do
         es = EngineService.renter_bookings_by_status(1, 'approved')
 
-      many_bookings_response_evaluation(es)
+        many_bookings_response_evaluation(es)
+      end
     end
 
     it "should return a list of a bookings by pending status" do
-      response = File.open("spec/fixtures/pending_bookings.json")
-
-      stub_request(:get, "#{ENV['ys_engine_url']}/api/v1/renters/1/bookings?status=pending").
-         with(
-           headers: {
-       	  'Accept'=>'*/*',
-       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-       	  'User-Agent'=>'Faraday v1.3.0'
-           }).
-         to_return(status: 200, body: response, headers: {})
-
+      VCR.use_cassette('engine/pending_bookings') do
         es = EngineService.renter_bookings_by_status(1, 'pending')
 
-      many_bookings_response_evaluation(es)
+        many_bookings_response_evaluation(es)
+      end
     end
   end
 
