@@ -17,17 +17,21 @@ class EngineService
   end
 
   def self.update_yard(yard_params)
-    response = connection.put("/api/v1/yards/#{yard_params[:id]}") do |req|
-      req.headers["CONTENT_TYPE"] = "application/json"
-      req.params = yard_params
+    Rails.cache.delete(["yard", yard_params[:id]])
+      response = connection.put("/api/v1/yards/#{yard_params[:id]}") do |req|
+        req.headers["CONTENT_TYPE"] = "application/json"
+        req.params = yard_params
     end
 
     JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.yard_details(yard_id)
-    response = connection.get("/api/v1/yards/#{yard_id}")
-    JSON.parse(response.body, symbolize_names: true)[:data]
+    cache_key = ["yard", yard_id]
+    result = Rails.cache.fetch(cache_key, expires_in: 5.minutes) do
+      response = connection.get("/api/v1/yards/#{yard_id}")
+      JSON.parse(response.body, symbolize_names: true)[:data]
+    end
   end
 
   def self.host_yards(host_id)
