@@ -5,15 +5,12 @@ class SearchController < ApplicationController
   end
 
   def find_yards
-    if params[:purposes]
-      downcase_params
-      @yards = YardFacade.yards_in_location(yard_params)
-    else
-      @yards = YardFacade.yards_in_location(yard_params)
-    end
-    if @yards.include?(:error)
-      flash[:error] = @yards[:error]
-      render :index, obj: @purposes
+    downcase_params
+    @data = YardFacade.yards_in_location(yard_params)
+    
+    if @data.yards.include?(:error)
+      flash[:error] = @data.yards[:error]
+      render :index, obj: @data.yards
     else
       render :find_yards
     end
@@ -26,6 +23,7 @@ class SearchController < ApplicationController
   end
 
   def downcase_params
+    return [] unless params[:purposes]
     params[:purposes] = params[:purposes].map do |purpose|
       purpose.downcase
     end
