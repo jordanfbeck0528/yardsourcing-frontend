@@ -1,5 +1,6 @@
-<script src="http://maps.google.com/maps/api/js?sensor=false"
-          type="text/javascript"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api_key']%>&callback=initMap&libraries=&v=weekly"
+async
+></script>
 
 <% if @data.yards.include?(:data) %>
   <%= "No yards match your specific parameters" %>
@@ -11,19 +12,22 @@
 
 <div id="map" style="width: 750px; height: 300px;"></div>
   <script type="text/javascript">
-    var locations = <%= @data.coords %>;
+    function initMap()
+    {
+      var locations = <%= @data.coords %>;
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 13,
-      center: { lat: locations[0][0], lng: locations[0][1] }
-    });
-
-    var marker, i;
-
-    for (i = 0; i < locations.length; i++) {
-      marker = new google.maps.Marker({
-        position: { lat: locations[i][0], lng: locations[i][1] },
-        map: map
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 13,
+        center: { lat: locations[0][0], lng: locations[0][1] }
       });
+
+      var marker, i;
+
+      for (i = 0; i < locations.length; i++) {
+        marker = new google.maps.Marker({
+          position: { lat: locations[i][0], lng: locations[i][1] },
+          map: map
+        });
+      }
     }
   </script>
