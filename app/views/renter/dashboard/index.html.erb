@@ -1,21 +1,28 @@
 <%= render 'shared/nav_bar'%>
+<header class="header">
+<%= button_to 'Find your next yard', search_index_path, method: :get, class: "btn btn-outline-secondary" %>
+</header>
+
 <section class="upcoming-bookings">
   <h3>Upcoming Bookings:</h3>
     <div class="container">
       <div class="row">
-        <% @renter_yards_approved.each do |yard| %>
+        <% @renter_bookings_approved.each do |booking| %>
         <div class= "card dashboard">
           <div class="card-body">
-            <div class="card-title name"><%= link_to "#{yard.name}", yard_path(yard.yard_id) %></div>
-            <p>Address: <%= yard.address %></p>
-            <p>Date: <%= yard.date.strftime('%m/%d/%Y') %></p>
-            <p>Duration: <%= yard.duration %> hours</p>
-            <p>Total Cost: $<%= '%.2f' % yard.total_cost %></p>
-            <p><% if !yard.img.blank? %>
-               <%= image_tag(yard.img, size: '250')  %>
+            <div class="card-title name"><%= link_to "#{booking.name}", booking_path(booking.id) %></div>
+            <p>Yard: <%= link_to "#{booking.yard_name}", yard_path(booking.yard_id) %>
+            <p>Address: <%= booking.address %></p>
+            <p>Date: <%= booking.date.strftime('%m/%d/%Y') %></p>
+            <p>Time: <%= booking.time.strftime("%I:%M%p") %></p>
+            <p>Duration: <%= booking.duration %> hours</p>
+            <p>Total Cost: $<%= '%.2f' % booking.total_cost %></p>
+            <p><% if !booking.img.blank? %>
+               <%= image_tag(booking.img, size: '250')  %>
             <% else %>
               No image
             <% end %></p>
+            <%= button_to 'Cancel Booking', '', class: "btn btn-outline-secondary" %>
           </div>
         </div>
         <% end %>
@@ -27,24 +34,25 @@
   <h3>Pending Bookings:</h3>
     <div class="container">
       <div class="row">
-        <% @renter_yards_pending.each do |yard| %>
+        <% @renter_bookings_pending.each do |booking| %>
         <div class= "card dashboard">
           <div class="card-body">
-            <div class="card-title name"><%= link_to "#{yard.name}", yard_path(yard.yard_id) %></div>
-            <p>Address: <%= yard.address %></p>
-            <p>Date: <%= yard.date.strftime('%m/%d/%Y') %></p>
-            <p>Duration: <%= yard.duration %> hours</p>
-            <p>Total Cost: $<%= '%.2f' % yard.total_cost %></p>
-            <p><% if !yard.img.blank? %>
-               <%= image_tag(yard.img, size: '250')  %>
+            <div class="card-title name"><%= link_to "#{booking.name}", booking_path(booking.id) %></div>
+            <p>Yard: <%= link_to "#{booking.yard_name}", yard_path(booking.yard_id) %>
+            <p>Address: <%= booking.address %></p>
+            <p>Date: <%= booking.date.strftime('%m/%d/%Y') %></p>
+            <p>Time: <%= booking.time.strftime("%I:%M%p") %></p>
+            <p>Duration: <%= booking.duration %> hours</p>
+            <p>Total Cost: $<%= '%.2f' % booking.total_cost %></p>
+            <p><% if !booking.img.blank? %>
+               <%= image_tag(booking.img, size: '250')  %>
             <% else %>
               No image
             <% end %></p>
+            <%= button_to 'Cancel Booking', '', class: "btn btn-outline-secondary" %>
           </div>
         </div>
         <% end %>
       </div>
     </div>
 </section>
-
-<%= button_to 'Find your next yard', search_index_path, method: :get %>
