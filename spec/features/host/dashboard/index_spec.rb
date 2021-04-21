@@ -56,7 +56,7 @@ describe 'As an authenticated user when I visit the host dashboard' do
     omniauth_response_2 = stub_omniauth_happy('899980', 'Mickey Mouse', 'mousey@mouse.com')
     user_2 = User.from_omniauth(omniauth_response_2)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user_2)
-    
+
     VCR.use_cassette('no_host_yards') do
       visit host_dashboard_index_path
 
@@ -70,6 +70,7 @@ describe 'As an authenticated user when I visit the host dashboard' do
       VCR.use_cassette('bookings/host_bookings') do
         visit host_dashboard_index_path
         within '.my-upcoming-bookings' do
+          save_and_open_page
           expect(page).to have_link("Pet Birthday Party")
           expect(page).to have_link("3 Year Old Birthday Party")
           expect(page).to have_link("Barbeque with Friends")
