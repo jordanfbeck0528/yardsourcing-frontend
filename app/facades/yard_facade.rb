@@ -33,15 +33,6 @@ class YardFacade
     @yards
   end
 
-  def self.yard_form_info(yard_id)
-    yard = EngineService.yard_details(yard_id)
-    if yard == {}
-      {}
-    else
-      yard_object(yard)
-    end
-  end
-
   def self.yard_object(yard)
     id = yard[:id] if yard[:id]
     yard = yard[:attributes] ? yard[:attributes] : yard
