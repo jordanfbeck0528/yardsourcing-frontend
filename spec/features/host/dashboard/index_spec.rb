@@ -85,6 +85,7 @@ describe 'As an authenticated user when I visit the host dashboard' do
       it "If I click Approve, the status changes to approve and I no longer see buttons" do
         VCR.use_cassette('bookings/host_bookings_approved') do
           visit host_dashboard_index_path
+          
           within '#booking-3' do
             expect(page).to have_button("Approve")
             expect(page).to have_button("Reject")

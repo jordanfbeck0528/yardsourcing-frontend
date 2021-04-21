@@ -1,10 +1,4 @@
 class YardFacade
-  def self.get_data(yard_id, user_id)
-    {
-      yard_details: yard_details(yard_id),
-      button_params: button_params(user_id)
-    }
-  end
 
   def self.yard_details(yard_id)
     yard = EngineService.yard_details(yard_id)
@@ -35,23 +29,6 @@ class YardFacade
     yard[:attributes][:purposes][:data].map do |purpose|
       purpose[:attributes][:name]
     end
-  end
-
-  def self.button_params(user_id)
-    if @yard != {}
-      if user_id == @yard.host_id
-        button_params = {}
-        button_params[:text] = "Edit"
-        button_params[:path] = "/host/yards/#{@yard.id}/edit"
-        button_params[:method] = :get
-      else
-        button_params = {}
-        button_params[:text] = "Rent"
-        button_params[:path] = "/bookings/new"
-        button_params[:method] = :post
-      end
-    end
-    button_params
   end
 
   def self.yards_in_location(yard_params)
