@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = BookingFacade.get_booking(params[:id])
+    binding.pry
   end
 
   def create

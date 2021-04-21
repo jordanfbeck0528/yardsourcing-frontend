@@ -22,7 +22,9 @@
             <% else %>
               No image
             <% end %></p>
-            <%= button_to 'Cancel Booking', '', class: "btn btn-outline-secondary" %>
+            <% if ((Time.parse(booking.time.to_s) - Time.parse(DateTime.now.to_s))/3600) > 48 %>
+            <%= button_to 'Cancel Booking', "/bookings/#{booking.id}", method: :delete , class: "btn btn-outline-secondary"%>
+            <% end  %>
           </div>
         </div>
         <% end %>
