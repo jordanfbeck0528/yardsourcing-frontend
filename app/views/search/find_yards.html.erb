@@ -22,11 +22,16 @@ async
       });
 
       var marker, i;
+      var infowindow = new google.maps.InfoWindow();
 
       for (i = 0; i < locations.length; i++) {
         marker = new google.maps.Marker({
           position: { lat: locations[i][0], lng: locations[i][1] },
           map: map
+        });
+        var yard = <%= @data.yards.index(%>i<%=)%>;
+        google.maps.event.addListener(marker, "click", () => {
+          window.location.href = "https://www.google.com/maps/?q=" + yard.address;
         });
       }
     }
