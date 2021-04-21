@@ -47,7 +47,7 @@ RSpec.describe "EngineService", type: :feature do
 
   describe "::create_booking(booking_params)" do
     it "Creates a booking and a json record is returned" do
-      VCR.use_cassette "create-booking-service" do
+      VCR.use_cassette "booking/create-booking-service" do
         booking_params = { :renter_id=>"1",
                         :renter_email=>"renter@renter.com",
                         :yard_id=>"2",
@@ -60,6 +60,61 @@ RSpec.describe "EngineService", type: :feature do
         es = EngineService.create_booking(booking_params)
 
         booking_details_response_evaluation(es)
+      end
+    end
+  end
+
+  describe "::update_booking_status(booking_params)" do
+    it "Creates a booking and a json record is returned" do
+      VCR.use_cassette "booking/update-booking-service" do
+        booking_params = { id: 100,
+                        :renter_id=>"1",
+                        :renter_email=>"renter@renter.com",
+                        :yard_id=>"2",
+                        :booking_name=>"A new booking!!",
+                        :date=>"2021-05-05",
+                        :time=>"2021-05-05 12:00:00 -0500",
+                        :duration=>"2",
+                        :description=>"description"}
+
+        es = EngineService.create_booking(booking_params)
+        booking_params = { :id=>"#{es[:data][:id]}"}
+
+        es = EngineService.update_booking_status(booking_params)
+
+        booking_details_response_evaluation(es)
+      end
+    end
+  end
+  describe "::delete_booking(booking_params)" do
+    it "Creates a booking and a json record is returned" do
+      VCR.use_cassette "booking/delete-booking-service" do
+        booking_params = {:renter_id=>"1",
+                        :renter_email=>"renter@renter.com",
+                        :yard_id=>"2",
+                        :booking_name=>"A new booking!!",
+                        :date=>"2021-05-05",
+                        :time=>"2021-05-05 12:00:00 -0500",
+                        :duration=>"2",
+                        :description=>"description"}
+
+        es = EngineService.create_booking(booking_params)
+        booking_params = { :id=>"#{es[:data][:id]}"}
+        es = EngineService.delete_booking(booking_params)
+
+        expect(es).to be_a(Hash)
+        expect(es.keys).to eq([ :id,
+                                :yard_id,
+                                :renter_id,
+                                :status,
+                                :booking_name,
+                                :date,
+                                :time,
+                                :duration,
+                                :description,
+                                :created_at,
+                                :updated_at,
+                                :renter_email])
       end
     end
   end
@@ -190,21 +245,6 @@ RSpec.describe "EngineService", type: :feature do
     expect(es[:data].first[:attributes][:purposes][:data]).to be_an(Array)
     expect(es[:data].first[:attributes][:purposes][:data].first.keys).to eq([:id, :type, :attributes])
     expect(es[:data].first[:attributes][:purposes][:data].first[:attributes].keys).to eq([:name])
-  end
-
-  def many_bookings_response_evaluation(es)
-    expect(es[:data]).to be_an(Array)
-    expect(es[:data].first).to be_a(Hash)
-    expect(es[:data].first.keys).to eq([:id, :type, :attributes])
-    expect(es[:data].first[:type]).to eq("booking")
-    expect(es[:data].first[:attributes].keys).to eq([:status,
-                                                    :yard_id,
-                                                    :booking_name,
-                                                    :renter_id,
-                                                    :date,
-                                                    :time,
-                                                    :duration,
-                                                    :description])
   end
 
   def many_host_bookings_response_evaluation(es)

@@ -60,6 +60,22 @@ class EngineService
     JSON.parse(response.body, symbolize_names: true)
   end
 
+  def self.update_booking_status(booking_params)
+    response = connection.put("/api/v1/bookings/#{booking_params[:id]}") do |req|
+      req.headers["CONTENT_TYPE"] = "application/json"
+      req.params = booking_params
+    end
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def self.delete_booking(booking_params)
+    response = connection.delete("/api/v1/bookings/#{booking_params[:id]}") do |req|
+      req.headers["CONTENT_TYPE"] = "application/json"
+      req.params = booking_params
+    end
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
   def self.host_bookings(host_id)
     response = connection.get("/api/v1/hosts/#{host_id}/bookings")
     JSON.parse(response.body, symbolize_names: true)

@@ -1,4 +1,8 @@
 <%= render 'shared/nav_bar'%>
+<header class="header">
+<%= button_to 'Find your next yard', search_index_path, method: :get, class: "btn btn-outline-secondary" %>
+</header>
+
 <section class="upcoming-bookings">
   <h3>Upcoming Bookings:</h3>
     <div class="container">
@@ -18,6 +22,7 @@
             <% else %>
               No image
             <% end %></p>
+            <%= button_to 'Cancel Booking', '', class: "btn btn-outline-secondary" %>
           </div>
         </div>
         <% end %>
@@ -44,11 +49,10 @@
             <% else %>
               No image
             <% end %></p>
+            <%= button_to 'Cancel Booking', '', class: "btn btn-outline-secondary" %>
           </div>
         </div>
         <% end %>
       </div>
     </div>
 </section>
-
-<%= button_to 'Find your next yard', search_index_path, method: :get %>

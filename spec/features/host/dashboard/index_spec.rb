@@ -35,7 +35,7 @@ describe 'As an authenticated user when I visit the host dashboard' do
       visit host_dashboard_index_path
 
       within '.header' do
-        expect(page).to have_link('Create Yard')
+        expect(page).to have_button('Create Yard')
         click_on 'Create Yard'
       end
 

@@ -22,6 +22,27 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    booking = EngineService.update_booking_status({id: params[:id], status: params[:status]})
+    if booking.include?(:error)
+      flash[:error] = booking[:error]
+      render :new
+    else
+      redirect_to host_dashboard_index_path
+    end
+  end
+
+  def delete
+    binding.pry
+    booking = EngineService.delete_booking({id: params[:id]})
+    if booking.include?(:error)
+      flash[:error] = booking[:error]
+      render :new, obj: @yard
+    else
+      redirect_to renter_dashboard_index_path
+    end
+  end
+
   private
 
   def booking_params
