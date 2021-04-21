@@ -3,8 +3,8 @@
     <h3>Welcome <%= current_user.username %></h3>
   </div>
   <div class="nav justify-content-end">
-    <%= button_to 'Host Dashboard', host_dashboard_index_path, method: :get ,class: "btn btn-outline-secondary"%>
-    <%= button_to 'Renter Dashboard', renter_dashboard_index_path, method: :get, class: "btn btn-outline-secondary"%>
-    <%= button_to 'Logout', logout_path, method: :delete, class: "btn btn-outline-secondary"%>
+    <%= button_to 'Host Dashboard', host_dashboard_index_path, method: :get ,class: "btn btn-secondary"%>
+    <%= button_to 'Renter Dashboard', renter_dashboard_index_path, method: :get, class: "btn btn-secondary"%>
+    <%= button_to 'Logout', logout_path, method: :delete, class: "btn btn-secondary"%>
   </div>
 </section>

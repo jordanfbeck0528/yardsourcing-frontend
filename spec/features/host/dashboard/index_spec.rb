@@ -141,5 +141,27 @@ describe 'As an authenticated user when I visit the host dashboard' do
         end
       end
     end
+    describe "I see a button for cancel booking if the booking is more than 48 hours away" do
+      it "If not within 48 hours, I see the Cancle Booking button" do
+        VCR.use_cassette('bookings/host_bookings_cancel') do
+          booking_params = {:renter_id=>"1",
+                          :renter_email=>"renter@renter.com",
+                          :yard_id=>"2",
+                          :booking_name=>"DELETE THIS BOOKING",
+                          :date=>"2021-05-05",
+                          :time=>"2021-05-05 12:00:00 -0500",
+                          :duration=>"2",
+                          :description=>"description"}
+
+          es = EngineService.create_booking(booking_params)
+          visit host_dashboard_index_path
+          within "#booking-#{es[:data][:id]}" do
+            expect(page).to have_button("Cancel Booking")
+            click_button "Cancel Booking"
+          end
+          expect(page).to_not have_content("DELETE THIS BOOKING")
+        end
+      end
+    end
   end
 end

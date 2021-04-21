@@ -22,9 +22,13 @@ class BookingsController < ApplicationController
     redirect_to host_dashboard_index_path
   end
 
-  def delete
+  def destroy
     booking = EngineService.delete_booking({id: params[:id]})
-    redirect_to renter_dashboard_index_path
+    if params[:host]
+      redirect_to host_dashboard_index_path
+    else
+      redirect_to renter_dashboard_index_path
+    end
   end
 
   private
