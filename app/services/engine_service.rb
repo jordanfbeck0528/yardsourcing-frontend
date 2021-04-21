@@ -61,6 +61,11 @@ class EngineService
     JSON.parse(response.body, symbolize_names: true)
   end
 
+  def self.host_bookings(host_id)
+    response = connection.get("/api/v1/hosts/#{host_id}/bookings")
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
   def self.connection
     Faraday.new(url: ENV['ys_engine_url'])
   end

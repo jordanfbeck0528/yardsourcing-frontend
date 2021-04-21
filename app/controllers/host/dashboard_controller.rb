@@ -1,5 +1,7 @@
 class Host::DashboardController < ApplicationController
   def index
-    @host_yards = DashboardFacade.host_yards(current_user.id)
+    facade = DashboardFacade.get_data(current_user.id)
+    @host_yards = facade[:host_yards]
+    @bookings = facade[:host_bookings]
   end
 end

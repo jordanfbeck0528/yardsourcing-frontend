@@ -43,13 +43,11 @@ describe 'As an authenticated user when I visit the host dashboard' do
     end
   end
 
-  it "Each yard is a link to that yard's show page"
-
   it "I see a section for all of my yards I have created" do
     VCR.use_cassette('host_yards') do
       visit host_dashboard_index_path
 
-      expect(page).to have_css(".yard_info")
+      expect(page).to have_css(".my-yards")
     end
   end
 
@@ -71,10 +69,39 @@ describe 'As an authenticated user when I visit the host dashboard' do
   end
 
   describe "I see a section for Upcoming Bookings" do
-    it "I see a link for dates and times for each booking"
+    it "I see a link for dates and times for each booking" do
+      VCR.use_cassette('bookings/host_bookings') do
+        visit host_dashboard_index_path
+        within '.my-upcoming-bookings' do
+          expect(page).to have_link("Pet Birthday Party")
+          expect(page).to have_link("3 Year Old Birthday Party")
+          expect(page).to have_link("Barbeque with Friends")
+          expect(page).to_not have_link("Spotlight Tag")
+        end
+      end
+    end
 
-    it "If pending, I see “Approve” and “Deny” buttons for each booking"
+    describe "If pending, I see “Approve” and “Deny” buttons for each booking" do
+      it "If I click Approve, the status changes to approve and I no longer see buttons" do
+        VCR.use_cassette('bookings/host_bookings_approved') do
+          visit host_dashboard_index_path
+          within '#booking-3' do
+            expect(page).to have_button("Approve")
+            expect(page).to have_button("Reject")
+          end
+        end
+      end
 
-    it "If not pending, I see the status of Approved or Rejected"
+      it "If not pending, I see the status of Approved or Rejected" do
+        VCR.use_cassette('bookings/host_bookings') do
+          visit host_dashboard_index_path
+
+          within '#booking-1' do
+            expect(page).to_not have_button("Approve")
+            expect(page).to_not have_button("Reject")
+          end
+        end
+      end
+    end
   end
 end
