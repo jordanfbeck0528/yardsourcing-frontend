@@ -7,13 +7,6 @@ RSpec.describe 'Welcome Page' do
       expect(page).to have_content('This is YardSourcing')
       expect(page).to have_content("You need yards, and we got 'em")
     end
-    it 'displays photos to entice the user to sign up' do
-      visit root_path
-       within '.photo_display' do
-        expect(page).to have_content('This is YardSourcing')
-        expect(page).to have_content("You need yards, and we got 'em")
-      end
-    end
   end
 
   describe 'it has an sad path ' do
