@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
     session[:user_id] = user.id
     flash[:success] = "Welcome, #{user.username}"
-    redirect_to host_dashboard_index_path
+    redirect_to renter_dashboard_index_path
   end
 
   def bad
