@@ -13,6 +13,9 @@
  */
  @import "bootstrap";
  $background_green: #BDD9BF;
+ $landing_grey: rgb(100, 108, 100);
+
+
 
  .dashboard {
   margin: 10px;
@@ -37,3 +40,21 @@
    color: black;
    background-color: #b0ad9e;
  }
+.photo_size {
+  width: 20rem;
+}
+
+.carousel-inner img {
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+    min-height:200px;
+}
+
+.landing {
+  background: $background_green;
+}
+
+.btn {
+  color: white;
+  background: $landing_grey;
+}
