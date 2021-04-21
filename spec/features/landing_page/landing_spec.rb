@@ -26,7 +26,7 @@ RSpec.describe 'Welcome Page' do
       omniauth_response = stub_omniauth_happy('123545', 'Dominic Padula', 'thisemail@gmail.com')
       user_1 = User.from_omniauth(omniauth_response)
       response = File.open("spec/fixtures/host_yards.json")
-      
+
       VCR.use_cassette('host_yards') do
         visit root_path
 
