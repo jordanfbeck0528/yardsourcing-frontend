@@ -84,10 +84,51 @@ describe 'As an authenticated user when I visit the host dashboard' do
     describe "If pending, I see “Approve” and “Deny” buttons for each booking" do
       it "If I click Approve, the status changes to approve and I no longer see buttons" do
         VCR.use_cassette('bookings/host_bookings_approved') do
+          booking_params = {:renter_id=>"1",
+                          :renter_email=>"renter@renter.com",
+                          :yard_id=>"2",
+                          :booking_name=>"A new booking!!",
+                          :date=>"2021-05-05",
+                          :time=>"2021-05-05 12:00:00 -0500",
+                          :duration=>"2",
+                          :description=>"description"}
+
+          es = EngineService.create_booking(booking_params)
           visit host_dashboard_index_path
-          within '#booking-3' do
+          within "#booking-#{es[:data][:id]}" do
             expect(page).to have_button("Approve")
             expect(page).to have_button("Reject")
+            click_on "Approve"
+          end
+          within "#booking-#{es[:data][:id]}" do
+            expect(page).to have_content("Approved")
+            expect(page).to_not have_button("Approve")
+            expect(page).to_not have_button("Reject")
+          end
+        end
+      end
+      it "If I click Rejected, the status changes to approve and I no longer see buttons" do
+        VCR.use_cassette('bookings/host_bookings_rejected') do
+          booking_params = {:renter_id=>"1",
+                          :renter_email=>"renter@renter.com",
+                          :yard_id=>"2",
+                          :booking_name=>"A new booking!!",
+                          :date=>"2021-05-05",
+                          :time=>"2021-05-05 12:00:00 -0500",
+                          :duration=>"2",
+                          :description=>"description"}
+
+          es = EngineService.create_booking(booking_params)
+          visit host_dashboard_index_path
+          within "#booking-#{es[:data][:id]}" do
+            expect(page).to have_button("Approve")
+            expect(page).to have_button("Reject")
+            click_on "Reject"
+          end
+          within "#booking-#{es[:data][:id]}" do
+            expect(page).to have_content("Rejected")
+            expect(page).to_not have_button("Approve")
+            expect(page).to_not have_button("Reject")
           end
         end
       end
