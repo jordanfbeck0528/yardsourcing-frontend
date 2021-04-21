@@ -8,7 +8,7 @@ RSpec.describe "As an authenticated user when I visit the Booking Show Page" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
   end
 
-  xit "I see links to renter/host dashboard and logout" do
+  it "I see links to renter/host dashboard and logout" do
     VCR.use_cassette('booking/show_booking') do
       visit booking_path(1)
       within '.nav-bar' do
@@ -19,11 +19,23 @@ RSpec.describe "As an authenticated user when I visit the Booking Show Page" do
     end
   end
 
-  xit "I see the booking information" do
-    VCR.use_cassette('booking/show_booking') do
-      visit booking_path(2)
+  it "I see the booking information" do
+    VCR.use_cassette('booking/show_booking-with-yard') do
+      visit booking_path(1)
+      within '.booking-details' do
+        expect(page).to have_content("Yard: Ultimate Party Yard")
+        expect(page).to have_content("Address: 123 4th St Denver, CO 80202")
+        expect(page).to have_content("Status: Approved")
+        expect(page).to have_content("Date: 04/25/2021")
+        expect(page).to have_content("Time: 02:00PM")
+        expect(page).to have_content("Duration: 3 hours")
+        expect(page).to have_content("Total Cost: $60.00")
+        expect(page).to have_content("Description: Throwing a bday party for my pet.")
 
-      expect(page).to have_css(".booking-details")
+        expect(page).to have_link("Ultimate Party Yard")
+        click_link("Ultimate Party Yard")
+        expect(current_path).to eq(yard_path(2))
+      end
     end
   end
 end
