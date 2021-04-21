@@ -130,25 +130,25 @@ RSpec.describe "EngineService", type: :feature do
        	  'User-Agent'=>'Faraday v1.3.0'
            }).
          to_return(status: 200, body: response, headers: {})
-       es = EngineService.yard_details(1)
+       es = EngineService.yard_details(2)
 
        expect(es).to be_a(Hash)
        expect(es.keys).to eq([:id, :type, :attributes])
        expect(es[:attributes].keys).to eq([ :host_id,
-                                            :email,
                                             :name,
                                             :street_address,
                                             :city,
                                             :state,
                                             :zipcode,
-                                            :price,
                                             :description,
-                                            :payment,
                                             :availability,
+                                            :payment,
                                             :photo_url_1,
                                             :photo_url_2,
                                             :photo_url_3,
-                                            :purposes])
+                                            :price,
+                                            :purposes
+                                            ])
        expect(es[:attributes][:purposes].keys).to eq([:data])
        expect(es[:attributes][:purposes][:data]).to be_an(Array)
        expect(es[:attributes][:purposes][:data].first).to be_a(Hash)
@@ -228,19 +228,18 @@ RSpec.describe "EngineService", type: :feature do
     expect(es[:data].first.keys).to eq([:id, :type, :attributes])
     expect(es[:data].first[:type]).to eq("yard")
     expect(es[:data].first[:attributes].keys).to eq([ :host_id,
-                                                :email,
                                                 :name,
                                                 :street_address,
                                                 :city,
                                                 :state,
                                                 :zipcode,
-                                                :price,
                                                 :description,
-                                                :payment,
                                                 :availability,
+                                                :payment,
                                                 :photo_url_1,
                                                 :photo_url_2,
                                                 :photo_url_3,
+                                                :price,
                                                 :purposes])
     expect(es[:data].first[:attributes][:purposes][:data]).to be_an(Array)
     expect(es[:data].first[:attributes][:purposes][:data].first.keys).to eq([:id, :type, :attributes])
@@ -312,12 +311,13 @@ RSpec.describe "EngineService", type: :feature do
     expect(es[:data].first).to be_a(Hash)
     expect(es[:data].first.keys).to eq([:id, :type, :attributes])
     expect(es[:data].first[:type]).to eq("booking")
-    expect(es[:data].first[:attributes].keys).to eq([ :yard_id,
-                                                      :name,
-                                                      :address,
+    expect(es[:data].first[:attributes].keys).to eq([ :status,
+                                                      :yard_id,
+                                                      :booking_name,
+                                                      :renter_id,
                                                       :date,
+                                                      :time,
                                                       :duration,
-                                                      :total_cost,
-                                                      :img])
+                                                      :description])
   end
 end

@@ -24,7 +24,7 @@ RSpec.describe "As an authenticated user when I visit the Booking Show Page" do
       visit booking_path(1)
       within '.booking-details' do
         expect(page).to have_content("Yard: Ultimate Party Yard")
-        expect(page).to have_content("Address: 123 4th St Denver, CO 80202")
+        expect(page).to have_content("Address: 2001 Blake St Denver, CO 80205")
         expect(page).to have_content("Status: Approved")
         expect(page).to have_content("Date: 04/25/2021")
         expect(page).to have_content("Time: 02:00PM")
