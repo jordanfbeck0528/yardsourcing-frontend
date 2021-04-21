@@ -22,7 +22,8 @@ class DashboardFacade
                         description:  yard[:attributes][:description],
                         address:      full_address(yard),
                         price:        yard[:attributes][:price],
-                        purposes:        all_purposes(yard) })
+                        purposes:        all_purposes(yard),
+                        photo_url_1:  yard[:attributes][:photo_url_1] })
       end
   end
 

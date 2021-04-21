@@ -1,11 +1,14 @@
-<h1>Find your dream yard:</h1>
+<div class = "form-group col-md-4">
+<h3>Find your dream yard:</h3>
 <%= form_with url: 'search/yards', method: :get, local: true do |form| %>
 <%= form.label "Where will you yard?" %>
-<%= form.text_area :location, placeholder: "Enter zipcode, address or cross streets", :required => true, size: "25X7" %>
-<%= form.label "How will you spend your time yarding?" %>
+<%= form.text_area :location, placeholder: "Enter zipcode, address or cross streets", :required => true, size: "25X7", class:"form-control" %><br>
+<%= form.label "How will you spend your time yarding?" %><br>
 <%= form.collection_check_boxes(:purposes, @purposes, :name, :name, include_hidden: false) do |purpose| %>
   <%= purpose.check_box %>
   <%= purpose.label %>
 <% end %>
-<%= form.submit 'Yard Me' %>
+<br>
+<%= form.submit 'Yard Me', class: "btn btn-outline-secondary" %>
 <% end %>
+</div>

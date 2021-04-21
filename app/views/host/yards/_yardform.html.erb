@@ -1,32 +1,35 @@
+<div class = "form-group col-md-4">
 <%= form_with url: url, method: method, local: true do |form| %>
   <%= form.label :name %>
-  <%= form.text_field :name, value: yard.name, required: true  %><br>
+  <%= form.text_field :name, value: yard.name, required: true, class:"form-control"  %><br>
   <%= form.label :description %>
-  <%= form.text_area :description, value:  yard.description, required: true, size: "70x5" %><br>
+  <%= form.text_area :description, value:  yard.description, required: true, size: "70x5", class:"form-control" %><br>
   <%= form.label 'Availability Information' %>
-  <%= form.text_field :availability, value: yard.availability, required: true %><br>
+  <%= form.text_field :availability, value: yard.availability, required: true, class:"form-control" %><br>
   <%= form.label 'Payment Preferences' %>
-  <%= form.text_field :payment, value: yard.payment, required: true %><br>
+  <%= form.text_field :payment, value: yard.payment, required: true, class:"form-control" %><br>
   <%= form.label 'Hourly Price' %>
-  <%= form.text_field :price , value: yard.price, required: true %><br>
+  <%= form.text_field :price , value: yard.price, required: true, class:"form-control" %><br>
   <%= form.label 'Street Address' %>
-  <%= form.text_field :street_address, value: yard.street_address, required: true %><br>
+  <%= form.text_field :street_address, value: yard.street_address, required: true, class:"form-control" %><br>
   <%= form.label :city %>
-  <%= form.text_field :city, value: yard.city, required: true %><br>
+  <%= form.text_field :city, value: yard.city, required: true, class:"form-control" %><br>
   <%= form.label :state %>
-  <%= form.text_field :state, value: yard.state, required: true %><br>
+  <%= form.text_field :state, value: yard.state, required: true, class:"form-control" %><br>
   <%= form.label 'Zipcode' %>
-  <%= form.text_field :zipcode, value: yard.zipcode, required: true %><br>
+  <%= form.text_field :zipcode, value: yard.zipcode, required: true, class:"form-control" %><br>
   <%= form.label 'Photo 1' %>
-  <%= form.text_field :photo_url_1, value: yard.photo_url_1 %><br>
+  <%= form.text_field :photo_url_1, value: yard.photo_url_1, class:"form-control" %><br>
   <%= form.label 'Photo 2' %>
-  <%= form.text_field :photo_url_2, value: yard.photo_url_2 %><br>
+  <%= form.text_field :photo_url_2, value: yard.photo_url_2, class:"form-control" %><br>
   <%= form.label 'Photo 3' %>
-  <%= form.text_field :photo_url_3, value: yard.photo_url_3 %><br>
-  <p>Select all purposes you will allow others to rent your yard for</p>
+  <%= form.text_field :photo_url_3, value: yard.photo_url_3, class:"form-control" %><br>
+  <p>Select all purposes you will allow others to rent your yard for:</p>
   <%= form.collection_check_boxes(:purposes, purposes, :id, :name, include_hidden: false) do |purpose| %>
     <%= purpose.check_box %>
     <%= purpose.label %>
   <% end %>
-  <%= form.submit button_text %>
+  <br>
+  <%= form.submit button_text, class: "btn btn-outline-secondary" %>
 <% end %>
+</div>

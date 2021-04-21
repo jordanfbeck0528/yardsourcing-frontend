@@ -24,8 +24,8 @@
               <li><%= purpose.titleize %></li>
             <% end %>
             </ul>
-            <p><% if !yard.img.blank? %>
-               <%= image_tag(booking.img, size: '250')  %>
+            <p><% if !yard.photo_url_1.blank? %>
+               <%= image_tag(yard.photo_url_1, size: '250')  %>
             <% else %>
               No image
             <% end %></p>
