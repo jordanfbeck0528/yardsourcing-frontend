@@ -25,9 +25,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 6c23e784-ad76-4597-a348-dc104a40a1e8
+      - 3d83d082-5714-44b2-81d5-ff78e17ea952
       X-Runtime:
-      - '0.098914'
+      - '0.065774'
       Transfer-Encoding:
       - chunked
     body:
@@ -35,7 +35,7 @@ http_interactions:
       string: '{"data":{"id":"1","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"Pet
         Birthday Party","renter_id":1,"date":"2021-04-25","time":"2000-01-01T14:00:00.000Z","duration":3,"description":"Throwing
         a bday party for my pet."}}}'
-  recorded_at: Wed, 21 Apr 2021 18:25:36 GMT
+  recorded_at: Wed, 21 Apr 2021 21:50:11 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/yards/2
@@ -61,9 +61,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 28d8232c-b0ff-4e3d-b1f7-3406c0757081
+      - 3fbd3914-ad75-44f6-9040-f314797590a2
       X-Runtime:
-      - '0.058947'
+      - '0.060271'
       Transfer-Encoding:
       - chunked
     body:
@@ -73,5 +73,5 @@ http_interactions:
         yard is equiped with a firepit, a pool, and a pool house to accommodate all
         your party needs.","availability":"Available on weekends in May","payment":"Venmo","photo_url_1":"https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg","photo_url_2":"","photo_url_3":"","price":20.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
         rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}}}'
-  recorded_at: Wed, 21 Apr 2021 18:25:36 GMT
+  recorded_at: Wed, 21 Apr 2021 21:50:11 GMT
 recorded_with: VCR 6.0.0

@@ -8,58 +8,30 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
   end
 
-  it "I see links to renter/host dashboard and logout" do
-    VCR.use_cassette('host_yard_show_page_ultimate_party') do
-      visit host_yard_path(2)
-      within '.nav-bar' do
-        expect(page).to have_button("Host Dashboard")
-        expect(page).to have_button("Renter Dashboard")
-        expect(page).to have_button("Logout")
+  describe "Happy path" do
+    it "I see links to renter/host dashboard and logout" do
+      VCR.use_cassette('yards/show_yard_4') do
+        visit yard_path(4)
+        within '.nav-bar' do
+          expect(page).to have_button("Host Dashboard")
+          expect(page).to have_button("Renter Dashboard")
+          expect(page).to have_button("Logout")
+        end
       end
     end
-  end
 
-  it "I see the yard information" do
-    VCR.use_cassette('host_yard_show_page_ultimate_party') do
-      visit host_yard_path(2)
-
-      expect(page).to have_css(".yard-details")
-    end
-  end
-
-  it "I see the yard images if they exist" do
-    VCR.use_cassette('host_yard_show_page_ultimate_party') do
-      visit host_yard_path(2)
-      within '.yard-images' do
-        expect(page).to have_xpath("/html/body/section[3]/img")
-      end
-    end
-  end
-
-  it "displays a button to 'Edit' the yard if the current user is the host" do
-    VCR.use_cassette('host_yard_show_page_hobby') do
-      visit host_dashboard_index_path
-
-      within ".my-yards" do
-        click_on "Large Yard for any Hobby"
-      end
-      expect(current_path).to eq('/host/yards/3')
-      expect(page).to have_button('Edit Yard')
-    end
-  end
-
-  describe "As a renter & sad path" do
     it "displays a button to 'Rent' the yard if the current user is the renter" do
-      VCR.use_cassette('renter_yard_show') do
+      VCR.use_cassette('yards/show_yard_4') do
         visit yard_path(4)
 
         expect(page).to have_button('Rent Yard')
       end
     end
   end
+
   describe "no yard matches id" do
     it "displays a button to 'Rent' the yard if the current user is the renter" do
-      VCR.use_cassette('yard_show_page_edge_case') do
+      VCR.use_cassette('host/yards/show_yard_bad_id') do
         visit yard_path(106500002)
 
         expect(page).to have_no_button('Rent Yard')

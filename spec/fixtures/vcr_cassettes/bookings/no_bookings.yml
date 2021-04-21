@@ -2,41 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3001/api/v1/hosts/100/yards
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v1.4.1
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=utf-8
-      Etag:
-      - W/"8fe32e407a1038ee38753b70e5374b3a"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 36af9e84-d40d-49be-9038-df8e971bdb0c
-      X-Runtime:
-      - '0.002707'
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: '{"data":[]}'
-  recorded_at: Wed, 21 Apr 2021 21:50:12 GMT
-- request:
-    method: get
-    uri: http://localhost:3001/api/v1/hosts/100/bookings
+    uri: http://localhost:3001/api/v1/renters/200/bookings?status=approved
     body:
       encoding: US-ASCII
       string: ''
@@ -59,13 +25,47 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - dd566cc6-360a-4cc1-9787-70530e63ff22
+      - 84963209-f8da-4596-a7f1-c1382034e333
       X-Runtime:
-      - '0.004997'
+      - '0.002494'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":{}}'
-  recorded_at: Wed, 21 Apr 2021 21:50:12 GMT
+  recorded_at: Wed, 21 Apr 2021 21:50:19 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/v1/renters/200/bookings?status=pending
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"7fb9d166d1a15bce0b9f085f3818946f"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 5a428aed-1c48-48f0-8069-3802594bfdc1
+      X-Runtime:
+      - '0.002304'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{}}'
+  recorded_at: Wed, 21 Apr 2021 21:50:19 GMT
 recorded_with: VCR 6.0.0
