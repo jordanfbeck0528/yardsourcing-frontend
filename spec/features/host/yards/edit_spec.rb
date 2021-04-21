@@ -9,9 +9,9 @@ describe 'As an authenticated user when I visit the edit yard page' do
   end
 
   describe "happy path" do
-    VCR.use_cassette('edit_yard_happy') do
-      it "I see a form prepopulated with the yards stored information" do
-        visit yard_path(3)
+    it "I see a form prepopulated with the yards stored information" do
+      VCR.use_cassette('edit_yard_happy') do
+        visit host_yard_path(3)
         click_on "Edit Yard"
 
         expect(page).to have_field('name')
@@ -34,9 +34,10 @@ describe 'As an authenticated user when I visit the edit yard page' do
         expect(page).to have_content('Large Yard for any Hobby')
       end
     end
+
     it "When the form is submitted it updates the yard" do
       VCR.use_cassette('edit_yard_happy_submit') do
-        visit yard_path(3)
+        visit host_yard_path(3)
         click_on "Edit Yard"
 
         fill_in :name, with: "PaRtY HoUsE!!"
@@ -55,7 +56,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
 
         expect(page).to have_content("PaRtY HoUsE!!")
 
-        visit yard_path(3)
+        visit host_yard_path(3)
         click_on "Edit Yard"
 
         fill_in :name, with: "Large Yard for any Hobby"
@@ -78,6 +79,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
         expect(current_path).to eq(host_yard_path(3))
       end
     end
+
     it "flashes an error message when a street_address is left blank" do
       VCR.use_cassette('edit_yard_sad_no_street') do
         visit edit_host_yard_path(3)
@@ -87,6 +89,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
         expect(current_path).to eq(edit_host_yard_path(3))
       end
     end
+
     it "flashes an error message when a city is left blank" do
       VCR.use_cassette('edit_yard_sad_no_city') do
         visit edit_host_yard_path(3)
@@ -96,6 +99,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
         expect(current_path).to eq(edit_host_yard_path(3))
       end
     end
+
     it "flashes an error message when a state is left blank" do
       VCR.use_cassette('edit_yard_sad_no_state') do
         visit edit_host_yard_path(3)
@@ -105,6 +109,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
         expect(current_path).to eq(edit_host_yard_path(3))
       end
     end
+
     it "flashes an error message when a zipcode is left blank" do
       VCR.use_cassette('edit_yard_sad_no_zipcode') do
         visit edit_host_yard_path(3)
@@ -114,6 +119,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
         expect(current_path).to eq(edit_host_yard_path(3))
       end
     end
+
     it "flashes an error message when a description is left blank" do
       VCR.use_cassette('edit_yard_sad_no_description') do
         visit edit_host_yard_path(3)
@@ -123,6 +129,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
         expect(current_path).to eq(edit_host_yard_path(3))
       end
     end
+
     it "flashes an error message when a availability is left blank" do
       VCR.use_cassette('edit_yard_sad_no_availability') do
         visit edit_host_yard_path(3)
@@ -132,6 +139,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
         expect(current_path).to eq(edit_host_yard_path(3))
       end
     end
+
     it "flashes an error message when a payment is left blank" do
       VCR.use_cassette('edit_yard_sad_no_payment') do
         visit edit_host_yard_path(3)
@@ -141,6 +149,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
         expect(current_path).to eq(edit_host_yard_path(3))
       end
     end
+
     it "flashes an error message when a purpose is not selected" do
       VCR.use_cassette('edit_yard_sad_no_purposes') do
         visit edit_host_yard_path(3)
