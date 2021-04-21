@@ -7,6 +7,13 @@ RSpec.describe 'Welcome Page' do
       expect(page).to have_content('This is YardSourcing')
       expect(page).to have_content("You need yards, and we got 'em")
     end
+    it 'displays photos to entice the user to sign up' do
+      visit root_path
+       within '.photo_display' do
+        expect(page).to have_content('This is YardSourcing')
+        expect(page).to have_content("You need yards, and we got 'em")
+      end
+    end
   end
 
   describe 'it has an sad path ' do
@@ -26,7 +33,7 @@ RSpec.describe 'Welcome Page' do
       omniauth_response = stub_omniauth_happy('123545', 'Dominic Padula', 'thisemail@gmail.com')
       user_1 = User.from_omniauth(omniauth_response)
       response = File.open("spec/fixtures/host_yards.json")
-      
+
       VCR.use_cassette('host_yards') do
         visit root_path
 
