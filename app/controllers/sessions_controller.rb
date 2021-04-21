@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
     user = User.from_omniauth(request.env['omniauth.auth'])
 
     session[:user_id] = user.id
-    flash[:success] = "Welcome, #{user.username}"
     redirect_to host_dashboard_index_path
   end
 
