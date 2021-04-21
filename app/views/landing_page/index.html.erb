@@ -1,5 +1,32 @@
-<h1> This is YardSourcing</h1>
-
-<h3> You need yards, and we got 'em</h3>
-
-<%= button_to 'Login through Google', '/auth/google_oauth2', class: "btn btn-outline-secondary"%>
+<div class="container-fluid landing">
+<div class="row row-no-gutter">
+<div class="col-lg text-center">
+<div class="col text-center">
+    <h1> This is YardSourcing</h1>
+    <h3> You need yards, and we got 'em.</h3>
+  <br><br>
+  <div class="container-fluid landing">
+  <div class="row row-no-gutter">
+    <% @display_photos.each do |photo| %>
+    <div class="col-lg photo_size">
+      <section class="photo_display">
+        <img src=<%="#{photo}"%> class="card-img-top">
+      </section>
+    </div>
+    <% end %>
+  </div>
+  <br><br>
+  <div class="row row-no-gutter">
+    <h5>Find the backyard of your dreams and make it yours.</h5>
+    <%= button_to 'Login through Google', '/auth/google_oauth2', :class => "btn-lg btn" %>
+    <br><br><br>
+    <p> Have you ever been sitting in your 5th story walk up and wishing you wereoutside relaxing on a lawn chair?<br>
+      Have a passion for basketball but don't own a hoop?<br>
+    Have you ever been walking your pup and wish you could rent a fenced yard to play off leash?</p><br>
+  </div>
+</div>
+</div>
+<br><br><br><br><br><br><br><br><br><br>
+</div>
+</div>
+</div>
