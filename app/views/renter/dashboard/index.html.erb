@@ -4,6 +4,7 @@
     <div class="container">
       <div class="row">
         <% @renter_yards_approved.each do |yard| %>
+          <% cache(yard) do %>
         <div class= "card dashboard">
           <div class="card-body">
             <div class="card-title name"><%= link_to "#{yard.name}", yard_path(yard.yard_id) %></div>
@@ -18,6 +19,7 @@
             <% end %></p>
           </div>
         </div>
+          <%end %>
         <% end %>
       </div>
     </div>
@@ -28,6 +30,7 @@
     <div class="container">
       <div class="row">
         <% @renter_yards_pending.each do |yard| %>
+          <% cache(yard) do %>
         <div class= "card dashboard">
           <div class="card-body">
             <div class="card-title name"><%= link_to "#{yard.name}", yard_path(yard.yard_id) %></div>
@@ -42,6 +45,7 @@
             <% end %></p>
           </div>
         </div>
+          <%end %>
         <% end %>
       </div>
     </div>
