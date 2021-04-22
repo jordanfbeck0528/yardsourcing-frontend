@@ -7,10 +7,9 @@ class SearchController < ApplicationController
   def find_yards
     downcase_params
     @yards = YardFacade.yards_in_location(yard_params)
-    
     if @yards.include?(:error)
       flash[:error] = @yards[:error]
-      render :index, obj: @yards
+      redirect_to search_index_path
     else
       render :find_yards
     end

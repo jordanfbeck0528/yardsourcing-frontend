@@ -23,11 +23,15 @@ class YardFacade
 
   def self.yards_in_location(yard_params)
     yards = EngineService.yards_in_location(yard_params)
-    object = OpenStruct.new({yards: yards})
-    return object if yards[:data].nil? || yards[:data].empty?
+    if yards[:error]
+      yards
+    else
+      object = OpenStruct.new({yards: yards})
+      return object if yards[:data].nil? || yards[:data].empty?
 
-    object[:yards] = yards[:data].map do |yard|
-      yard_object(yard)
+      object[:yards] = yards[:data].map do |yard|
+        yard_object(yard)
+      end
     end
   end
 
