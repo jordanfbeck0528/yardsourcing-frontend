@@ -25,20 +25,20 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"65194fa5279ebe4a2a6632b3ef899b9c"
+      - W/"a1eae1897f4c42df48a6fbaf6b47421c"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a149c341-00de-42cd-84a7-b7a93efd1d81
+      - 68be9c13-c20a-4a1a-a77c-1676f54b3e88
       X-Runtime:
-      - '0.612814'
+      - '0.543530'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"9","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+      string: '{"data":{"id":"17","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
         new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}}}'
-  recorded_at: Thu, 22 Apr 2021 02:34:12 GMT
+  recorded_at: Thu, 22 Apr 2021 03:32:44 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/renters/1/bookings?status=approved
@@ -60,21 +60,22 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"270b38b2f1f13a448d3788c5d495590a"
+      - W/"c04bcc35ff4fc8813b57538f31715c37"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 36853c57-fcfa-49d1-ac66-016a6d20fb56
+      - eb85a92f-4597-4639-9296-aec901fe0d25
       X-Runtime:
-      - '0.007480'
+      - '0.008783'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"Pet
         Birthday Party","renter_id":1,"date":"2021-04-25","time":"2000-01-01T14:00:00.000Z","duration":3,"description":"Throwing
-        a bday party for my pet."}}]}'
-  recorded_at: Thu, 22 Apr 2021 02:34:12 GMT
+        a bday party for my pet."}},{"id":"10","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}]}'
+  recorded_at: Thu, 22 Apr 2021 03:32:44 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/renters/1/bookings?status=pending
@@ -96,13 +97,13 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"86f4d98d370b9758a3365c5d6fa738dd"
+      - W/"751c2f74b13149a9f930b588b0ac64de"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 95960b47-bfca-46f7-8de2-afb4916501fb
+      - 7b4f27f6-fed3-4eca-9041-b0e177848349
       X-Runtime:
-      - '0.004631'
+      - '0.012352'
       Transfer-Encoding:
       - chunked
     body:
@@ -112,6 +113,47 @@ http_interactions:
         to have a 50 person game of spotlight tag."}},{"id":"8","type":"booking","attributes":{"status":"pending","yard_id":6,"booking_name":"Country
         Throw Down Part 2","renter_id":1,"date":"2021-04-25","time":"2000-01-01T20:00:00.000Z","duration":5,"description":"Trying
         to throw a rager with my friends again."}},{"id":"9","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}},{"id":"14","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"15","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"17","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
         new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}}]}'
-  recorded_at: Thu, 22 Apr 2021 02:34:12 GMT
+  recorded_at: Thu, 22 Apr 2021 03:32:44 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/v1/yards/4
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"cf76b6174a6dbe0539567fbe293c81d6"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - bedf749d-ab9d-40aa-a418-40403bd2d0d7
+      X-Runtime:
+      - '0.020501'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"4","type":"yard","attributes":{"host_id":2,"name":"Multipurpose
+        Yard","street_address":"3181 E 23rd Ave","city":"Denver","state":"CO","zipcode":"80205","description":"Fenced
+        in yard for privacy.","availability":"Available on Monday, Wednesday, Friday,
+        and Saturdays","payment":"Paypal","photo_url_1":"","photo_url_2":"","photo_url_3":"","price":15.5,"purposes":{"data":[{"id":"2","type":"purpose","attributes":{"name":"party
+        rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}}}}'
+  recorded_at: Thu, 22 Apr 2021 03:32:44 GMT
 recorded_with: VCR 6.0.0
