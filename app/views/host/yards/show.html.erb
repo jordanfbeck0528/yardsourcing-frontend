@@ -5,3 +5,6 @@
               url: edit_host_yard_path(@yard.id),
               yard: @yard,
               method: :get} %>
+<div class="container-fluid">
+<%= button_to "Delete Yard", host_yard_path(@yard.id), method: :delete, class: "btn btn-light" %>
+</div>

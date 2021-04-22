@@ -26,6 +26,14 @@ class EngineService
     JSON.parse(response.body, symbolize_names: true)
   end
 
+  def self.delete_yard(yard_params)
+    response = connection.delete("/api/v1/yards/#{yard_params[:id]}") do |req|
+      req.headers["CONTENT_TYPE"] = "application/json"
+      req.params = yard_params
+    end
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
   def self.yard_details(yard_id)
     cache_key = ["yard", yard_id]
     result = Rails.cache.fetch(cache_key, expires_in: 10.minutes) do

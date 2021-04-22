@@ -36,6 +36,78 @@ RSpec.describe "EngineService", type: :feature do
       end
     end
   end
+  describe "::update_yard(yard_params)" do
+    it "Updates a yard and a json record is returned" do
+      VCR.use_cassette('engine/update_yard') do
+        yard_params = { :name=>"name",
+                        :email=>"email@email.com",
+                        :host_id=>"123545",
+                        :description=>"description",
+                        :availability=>"availability",
+                        :payment=>"payment",
+                        :price=>"25.2",
+                        :street_address=>"street_address",
+                        :city=>"city",
+                        :state=>"state",
+                        :zipcode=>"zipcode",
+                        :photo_url_1=>"https://photo.com/path",
+                        :photo_url_2=>"",
+                        :photo_url_3=>"",
+                        :purposes=>["1", "3"]}
+
+        es = EngineService.create_yard(yard_params)
+        yard_params[:id] = es[:data][:id]
+        yard_params[:name] = "A new name!"
+        es = EngineService.update_yard(yard_params)
+
+        yard_detail_response_evaluation(es[:data])
+      end
+    end
+  end
+  describe "::delete_yard(yard_params)" do
+    it "Deletes a yard and a json record is returned" do
+      VCR.use_cassette('engine/delete_yard') do
+        yard_params = { :name=>"name",
+                        :email=>"email@email.com",
+                        :host_id=>"123545",
+                        :description=>"description",
+                        :availability=>"availability",
+                        :payment=>"payment",
+                        :price=>"25.2",
+                        :street_address=>"street_address",
+                        :city=>"city",
+                        :state=>"state",
+                        :zipcode=>"zipcode",
+                        :photo_url_1=>"https://photo.com/path",
+                        :photo_url_2=>"",
+                        :photo_url_3=>"",
+                        :purposes=>["1", "3"]}
+
+        es = EngineService.create_yard(yard_params)
+        yard_params = { :id=>"#{es[:data][:id]}"}
+        es = EngineService.delete_yard(yard_params)
+
+        expect(es).to be_a(Hash)
+        expect(es.keys).to eq([ :id,
+                                :host_id,
+                                :name,
+                                :street_address,
+                                :city,
+                                :state,
+                                :zipcode,
+                                :price,
+                                :description,
+                                :availability,
+                                :payment,
+                                :photo_url_1,
+                                :photo_url_2,
+                                :photo_url_3,
+                                :created_at,
+                                :updated_at,
+                                :email])
+      end
+    end
+  end
 
   describe "::create_booking(booking_params)" do
     it "Creates a booking and a json record is returned" do
@@ -57,7 +129,7 @@ RSpec.describe "EngineService", type: :feature do
   end
 
   describe "::update_booking_status(booking_params)" do
-    it "Creates a booking and a json record is returned" do
+    it "Updates a booking and a json record is returned" do
       VCR.use_cassette('engine/update_booking') do
         booking_params = { id: 100,
                         :renter_id=>"1",
@@ -79,7 +151,7 @@ RSpec.describe "EngineService", type: :feature do
     end
   end
   describe "::delete_booking(booking_params)" do
-    it "Creates a booking and a json record is returned" do
+    it "Deletes a booking and a json record is returned" do
       VCR.use_cassette('engine/delete_booking') do
         booking_params = {:renter_id=>"1",
                         :renter_email=>"renter@renter.com",
@@ -115,29 +187,7 @@ RSpec.describe "EngineService", type: :feature do
     it "should return json response of yard details" do
       VCR.use_cassette('engine/yard_details') do
         es = EngineService.yard_details(2)
-
-        expect(es).to be_a(Hash)
-        expect(es.keys).to eq([:id, :type, :attributes])
-        expect(es[:attributes].keys).to eq([ :host_id,
-                                              :name,
-                                              :street_address,
-                                              :city,
-                                              :state,
-                                              :zipcode,
-                                              :description,
-                                              :availability,
-                                              :payment,
-                                              :photo_url_1,
-                                              :photo_url_2,
-                                              :photo_url_3,
-                                              :price,
-                                              :purposes
-                                              ])
-        expect(es[:attributes][:purposes].keys).to eq([:data])
-        expect(es[:attributes][:purposes][:data]).to be_an(Array)
-        expect(es[:attributes][:purposes][:data].first).to be_a(Hash)
-        expect(es[:attributes][:purposes][:data].first.keys).to eq([:id, :type, :attributes])
-        expect(es[:attributes][:purposes][:data].first[:attributes].keys).to eq([:name])
+        yard_detail_response_evaluation(es)
       end
     end
   end
@@ -240,6 +290,31 @@ RSpec.describe "EngineService", type: :feature do
     expect(es[:data][:attributes][:purposes][:data].first).to be_a(Hash)
     expect(es[:data][:attributes][:purposes][:data].first.keys).to eq([:id, :type, :attributes])
     expect(es[:data][:attributes][:purposes][:data].first[:attributes].keys).to eq([:name])
+  end
+
+  def yard_detail_response_evaluation(es)
+    expect(es).to be_a(Hash)
+    expect(es.keys).to eq([:id, :type, :attributes])
+    expect(es[:attributes].keys).to eq([ :host_id,
+                                          :name,
+                                          :street_address,
+                                          :city,
+                                          :state,
+                                          :zipcode,
+                                          :description,
+                                          :availability,
+                                          :payment,
+                                          :photo_url_1,
+                                          :photo_url_2,
+                                          :photo_url_3,
+                                          :price,
+                                          :purposes
+                                          ])
+    expect(es[:attributes][:purposes].keys).to eq([:data])
+    expect(es[:attributes][:purposes][:data]).to be_an(Array)
+    expect(es[:attributes][:purposes][:data].first).to be_a(Hash)
+    expect(es[:attributes][:purposes][:data].first.keys).to eq([:id, :type, :attributes])
+    expect(es[:attributes][:purposes][:data].first[:attributes].keys).to eq([:name])
   end
 
   def booking_details_response_evaluation(es)
