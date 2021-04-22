@@ -3,32 +3,42 @@
 async
 ></script>
 
-<% if @data.yards.include?(:data) %>
-  <%= "No yards match your specific parameters" %>
-<%else%>
-  <% @data.yards.each do |yard| %>
-    <%= yard.name %>
-  <%end %>
-<%end %>
+<div class="container">
+  <h4 margin>Search for more dream yards:</h4>
+  <%= render partial: 'shared/search_form',
+      locals: {purposes: @purposes, url: search_yards_path} %>
+</div>
 
-<div id="map" style="width: 750px; height: 300px;"></div>
-  <script type="text/javascript">
-    function initMap()
-    {
-      var locations = <%= @data.coords %>;
+<div id="map" style="width: 1000px; height: 500px; margin: auto;"></div>
+<script type="text/javascript">
+  function initMap()
+  {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 11
+    });
 
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 13,
-        center: { lat: locations[0][0], lng: locations[0][1] }
+    var marker, i;
+    var infowindow = new google.maps.InfoWindow();
+
+    <% @yards.each do |yard| %>
+      marker_<%= yard.id %> = new google.maps.Marker({
+        position: { lat: <%=yard.coords.lat%>, lng: <%=yard.coords.lng%> },
+        map: map
       });
 
-      var marker, i;
+      map.setCenter(marker_<%= yard.id %>.getPosition());
 
-      for (i = 0; i < locations.length; i++) {
-        marker = new google.maps.Marker({
-          position: { lat: locations[i][0], lng: locations[i][1] },
-          map: map
-        });
-      }
-    }
-  </script>
+      google.maps.event.addListener(marker_<%= yard.id %>, "click", () => {
+        window.location.href = "https://www.google.com/maps/?q=<%=yard.address%>";
+      });
+    <%end%>
+  }
+</script>
+<% if @yards.empty? %>
+  <%= "No yards match your specific parameters" %>
+<%else%>
+<%= render partial: 'shared/yards_cards', locals: {
+        url_string: "yards/",
+        yards: @yards
+}%>
+<%end %>

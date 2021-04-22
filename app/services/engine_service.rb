@@ -1,8 +1,10 @@
 class EngineService
 
   def self.all_purposes
-    response = connection.get('/api/v1/purposes')
-    JSON.parse(response.body, symbolize_names: true)
+     Rails.cache.fetch("all_purposes", expires_in: 24.hours) do
+      response = connection.get('/api/v1/purposes')
+      JSON.parse(response.body, symbolize_names: true)
+     end
   end
 
   def self.create_yard(yard_params)
@@ -15,17 +17,21 @@ class EngineService
   end
 
   def self.update_yard(yard_params)
-    response = connection.put("/api/v1/yards/#{yard_params[:id]}") do |req|
-      req.headers["CONTENT_TYPE"] = "application/json"
-      req.params = yard_params
+    Rails.cache.delete(["yard", yard_params[:id]])
+      response = connection.put("/api/v1/yards/#{yard_params[:id]}") do |req|
+        req.headers["CONTENT_TYPE"] = "application/json"
+        req.params = yard_params
     end
 
     JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.yard_details(yard_id)
-    response = connection.get("/api/v1/yards/#{yard_id}")
-    JSON.parse(response.body, symbolize_names: true)[:data]
+    cache_key = ["yard", yard_id]
+    result = Rails.cache.fetch(cache_key, expires_in: 10.minutes) do
+      response = connection.get("/api/v1/yards/#{yard_id}")
+      JSON.parse(response.body, symbolize_names: true)[:data]
+    end
   end
 
   def self.host_yards(host_id)

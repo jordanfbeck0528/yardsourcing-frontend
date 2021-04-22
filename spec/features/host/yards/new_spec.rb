@@ -9,7 +9,7 @@ describe 'As an authenticated user when I visit the new yard page' do
   end
 
   it "I see a form with name, description, availability, payment, and price" do
-    VCR.use_cassette('all_purposes') do
+    VCR.use_cassette('host/yards/new_yard') do
       visit new_host_yard_path
       expect(page).to have_field('name')
       expect(page).to have_field('description')
@@ -20,7 +20,7 @@ describe 'As an authenticated user when I visit the new yard page' do
   end
 
   it "I see a section with address, city, state, zipcode" do
-    VCR.use_cassette('all_purposes') do
+    VCR.use_cassette('host/yards/new_yard') do
       visit new_host_yard_path
       expect(page).to have_field('street_address')
       expect(page).to have_field('city')
@@ -30,7 +30,7 @@ describe 'As an authenticated user when I visit the new yard page' do
   end
 
   it "I see a section to add up to three photo urls" do
-    VCR.use_cassette('all_purposes') do
+    VCR.use_cassette('host/yards/new_yard') do
       visit new_host_yard_path
       expect(page).to have_field('photo_url_1')
       expect(page).to have_field('photo_url_2')
@@ -39,7 +39,7 @@ describe 'As an authenticated user when I visit the new yard page' do
   end
 
   it "I see a section with checkboxes for allowable uses and button to submit" do
-    VCR.use_cassette('all_purposes') do
+    VCR.use_cassette('host/yards/new_yard') do
       visit new_host_yard_path
       expect(page).to have_content('Select all purposes you will allow others to rent your yard for')
       expect(page).to have_unchecked_field('purposes_1')
@@ -51,7 +51,7 @@ describe 'As an authenticated user when I visit the new yard page' do
 
   describe 'happy path' do
     it "when I fill out the form with valid information I can create a yard" do
-      VCR.use_cassette('create_yard') do
+      VCR.use_cassette('host/yards/new_yard_submit') do
         visit new_host_yard_path
         fill_in :name, with: "A new yard!!"
         fill_in :description, with: "description"
@@ -73,7 +73,7 @@ describe 'As an authenticated user when I visit the new yard page' do
 
   describe 'sad path' do
     it "when I do not enter a name I cannot create a yard" do
-      VCR.use_cassette('all_purposes') do
+      VCR.use_cassette('host/yards/new_yard_no_name') do
         VCR.use_cassette('bad-yard') do
           visit new_host_yard_path
           fill_in :description, with: "description"
@@ -93,106 +93,96 @@ describe 'As an authenticated user when I visit the new yard page' do
       end
     end
     it "when I do not enter a street address I cannot create a yard" do
-      VCR.use_cassette('all_purposes') do
-        VCR.use_cassette('bad-yard-address') do
-          visit new_host_yard_path
-          fill_in :name, with: "A new yard!!"
-          fill_in :description, with: "description"
-          fill_in :availability, with: "availability"
-          fill_in :payment, with: "payment"
-          fill_in :price, with: 25.20
-          fill_in :city, with: "city"
-          fill_in :state, with: "state"
-          fill_in :zipcode, with: "zipcode"
-          fill_in :photo_url_1, with: "https://photo.com/path"
-          check "purposes_1"
-          check "purposes_3"
-          click_button 'Create Yard'
-          expect(page).to have_content("Validation failed: Street address can't be blank")
-        end
+      VCR.use_cassette('host/yards/new_yard_no_address') do
+        visit new_host_yard_path
+        fill_in :name, with: "A new yard!!"
+        fill_in :description, with: "description"
+        fill_in :availability, with: "availability"
+        fill_in :payment, with: "payment"
+        fill_in :price, with: 25.20
+        fill_in :city, with: "city"
+        fill_in :state, with: "state"
+        fill_in :zipcode, with: "zipcode"
+        fill_in :photo_url_1, with: "https://photo.com/path"
+        check "purposes_1"
+        check "purposes_3"
+        click_button 'Create Yard'
+        expect(page).to have_content("Validation failed: Street address can't be blank")
       end
     end
 
     it 'errors out and errors out when I do not enter city and cannot create yard' do
-      VCR.use_cassette('all_purposes') do
-        VCR.use_cassette('bad-yard-city') do
-          visit new_host_yard_path
-          fill_in :name, with: "A new yard!!"
-          fill_in :description, with: "description"
-          fill_in :availability, with: "availability"
-          fill_in :payment, with: "payment"
-          fill_in :price, with: 25.20
-          fill_in :street_address, with: "street_address"
-          fill_in :state, with: "state"
-          fill_in :zipcode, with: "zipcode"
-          fill_in :photo_url_1, with: "https://photo.com/path"
-          check "purposes_1"
-          check "purposes_3"
-          click_button 'Create Yard'
-          expect(page).to have_content("Validation failed: City can't be blank")
-        end
+      VCR.use_cassette('host/yards/new_yard_no_city') do
+        visit new_host_yard_path
+        fill_in :name, with: "A new yard!!"
+        fill_in :description, with: "description"
+        fill_in :availability, with: "availability"
+        fill_in :payment, with: "payment"
+        fill_in :price, with: 25.20
+        fill_in :street_address, with: "street_address"
+        fill_in :state, with: "state"
+        fill_in :zipcode, with: "zipcode"
+        fill_in :photo_url_1, with: "https://photo.com/path"
+        check "purposes_1"
+        check "purposes_3"
+        click_button 'Create Yard'
+        expect(page).to have_content("Validation failed: City can't be blank")
       end
     end
 
     it 'errors out when I do not enter state' do
-      VCR.use_cassette('all_purposes') do
-        VCR.use_cassette('bad-yard-state') do
-          visit new_host_yard_path
-          fill_in :name, with: "A new yard!!"
-          fill_in :description, with: "description"
-          fill_in :availability, with: "availability"
-          fill_in :payment, with: "payment"
-          fill_in :price, with: 25.20
-          fill_in :street_address, with: "street_address"
-          fill_in :city, with: "city"
-          fill_in :zipcode, with: "zipcode"
-          fill_in :photo_url_1, with: "https://photo.com/path"
-          check "purposes_1"
-          check "purposes_3"
-          click_button 'Create Yard'
-          expect(page).to have_content("Validation failed: State can't be blank")
-        end
+      VCR.use_cassette('host/yards/new_yard_no_state') do
+        visit new_host_yard_path
+        fill_in :name, with: "A new yard!!"
+        fill_in :description, with: "description"
+        fill_in :availability, with: "availability"
+        fill_in :payment, with: "payment"
+        fill_in :price, with: 25.20
+        fill_in :street_address, with: "street_address"
+        fill_in :city, with: "city"
+        fill_in :zipcode, with: "zipcode"
+        fill_in :photo_url_1, with: "https://photo.com/path"
+        check "purposes_1"
+        check "purposes_3"
+        click_button 'Create Yard'
+        expect(page).to have_content("Validation failed: State can't be blank")
       end
     end
 
     it 'errors out when I do not enter zipcode' do
-      VCR.use_cassette('all_purposes') do
-        VCR.use_cassette('bad-yard-zip') do
-          visit new_host_yard_path
-          fill_in :name, with: "A new yard!!"
-          fill_in :description, with: "description"
-          fill_in :availability, with: "availability"
-          fill_in :payment, with: "payment"
-          fill_in :price, with: 25.20
-          fill_in :street_address, with: "street_address"
-          fill_in :city, with: "city"
-          fill_in :state, with: "state"
-          fill_in :photo_url_1, with: "https://photo.com/path"
-          check "purposes_1"
-          check "purposes_3"
-          click_button 'Create Yard'
-          expect(page).to have_content("Validation failed: Zipcode can't be blank")
-        end
+      VCR.use_cassette('host/yards/new_yard_no_zip') do
+        visit new_host_yard_path
+        fill_in :name, with: "A new yard!!"
+        fill_in :description, with: "description"
+        fill_in :availability, with: "availability"
+        fill_in :payment, with: "payment"
+        fill_in :price, with: 25.20
+        fill_in :street_address, with: "street_address"
+        fill_in :city, with: "city"
+        fill_in :state, with: "state"
+        fill_in :photo_url_1, with: "https://photo.com/path"
+        check "purposes_1"
+        check "purposes_3"
+        click_button 'Create Yard'
+        expect(page).to have_content("Validation failed: Zipcode can't be blank")
       end
     end
 
     it 'errors out when I do not enter 1 purpose ' do
-      VCR.use_cassette('create_yard') do
-        VCR.use_cassette('bad-yard-purposes') do
-          visit new_host_yard_path
-          fill_in :name, with: "A new yard!!"
-          fill_in :description, with: "description"
-          fill_in :availability, with: "availability"
-          fill_in :payment, with: "payment"
-          fill_in :price, with: 25.20
-          fill_in :street_address, with: "street_address"
-          fill_in :city, with: "city"
-          fill_in :state, with: "state"
-          fill_in :zipcode, with: "zipcode"
-          fill_in :photo_url_1, with: "https://photo.com/path"
-          click_button 'Create Yard'
-          expect(page).to have_content("You must select at least one purpose")
-        end
+      VCR.use_cassette('host/yards/new_yard_no_purposes') do
+        visit new_host_yard_path
+        fill_in :name, with: "A new yard!!"
+        fill_in :description, with: "description"
+        fill_in :availability, with: "availability"
+        fill_in :payment, with: "payment"
+        fill_in :price, with: 25.20
+        fill_in :street_address, with: "street_address"
+        fill_in :city, with: "city"
+        fill_in :state, with: "state"
+        fill_in :zipcode, with: "zipcode"
+        fill_in :photo_url_1, with: "https://photo.com/path"
+        click_button 'Create Yard'
+        expect(page).to have_content("You must select at least one purpose")
       end
     end
   end
