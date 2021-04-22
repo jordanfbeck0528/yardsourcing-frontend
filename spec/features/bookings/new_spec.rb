@@ -6,12 +6,13 @@ RSpec.describe "New Booking Page" do
       omniauth_response = stub_omniauth_happy('123545', 'Dominic Padula', 'thisemail@gmail.com')
       @user_1 = User.from_omniauth(omniauth_response)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
+      @tz = '+00:00'
     end
 
     it "I see a form with the yard name, event name, date, start time, duration, and description" do
       VCR.use_cassette('bookings/new_booking_yard_2') do
         visit new_yard_booking_path(2)
-        
+
         expect(page).to have_content("Yard: Ultimate Party Yard")
         expect(page).to have_field('booking_name')
         expect(page).to have_field('date')
@@ -25,9 +26,10 @@ RSpec.describe "New Booking Page" do
       it "when I fill out the form with valid information I can create a booking" do
         VCR.use_cassette('bookings/new_booking_yard_2_submit') do
           visit new_yard_booking_path(2)
+          require "pry"; binding.pry
           fill_in :booking_name, with: "A new booking!!"
           fill_in :date, with: Date.new(2021, 05,05)
-          fill_in :time, with: Time.new(2021,05,05,12)
+          fill_in :time, with: Time.new(2021,05,05,12, 0, 0, @tz)
           fill_in :duration, with: 2
           fill_in :description, with: 'description'
 
@@ -43,7 +45,7 @@ RSpec.describe "New Booking Page" do
         VCR.use_cassette('bookings/new_booking_yard_2_no_name') do
           visit new_yard_booking_path(2)
           fill_in :date, with: Date.new(2021, 05,05)
-          fill_in :time, with: Time.new(2021,05,05,12)
+          fill_in :time, with: Time.new(2021,05,05,12, 0, 0, @tz)
           fill_in :duration, with: 2
           fill_in :description, with: 'description'
           click_button 'Create Booking'
@@ -54,7 +56,7 @@ RSpec.describe "New Booking Page" do
         VCR.use_cassette('bookings/new_booking_yard_2_no_date') do
           visit new_yard_booking_path(2)
           fill_in :booking_name, with: "A new booking!!"
-          fill_in :time, with: Time.new(2021,05,05,12)
+          fill_in :time, with: Time.new(2021,05,05,12, 0, 0, @tz)
           fill_in :duration, with: 2
           fill_in :description, with: 'description'
           click_button 'Create Booking'
@@ -79,7 +81,7 @@ RSpec.describe "New Booking Page" do
           visit new_yard_booking_path(2)
           fill_in :booking_name, with: "A new booking!!"
           fill_in :date, with: Date.new(2021, 05,05)
-          fill_in :time, with: Time.new(2021,05,05,12)
+          fill_in :time, with: Time.new(2021,05,05,12, 0, 0, @tz)
           fill_in :description, with: 'description'
           click_button 'Create Booking'
           expect(page).to have_content("Validation failed: Duration can't be blank")
@@ -91,7 +93,7 @@ RSpec.describe "New Booking Page" do
           visit new_yard_booking_path(2)
           fill_in :booking_name, with: "A new booking!!"
           fill_in :date, with: Date.new(2021, 05,05)
-          fill_in :time, with: Time.new(2021,05,05,12)
+          fill_in :time, with: Time.new(2021,05,05,12, 0, 0, @tz)
           fill_in :duration, with: 2
           click_button 'Create Booking'
           expect(page).to have_content("Validation failed: Description can't be blank")
@@ -103,7 +105,7 @@ RSpec.describe "New Booking Page" do
           visit new_yard_booking_path(2)
           fill_in :booking_name, with: "A new booking!!"
           fill_in :date, with: Date.new(2021, 03,05)
-          fill_in :time, with: Time.new(2021,05,05,12)
+          fill_in :time, with: Time.new(2021,05,05,12, 0, 0, @tz)
           fill_in :duration, with: 2
           fill_in :description, with: 'description'
           click_button 'Create Booking'

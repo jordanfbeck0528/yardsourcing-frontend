@@ -25,9 +25,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 492a6b75-017d-4a0c-b96c-2f67e37fbb35
+      - '081148ea-8e39-4899-abe4-2d8a34b43d4a'
       X-Runtime:
-      - '0.005309'
+      - '0.008694'
       Transfer-Encoding:
       - chunked
     body:
@@ -37,7 +37,7 @@ http_interactions:
         yard is equiped with a firepit, a pool, and a pool house to accommodate all
         your party needs.","availability":"Available on weekends in May","payment":"Venmo","photo_url_1":"https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg","photo_url_2":"","photo_url_3":"","price":20.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
         rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 00:40:36 GMT
+  recorded_at: Thu, 22 Apr 2021 01:30:41 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/yards/2
@@ -63,9 +63,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - bc971ebd-fc82-4aba-9a4e-bb3e08a37d3e
+      - 53b95a57-001a-4812-9196-153506d9af71
       X-Runtime:
-      - '0.009864'
+      - '0.007945'
       Transfer-Encoding:
       - chunked
     body:
@@ -75,10 +75,10 @@ http_interactions:
         yard is equiped with a firepit, a pool, and a pool house to accommodate all
         your party needs.","availability":"Available on weekends in May","payment":"Venmo","photo_url_1":"https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg","photo_url_2":"","photo_url_3":"","price":20.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
         rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 00:40:36 GMT
+  recorded_at: Thu, 22 Apr 2021 01:30:43 GMT
 - request:
     method: post
-    uri: http://localhost:3001/api/v1/bookings?booking_name=A%20new%20booking!!&date=2021-05-05&description=description&duration=2&renter_email=thisemail@gmail.com&renter_id=1&time=2021-05-05%2012:00:00%20-0600&yard_id=2
+    uri: http://localhost:3001/api/v1/bookings?booking_name=A%20new%20booking!!&date=2021-05-05&description=description&duration=2&renter_email=thisemail@gmail.com&renter_id=1&time=2021-05-05%2012:00:00%20%2B0000&yard_id=2
     body:
       encoding: UTF-8
       string: ''
@@ -101,20 +101,20 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"d416fa458ee6624cc08eafa35734ddef"
+      - W/"994216aaae31c2703b37dace4b86646c"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 4997408e-06c4-4efc-96b9-cf41d9faf43d
+      - 20d773a7-b9c2-4344-8480-1a3104673442
       X-Runtime:
-      - '0.722778'
+      - '0.970351'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"9","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T18:00:00.000Z","duration":2,"description":"description"}}}'
-  recorded_at: Thu, 22 Apr 2021 00:40:37 GMT
+      string: '{"data":{"id":"10","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}}}'
+  recorded_at: Thu, 22 Apr 2021 01:30:44 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/renters/1/bookings?status=approved
@@ -140,9 +140,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 382353e8-553f-4054-89be-26ea5fb20515
+      - b0d72386-58ee-4d7e-8253-3fa772340485
       X-Runtime:
-      - '0.007656'
+      - '0.006619'
       Transfer-Encoding:
       - chunked
     body:
@@ -150,7 +150,7 @@ http_interactions:
       string: '{"data":[{"id":"1","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"Pet
         Birthday Party","renter_id":1,"date":"2021-04-25","time":"2000-01-01T14:00:00.000Z","duration":3,"description":"Throwing
         a bday party for my pet."}}]}'
-  recorded_at: Thu, 22 Apr 2021 00:40:37 GMT
+  recorded_at: Thu, 22 Apr 2021 01:30:44 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/yards/2
@@ -176,9 +176,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 79e76194-4011-44c1-bab0-4855f59344bd
+      - 03264251-ee3e-4ca0-b7d0-d07b0206c273
       X-Runtime:
-      - '0.005736'
+      - '0.008005'
       Transfer-Encoding:
       - chunked
     body:
@@ -188,7 +188,7 @@ http_interactions:
         yard is equiped with a firepit, a pool, and a pool house to accommodate all
         your party needs.","availability":"Available on weekends in May","payment":"Venmo","photo_url_1":"https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg","photo_url_2":"","photo_url_3":"","price":20.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
         rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 00:40:37 GMT
+  recorded_at: Thu, 22 Apr 2021 01:30:44 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/renters/1/bookings?status=pending
@@ -210,13 +210,13 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"35ef92f1e687977a29e8bf4faa87a38c"
+      - W/"84f3958691e4b225b4dfb4c569aff82e"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 33167c64-e80b-4612-b9cd-9acd75fb8e40
+      - 1746cb2b-2c39-44e0-9aec-16be78d5c5f9
       X-Runtime:
-      - '0.004870'
+      - '0.006093'
       Transfer-Encoding:
       - chunked
     body:
@@ -226,8 +226,9 @@ http_interactions:
         to throw a rager with my friends again."}},{"id":"5","type":"booking","attributes":{"status":"pending","yard_id":4,"booking_name":"Spotlight
         Tag","renter_id":1,"date":"2021-05-05","time":"2000-01-01T21:00:00.000Z","duration":2,"description":"Wanting
         to have a 50 person game of spotlight tag."}},{"id":"9","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T18:00:00.000Z","duration":2,"description":"description"}}]}'
-  recorded_at: Thu, 22 Apr 2021 00:40:37 GMT
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T18:00:00.000Z","duration":2,"description":"description"}},{"id":"10","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}}]}'
+  recorded_at: Thu, 22 Apr 2021 01:30:44 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/yards/6
@@ -253,9 +254,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a860bf8e-9ba1-4796-a19c-a4a5e70e30af
+      - 3d140774-8dbc-404f-92ba-00e52c607949
       X-Runtime:
-      - '0.006220'
+      - '0.006927'
       Transfer-Encoding:
       - chunked
     body:
@@ -267,7 +268,7 @@ http_interactions:
         Cashapp","photo_url_1":"https://image.shutterstock.com/image-photo/spacious-yard-home-garden-swing-260nw-1609425607.jpg","photo_url_2":"","photo_url_3":"","price":15.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
         rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby
         rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 00:40:37 GMT
+  recorded_at: Thu, 22 Apr 2021 01:30:44 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/yards/4
@@ -293,9 +294,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - bb9ec1bc-76c1-4ecd-94db-12ac6ddb56ff
+      - ece53964-7153-4c50-a4c8-2bea4aa9425c
       X-Runtime:
-      - '0.005406'
+      - '0.008362'
       Transfer-Encoding:
       - chunked
     body:
@@ -305,7 +306,7 @@ http_interactions:
         in yard for privacy.","availability":"Available on Monday, Wednesday, Friday,
         and Saturdays","payment":"Paypal","photo_url_1":"","photo_url_2":"","photo_url_3":"","price":15.5,"purposes":{"data":[{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 00:40:37 GMT
+  recorded_at: Thu, 22 Apr 2021 01:30:44 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/yards/2
@@ -331,9 +332,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 7ef60999-9418-4364-bfa1-3a94eb482714
+      - 15189ec6-b4bc-4032-9746-2ad00f0eda37
       X-Runtime:
-      - '0.005362'
+      - '0.004523'
       Transfer-Encoding:
       - chunked
     body:
@@ -343,5 +344,43 @@ http_interactions:
         yard is equiped with a firepit, a pool, and a pool house to accommodate all
         your party needs.","availability":"Available on weekends in May","payment":"Venmo","photo_url_1":"https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg","photo_url_2":"","photo_url_3":"","price":20.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
         rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 00:40:37 GMT
+  recorded_at: Thu, 22 Apr 2021 01:30:44 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/v1/yards/2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"05899a4b6bd5366751e2b5fc0e2839d7"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 10b7ff09-1e95-446d-9b9f-c1fd4a38de87
+      X-Runtime:
+      - '0.006356'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"2","type":"yard","attributes":{"host_id":1,"name":"Ultimate
+        Party Yard","street_address":"2001 Blake St","city":"Denver","state":"CO","zipcode":"80205","description":"This
+        yard is equiped with a firepit, a pool, and a pool house to accommodate all
+        your party needs.","availability":"Available on weekends in May","payment":"Venmo","photo_url_1":"https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg","photo_url_2":"","photo_url_3":"","price":20.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
+        rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}}}'
+  recorded_at: Thu, 22 Apr 2021 01:30:44 GMT
 recorded_with: VCR 6.0.0
