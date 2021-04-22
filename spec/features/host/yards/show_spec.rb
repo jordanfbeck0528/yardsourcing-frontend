@@ -31,7 +31,7 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
     VCR.use_cassette('host/yards/show_yard_2') do
       visit host_yard_path(2)
       within '.yard-images' do
-        expect(page).to have_xpath("/html/body/section[3]/img")
+        expect(page).to have_xpath("/html/body/div/section[2]/img")
       end
     end
   end
