@@ -9,7 +9,7 @@ describe 'As an authenticated user when I visit the host dashboard' do
   end
 
   it "I see links to renter/host dashboard and logout" do
-    VCR.use_cassette('host_yards') do
+    VCR.use_cassette('host/dashboard/host_yards') do
       visit host_dashboard_index_path
 
       within '.nav-bar' do
@@ -21,17 +21,17 @@ describe 'As an authenticated user when I visit the host dashboard' do
   end
 
   it "I see a welcome message with my username" do
-    VCR.use_cassette('host_yards') do
+    VCR.use_cassette('host/dashboard/host_yards') do
       visit host_dashboard_index_path
 
       within '.nav-bar' do
-        expect(page).to have_content("Welcome Dominic Padula")
+        expect(page).to have_content("Welcome #{@user_1.username}")
       end
     end
   end
 
   it "I see a button to create a yard" do
-    VCR.use_cassette('all_purposes_dash') do
+    VCR.use_cassette('host/dashboard/host_create_yard') do
       visit host_dashboard_index_path
 
       within '.header' do
@@ -44,7 +44,7 @@ describe 'As an authenticated user when I visit the host dashboard' do
   end
 
   it "I see a section for all of my yards I have created" do
-    VCR.use_cassette('host_yards') do
+    VCR.use_cassette('host/dashboard/host_yards') do
       visit host_dashboard_index_path
 
       expect(page).to have_css(".my-yards")
@@ -67,7 +67,7 @@ describe 'As an authenticated user when I visit the host dashboard' do
 
   describe "I see a section for Upcoming Bookings" do
     it "I see a link for dates and times for each booking" do
-      VCR.use_cassette('bookings/host_bookings') do
+      VCR.use_cassette('host/dashboard/host_yards') do
         visit host_dashboard_index_path
         within '.my-upcoming-bookings' do
           expect(page).to have_link("Pet Birthday Party")
@@ -80,7 +80,7 @@ describe 'As an authenticated user when I visit the host dashboard' do
 
     describe "If pending, I see “Approve” and “Deny” buttons for each booking" do
       it "If I click Approve, the status changes to approve and I no longer see buttons" do
-        VCR.use_cassette('bookings/host_bookings_approved') do
+        VCR.use_cassette('host/dashboard/approve_booking') do
           booking_params = {:renter_id=>"1",
                           :renter_email=>"renter@renter.com",
                           :yard_id=>"2",
@@ -105,7 +105,7 @@ describe 'As an authenticated user when I visit the host dashboard' do
         end
       end
       it "If I click Rejected, the status changes to approve and I no longer see buttons" do
-        VCR.use_cassette('bookings/host_bookings_rejected') do
+        VCR.use_cassette('host/dashboard/reject_booking') do
           booking_params = {:renter_id=>"1",
                           :renter_email=>"renter@renter.com",
                           :yard_id=>"2",
@@ -131,7 +131,7 @@ describe 'As an authenticated user when I visit the host dashboard' do
       end
 
       it "If not pending, I see the status of Approved or Rejected" do
-        VCR.use_cassette('bookings/host_bookings') do
+        VCR.use_cassette('host/dashboard/host_yards') do
           visit host_dashboard_index_path
 
           within '#booking-1' do
