@@ -26,7 +26,6 @@ RSpec.describe "New Booking Page" do
       it "when I fill out the form with valid information I can create a booking" do
         VCR.use_cassette('bookings/new_booking_yard_2_submit') do
           visit new_yard_booking_path(2)
-          require "pry"; binding.pry
           fill_in :booking_name, with: "A new booking!!"
           fill_in :date, with: Date.new(2021, 05,05)
           fill_in :time, with: Time.new(2021,05,05,12, 0, 0, @tz)
