@@ -21,23 +21,22 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"d7bfa457b1b33db5a9350ffd99db21b5"
+      - W/"92411119836edf3a719ae02133104dbb"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 855716c4-6fd4-468a-b43b-63be33be133f
+      - e0d3b7f2-6aa1-43e6-b224-d4cab86d538a
       X-Runtime:
-      - '0.007290'
+      - '0.012443'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":{"id":"3","type":"yard","attributes":{"host_id":1,"name":"Large
-        Yard for any Hobby","street_address":"2300 Steele St","city":"Denver","state":"CO","zipcode":"80205","description":"A
-        large backyard close to the city. Equiped with a barbeque.","availability":"NEW
-        - Most days are available","payment":"Venmo,Paypal","photo_url_1":"","photo_url_2":"","photo_url_3":"","price":25.5,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
-        rental"}}]}}}}'
-  recorded_at: Wed, 21 Apr 2021 21:50:16 GMT
+        Yard for any Hobby","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"cash
+        cash cash","photo_url_1":"https://jalbum.net/.workspace/slides/shaun-montero-ZxDX8D9HHNM-unsplash.jpg","photo_url_2":"","photo_url_3":"","price":125.2,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
+        rental"}},{"id":"1","type":"purpose","attributes":{"name":"pet rental"}}]}}}}'
+  recorded_at: Thu, 22 Apr 2021 04:13:46 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/purposes
@@ -63,16 +62,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 593e04e7-ad57-499d-b6b0-95c5c24f4aa9
+      - 7a10b9b4-2c74-4b80-a196-e0b35e003e14
       X-Runtime:
-      - '0.003139'
+      - '0.006464'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Wed, 21 Apr 2021 21:50:16 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:46 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/yards/3
@@ -94,21 +93,20 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"d7bfa457b1b33db5a9350ffd99db21b5"
+      - W/"92411119836edf3a719ae02133104dbb"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d76be9d6-cad5-42ce-bca5-5cb4a85d7867
+      - 5c284400-d3e3-40a7-bc78-e642ec6a0652
       X-Runtime:
-      - '0.004383'
+      - '0.009089'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":{"id":"3","type":"yard","attributes":{"host_id":1,"name":"Large
-        Yard for any Hobby","street_address":"2300 Steele St","city":"Denver","state":"CO","zipcode":"80205","description":"A
-        large backyard close to the city. Equiped with a barbeque.","availability":"NEW
-        - Most days are available","payment":"Venmo,Paypal","photo_url_1":"","photo_url_2":"","photo_url_3":"","price":25.5,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
-        rental"}}]}}}}'
-  recorded_at: Wed, 21 Apr 2021 21:50:16 GMT
+        Yard for any Hobby","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"cash
+        cash cash","photo_url_1":"https://jalbum.net/.workspace/slides/shaun-montero-ZxDX8D9HHNM-unsplash.jpg","photo_url_2":"","photo_url_3":"","price":125.2,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
+        rental"}},{"id":"1","type":"purpose","attributes":{"name":"pet rental"}}]}}}}'
+  recorded_at: Thu, 22 Apr 2021 04:13:46 GMT
 recorded_with: VCR 6.0.0
