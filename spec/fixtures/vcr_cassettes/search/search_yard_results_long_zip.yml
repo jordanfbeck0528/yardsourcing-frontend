@@ -25,16 +25,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 9f2b67c7-4f5f-48a2-a6df-0b2f5cb0851a
+      - e1ec6b3a-0cda-4bc0-8b3b-cc652cc86ef9
       X-Runtime:
-      - '0.003637'
+      - '0.006194'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:29:09 GMT
+  recorded_at: Thu, 22 Apr 2021 04:58:58 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/purposes
@@ -60,16 +60,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 6fc93502-6896-422a-91a2-f0b8105add0b
+      - d448e288-a985-4002-ab22-1ca91d1fc639
       X-Runtime:
-      - '0.003928'
+      - '0.006129'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:29:09 GMT
+  recorded_at: Thu, 22 Apr 2021 04:58:58 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/purposes
@@ -95,16 +95,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - ce3cf53e-49e0-4ac5-9ec8-5ab21c884e53
+      - d4102c92-c9fc-4466-814f-adca1d9bbc58
       X-Runtime:
-      - '0.003040'
+      - '0.008661'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:29:09 GMT
+  recorded_at: Thu, 22 Apr 2021 04:58:58 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/yards/yard_search?location=8021902&purposes%5B%5D=pet%20rental
@@ -130,15 +130,15 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 116ab328-9ac5-4689-b54a-4df6d5b0ff04
+      - dc207687-0ed6-4b18-8bd0-9ee624642916
       X-Runtime:
-      - '0.001824'
+      - '0.004148'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"message":"your request cannot be completed","error":"Invalid zipcode"}'
-  recorded_at: Thu, 22 Apr 2021 04:29:10 GMT
+  recorded_at: Thu, 22 Apr 2021 04:58:58 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/purposes
@@ -164,14 +164,14 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c1eb445a-a4f5-4b19-98c4-5306be409b6f
+      - a88d9823-fb8c-480a-8c44-a5274429c56c
       X-Runtime:
-      - '0.003158'
+      - '0.008022'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:29:10 GMT
+  recorded_at: Thu, 22 Apr 2021 04:58:58 GMT
 recorded_with: VCR 6.0.0
