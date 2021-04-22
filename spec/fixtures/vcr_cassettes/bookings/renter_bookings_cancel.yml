@@ -25,20 +25,20 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"add6bf31cb6dda0cdeb524837537e3e3"
+      - W/"599cbea39ffe1aa2c8dba2dbc89a1087"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 7ad9497b-e923-4982-94b1-50a5761d52e2
+      - 50af3f3b-447c-4039-b80e-93ac302d4a38
       X-Runtime:
-      - '0.472518'
+      - '0.298034'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"12","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"DLT
+      string: '{"data":{"id":"21","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"DLT
         THIS BOOKING","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}}'
-  recorded_at: Wed, 21 Apr 2021 21:50:20 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:51 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/renters/1/bookings?status=approved
@@ -60,22 +60,23 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"a84f056ef48873a26b40a918f1dc3df2"
+      - W/"7ecc323afedd4dfcfc1142e69973ff0a"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d0c0e162-896f-4109-b9ae-d852e2cfcae8
+      - 5d67f838-f2a4-4890-9937-0499778383cc
       X-Runtime:
-      - '0.004361'
+      - '0.004960'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"Pet
         Birthday Party","renter_id":1,"date":"2021-04-25","time":"2000-01-01T14:00:00.000Z","duration":3,"description":"Throwing
-        a bday party for my pet."}},{"id":"9","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
+        a bday party for my pet."}},{"id":"10","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"18","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
         new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}]}'
-  recorded_at: Wed, 21 Apr 2021 21:50:20 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:51 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/yards/2
@@ -101,9 +102,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a88d3039-a59a-4a99-a6e1-3ea5fc3c752f
+      - 3e6386a5-1923-40e0-bff9-8a4f723f2e80
       X-Runtime:
-      - '0.004413'
+      - '0.004883'
       Transfer-Encoding:
       - chunked
     body:
@@ -113,45 +114,7 @@ http_interactions:
         yard is equiped with a firepit, a pool, and a pool house to accommodate all
         your party needs.","availability":"Available on weekends in May","payment":"Venmo","photo_url_1":"https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg","photo_url_2":"","photo_url_3":"","price":20.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
         rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}}}'
-  recorded_at: Wed, 21 Apr 2021 21:50:20 GMT
-- request:
-    method: get
-    uri: http://localhost:3001/api/v1/yards/2
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v1.4.1
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=utf-8
-      Etag:
-      - W/"05899a4b6bd5366751e2b5fc0e2839d7"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - b5f318cb-a05f-48c6-8aad-d4ebb412cf4c
-      X-Runtime:
-      - '0.004037'
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: '{"data":{"id":"2","type":"yard","attributes":{"host_id":1,"name":"Ultimate
-        Party Yard","street_address":"2001 Blake St","city":"Denver","state":"CO","zipcode":"80205","description":"This
-        yard is equiped with a firepit, a pool, and a pool house to accommodate all
-        your party needs.","availability":"Available on weekends in May","payment":"Venmo","photo_url_1":"https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg","photo_url_2":"","photo_url_3":"","price":20.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
-        rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}}}'
-  recorded_at: Wed, 21 Apr 2021 21:50:20 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:51 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/renters/1/bookings?status=pending
@@ -173,62 +136,28 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"8eef2c432e9bb859d4a3a7db060cd6fa"
+      - W/"17556c304af66a5691b48ab3d93b5a05"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 1700cf32-2cf6-4ef1-af59-505e44ffe6d9
+      - 0c6880bd-3cad-4183-908f-afc013c150cc
       X-Runtime:
-      - '0.003687'
+      - '0.005459'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":[{"id":"5","type":"booking","attributes":{"status":"pending","yard_id":4,"booking_name":"Spotlight
-        Tag","renter_id":1,"date":"2021-05-05","time":"2000-01-01T21:00:00.000Z","duration":2,"description":"Wanting
-        to have a 50 person game of spotlight tag."}},{"id":"8","type":"booking","attributes":{"status":"pending","yard_id":6,"booking_name":"Country
+      string: '{"data":[{"id":"8","type":"booking","attributes":{"status":"pending","yard_id":6,"booking_name":"Country
         Throw Down Part 2","renter_id":1,"date":"2021-04-25","time":"2000-01-01T20:00:00.000Z","duration":5,"description":"Trying
-        to throw a rager with my friends again."}},{"id":"12","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"DLT
-        THIS BOOKING","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}]}'
-  recorded_at: Wed, 21 Apr 2021 21:50:20 GMT
-- request:
-    method: get
-    uri: http://localhost:3001/api/v1/yards/4
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v1.4.1
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=utf-8
-      Etag:
-      - W/"cf76b6174a6dbe0539567fbe293c81d6"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 1b6557ed-0b1f-4c37-a4f1-e834478ebfb9
-      X-Runtime:
-      - '0.004022'
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: '{"data":{"id":"4","type":"yard","attributes":{"host_id":2,"name":"Multipurpose
-        Yard","street_address":"3181 E 23rd Ave","city":"Denver","state":"CO","zipcode":"80205","description":"Fenced
-        in yard for privacy.","availability":"Available on Monday, Wednesday, Friday,
-        and Saturdays","payment":"Paypal","photo_url_1":"","photo_url_2":"","photo_url_3":"","price":15.5,"purposes":{"data":[{"id":"2","type":"purpose","attributes":{"name":"party
-        rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}}}}'
-  recorded_at: Wed, 21 Apr 2021 21:50:20 GMT
+        to throw a rager with my friends again."}},{"id":"5","type":"booking","attributes":{"status":"pending","yard_id":4,"booking_name":"Spotlight
+        Tag","renter_id":1,"date":"2021-05-05","time":"2000-01-01T21:00:00.000Z","duration":2,"description":"Wanting
+        to have a 50 person game of spotlight tag."}},{"id":"21","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"DLT
+        THIS BOOKING","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"14","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"15","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"17","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}},{"id":"9","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}}]}'
+  recorded_at: Thu, 22 Apr 2021 04:13:51 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/yards/6
@@ -254,9 +183,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 933c0fb3-d62f-43f7-bbe9-1fea63f7dd03
+      - 61a2b29d-7632-44ff-b23c-a9d804b69d29
       X-Runtime:
-      - '0.004197'
+      - '0.006109'
       Transfer-Encoding:
       - chunked
     body:
@@ -268,10 +197,10 @@ http_interactions:
         Cashapp","photo_url_1":"https://image.shutterstock.com/image-photo/spacious-yard-home-garden-swing-260nw-1609425607.jpg","photo_url_2":"","photo_url_3":"","price":15.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
         rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby
         rental"}}]}}}}'
-  recorded_at: Wed, 21 Apr 2021 21:50:20 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:51 GMT
 - request:
     method: get
-    uri: http://localhost:3001/api/v1/yards/2
+    uri: http://localhost:3001/api/v1/yards/4
     body:
       encoding: US-ASCII
       string: ''
@@ -290,26 +219,26 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"05899a4b6bd5366751e2b5fc0e2839d7"
+      - W/"ea525e0ee1295c7cb89bdaa6ecd4ad74"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - cb2a58ab-db80-435f-916b-ecba3a2fe83a
+      - 7b11eb31-9f5d-40f4-9a1d-e55d311a3032
       X-Runtime:
-      - '0.004090'
+      - '0.005008'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"2","type":"yard","attributes":{"host_id":1,"name":"Ultimate
-        Party Yard","street_address":"2001 Blake St","city":"Denver","state":"CO","zipcode":"80205","description":"This
-        yard is equiped with a firepit, a pool, and a pool house to accommodate all
-        your party needs.","availability":"Available on weekends in May","payment":"Venmo","photo_url_1":"https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg","photo_url_2":"","photo_url_3":"","price":20.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
+      string: '{"data":{"id":"4","type":"yard","attributes":{"host_id":2,"name":"Multipurpose
+        Yard","street_address":"3181 E 23rd Ave","city":"Denver","state":"CO","zipcode":"80205","description":"Fenced
+        in yard for privacy.","availability":"Available on Monday, Wednesday, Friday,
+        and Saturdays","payment":"Paypal","photo_url_1":"","photo_url_2":"","photo_url_3":"","price":15.5,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
         rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}}}'
-  recorded_at: Wed, 21 Apr 2021 21:50:20 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:51 GMT
 - request:
     method: delete
-    uri: http://localhost:3001/api/v1/bookings/12?id=12
+    uri: http://localhost:3001/api/v1/bookings/21?id=21
     body:
       encoding: US-ASCII
       string: ''
@@ -330,20 +259,20 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"2292cf882d6a276c08c59393770ad5eb"
+      - W/"32530dc411563d0813604d49df7a6aeb"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 7e0ffc98-c503-49ac-b4d0-3751ac86b648
+      - 178bd265-d387-4f6d-9c19-9cd59d743a59
       X-Runtime:
-      - '0.004083'
+      - '0.004475'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"id":12,"yard_id":2,"renter_id":1,"status":"pending","booking_name":"DLT
-        THIS BOOKING","date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description","created_at":"2021-04-21T21:50:20.371Z","updated_at":"2021-04-21T21:50:20.371Z","renter_email":"renter@renter.com"}'
-  recorded_at: Wed, 21 Apr 2021 21:50:21 GMT
+      string: '{"id":21,"yard_id":2,"renter_id":1,"status":"pending","booking_name":"DLT
+        THIS BOOKING","date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description","created_at":"2021-04-22T04:13:50.863Z","updated_at":"2021-04-22T04:13:50.863Z","renter_email":"renter@renter.com"}'
+  recorded_at: Thu, 22 Apr 2021 04:13:51 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/renters/1/bookings?status=approved
@@ -365,22 +294,23 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"a84f056ef48873a26b40a918f1dc3df2"
+      - W/"7ecc323afedd4dfcfc1142e69973ff0a"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 3dd4b0a3-c37a-415c-8df7-575aaabd95a0
+      - edf10b7f-0c38-46a3-a39f-9cd02e23a571
       X-Runtime:
-      - '0.003572'
+      - '0.006455'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"Pet
         Birthday Party","renter_id":1,"date":"2021-04-25","time":"2000-01-01T14:00:00.000Z","duration":3,"description":"Throwing
-        a bday party for my pet."}},{"id":"9","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
+        a bday party for my pet."}},{"id":"10","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"18","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
         new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}]}'
-  recorded_at: Wed, 21 Apr 2021 21:50:21 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:51 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/yards/2
@@ -406,9 +336,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 4ad5c350-45d9-48a9-9e33-36afa406ae2a
+      - cf723ae5-6b95-4283-842e-29ccf6e3e798
       X-Runtime:
-      - '0.004740'
+      - '0.004989'
       Transfer-Encoding:
       - chunked
     body:
@@ -418,45 +348,7 @@ http_interactions:
         yard is equiped with a firepit, a pool, and a pool house to accommodate all
         your party needs.","availability":"Available on weekends in May","payment":"Venmo","photo_url_1":"https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg","photo_url_2":"","photo_url_3":"","price":20.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
         rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}}}'
-  recorded_at: Wed, 21 Apr 2021 21:50:21 GMT
-- request:
-    method: get
-    uri: http://localhost:3001/api/v1/yards/2
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v1.4.1
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=utf-8
-      Etag:
-      - W/"05899a4b6bd5366751e2b5fc0e2839d7"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - a6d41fbd-fdfb-44f5-8750-8b2e7b2c986e
-      X-Runtime:
-      - '0.004085'
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: '{"data":{"id":"2","type":"yard","attributes":{"host_id":1,"name":"Ultimate
-        Party Yard","street_address":"2001 Blake St","city":"Denver","state":"CO","zipcode":"80205","description":"This
-        yard is equiped with a firepit, a pool, and a pool house to accommodate all
-        your party needs.","availability":"Available on weekends in May","payment":"Venmo","photo_url_1":"https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg","photo_url_2":"","photo_url_3":"","price":20.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
-        rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}}}'
-  recorded_at: Wed, 21 Apr 2021 21:50:21 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:51 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/renters/1/bookings?status=pending
@@ -478,61 +370,27 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"7069fef3ab6cfb8d3ce89e3fa7bde75f"
+      - W/"53fdbb3e0dbec03d963043b07bc9a888"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d7c5af87-bcbb-4f1a-8dbb-37380f95edea
+      - be3b04e2-9a89-43fc-be62-0589350c67c8
       X-Runtime:
-      - '0.004316'
+      - '0.004599'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":[{"id":"5","type":"booking","attributes":{"status":"pending","yard_id":4,"booking_name":"Spotlight
-        Tag","renter_id":1,"date":"2021-05-05","time":"2000-01-01T21:00:00.000Z","duration":2,"description":"Wanting
-        to have a 50 person game of spotlight tag."}},{"id":"8","type":"booking","attributes":{"status":"pending","yard_id":6,"booking_name":"Country
+      string: '{"data":[{"id":"8","type":"booking","attributes":{"status":"pending","yard_id":6,"booking_name":"Country
         Throw Down Part 2","renter_id":1,"date":"2021-04-25","time":"2000-01-01T20:00:00.000Z","duration":5,"description":"Trying
-        to throw a rager with my friends again."}}]}'
-  recorded_at: Wed, 21 Apr 2021 21:50:21 GMT
-- request:
-    method: get
-    uri: http://localhost:3001/api/v1/yards/4
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v1.4.1
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=utf-8
-      Etag:
-      - W/"cf76b6174a6dbe0539567fbe293c81d6"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - c29ef31c-e233-46e9-a956-09963ec8bb9d
-      X-Runtime:
-      - '0.004194'
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: '{"data":{"id":"4","type":"yard","attributes":{"host_id":2,"name":"Multipurpose
-        Yard","street_address":"3181 E 23rd Ave","city":"Denver","state":"CO","zipcode":"80205","description":"Fenced
-        in yard for privacy.","availability":"Available on Monday, Wednesday, Friday,
-        and Saturdays","payment":"Paypal","photo_url_1":"","photo_url_2":"","photo_url_3":"","price":15.5,"purposes":{"data":[{"id":"2","type":"purpose","attributes":{"name":"party
-        rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}}}}'
-  recorded_at: Wed, 21 Apr 2021 21:50:21 GMT
+        to throw a rager with my friends again."}},{"id":"5","type":"booking","attributes":{"status":"pending","yard_id":4,"booking_name":"Spotlight
+        Tag","renter_id":1,"date":"2021-05-05","time":"2000-01-01T21:00:00.000Z","duration":2,"description":"Wanting
+        to have a 50 person game of spotlight tag."}},{"id":"9","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}},{"id":"14","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"15","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"17","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}}]}'
+  recorded_at: Thu, 22 Apr 2021 04:13:51 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/yards/6
@@ -558,9 +416,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 9c78b279-4ead-40e8-be08-ad0b7b3846fc
+      - dc8a6e78-8597-495c-96ae-b34a79c8985a
       X-Runtime:
-      - '0.004729'
+      - '0.005784'
       Transfer-Encoding:
       - chunked
     body:
@@ -572,5 +430,43 @@ http_interactions:
         Cashapp","photo_url_1":"https://image.shutterstock.com/image-photo/spacious-yard-home-garden-swing-260nw-1609425607.jpg","photo_url_2":"","photo_url_3":"","price":15.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
         rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby
         rental"}}]}}}}'
-  recorded_at: Wed, 21 Apr 2021 21:50:21 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:51 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/v1/yards/4
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"ea525e0ee1295c7cb89bdaa6ecd4ad74"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 3f7d8612-841d-4c82-b5c2-d0b932b8a17a
+      X-Runtime:
+      - '0.004583'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"4","type":"yard","attributes":{"host_id":2,"name":"Multipurpose
+        Yard","street_address":"3181 E 23rd Ave","city":"Denver","state":"CO","zipcode":"80205","description":"Fenced
+        in yard for privacy.","availability":"Available on Monday, Wednesday, Friday,
+        and Saturdays","payment":"Paypal","photo_url_1":"","photo_url_2":"","photo_url_3":"","price":15.5,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
+        rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}}}'
+  recorded_at: Thu, 22 Apr 2021 04:13:51 GMT
 recorded_with: VCR 6.0.0

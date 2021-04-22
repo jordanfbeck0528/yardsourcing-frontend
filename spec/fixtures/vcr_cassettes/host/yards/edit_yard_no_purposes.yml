@@ -25,16 +25,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 4761d06a-0d70-4dab-8c44-2e85d49210da
+      - 4207bc31-534e-4090-a7da-90d2b876e476
       X-Runtime:
-      - '0.002948'
+      - '0.004500'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Wed, 21 Apr 2021 21:50:17 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:47 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/yards/3
@@ -56,20 +56,20 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"7281c7a421c9692de2db4832b71c5710"
+      - W/"92411119836edf3a719ae02133104dbb"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2789016b-4efc-4e15-9275-f9cfadd3f482
+      - afd9984c-600b-49d3-8bfd-c65328967f20
       X-Runtime:
-      - '0.004065'
+      - '0.006136'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":{"id":"3","type":"yard","attributes":{"host_id":1,"name":"Large
         Yard for any Hobby","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"cash
-        cash cash","photo_url_1":"https://jalbum.net/.workspace/slides/shaun-montero-ZxDX8D9HHNM-unsplash.jpg","photo_url_2":"","photo_url_3":"","price":125.2,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
-        rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}}}}'
-  recorded_at: Wed, 21 Apr 2021 21:50:17 GMT
+        cash cash","photo_url_1":"https://jalbum.net/.workspace/slides/shaun-montero-ZxDX8D9HHNM-unsplash.jpg","photo_url_2":"","photo_url_3":"","price":125.2,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
+        rental"}},{"id":"1","type":"purpose","attributes":{"name":"pet rental"}}]}}}}'
+  recorded_at: Thu, 22 Apr 2021 04:13:47 GMT
 recorded_with: VCR 6.0.0

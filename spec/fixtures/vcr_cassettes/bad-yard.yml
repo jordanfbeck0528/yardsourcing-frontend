@@ -25,16 +25,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c978702f-7caa-4109-b6be-e3a5ebc36a5e
+      - 66ce53ca-2cb4-412f-b383-01a24e4dd2f4
       X-Runtime:
-      - '0.002901'
+      - '0.004367'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Wed, 21 Apr 2021 21:50:18 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:48 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/purposes
@@ -60,16 +60,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - ad50f14a-dbe7-4a6b-9181-0fe4f7c2e8f8
+      - 2d34d8ed-38c5-406e-8b4b-ce2433708966
       X-Runtime:
-      - '0.003001'
+      - '0.004700'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Wed, 21 Apr 2021 21:50:18 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:48 GMT
 - request:
     method: post
     uri: http://localhost:3001/api/v1/yards?availability=availability&city=city&description=description&email=thisemail@gmail.com&host_id=1&name=&payment=payment&photo_url_1=https://photo.com/path&photo_url_2=&photo_url_3=&price=25.2&purposes%5B%5D=1&purposes%5B%5D=3&state=state&street_address=street_address&zipcode=zipcode
@@ -97,13 +97,13 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 88cc8441-18e4-4d77-a28b-955f6f1607c1
+      - b0b46aac-d504-45a3-8f41-f870d08484c5
       X-Runtime:
-      - '0.003781'
+      - '0.005965'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"error":"Validation failed: Name can''t be blank"}'
-  recorded_at: Wed, 21 Apr 2021 21:50:18 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:48 GMT
 recorded_with: VCR 6.0.0

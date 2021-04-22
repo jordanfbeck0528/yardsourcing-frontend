@@ -7,6 +7,7 @@
   <h3 class="main-header">Upcoming Bookings:</h3>
     <div class="container">
       <div class="row">
+
         <% @renter_bookings_approved.each do |booking| %>
         <div class= "card dashboard">
           <div id='booking-<%= booking.id %>'  class="card-body">
@@ -27,7 +28,7 @@
             <% end  %>
           </div>
         </div>
-        <% end %>
+          <%end %>
       </div>
     </div>
 </section>
@@ -56,7 +57,7 @@
             <% end  %>
           </div>
         </div>
-        <% end %>
+          <%end %>
       </div>
     </div>
 </section>

@@ -12,6 +12,7 @@
     <div class="container">
       <div class="row">
         <% @host_yards.each do |yard| %>
+          <% cache(yard) do %>
         <div class= "card dashboard">
           <div class="card-body">
             <div class="card-title name"><%= link_to yard.name, host_yard_path(yard.id) %></div>
@@ -21,7 +22,9 @@
             Purposes:
             <ul>
             <% yard.purposes.each do |purpose| %>
+              <% cache(purpose) do  %>
               <li><%= purpose.titleize %></li>
+                <%end %>
             <% end %>
             </ul>
             <p><% if !yard.photo_url_1.blank? %>
@@ -31,6 +34,7 @@
             <% end %></p>
           </div>
         </div>
+          <%end %>
         <% end %>
       </div>
     </div>

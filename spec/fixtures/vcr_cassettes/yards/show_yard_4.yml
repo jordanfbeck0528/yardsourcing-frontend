@@ -21,13 +21,13 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"cf76b6174a6dbe0539567fbe293c81d6"
+      - W/"ea525e0ee1295c7cb89bdaa6ecd4ad74"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - e7d6a3de-89ec-4d08-ba1a-d9bfe089f414
+      - 3c2b04ec-6fc0-4a17-8811-a80fda1e6084
       X-Runtime:
-      - '0.004242'
+      - '0.007523'
       Transfer-Encoding:
       - chunked
     body:
@@ -35,7 +35,7 @@ http_interactions:
       string: '{"data":{"id":"4","type":"yard","attributes":{"host_id":2,"name":"Multipurpose
         Yard","street_address":"3181 E 23rd Ave","city":"Denver","state":"CO","zipcode":"80205","description":"Fenced
         in yard for privacy.","availability":"Available on Monday, Wednesday, Friday,
-        and Saturdays","payment":"Paypal","photo_url_1":"","photo_url_2":"","photo_url_3":"","price":15.5,"purposes":{"data":[{"id":"2","type":"purpose","attributes":{"name":"party
-        rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}}}}'
-  recorded_at: Wed, 21 Apr 2021 21:50:23 GMT
+        and Saturdays","payment":"Paypal","photo_url_1":"","photo_url_2":"","photo_url_3":"","price":15.5,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
+        rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}}}'
+  recorded_at: Thu, 22 Apr 2021 04:13:52 GMT
 recorded_with: VCR 6.0.0
