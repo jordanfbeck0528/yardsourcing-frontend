@@ -3,6 +3,7 @@ rbenv:
 - 2.5.3
 addons:
   postgresql: 9.6
+cache: bundler
 before_install:
 - gem install bundler:2.1.4
 - nvm install --lts
