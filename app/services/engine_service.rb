@@ -1,10 +1,10 @@
 class EngineService
 
   def self.all_purposes
-    Rails.cache.fetch("all_purposes", expires_in: 24.hours) do
+     Rails.cache.fetch("all_purposes", expires_in: 24.hours) do
       response = connection.get('/api/v1/purposes')
       JSON.parse(response.body, symbolize_names: true)
-    end
+     end
   end
 
   def self.create_yard(yard_params)

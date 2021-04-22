@@ -10,7 +10,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
 
   describe "happy path" do
     it "I see a form prepopulated with the yards stored information" do
-      VCR.use_cassette('edit_yard_happy') do
+      VCR.use_cassette('host/yards/edit_yard') do
         visit host_yard_path(3)
         click_on "Edit Yard"
 
@@ -36,7 +36,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
     end
 
     it "When the form is submitted it updates the yard" do
-      VCR.use_cassette('edit_yard_happy_submit') do
+      VCR.use_cassette('host/yards/edit_yard_submit') do
         visit host_yard_path(3)
         click_on "Edit Yard"
 
@@ -69,7 +69,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
   end
   describe "sad path" do
     it "flashes an error message when a name is left blank" do
-      VCR.use_cassette('edit_yard_sad_no_name') do
+      VCR.use_cassette('host/yards/edit_yard_no_name') do
         visit edit_host_yard_path(3)
 
         check "purposes_1"
@@ -81,7 +81,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
     end
 
     it "flashes an error message when a street_address is left blank" do
-      VCR.use_cassette('edit_yard_sad_no_street') do
+      VCR.use_cassette('host/yards/edit_yard_no_street') do
         visit edit_host_yard_path(3)
         check "purposes_1"
         fill_in :street_address, with: ""
@@ -91,7 +91,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
     end
 
     it "flashes an error message when a city is left blank" do
-      VCR.use_cassette('edit_yard_sad_no_city') do
+      VCR.use_cassette('host/yards/edit_yard_no_city') do
         visit edit_host_yard_path(3)
         check "purposes_1"
         fill_in :city, with: ""
@@ -101,7 +101,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
     end
 
     it "flashes an error message when a state is left blank" do
-      VCR.use_cassette('edit_yard_sad_no_state') do
+      VCR.use_cassette('host/yards/edit_yard_no_state') do
         visit edit_host_yard_path(3)
         check "purposes_1"
         fill_in :state, with: ""
@@ -111,7 +111,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
     end
 
     it "flashes an error message when a zipcode is left blank" do
-      VCR.use_cassette('edit_yard_sad_no_zipcode') do
+      VCR.use_cassette('host/yards/edit_yard_no_zipcode') do
         visit edit_host_yard_path(3)
         check "purposes_1"
         fill_in :zipcode, with: ""
@@ -121,7 +121,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
     end
 
     it "flashes an error message when a description is left blank" do
-      VCR.use_cassette('edit_yard_sad_no_description') do
+      VCR.use_cassette('host/yards/edit_yard_no_description') do
         visit edit_host_yard_path(3)
         check "purposes_1"
         fill_in :description, with: ""
@@ -131,7 +131,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
     end
 
     it "flashes an error message when a availability is left blank" do
-      VCR.use_cassette('edit_yard_sad_no_availability') do
+      VCR.use_cassette('host/yards/edit_yard_no_availability') do
         visit edit_host_yard_path(3)
         check "purposes_1"
         fill_in :availability, with: ""
@@ -141,7 +141,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
     end
 
     it "flashes an error message when a payment is left blank" do
-      VCR.use_cassette('edit_yard_sad_no_payment') do
+      VCR.use_cassette('host/yards/edit_yard_no_payment') do
         visit edit_host_yard_path(3)
         check "purposes_1"
         fill_in :payment, with: ""
@@ -151,7 +151,7 @@ describe 'As an authenticated user when I visit the edit yard page' do
     end
 
     it "flashes an error message when a purpose is not selected" do
-      VCR.use_cassette('edit_yard_sad_no_purposes') do
+      VCR.use_cassette('host/yards/edit_yard_no_purposes') do
         visit edit_host_yard_path(3)
 
         expect(current_path).to eq(edit_host_yard_path(3))
