@@ -21,20 +21,21 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"a84f056ef48873a26b40a918f1dc3df2"
+      - W/"698d0fc3328c2926b4322d3cdd7bce79"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 1b1cf28c-f533-42ae-b54c-3e06f68f39b5
+      - 26be1c33-bd15-4010-a913-fae7d253a04b
       X-Runtime:
-      - '0.007760'
+      - '0.005012'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":[{"id":"1","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"Pet
+      string: '{"data":[{"id":"9","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"18","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"1","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"Pet
         Birthday Party","renter_id":1,"date":"2021-04-25","time":"2000-01-01T14:00:00.000Z","duration":3,"description":"Throwing
-        a bday party for my pet."}},{"id":"9","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}]}'
-  recorded_at: Wed, 21 Apr 2021 22:04:51 GMT
+        a bday party for my pet."}}]}'
+  recorded_at: Thu, 22 Apr 2021 01:58:08 GMT
 recorded_with: VCR 6.0.0

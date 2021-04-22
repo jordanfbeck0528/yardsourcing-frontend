@@ -25,23 +25,23 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"13defd120c4affb26586708c8113ba21"
+      - W/"8b7af6f5939e85e4e6c6e3a7e74cd0eb"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - adee3030-232b-4b36-b447-6e267d585d7b
+      - 194d7553-37e4-423c-9d23-a9ff68bb005e
       X-Runtime:
-      - '0.458073'
+      - '0.866360'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"19","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+      string: '{"data":{"id":"24","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
         new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}}'
-  recorded_at: Wed, 21 Apr 2021 22:04:50 GMT
+  recorded_at: Thu, 22 Apr 2021 01:58:08 GMT
 - request:
     method: delete
-    uri: http://localhost:3001/api/v1/bookings/19?id=19
+    uri: http://localhost:3001/api/v1/bookings/24?id=24
     body:
       encoding: US-ASCII
       string: ''
@@ -62,18 +62,18 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"5e7701a451dd68dbc7b0615ad1269d02"
+      - W/"0c68362d8ffac0603eca41ee49097357"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 6e4847b4-1b2c-469a-ba9a-6041246636d9
+      - 3c5b1746-1f2e-4617-8efa-1dc38dcc7d1b
       X-Runtime:
-      - '0.006193'
+      - '0.004993'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"id":19,"yard_id":2,"renter_id":1,"status":"pending","booking_name":"A
-        new booking!!","date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description","created_at":"2021-04-21T22:04:50.532Z","updated_at":"2021-04-21T22:04:50.532Z","renter_email":"renter@renter.com"}'
-  recorded_at: Wed, 21 Apr 2021 22:04:51 GMT
+      string: '{"id":24,"yard_id":2,"renter_id":1,"status":"pending","booking_name":"A
+        new booking!!","date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description","created_at":"2021-04-22T01:58:07.271Z","updated_at":"2021-04-22T01:58:07.271Z","renter_email":"renter@renter.com"}'
+  recorded_at: Thu, 22 Apr 2021 01:58:08 GMT
 recorded_with: VCR 6.0.0

@@ -25,23 +25,23 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"86e6f0bc675fc89e0cf5db3f7c646be2"
+      - W/"429825feebc4c5887365f3dfe4fb90b1"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 8d98215f-713e-4d9d-a736-4d8b09d13a19
+      - 7e81031c-9123-448c-a7ad-809d3a6b4445
       X-Runtime:
-      - '0.450007'
+      - '0.310408'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"18","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+      string: '{"data":{"id":"23","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
         new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}}'
-  recorded_at: Wed, 21 Apr 2021 22:04:50 GMT
+  recorded_at: Thu, 22 Apr 2021 01:58:07 GMT
 - request:
     method: put
-    uri: http://localhost:3001/api/v1/bookings/18?id=18
+    uri: http://localhost:3001/api/v1/bookings/23?id=23
     body:
       encoding: UTF-8
       string: ''
@@ -64,18 +64,18 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"86e6f0bc675fc89e0cf5db3f7c646be2"
+      - W/"429825feebc4c5887365f3dfe4fb90b1"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 914cb9ca-7ad2-4f90-bf14-2759528c6351
+      - b0baccb8-570c-42d7-8df7-405ea154c219
       X-Runtime:
-      - '0.006835'
+      - '0.007010'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"18","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+      string: '{"data":{"id":"23","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
         new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}}'
-  recorded_at: Wed, 21 Apr 2021 22:04:50 GMT
+  recorded_at: Thu, 22 Apr 2021 01:58:07 GMT
 recorded_with: VCR 6.0.0
