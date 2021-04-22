@@ -6,14 +6,21 @@ Yardsourcing is a web application that allows users to create accounts via Googl
 
 *Turn your extra green into green.*
 
+#### Related Repos
+To explore the full web application, please visit the built out back end application that hooks into this front end and its views.
+ - [Yardsourcing - engine](https://github.com/Yardsourcing/yardsourcing-engine).
+
+To set up automatic email confirmation, please visit the Sendgrid microservice.
+ - [Sendgrid Microservice](https://github.com/Yardsourcing/yardsourcing-sendgrid)
+
 ### Created by:
 - [Alexa Morales Smyth](https://github.com/amsmyth1) | [LinkedIn](https://www.linkedin.com/in/moralesalexa/)
-- [Genevieve Nuebel](https://github.com/Gvieve) | [LinkedIn](https://www.linkedin.com/in/genevieve-nuebel)
-- [Dominic Padula]() | [LinkedIn]()
-- [Jenny Branham](https://github.com/jbranham1) | [LinkedIn](https://www.linkedin.com/in/jenny-branham)
-- [Jordan Beck](https://github.com/jordanfbeck0528) | [LinkedIn](https://www.linkedin.com/in/jordan-f-beck/)
 - [Angel Breaux](https://github.com/abreaux26) | [LinkedIn](https://www.linkedin.com/in/angel-breaux)
 - [Doug Welchons](https://github.com/DougWelchons/) | [LinkedIn](https://www.linkedin.com/in/douglas-welchons)
+- [Dominic Padula](https://github.com/domo2192) | [LinkedIn](https://www.linkedin.com/in/dominic-padula)
+- [Genevieve Nuebel](https://github.com/Gvieve) | [LinkedIn](https://www.linkedin.com/in/genevieve-nuebel)
+- [Jenny Branham](https://github.com/jbranham1) | [LinkedIn](https://www.linkedin.com/in/jenny-branham)
+- [Jordan Beck](https://github.com/jordanfbeck0528) | [LinkedIn](https://www.linkedin.com/in/jordan-f-beck/)
 
 #### Built With
 * [Ruby on Rails](https://rubyonrails.org)
@@ -96,9 +103,10 @@ These instructions will get you a copy of the project up and running on your loc
     - add the below variables to the `config/application.yml`
   ```
   GOOGLE_CLIENT_ID: '<GOOGLE_CLIENT_ID>'
-  GOOGLE_CLIENT_SECRET: '<GOOGLE_CLIENT_SECRET'
+  GOOGLE_CLIENT_SECRET: '<GOOGLE_CLIENT_SECRET>'
   ys_engine_url: 'http://localhost:3001'
   mapquest_key: '<MAPQUEST_KEY>'
+  google_api_key: '<GOOGLE_MAPS_API_KEY>'
   ```
 
   7. Start rails server
@@ -169,17 +177,17 @@ See the [open issues](https://github.com/Yardsourcing/yardsourcing-frontend/issu
 
 ### Contributors
 - [Alexa Morales Smyth](https://github.com/amsmyth1)
-- [Genevieve Nuebel](https://github.com/Gvieve)
-- [Dominic Padula]() [LinkedIn]()
-- [Jenny Branham](https://github.com/jbranham1)
-- [Jordan Beck](https://github.com/jordanfbeck0528)
 - [Angel Breaux](https://github.com/abreaux26)
 - [Doug Welchons](https://github.com/DougWelchons/)
+- [Dominic Padula](https://github.com/domo2192)
+- [Genevieve Nuebel](https://github.com/Gvieve)
+- [Jenny Branham](https://github.com/jbranham1)
+- [Jordan Beck](https://github.com/jordanfbeck0528)
 
   See also the list of
   [contributors](https://github.com/Yardsourcing/yardsourcing-frontend/graphs/contributors)
   who participated in this project.
 
 ### Acknowledgments
-  - Our fantastically wizard like Project Manager and Instructor at [Turing School of Software and Design](https://turing.io/):
-    * Ian Douglas
+- Our fantastically wizard like Project Manager and Instructor at [Turing School of Software and Design](https://turing.io/):
+  * Ian Douglas
