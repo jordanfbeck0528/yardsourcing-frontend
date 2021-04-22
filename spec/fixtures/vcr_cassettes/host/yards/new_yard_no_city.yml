@@ -25,16 +25,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 305c3e1a-7ba7-4797-ba18-df0aa9203722
+      - 1acbac47-db09-496c-8f5d-f8cfd2b79162
       X-Runtime:
-      - '0.003787'
+      - '0.003914'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:43:11 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:48 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/purposes
@@ -60,16 +60,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 33ee2850-1537-41b7-98d2-56da7d09ccae
+      - b6affb8e-6d26-48f2-813d-5911bcb4f88e
       X-Runtime:
-      - '0.003246'
+      - '0.003421'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:43:11 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:48 GMT
 - request:
     method: post
     uri: http://localhost:3001/api/v1/yards?availability=availability&city=&description=description&email=thisemail@gmail.com&host_id=1&name=A%20new%20yard!!&payment=payment&photo_url_1=https://photo.com/path&photo_url_2=&photo_url_3=&price=25.2&purposes%5B%5D=1&purposes%5B%5D=3&state=state&street_address=street_address&zipcode=zipcode
@@ -97,13 +97,13 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 65a7a0e0-e5fa-45e8-ba52-d13ed4e37d11
+      - 0b723a53-87ee-4c1f-9f85-2a3987841487
       X-Runtime:
-      - '0.004921'
+      - '0.004481'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"error":"Validation failed: City can''t be blank"}'
-  recorded_at: Thu, 22 Apr 2021 04:43:11 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:48 GMT
 recorded_with: VCR 6.0.0

@@ -25,9 +25,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a8870a71-f2af-4867-99c9-53d805499dc8
+      - 8b3ac9c9-f604-4ae2-9052-88dcb9251d7d
       X-Runtime:
-      - '0.010099'
+      - '0.006807'
       Transfer-Encoding:
       - chunked
     body:
@@ -37,7 +37,7 @@ http_interactions:
         yard is equiped with a firepit, a pool, and a pool house to accommodate all
         your party needs.","availability":"Available on weekends in May","payment":"Venmo","photo_url_1":"https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg","photo_url_2":"","photo_url_3":"","price":20.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
         rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 04:43:06 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:42 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/yards/2
@@ -63,9 +63,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - af99fc63-97af-43ff-91da-f0fb5d8dfb53
+      - '09750818-ee0a-4f39-ad47-99f3c72ad479'
       X-Runtime:
-      - '0.005713'
+      - '0.005182'
       Transfer-Encoding:
       - chunked
     body:
@@ -75,7 +75,7 @@ http_interactions:
         yard is equiped with a firepit, a pool, and a pool house to accommodate all
         your party needs.","availability":"Available on weekends in May","payment":"Venmo","photo_url_1":"https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg","photo_url_2":"","photo_url_3":"","price":20.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
         rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 04:43:06 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:42 GMT
 - request:
     method: post
     uri: http://localhost:3001/api/v1/bookings?booking_name=A%20new%20booking!!&date=2021-05-05&description=&duration=2&renter_email=thisemail@gmail.com&renter_id=1&time=2021-05-05%2012:00:00%20%2B0000&yard_id=2
@@ -103,13 +103,13 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - ac4326cc-b751-4863-92da-0fe1a5a0452c
+      - 41a399f6-9672-455b-adee-b465d7f7b4ee
       X-Runtime:
-      - '0.005255'
+      - '0.006904'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"error":"Validation failed: Description can''t be blank"}'
-  recorded_at: Thu, 22 Apr 2021 04:43:06 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:42 GMT
 recorded_with: VCR 6.0.0

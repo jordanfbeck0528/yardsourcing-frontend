@@ -25,9 +25,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 6c1074e1-6814-43fe-baa7-6f3b8bac6f85
+      - effdfdb5-5c8b-4217-92e5-dc7c56ebd662
       X-Runtime:
-      - '0.009451'
+      - '0.007132'
       Transfer-Encoding:
       - chunked
     body:
@@ -36,7 +36,7 @@ http_interactions:
         Yard for any Hobby","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"cash
         cash cash","photo_url_1":"https://jalbum.net/.workspace/slides/shaun-montero-ZxDX8D9HHNM-unsplash.jpg","photo_url_2":"","photo_url_3":"","price":125.2,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
         rental"}},{"id":"1","type":"purpose","attributes":{"name":"pet rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 04:43:09 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:46 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/purposes
@@ -62,16 +62,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 6e0c323c-64b3-49b5-84ff-70341c1c9551
+      - 8d200c1f-1085-41f4-8b77-fa07856fd586
       X-Runtime:
-      - '0.006477'
+      - '0.005510'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:43:09 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:46 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/yards/3
@@ -97,9 +97,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 1b33a658-10b8-4b88-b45f-3c04ea4a0e2d
+      - b22bf07f-8f46-44c5-885d-77271134eb96
       X-Runtime:
-      - '0.007594'
+      - '0.006919'
       Transfer-Encoding:
       - chunked
     body:
@@ -108,7 +108,7 @@ http_interactions:
         Yard for any Hobby","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"cash
         cash cash","photo_url_1":"https://jalbum.net/.workspace/slides/shaun-montero-ZxDX8D9HHNM-unsplash.jpg","photo_url_2":"","photo_url_3":"","price":125.2,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
         rental"}},{"id":"1","type":"purpose","attributes":{"name":"pet rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 04:43:09 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:46 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/purposes
@@ -134,16 +134,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 1be86f42-4362-47a7-9006-3e327b23c7c2
+      - 3a88dfab-ea71-4db0-946d-47a92bdd23be
       X-Runtime:
-      - '0.003526'
+      - '0.003446'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:43:09 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:46 GMT
 - request:
     method: put
     uri: http://localhost:3001/api/v1/yards/3?availability=availability&city=city&description=description&email=thisemail@gmail.com&host_id=1&id=3&name=PaRtY%20HoUsE!!&payment=cash%20cash%20cash&photo_url_1=https://jalbum.net/.workspace/slides/shaun-montero-ZxDX8D9HHNM-unsplash.jpg&photo_url_2=&photo_url_3=&price=125.2&purposes%5B%5D=1&purposes%5B%5D=3&state=state&street_address=street_address&zipcode=zipcode
@@ -173,9 +173,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - bac0979c-171e-4cf7-8ace-d12ce8262ea3
+      - c684c56a-472d-4a22-b82e-c29a48443925
       X-Runtime:
-      - '0.020668'
+      - '0.022409'
       Transfer-Encoding:
       - chunked
     body:
@@ -184,7 +184,7 @@ http_interactions:
         HoUsE!!","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"cash
         cash cash","photo_url_1":"https://jalbum.net/.workspace/slides/shaun-montero-ZxDX8D9HHNM-unsplash.jpg","photo_url_2":"","photo_url_3":"","price":125.2,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
         rental"}},{"id":"1","type":"purpose","attributes":{"name":"pet rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 04:43:09 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:46 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/yards/3
@@ -210,9 +210,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 84ca8be5-26fd-4db9-87c8-af0b9c92df41
+      - b81947e7-eae5-4fa9-98fa-cf304172b929
       X-Runtime:
-      - '0.004823'
+      - '0.005885'
       Transfer-Encoding:
       - chunked
     body:
@@ -221,7 +221,7 @@ http_interactions:
         HoUsE!!","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"cash
         cash cash","photo_url_1":"https://jalbum.net/.workspace/slides/shaun-montero-ZxDX8D9HHNM-unsplash.jpg","photo_url_2":"","photo_url_3":"","price":125.2,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
         rental"}},{"id":"1","type":"purpose","attributes":{"name":"pet rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 04:43:09 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:46 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/yards/3
@@ -247,9 +247,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - ec95f6ea-072f-49b0-92be-689587490bc9
+      - 881dc0a0-7945-4d93-8629-f2087e192139
       X-Runtime:
-      - '0.004820'
+      - '0.005600'
       Transfer-Encoding:
       - chunked
     body:
@@ -258,7 +258,7 @@ http_interactions:
         HoUsE!!","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"cash
         cash cash","photo_url_1":"https://jalbum.net/.workspace/slides/shaun-montero-ZxDX8D9HHNM-unsplash.jpg","photo_url_2":"","photo_url_3":"","price":125.2,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
         rental"}},{"id":"1","type":"purpose","attributes":{"name":"pet rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 04:43:09 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:46 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/yards/3
@@ -284,9 +284,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d6abe5e8-cfb4-4062-a0ae-e4d7e3614f16
+      - f13dae84-5ccb-46b1-bf02-6e6d66c0cf5c
       X-Runtime:
-      - '0.004505'
+      - '0.005404'
       Transfer-Encoding:
       - chunked
     body:
@@ -295,7 +295,7 @@ http_interactions:
         HoUsE!!","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"cash
         cash cash","photo_url_1":"https://jalbum.net/.workspace/slides/shaun-montero-ZxDX8D9HHNM-unsplash.jpg","photo_url_2":"","photo_url_3":"","price":125.2,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
         rental"}},{"id":"1","type":"purpose","attributes":{"name":"pet rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 04:43:09 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:46 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/purposes
@@ -321,16 +321,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 662d46ad-f67c-4ebc-81d3-456f6f38d2b1
+      - 6a6c565a-782a-4beb-808f-64c0cb92dd53
       X-Runtime:
-      - '0.003900'
+      - '0.003868'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:43:09 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:46 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/yards/3
@@ -356,9 +356,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - cad6b1d2-6fcc-440e-ab5e-bce743c1e977
+      - c74d5eca-62d5-4354-9b6f-5ba4791773c4
       X-Runtime:
-      - '0.005328'
+      - '0.005379'
       Transfer-Encoding:
       - chunked
     body:
@@ -367,7 +367,7 @@ http_interactions:
         HoUsE!!","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"cash
         cash cash","photo_url_1":"https://jalbum.net/.workspace/slides/shaun-montero-ZxDX8D9HHNM-unsplash.jpg","photo_url_2":"","photo_url_3":"","price":125.2,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
         rental"}},{"id":"1","type":"purpose","attributes":{"name":"pet rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 04:43:09 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:46 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/purposes
@@ -393,16 +393,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 185e2753-5c99-48b6-9744-4ba4370bd49b
+      - cba02957-e0e4-4329-b4f4-236d60a8f579
       X-Runtime:
-      - '0.003342'
+      - '0.004245'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:43:09 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:46 GMT
 - request:
     method: put
     uri: http://localhost:3001/api/v1/yards/3?availability=availability&city=city&description=description&email=thisemail@gmail.com&host_id=1&id=3&name=Large%20Yard%20for%20any%20Hobby&payment=cash%20cash%20cash&photo_url_1=https://jalbum.net/.workspace/slides/shaun-montero-ZxDX8D9HHNM-unsplash.jpg&photo_url_2=&photo_url_3=&price=125.2&purposes%5B%5D=1&purposes%5B%5D=3&state=state&street_address=street_address&zipcode=zipcode
@@ -432,9 +432,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - e9ce2194-e4a8-4d4d-8136-92398ca68003
+      - 6ea7f98c-bb18-4f7e-8cdb-79c0bf1e3954
       X-Runtime:
-      - '0.017525'
+      - '0.026437'
       Transfer-Encoding:
       - chunked
     body:
@@ -443,7 +443,7 @@ http_interactions:
         Yard for any Hobby","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"cash
         cash cash","photo_url_1":"https://jalbum.net/.workspace/slides/shaun-montero-ZxDX8D9HHNM-unsplash.jpg","photo_url_2":"","photo_url_3":"","price":125.2,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
         rental"}},{"id":"1","type":"purpose","attributes":{"name":"pet rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 04:43:09 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:46 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/yards/3
@@ -469,9 +469,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - b266136e-dbaf-43c5-b421-b232d4d6fbd7
+      - 578612e8-c331-43bd-9703-4b726f5e0d07
       X-Runtime:
-      - '0.004927'
+      - '0.006402'
       Transfer-Encoding:
       - chunked
     body:
@@ -480,7 +480,7 @@ http_interactions:
         Yard for any Hobby","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"cash
         cash cash","photo_url_1":"https://jalbum.net/.workspace/slides/shaun-montero-ZxDX8D9HHNM-unsplash.jpg","photo_url_2":"","photo_url_3":"","price":125.2,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
         rental"}},{"id":"1","type":"purpose","attributes":{"name":"pet rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 04:43:09 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:46 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/yards/3
@@ -506,9 +506,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 34b16664-3211-4c9a-8e9b-a8d4c91b6550
+      - 4d876ead-8e45-491a-8367-bed39b9622cc
       X-Runtime:
-      - '0.006515'
+      - '0.007718'
       Transfer-Encoding:
       - chunked
     body:
@@ -517,5 +517,5 @@ http_interactions:
         Yard for any Hobby","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"cash
         cash cash","photo_url_1":"https://jalbum.net/.workspace/slides/shaun-montero-ZxDX8D9HHNM-unsplash.jpg","photo_url_2":"","photo_url_3":"","price":125.2,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
         rental"}},{"id":"1","type":"purpose","attributes":{"name":"pet rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 04:43:09 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:47 GMT
 recorded_with: VCR 6.0.0

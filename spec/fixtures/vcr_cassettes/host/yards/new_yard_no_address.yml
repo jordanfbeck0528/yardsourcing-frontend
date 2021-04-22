@@ -25,16 +25,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - da1bdef2-0dc4-4fbc-88a9-3bbb062483fa
+      - 6b416287-ff81-4e80-9eb7-04f7c7d76be1
       X-Runtime:
-      - '0.005351'
+      - '0.005034'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:43:11 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:48 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/purposes
@@ -60,16 +60,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 34f9d3f5-e86e-405d-b449-bb262cf8e99a
+      - a44342a1-926f-4f9f-b6f5-b94441ac9aba
       X-Runtime:
-      - '0.003228'
+      - '0.004700'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:43:11 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:48 GMT
 - request:
     method: post
     uri: http://localhost:3001/api/v1/yards?availability=availability&city=city&description=description&email=thisemail@gmail.com&host_id=1&name=A%20new%20yard!!&payment=payment&photo_url_1=https://photo.com/path&photo_url_2=&photo_url_3=&price=25.2&purposes%5B%5D=1&purposes%5B%5D=3&state=state&street_address=&zipcode=zipcode
@@ -97,13 +97,13 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 52b25014-167b-4cfb-8897-815fc121af7f
+      - 8f46f168-657c-4250-9724-7616a9d53400
       X-Runtime:
-      - '0.005425'
+      - '0.005075'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"error":"Validation failed: Street address can''t be blank"}'
-  recorded_at: Thu, 22 Apr 2021 04:43:11 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:48 GMT
 recorded_with: VCR 6.0.0
