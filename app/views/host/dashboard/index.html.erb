@@ -7,7 +7,6 @@
   <h3 class="main-header">My Yard(s)</h3>
   <% if @host_yards.empty? %>
     <p>Add some yards to rent! Turn your green into green!</p>
-    <%= button_to 'Create Yard', new_host_yard_path, method: :get, class:'btn btn-secondary' %>
   <% else %>
 
   <%= render partial: 'shared/yards_cards', locals: {
