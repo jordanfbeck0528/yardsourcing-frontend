@@ -1,6 +1,76 @@
 ---
 http_interactions:
 - request:
+    method: get
+    uri: http://localhost:3001/api/v1/purposes
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"070dbb270781e3a382e773147c03b939"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 961d06ba-9a25-431f-96f6-bcb4fcd2c4ea
+      X-Runtime:
+      - '0.003339'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
+        rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
+  recorded_at: Thu, 22 Apr 2021 04:13:48 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/v1/purposes
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"070dbb270781e3a382e773147c03b939"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - a8ac88e5-1654-4362-9173-0afff322b6f6
+      X-Runtime:
+      - '0.004003'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
+        rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
+  recorded_at: Thu, 22 Apr 2021 04:13:48 GMT
+- request:
     method: post
     uri: http://localhost:3001/api/v1/yards?availability=availability&city=city&description=description&email=thisemail@gmail.com&host_id=1&name=A%20new%20yard!!&payment=payment&photo_url_1=https://photo.com/path&photo_url_2=&photo_url_3=&price=25.2&purposes%5B%5D=1&purposes%5B%5D=3&state=state&street_address=street_address&zipcode=zipcode
     body:
@@ -25,24 +95,24 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"46ccf17175a24677d62ae5b857a11689"
+      - W/"6a6a7858d98cb0e949a9c6fd66424cf8"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 736897ff-4e7d-49c7-a264-e3a69250e165
+      - be257971-248c-4043-96c1-c807ce4aa10b
       X-Runtime:
-      - '0.017254'
+      - '0.029333'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"7","type":"yard","attributes":{"host_id":1,"name":"A
+      string: '{"data":{"id":"9","type":"yard","attributes":{"host_id":1,"name":"A
         new yard!!","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"payment","photo_url_1":"https://photo.com/path","photo_url_2":"","photo_url_3":"","price":25.2,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 04:02:01 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:48 GMT
 - request:
     method: get
-    uri: http://localhost:3001/api/v1/yards/7
+    uri: http://localhost:3001/api/v1/yards/9
     body:
       encoding: US-ASCII
       string: ''
@@ -61,19 +131,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"46ccf17175a24677d62ae5b857a11689"
+      - W/"6a6a7858d98cb0e949a9c6fd66424cf8"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 0a6dfda9-a21c-4892-9d59-9912381a1eab
+      - a19896ce-e6dd-4f67-beb9-48c6c517ea09
       X-Runtime:
-      - '0.006145'
+      - '0.007961'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"7","type":"yard","attributes":{"host_id":1,"name":"A
+      string: '{"data":{"id":"9","type":"yard","attributes":{"host_id":1,"name":"A
         new yard!!","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"payment","photo_url_1":"https://photo.com/path","photo_url_2":"","photo_url_3":"","price":25.2,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 04:02:01 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:48 GMT
 recorded_with: VCR 6.0.0

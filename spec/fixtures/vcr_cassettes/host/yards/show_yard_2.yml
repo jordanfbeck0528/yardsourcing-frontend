@@ -2,42 +2,6 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3001/api/v1/bookings/1
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v1.4.1
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=utf-8
-      Etag:
-      - W/"81cc450cd01afbbb40815030772c261a"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - d46c03f4-2cdf-4168-985d-724591e5565b
-      X-Runtime:
-      - '0.003132'
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: '{"data":{"id":"1","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"Pet
-        Birthday Party","renter_id":1,"date":"2021-04-25","time":"2000-01-01T14:00:00.000Z","duration":3,"description":"Throwing
-        a bday party for my pet."}}}'
-  recorded_at: Thu, 22 Apr 2021 04:13:42 GMT
-- request:
-    method: get
     uri: http://localhost:3001/api/v1/yards/2
     body:
       encoding: US-ASCII
@@ -61,9 +25,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 7c416944-80f4-441c-9aa8-ed365f27e294
+      - ea620305-eff3-4b48-983e-3494ef71240e
       X-Runtime:
-      - '0.004902'
+      - '0.007983'
       Transfer-Encoding:
       - chunked
     body:
@@ -73,5 +37,5 @@ http_interactions:
         yard is equiped with a firepit, a pool, and a pool house to accommodate all
         your party needs.","availability":"Available on weekends in May","payment":"Venmo","photo_url_1":"https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg","photo_url_2":"","photo_url_3":"","price":20.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
         rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 04:13:42 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:49 GMT
 recorded_with: VCR 6.0.0

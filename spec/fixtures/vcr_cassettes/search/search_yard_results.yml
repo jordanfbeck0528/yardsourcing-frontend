@@ -2,6 +2,76 @@
 http_interactions:
 - request:
     method: get
+    uri: http://localhost:3001/api/v1/purposes
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"070dbb270781e3a382e773147c03b939"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 67b7aea2-bc76-4608-a67c-b83a1f4619e3
+      X-Runtime:
+      - '0.005871'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
+        rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
+  recorded_at: Thu, 22 Apr 2021 04:13:51 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/v1/purposes
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"070dbb270781e3a382e773147c03b939"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 8b2821e4-4946-43c0-9a66-7ec6f26abf1b
+      X-Runtime:
+      - '0.004231'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
+        rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
+  recorded_at: Thu, 22 Apr 2021 04:13:51 GMT
+- request:
+    method: get
     uri: http://localhost:3001/api/v1/yards/yard_search?location=80205
     body:
       encoding: US-ASCII
@@ -27,9 +97,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d979234f-92fa-487b-89a7-8f9d79873e06
+      - 9065a5a1-dde7-42bd-92b5-038675bc8061
       X-Runtime:
-      - '0.011996'
+      - '0.006632'
       Transfer-Encoding:
       - chunked
     body:
@@ -43,7 +113,7 @@ http_interactions:
         in yard for privacy.","availability":"Available on Monday, Wednesday, Friday,
         and Saturdays","payment":"Paypal","photo_url_1":"","photo_url_2":"","photo_url_3":"","price":15.5,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
         rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:02:03 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:51 GMT
 - request:
     method: get
     uri: https://www.mapquestapi.com/geocoding/v1/address?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&location=2001%20Blake%20St%20Denver,%20CO%2080205
@@ -63,11 +133,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 22 Apr 2021 04:02:03 GMT
+      - Thu, 22 Apr 2021 04:13:51 GMT
       Content-Type:
       - application/json;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
+      Content-Length:
+      - '1091'
       Access-Control-Allow-Methods:
       - OPTIONS,GET,POST
       Access-Control-Allow-Origin:
@@ -79,7 +149,7 @@ http_interactions:
       Geocodetransactioncount:
       - '1'
       Last-Modified:
-      - Thu, 22 Apr 2021 04:02:03 GMT
+      - Thu, 22 Apr 2021 04:13:51 GMT
       Pragma:
       - no-cache
       Reversegeocodetransactioncount:
@@ -87,7 +157,7 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Set-Cookie:
-      - JSESSIONID=3EB6548A4912314968F43F23B13AEA06; Path=/; HttpOnly; Secure
+      - JSESSIONID=376152178943C87352E06EC23D2A094F; Path=/; HttpOnly; Secure
       Status:
       - success
       Transactionweight:
@@ -99,8 +169,8 @@ http_interactions:
       string: '{"info":{"statuscode":0,"copyright":{"text":"\u00A9 2021 MapQuest,
         Inc.","imageUrl":"http://api.mqcdn.com/res/mqlogo.gif","imageAltText":"\u00A9
         2021 MapQuest, Inc."},"messages":[]},"options":{"maxResults":-1,"thumbMaps":true,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"2001
-        Blake St Denver, CO 80205"},"locations":[{"street":"2001 Blake St","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Denver","adminArea5Type":"City","adminArea4":"Denver","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"80205-2008","geocodeQualityCode":"P1AAA","geocodeQuality":"POINT","dragPoint":false,"sideOfStreet":"L","linkId":"r12614049|p207781704|n15739752","unknownInput":"","type":"s","latLng":{"lat":39.754574,"lng":-104.993946},"displayLatLng":{"lat":39.754733,"lng":-104.994129},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=39.754574,-104.993946|marker-sm-50318A-1&scalebar=true&zoom=15&rand=-1153742875"}]}]}'
-  recorded_at: Thu, 22 Apr 2021 04:02:03 GMT
+        Blake St Denver, CO 80205"},"locations":[{"street":"2001 Blake St","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Denver","adminArea5Type":"City","adminArea4":"Denver","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"80205-2008","geocodeQualityCode":"P1AAA","geocodeQuality":"POINT","dragPoint":false,"sideOfStreet":"L","linkId":"r12614049|p207781704|n15739752","unknownInput":"","type":"s","latLng":{"lat":39.754574,"lng":-104.993946},"displayLatLng":{"lat":39.754733,"lng":-104.994129},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=39.754574,-104.993946|marker-sm-50318A-1&scalebar=true&zoom=15&rand=1123430793"}]}]}'
+  recorded_at: Thu, 22 Apr 2021 04:13:51 GMT
 - request:
     method: get
     uri: https://www.mapquestapi.com/geocoding/v1/address?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&location=3181%20E%2023rd%20Ave%20Denver,%20CO%2080205
@@ -120,11 +190,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 22 Apr 2021 04:02:03 GMT
+      - Thu, 22 Apr 2021 04:13:52 GMT
       Content-Type:
       - application/json;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
+      Content-Length:
+      - '1086'
       Access-Control-Allow-Methods:
       - OPTIONS,GET,POST
       Access-Control-Allow-Origin:
@@ -136,7 +206,7 @@ http_interactions:
       Geocodetransactioncount:
       - '1'
       Last-Modified:
-      - Thu, 22 Apr 2021 04:02:03 GMT
+      - Thu, 22 Apr 2021 04:13:52 GMT
       Pragma:
       - no-cache
       Reversegeocodetransactioncount:
@@ -144,7 +214,7 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Set-Cookie:
-      - JSESSIONID=669A4B09150E53F02D6DE1A06674F2C1; Path=/; HttpOnly; Secure
+      - JSESSIONID=DBEBC9C337497C92CDF51C5CF3F248EC; Path=/; HttpOnly; Secure
       Status:
       - success
       Transactionweight:
@@ -156,6 +226,6 @@ http_interactions:
       string: '{"info":{"statuscode":0,"copyright":{"text":"\u00A9 2021 MapQuest,
         Inc.","imageUrl":"http://api.mqcdn.com/res/mqlogo.gif","imageAltText":"\u00A9
         2021 MapQuest, Inc."},"messages":[]},"options":{"maxResults":-1,"thumbMaps":true,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"3181
-        E 23rd Ave Denver, CO 80205"},"locations":[{"street":"3181 E 23rd Ave","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Denver","adminArea5Type":"City","adminArea4":"Denver","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"80205-5730","geocodeQualityCode":"L1AAA","geocodeQuality":"ADDRESS","dragPoint":false,"sideOfStreet":"L","linkId":"rnr3461631|i13775421","unknownInput":"","type":"s","latLng":{"lat":39.751158,"lng":-104.942377},"displayLatLng":{"lat":39.751358,"lng":-104.942371},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=39.751158,-104.942377|marker-sm-50318A-1&scalebar=true&zoom=15&rand=105777372"}]}]}'
-  recorded_at: Thu, 22 Apr 2021 04:02:03 GMT
+        E 23rd Ave Denver, CO 80205"},"locations":[{"street":"3181 E 23rd Ave","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Denver","adminArea5Type":"City","adminArea4":"Denver","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"80205-5730","geocodeQualityCode":"L1AAA","geocodeQuality":"ADDRESS","dragPoint":false,"sideOfStreet":"L","linkId":"rnr3461631|i13775421","unknownInput":"","type":"s","latLng":{"lat":39.751158,"lng":-104.942377},"displayLatLng":{"lat":39.751358,"lng":-104.942371},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=39.751158,-104.942377|marker-sm-50318A-1&scalebar=true&zoom=15&rand=530991926"}]}]}'
+  recorded_at: Thu, 22 Apr 2021 04:13:52 GMT
 recorded_with: VCR 6.0.0

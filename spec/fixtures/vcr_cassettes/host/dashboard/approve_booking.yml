@@ -25,20 +25,20 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"3cd3638225d0f39648940a7767831cac"
+      - W/"86e6f0bc675fc89e0cf5db3f7c646be2"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 3eae7407-ba96-42d7-b831-91b272802e7a
+      - baac454e-7153-41d2-a373-ef28fda6b879
       X-Runtime:
-      - '0.311616'
+      - '0.310274'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"10","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+      string: '{"data":{"id":"18","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
         new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}}'
-  recorded_at: Thu, 22 Apr 2021 04:01:57 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:44 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/hosts/1/yards
@@ -60,13 +60,13 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"63031cda0192eacfe6e793967b01c2c0"
+      - W/"235f5c2a3a9d8f5dd089e036ce1e34d5"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - cc40b193-7bcc-47fb-b15b-d09b9b0d130d
+      - 8a1e3371-64dd-457f-92b9-d7fbe10831a3
       X-Runtime:
-      - '0.006659'
+      - '0.009419'
       Transfer-Encoding:
       - chunked
     body:
@@ -76,11 +76,12 @@ http_interactions:
         yard is equiped with a firepit, a pool, and a pool house to accommodate all
         your party needs.","availability":"Available on weekends in May","payment":"Venmo","photo_url_1":"https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg","photo_url_2":"","photo_url_3":"","price":20.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
         rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}},{"id":"3","type":"yard","attributes":{"host_id":1,"name":"Large
-        Yard for any Hobby","street_address":"2300 Steele St","city":"Denver","state":"CO","zipcode":"80205","description":"A
-        large backyard close to the city. Equiped with a barbeque.","availability":"NEW
-        - Most days are available","payment":"Venmo,Paypal","photo_url_1":"","photo_url_2":"","photo_url_3":"","price":25.5,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
-        rental"}}]}}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:01:57 GMT
+        Yard for any Hobby","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"cash
+        cash cash","photo_url_1":"https://jalbum.net/.workspace/slides/shaun-montero-ZxDX8D9HHNM-unsplash.jpg","photo_url_2":"","photo_url_3":"","price":125.2,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
+        rental"}},{"id":"1","type":"purpose","attributes":{"name":"pet rental"}}]}}},{"id":"7","type":"yard","attributes":{"host_id":1,"name":"A
+        new yard!!","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"payment","photo_url_1":"https://photo.com/path","photo_url_2":"","photo_url_3":"","price":25.2,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
+        rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}}}]}'
+  recorded_at: Thu, 22 Apr 2021 04:13:44 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/hosts/1/bookings
@@ -102,13 +103,13 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"4e0ca32820e4696a8b9e3db701dab90d"
+      - W/"098f0bd193b23009f264a39eac48e041"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - fe082061-3ffe-4b45-9601-7d1f58c6985a
+      - 4e896d22-2914-42f2-b98f-815955c85283
       X-Runtime:
-      - '0.005714'
+      - '0.008253'
       Transfer-Encoding:
       - chunked
     body:
@@ -119,13 +120,93 @@ http_interactions:
         with Friends","renter_id":4,"date":"2021-04-25","time":"2000-01-01T18:00:00.000Z","duration":2,"description":"Wanting
         to grill out with my friends."}},{"id":"3","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"3
         Year Old Birthday Party","renter_id":3,"date":"2021-04-30","time":"2000-01-01T10:00:00.000Z","duration":4,"description":"Needs
-        a space for my 3 year olds birthday party"}},{"id":"9","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}},{"id":"10","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        a space for my 3 year olds birthday party"}},{"id":"10","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"11","type":"booking","attributes":{"status":"rejected","yard_id":2,"booking_name":"Rejected
+        booking!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"14","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"9","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}},{"id":"17","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}},{"id":"18","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"15","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
         new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:01:57 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:44 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/v1/yards/2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"05899a4b6bd5366751e2b5fc0e2839d7"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - b371874c-e23f-4ccf-882a-d331c452e26e
+      X-Runtime:
+      - '0.006078'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"2","type":"yard","attributes":{"host_id":1,"name":"Ultimate
+        Party Yard","street_address":"2001 Blake St","city":"Denver","state":"CO","zipcode":"80205","description":"This
+        yard is equiped with a firepit, a pool, and a pool house to accommodate all
+        your party needs.","availability":"Available on weekends in May","payment":"Venmo","photo_url_1":"https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg","photo_url_2":"","photo_url_3":"","price":20.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
+        rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}}}'
+  recorded_at: Thu, 22 Apr 2021 04:13:44 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/v1/yards/3
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"92411119836edf3a719ae02133104dbb"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 410e4546-d33b-4669-8e7a-12011b74c716
+      X-Runtime:
+      - '0.005252'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"3","type":"yard","attributes":{"host_id":1,"name":"Large
+        Yard for any Hobby","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"cash
+        cash cash","photo_url_1":"https://jalbum.net/.workspace/slides/shaun-montero-ZxDX8D9HHNM-unsplash.jpg","photo_url_2":"","photo_url_3":"","price":125.2,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
+        rental"}},{"id":"1","type":"purpose","attributes":{"name":"pet rental"}}]}}}}'
+  recorded_at: Thu, 22 Apr 2021 04:13:44 GMT
 - request:
     method: put
-    uri: http://localhost:3001/api/v1/bookings/10?id=10&status=approved
+    uri: http://localhost:3001/api/v1/bookings/18?id=18&status=approved
     body:
       encoding: UTF-8
       string: ''
@@ -148,20 +229,20 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"0e281b0bc1be19faca2523a31cdc95c4"
+      - W/"ee2c3d1201bffd476c8aa9958d91c7d2"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - f25b9d65-4bd0-4deb-acf2-256c192af00c
+      - bb59d717-4b8f-4455-90fe-19a472aa3a31
       X-Runtime:
-      - '0.834178'
+      - '0.304906'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"10","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
+      string: '{"data":{"id":"18","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
         new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}}'
-  recorded_at: Thu, 22 Apr 2021 04:01:58 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:44 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/hosts/1/yards
@@ -183,13 +264,13 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"63031cda0192eacfe6e793967b01c2c0"
+      - W/"235f5c2a3a9d8f5dd089e036ce1e34d5"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 61d304fb-9ea5-45c6-837e-0732da905b2e
+      - b058d869-6d45-4d13-9a91-a72a4613cf8f
       X-Runtime:
-      - '0.007110'
+      - '0.010692'
       Transfer-Encoding:
       - chunked
     body:
@@ -199,11 +280,12 @@ http_interactions:
         yard is equiped with a firepit, a pool, and a pool house to accommodate all
         your party needs.","availability":"Available on weekends in May","payment":"Venmo","photo_url_1":"https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg","photo_url_2":"","photo_url_3":"","price":20.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
         rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}},{"id":"3","type":"yard","attributes":{"host_id":1,"name":"Large
-        Yard for any Hobby","street_address":"2300 Steele St","city":"Denver","state":"CO","zipcode":"80205","description":"A
-        large backyard close to the city. Equiped with a barbeque.","availability":"NEW
-        - Most days are available","payment":"Venmo,Paypal","photo_url_1":"","photo_url_2":"","photo_url_3":"","price":25.5,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
-        rental"}}]}}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:01:58 GMT
+        Yard for any Hobby","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"cash
+        cash cash","photo_url_1":"https://jalbum.net/.workspace/slides/shaun-montero-ZxDX8D9HHNM-unsplash.jpg","photo_url_2":"","photo_url_3":"","price":125.2,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
+        rental"}},{"id":"1","type":"purpose","attributes":{"name":"pet rental"}}]}}},{"id":"7","type":"yard","attributes":{"host_id":1,"name":"A
+        new yard!!","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"payment","photo_url_1":"https://photo.com/path","photo_url_2":"","photo_url_3":"","price":25.2,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
+        rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}}}]}'
+  recorded_at: Thu, 22 Apr 2021 04:13:44 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/hosts/1/bookings
@@ -225,13 +307,13 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"18857c687b2eb23c971ea20b4b0ddc17"
+      - W/"459e75aa875c9c20c033c93353c021b4"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 566d690e-95ac-4e47-89e0-f4045f21a010
+      - c3f28ef9-8527-429c-9f42-df73bb550e2a
       X-Runtime:
-      - '0.005066'
+      - '0.007961'
       Transfer-Encoding:
       - chunked
     body:
@@ -242,8 +324,88 @@ http_interactions:
         with Friends","renter_id":4,"date":"2021-04-25","time":"2000-01-01T18:00:00.000Z","duration":2,"description":"Wanting
         to grill out with my friends."}},{"id":"3","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"3
         Year Old Birthday Party","renter_id":3,"date":"2021-04-30","time":"2000-01-01T10:00:00.000Z","duration":4,"description":"Needs
-        a space for my 3 year olds birthday party"}},{"id":"9","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}},{"id":"10","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
+        a space for my 3 year olds birthday party"}},{"id":"10","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"11","type":"booking","attributes":{"status":"rejected","yard_id":2,"booking_name":"Rejected
+        booking!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"14","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"9","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}},{"id":"17","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}},{"id":"18","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"15","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
         new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:01:58 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:44 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/v1/yards/2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"05899a4b6bd5366751e2b5fc0e2839d7"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - f668de2c-ae78-426b-96bd-88a552bb1d4c
+      X-Runtime:
+      - '0.006911'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"2","type":"yard","attributes":{"host_id":1,"name":"Ultimate
+        Party Yard","street_address":"2001 Blake St","city":"Denver","state":"CO","zipcode":"80205","description":"This
+        yard is equiped with a firepit, a pool, and a pool house to accommodate all
+        your party needs.","availability":"Available on weekends in May","payment":"Venmo","photo_url_1":"https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg","photo_url_2":"","photo_url_3":"","price":20.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
+        rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}}}'
+  recorded_at: Thu, 22 Apr 2021 04:13:44 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/v1/yards/3
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"92411119836edf3a719ae02133104dbb"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 6fa97df8-942d-4475-a9e4-28b0a8771e82
+      X-Runtime:
+      - '0.006537'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"3","type":"yard","attributes":{"host_id":1,"name":"Large
+        Yard for any Hobby","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"cash
+        cash cash","photo_url_1":"https://jalbum.net/.workspace/slides/shaun-montero-ZxDX8D9HHNM-unsplash.jpg","photo_url_2":"","photo_url_3":"","price":125.2,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
+        rental"}},{"id":"1","type":"purpose","attributes":{"name":"pet rental"}}]}}}}'
+  recorded_at: Thu, 22 Apr 2021 04:13:44 GMT
 recorded_with: VCR 6.0.0

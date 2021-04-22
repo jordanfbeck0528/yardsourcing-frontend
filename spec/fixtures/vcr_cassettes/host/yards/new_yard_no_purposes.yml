@@ -1,6 +1,76 @@
 ---
 http_interactions:
 - request:
+    method: get
+    uri: http://localhost:3001/api/v1/purposes
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"070dbb270781e3a382e773147c03b939"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - fe823784-ce8a-4aaf-ae3e-69ca8af45ffe
+      X-Runtime:
+      - '0.005785'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
+        rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
+  recorded_at: Thu, 22 Apr 2021 04:13:49 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/v1/purposes
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"070dbb270781e3a382e773147c03b939"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 24bdb153-f0cc-4fe3-a000-70635e89e44c
+      X-Runtime:
+      - '0.003345'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
+        rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
+  recorded_at: Thu, 22 Apr 2021 04:13:49 GMT
+- request:
     method: post
     uri: http://localhost:3001/api/v1/yards?availability=availability&city=city&description=description&email=thisemail@gmail.com&host_id=1&name=A%20new%20yard!!&payment=payment&photo_url_1=https://photo.com/path&photo_url_2=&photo_url_3=&price=25.2&state=state&street_address=street_address&zipcode=zipcode
     body:
@@ -27,14 +97,14 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - bfd0495d-7e37-443a-b5f9-ae0e1df96428
+      - 4be9c198-c571-4217-ac72-8a3417dcbc42
       X-Runtime:
-      - '0.002543'
+      - '0.003024'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"message":"your request cannot be completed","error":"You must select
         at least one purpose"}'
-  recorded_at: Thu, 22 Apr 2021 04:02:01 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:49 GMT
 recorded_with: VCR 6.0.0

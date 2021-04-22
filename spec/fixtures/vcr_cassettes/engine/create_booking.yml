@@ -25,18 +25,18 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"aa972269e46a3db97464c58cff8a22fb"
+      - W/"ca734990d76ba65f7205d7c62647621c"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 3cb542cf-e32a-43ef-b294-2e03b01918d1
+      - 3a5e57c3-1fa3-4836-a05c-26fd6b2580a2
       X-Runtime:
-      - '0.296676'
+      - '0.464422'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"14","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+      string: '{"data":{"id":"22","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
         new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}}'
-  recorded_at: Thu, 22 Apr 2021 04:02:04 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:53 GMT
 recorded_with: VCR 6.0.0

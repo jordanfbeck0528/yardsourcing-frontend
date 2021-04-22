@@ -25,16 +25,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 1acbac47-db09-496c-8f5d-f8cfd2b79162
+      - 3f7eea56-7375-42fe-a325-be94ddde5d7f
       X-Runtime:
-      - '0.003914'
+      - '0.003950'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:13:48 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:51 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/purposes
@@ -60,50 +60,14 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - b6affb8e-6d26-48f2-813d-5911bcb4f88e
+      - 86ee94e7-cf67-4cf4-a572-3757ef2e1397
       X-Runtime:
-      - '0.003421'
+      - '0.003885'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:13:48 GMT
-- request:
-    method: post
-    uri: http://localhost:3001/api/v1/yards?availability=availability&city=&description=description&email=thisemail@gmail.com&host_id=1&name=A%20new%20yard!!&payment=payment&photo_url_1=https://photo.com/path&photo_url_2=&photo_url_3=&price=25.2&purposes%5B%5D=1&purposes%5B%5D=3&state=state&street_address=street_address&zipcode=zipcode
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v1.4.1
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '0'
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 404
-      message: Not Found
-    headers:
-      Content-Type:
-      - application/json; charset=utf-8
-      Cache-Control:
-      - no-cache
-      X-Request-Id:
-      - 0b723a53-87ee-4c1f-9f85-2a3987841487
-      X-Runtime:
-      - '0.004481'
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: '{"error":"Validation failed: City can''t be blank"}'
-  recorded_at: Thu, 22 Apr 2021 04:13:48 GMT
+  recorded_at: Thu, 22 Apr 2021 04:13:51 GMT
 recorded_with: VCR 6.0.0
