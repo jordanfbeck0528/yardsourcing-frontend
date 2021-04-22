@@ -91,7 +91,9 @@ These instructions will get you a copy of the project up and running on your loc
   $ atom config/application.yml
   ```
 
-  6. Inside of the application.yml create the environment variables for your google client_id and client_secret as. At the bottom of the file enter the following:
+  4. Set up Environment Variables
+    - run `bundle exec figaro install`
+    - add the below variables to the `config/application.yml`
   ```
   GOOGLE_CLIENT_ID: '<GOOGLE_CLIENT_ID>'
   GOOGLE_CLIENT_SECRET: '<GOOGLE_CLIENT_SECRET'
@@ -104,14 +106,11 @@ These instructions will get you a copy of the project up and running on your loc
   $ rails s
   ```
 
-### Database Schema
-
-<img src="Schema_yardsourcing.png" width="400">
-
 ### Project Architecture
+<p style="text-align:center;"><img src="ys_design.png" width="600"></p>
 
-<img src="ys_design.png" width="600">
-
+### Database Schema
+<p style="text-align:center;"><img src="Schema_yardsourcing.png" height="350"></p>
 
 ### Application Features
 
@@ -119,22 +118,27 @@ These instructions will get you a copy of the project up and running on your loc
 - OmniAuth and Google Integration
 
 ##### Host Yard Create, Delete, Update
-- About this feature  
-
-##### Yard Search
-- About this feature  
-
-##### Renting a yard (Create a booking)
-- About this feature  
-
-##### Renter Dashboard
-- About this feature  
-
-##### Host Dashboard
-- About this feature  
-
-##### Email booking updates
-- About this feature  
+- Each authenticated user has the ability to be a Host or a Renter
+  - As a Host
+    - The Host Dashboard is the landing page for all the hosts yards for rent and upcoming bookings (pending and accepted)
+    - Host Yards
+      - Create new yards to list for rent. Fill in the associated attributes, including price per hour, available for <purposes>, location, photos urls and more.
+      - View the yard and its details on the show page
+      - Update existing yards
+      - Delete existing yards
+    - Host Bookings
+      - The host is notified about the new pending booking via email.
+      - The host can view their pending bookings on their dashboard. There they can approve or deny the booking request.
+      - The host can cancel a booking within 48 hours of the start time.
+  - As a Renter
+    - The Renter Dashboard is the landing page for all the pending and approved bookings for the user.
+    - Search Yards
+      - As a User I can visit the search page and find yards by zipcode and purpose
+      - The results are generated on a new page and displaye via pins in an embedded googlemap and listed with details below the map.
+      - Another search can be called from the results page.
+    - Request a Booking
+      - Once a yard is found that matches the user's criteria, they can click a button to book the yard.
+      - Fill in required booking request details and click submit. Wait for the host to approve!  
 
 
 ### Testing
