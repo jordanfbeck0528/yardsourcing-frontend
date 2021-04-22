@@ -29,16 +29,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 1d265664-c622-4972-b531-d3db47d71d0a
+      - 3fe52526-af15-4567-aeda-86370dd99cea
       X-Runtime:
-      - '0.410330'
+      - '0.504667'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":{"id":"15","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
         new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}}'
-  recorded_at: Thu, 22 Apr 2021 02:34:29 GMT
+  recorded_at: Thu, 22 Apr 2021 04:02:05 GMT
 - request:
     method: put
     uri: http://localhost:3001/api/v1/bookings/15?id=15
@@ -68,14 +68,14 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - ce686b08-8fc5-485f-ace8-8e6ac4162a02
+      - 53b688f3-9a0f-4c9a-8f93-145d60c62214
       X-Runtime:
-      - '0.005906'
+      - '0.006139'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":{"id":"15","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
         new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}}'
-  recorded_at: Thu, 22 Apr 2021 02:34:29 GMT
+  recorded_at: Thu, 22 Apr 2021 04:02:05 GMT
 recorded_with: VCR 6.0.0

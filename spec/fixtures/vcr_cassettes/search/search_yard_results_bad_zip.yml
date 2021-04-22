@@ -25,13 +25,13 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - bfcf8b1a-0dd9-46e6-848e-e32125aad2e5
+      - a2c0d3e3-4185-444e-b228-2eb2be8a5695
       X-Runtime:
-      - '0.002553'
+      - '0.002284'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"message":"your request cannot be completed","error":"Invalid zipcode"}'
-  recorded_at: Thu, 22 Apr 2021 02:34:21 GMT
+  recorded_at: Thu, 22 Apr 2021 04:02:04 GMT
 recorded_with: VCR 6.0.0

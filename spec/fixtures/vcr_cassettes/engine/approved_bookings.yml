@@ -25,9 +25,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - f4b8be3f-3935-4ed9-b973-a58d11e552b1
+      - 525788a7-c4e3-42f1-9e77-cf2c65211fab
       X-Runtime:
-      - '0.006613'
+      - '0.005503'
       Transfer-Encoding:
       - chunked
     body:
@@ -36,5 +36,5 @@ http_interactions:
         Birthday Party","renter_id":1,"date":"2021-04-25","time":"2000-01-01T14:00:00.000Z","duration":3,"description":"Throwing
         a bday party for my pet."}},{"id":"10","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
         new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}]}'
-  recorded_at: Thu, 22 Apr 2021 02:34:35 GMT
+  recorded_at: Thu, 22 Apr 2021 04:02:05 GMT
 recorded_with: VCR 6.0.0

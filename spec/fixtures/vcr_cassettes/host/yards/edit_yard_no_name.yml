@@ -27,15 +27,15 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - bae9967a-f044-44b6-9e40-a3a8bbd224cf
+      - be05cc00-621d-4dfe-8f80-19b3a6f28e7c
       X-Runtime:
-      - '0.006777'
+      - '0.008825'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"error":"Validation failed: Name can''t be blank"}'
-  recorded_at: Thu, 22 Apr 2021 02:34:17 GMT
+  recorded_at: Thu, 22 Apr 2021 04:02:00 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/yards/3
@@ -57,20 +57,20 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"7281c7a421c9692de2db4832b71c5710"
+      - W/"92411119836edf3a719ae02133104dbb"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - e482331c-75ff-4b15-b2d7-781217e076f9
+      - 7269205c-9fa5-4e48-9382-ca2d06c9fd90
       X-Runtime:
-      - '0.007651'
+      - '0.005313'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":{"id":"3","type":"yard","attributes":{"host_id":1,"name":"Large
         Yard for any Hobby","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"cash
-        cash cash","photo_url_1":"https://jalbum.net/.workspace/slides/shaun-montero-ZxDX8D9HHNM-unsplash.jpg","photo_url_2":"","photo_url_3":"","price":125.2,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
-        rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 02:34:17 GMT
+        cash cash","photo_url_1":"https://jalbum.net/.workspace/slides/shaun-montero-ZxDX8D9HHNM-unsplash.jpg","photo_url_2":"","photo_url_3":"","price":125.2,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
+        rental"}},{"id":"1","type":"purpose","attributes":{"name":"pet rental"}}]}}}}'
+  recorded_at: Thu, 22 Apr 2021 04:02:00 GMT
 recorded_with: VCR 6.0.0

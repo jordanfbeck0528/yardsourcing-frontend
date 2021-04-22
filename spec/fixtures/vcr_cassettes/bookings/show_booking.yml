@@ -25,9 +25,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 3fca299b-91b0-4028-aadc-312e743619c4
+      - f581cf6c-a59d-42d6-b643-2772183a390e
       X-Runtime:
-      - '0.002821'
+      - '0.002989'
       Transfer-Encoding:
       - chunked
     body:
@@ -35,5 +35,5 @@ http_interactions:
       string: '{"data":{"id":"1","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"Pet
         Birthday Party","renter_id":1,"date":"2021-04-25","time":"2000-01-01T14:00:00.000Z","duration":3,"description":"Throwing
         a bday party for my pet."}}}'
-  recorded_at: Thu, 22 Apr 2021 02:34:13 GMT
+  recorded_at: Thu, 22 Apr 2021 04:01:56 GMT
 recorded_with: VCR 6.0.0

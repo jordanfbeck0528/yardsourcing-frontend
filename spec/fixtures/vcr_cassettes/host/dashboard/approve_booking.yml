@@ -29,16 +29,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 6dd805ce-9a7b-455d-9046-c1fd48735815
+      - 3eae7407-ba96-42d7-b831-91b272802e7a
       X-Runtime:
-      - '0.449060'
+      - '0.311616'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":{"id":"10","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
         new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}}'
-  recorded_at: Thu, 22 Apr 2021 02:34:14 GMT
+  recorded_at: Thu, 22 Apr 2021 04:01:57 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/hosts/1/yards
@@ -64,9 +64,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 3d9a5532-ae9a-4987-9e0e-f72e23162e63
+      - cc40b193-7bcc-47fb-b15b-d09b9b0d130d
       X-Runtime:
-      - '0.009379'
+      - '0.006659'
       Transfer-Encoding:
       - chunked
     body:
@@ -80,7 +80,7 @@ http_interactions:
         large backyard close to the city. Equiped with a barbeque.","availability":"NEW
         - Most days are available","payment":"Venmo,Paypal","photo_url_1":"","photo_url_2":"","photo_url_3":"","price":25.5,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
         rental"}}]}}}]}'
-  recorded_at: Thu, 22 Apr 2021 02:34:14 GMT
+  recorded_at: Thu, 22 Apr 2021 04:01:57 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/hosts/1/bookings
@@ -102,27 +102,27 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"7f8587176c0910018308c2a5b74d7699"
+      - W/"4e0ca32820e4696a8b9e3db701dab90d"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 4c5d11b1-8256-4037-ae80-c5dfc33c3b0c
+      - fe082061-3ffe-4b45-9601-7d1f58c6985a
       X-Runtime:
-      - '0.006992'
+      - '0.005714'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"Pet
         Birthday Party","renter_id":1,"date":"2021-04-25","time":"2000-01-01T14:00:00.000Z","duration":3,"description":"Throwing
-        a bday party for my pet."}},{"id":"3","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"3
+        a bday party for my pet."}},{"id":"4","type":"booking","attributes":{"status":"approved","yard_id":3,"booking_name":"Barbeque
+        with Friends","renter_id":4,"date":"2021-04-25","time":"2000-01-01T18:00:00.000Z","duration":2,"description":"Wanting
+        to grill out with my friends."}},{"id":"3","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"3
         Year Old Birthday Party","renter_id":3,"date":"2021-04-30","time":"2000-01-01T10:00:00.000Z","duration":4,"description":"Needs
         a space for my 3 year olds birthday party"}},{"id":"9","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
         new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}},{"id":"10","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"4","type":"booking","attributes":{"status":"approved","yard_id":3,"booking_name":"Barbeque
-        with Friends","renter_id":4,"date":"2021-04-25","time":"2000-01-01T18:00:00.000Z","duration":2,"description":"Wanting
-        to grill out with my friends."}}]}'
-  recorded_at: Thu, 22 Apr 2021 02:34:14 GMT
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}]}'
+  recorded_at: Thu, 22 Apr 2021 04:01:57 GMT
 - request:
     method: put
     uri: http://localhost:3001/api/v1/bookings/10?id=10&status=approved
@@ -152,16 +152,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - e0f4b10f-edb1-4d41-bb47-6d7f174c47a4
+      - f25b9d65-4bd0-4deb-acf2-256c192af00c
       X-Runtime:
-      - '0.487582'
+      - '0.834178'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":{"id":"10","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
         new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}}'
-  recorded_at: Thu, 22 Apr 2021 02:34:15 GMT
+  recorded_at: Thu, 22 Apr 2021 04:01:58 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/hosts/1/yards
@@ -187,9 +187,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 5c275a6c-9964-4a6e-a440-3e39990934bd
+      - 61d304fb-9ea5-45c6-837e-0732da905b2e
       X-Runtime:
-      - '0.007467'
+      - '0.007110'
       Transfer-Encoding:
       - chunked
     body:
@@ -203,7 +203,7 @@ http_interactions:
         large backyard close to the city. Equiped with a barbeque.","availability":"NEW
         - Most days are available","payment":"Venmo,Paypal","photo_url_1":"","photo_url_2":"","photo_url_3":"","price":25.5,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
         rental"}}]}}}]}'
-  recorded_at: Thu, 22 Apr 2021 02:34:15 GMT
+  recorded_at: Thu, 22 Apr 2021 04:01:58 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/hosts/1/bookings
@@ -225,25 +225,25 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"e3a1bb761e12cdf2759f7abad9964e71"
+      - W/"18857c687b2eb23c971ea20b4b0ddc17"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 49662a76-fd55-41fd-9e0b-ca699e585da7
+      - 566d690e-95ac-4e47-89e0-f4045f21a010
       X-Runtime:
-      - '0.006405'
+      - '0.005066'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"Pet
         Birthday Party","renter_id":1,"date":"2021-04-25","time":"2000-01-01T14:00:00.000Z","duration":3,"description":"Throwing
-        a bday party for my pet."}},{"id":"3","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"3
+        a bday party for my pet."}},{"id":"4","type":"booking","attributes":{"status":"approved","yard_id":3,"booking_name":"Barbeque
+        with Friends","renter_id":4,"date":"2021-04-25","time":"2000-01-01T18:00:00.000Z","duration":2,"description":"Wanting
+        to grill out with my friends."}},{"id":"3","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"3
         Year Old Birthday Party","renter_id":3,"date":"2021-04-30","time":"2000-01-01T10:00:00.000Z","duration":4,"description":"Needs
         a space for my 3 year olds birthday party"}},{"id":"9","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
         new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}},{"id":"10","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"4","type":"booking","attributes":{"status":"approved","yard_id":3,"booking_name":"Barbeque
-        with Friends","renter_id":4,"date":"2021-04-25","time":"2000-01-01T18:00:00.000Z","duration":2,"description":"Wanting
-        to grill out with my friends."}}]}'
-  recorded_at: Thu, 22 Apr 2021 02:34:15 GMT
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}]}'
+  recorded_at: Thu, 22 Apr 2021 04:01:58 GMT
 recorded_with: VCR 6.0.0

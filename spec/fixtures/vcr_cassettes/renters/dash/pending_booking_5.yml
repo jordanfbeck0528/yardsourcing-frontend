@@ -25,9 +25,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a77c6e42-4bd0-44dc-a33c-b11346a2c5c9
+      - d7f2cd63-2509-4853-b0ba-df0f2e5e618c
       X-Runtime:
-      - '0.005820'
+      - '0.005213'
       Transfer-Encoding:
       - chunked
     body:
@@ -36,7 +36,7 @@ http_interactions:
         Birthday Party","renter_id":1,"date":"2021-04-25","time":"2000-01-01T14:00:00.000Z","duration":3,"description":"Throwing
         a bday party for my pet."}},{"id":"10","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
         new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}]}'
-  recorded_at: Thu, 22 Apr 2021 03:32:48 GMT
+  recorded_at: Thu, 22 Apr 2021 04:02:02 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/renters/1/bookings?status=pending
@@ -58,27 +58,24 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"751c2f74b13149a9f930b588b0ac64de"
+      - W/"530df7af2fc53053294d21614644c088"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 68540ad1-908a-4c4e-860e-2bd835146967
+      - 666b200d-8314-46d1-9f5e-5089eb06645a
       X-Runtime:
-      - '0.006589'
+      - '0.004768'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":[{"id":"5","type":"booking","attributes":{"status":"pending","yard_id":4,"booking_name":"Spotlight
-        Tag","renter_id":1,"date":"2021-05-05","time":"2000-01-01T21:00:00.000Z","duration":2,"description":"Wanting
-        to have a 50 person game of spotlight tag."}},{"id":"8","type":"booking","attributes":{"status":"pending","yard_id":6,"booking_name":"Country
+      string: '{"data":[{"id":"8","type":"booking","attributes":{"status":"pending","yard_id":6,"booking_name":"Country
         Throw Down Part 2","renter_id":1,"date":"2021-04-25","time":"2000-01-01T20:00:00.000Z","duration":5,"description":"Trying
-        to throw a rager with my friends again."}},{"id":"9","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}},{"id":"14","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"15","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"17","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        to throw a rager with my friends again."}},{"id":"5","type":"booking","attributes":{"status":"pending","yard_id":4,"booking_name":"Spotlight
+        Tag","renter_id":1,"date":"2021-05-05","time":"2000-01-01T21:00:00.000Z","duration":2,"description":"Wanting
+        to have a 50 person game of spotlight tag."}},{"id":"9","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
         new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}}]}'
-  recorded_at: Thu, 22 Apr 2021 03:32:48 GMT
+  recorded_at: Thu, 22 Apr 2021 04:02:02 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/bookings/5
@@ -104,9 +101,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 5fe402cb-64c5-4ab1-ba06-01ad61cec812
+      - 6952110e-637d-49ea-8d5a-e97e2143f43c
       X-Runtime:
-      - '0.003503'
+      - '0.002570'
       Transfer-Encoding:
       - chunked
     body:
@@ -114,5 +111,5 @@ http_interactions:
       string: '{"data":{"id":"5","type":"booking","attributes":{"status":"pending","yard_id":4,"booking_name":"Spotlight
         Tag","renter_id":1,"date":"2021-05-05","time":"2000-01-01T21:00:00.000Z","duration":2,"description":"Wanting
         to have a 50 person game of spotlight tag."}}}'
-  recorded_at: Thu, 22 Apr 2021 03:32:48 GMT
+  recorded_at: Thu, 22 Apr 2021 04:02:02 GMT
 recorded_with: VCR 6.0.0
