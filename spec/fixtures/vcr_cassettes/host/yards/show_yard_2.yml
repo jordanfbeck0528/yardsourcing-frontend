@@ -25,9 +25,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - ea620305-eff3-4b48-983e-3494ef71240e
+      - 68e1b50e-7a3e-473f-af6e-047721441244
       X-Runtime:
-      - '0.007983'
+      - '0.005985'
       Transfer-Encoding:
       - chunked
     body:
@@ -37,5 +37,5 @@ http_interactions:
         yard is equiped with a firepit, a pool, and a pool house to accommodate all
         your party needs.","availability":"Available on weekends in May","payment":"Venmo","photo_url_1":"https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg","photo_url_2":"","photo_url_3":"","price":20.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
         rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 04:13:49 GMT
+  recorded_at: Thu, 22 Apr 2021 04:43:11 GMT
 recorded_with: VCR 6.0.0

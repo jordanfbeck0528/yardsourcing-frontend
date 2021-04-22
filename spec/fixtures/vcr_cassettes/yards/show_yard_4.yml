@@ -25,9 +25,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 3c2b04ec-6fc0-4a17-8811-a80fda1e6084
+      - c4ce37f2-11dc-4bc7-bca0-393a279bd1c3
       X-Runtime:
-      - '0.007523'
+      - '0.006524'
       Transfer-Encoding:
       - chunked
     body:
@@ -37,5 +37,5 @@ http_interactions:
         in yard for privacy.","availability":"Available on Monday, Wednesday, Friday,
         and Saturdays","payment":"Paypal","photo_url_1":"","photo_url_2":"","photo_url_3":"","price":15.5,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
         rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}}}'
-  recorded_at: Thu, 22 Apr 2021 04:13:52 GMT
+  recorded_at: Thu, 22 Apr 2021 04:43:16 GMT
 recorded_with: VCR 6.0.0

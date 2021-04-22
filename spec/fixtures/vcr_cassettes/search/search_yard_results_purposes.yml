@@ -25,16 +25,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - b4a66dc1-4570-457d-b680-3ba76ff0c297
+      - 9bc1cd43-6fd4-4a94-bc11-d855d4f34143
       X-Runtime:
-      - '0.004461'
+      - '0.006758'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:13:52 GMT
+  recorded_at: Thu, 22 Apr 2021 04:43:15 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/purposes
@@ -60,16 +60,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c53f9b55-1514-4989-b11e-abab0042fb9b
+      - ff5d9b1a-2ed2-43e3-bff6-74c031cc6b9b
       X-Runtime:
-      - '0.008368'
+      - '0.003155'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:13:52 GMT
+  recorded_at: Thu, 22 Apr 2021 04:43:15 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/purposes
@@ -95,16 +95,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 89a7a1b7-5075-454b-bb48-9ce287a9509a
+      - 974af21f-4e41-47c2-8a77-3e1cb5e551f0
       X-Runtime:
-      - '0.003900'
+      - '0.003292'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:13:52 GMT
+  recorded_at: Thu, 22 Apr 2021 04:43:15 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/yards/yard_search?location=80205&purposes%5B%5D=pet%20rental
@@ -132,9 +132,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 643e89c2-f2c6-40e3-8758-d4bfc096504b
+      - 6e697be5-334d-438f-a38f-2121aa6cc479
       X-Runtime:
-      - '0.006190'
+      - '0.006238'
       Transfer-Encoding:
       - chunked
     body:
@@ -144,7 +144,7 @@ http_interactions:
         yard is equiped with a firepit, a pool, and a pool house to accommodate all
         your party needs.","availability":"Available on weekends in May","payment":"Venmo","photo_url_1":"https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg","photo_url_2":"","photo_url_3":"","price":20.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
         rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:13:52 GMT
+  recorded_at: Thu, 22 Apr 2021 04:43:15 GMT
 - request:
     method: get
     uri: https://www.mapquestapi.com/geocoding/v1/address?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&location=2001%20Blake%20St%20Denver,%20CO%2080205
@@ -164,11 +164,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 22 Apr 2021 04:13:52 GMT
+      - Thu, 22 Apr 2021 04:43:16 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '1091'
+      - '1092'
       Access-Control-Allow-Methods:
       - OPTIONS,GET,POST
       Access-Control-Allow-Origin:
@@ -180,7 +180,7 @@ http_interactions:
       Geocodetransactioncount:
       - '1'
       Last-Modified:
-      - Thu, 22 Apr 2021 04:13:52 GMT
+      - Thu, 22 Apr 2021 04:43:16 GMT
       Pragma:
       - no-cache
       Reversegeocodetransactioncount:
@@ -188,7 +188,7 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Set-Cookie:
-      - JSESSIONID=B7DCC65DBA87D4C291892F56CAA7B722; Path=/; HttpOnly; Secure
+      - JSESSIONID=9413794CAEC6DA4179CC00E1A4970069; Path=/; HttpOnly; Secure
       Status:
       - success
       Transactionweight:
@@ -200,6 +200,6 @@ http_interactions:
       string: '{"info":{"statuscode":0,"copyright":{"text":"\u00A9 2021 MapQuest,
         Inc.","imageUrl":"http://api.mqcdn.com/res/mqlogo.gif","imageAltText":"\u00A9
         2021 MapQuest, Inc."},"messages":[]},"options":{"maxResults":-1,"thumbMaps":true,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"2001
-        Blake St Denver, CO 80205"},"locations":[{"street":"2001 Blake St","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Denver","adminArea5Type":"City","adminArea4":"Denver","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"80205-2008","geocodeQualityCode":"P1AAA","geocodeQuality":"POINT","dragPoint":false,"sideOfStreet":"L","linkId":"r12614049|p207781704|n15739752","unknownInput":"","type":"s","latLng":{"lat":39.754574,"lng":-104.993946},"displayLatLng":{"lat":39.754733,"lng":-104.994129},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=39.754574,-104.993946|marker-sm-50318A-1&scalebar=true&zoom=15&rand=1865887723"}]}]}'
-  recorded_at: Thu, 22 Apr 2021 04:13:52 GMT
+        Blake St Denver, CO 80205"},"locations":[{"street":"2001 Blake St","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Denver","adminArea5Type":"City","adminArea4":"Denver","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"80205-2008","geocodeQualityCode":"P1AAA","geocodeQuality":"POINT","dragPoint":false,"sideOfStreet":"L","linkId":"r12614049|p207781704|n15739752","unknownInput":"","type":"s","latLng":{"lat":39.754574,"lng":-104.993946},"displayLatLng":{"lat":39.754733,"lng":-104.994129},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=39.754574,-104.993946|marker-sm-50318A-1&scalebar=true&zoom=15&rand=-1526178311"}]}]}'
+  recorded_at: Thu, 22 Apr 2021 04:43:16 GMT
 recorded_with: VCR 6.0.0

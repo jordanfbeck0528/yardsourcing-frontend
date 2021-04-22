@@ -25,16 +25,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - fe823784-ce8a-4aaf-ae3e-69ca8af45ffe
+      - d6f1e983-56fe-45f5-840c-ad3cf967cd4c
       X-Runtime:
-      - '0.005785'
+      - '0.003206'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:13:49 GMT
+  recorded_at: Thu, 22 Apr 2021 04:43:11 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/purposes
@@ -60,16 +60,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 24bdb153-f0cc-4fe3-a000-70635e89e44c
+      - 214f5ba0-d535-41b1-a72d-bafea3682ef0
       X-Runtime:
-      - '0.003345'
+      - '0.006226'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
         rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
-  recorded_at: Thu, 22 Apr 2021 04:13:49 GMT
+  recorded_at: Thu, 22 Apr 2021 04:43:11 GMT
 - request:
     method: post
     uri: http://localhost:3001/api/v1/yards?availability=availability&city=city&description=description&email=thisemail@gmail.com&host_id=1&name=A%20new%20yard!!&payment=payment&photo_url_1=https://photo.com/path&photo_url_2=&photo_url_3=&price=25.2&state=state&street_address=street_address&zipcode=zipcode
@@ -97,14 +97,14 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 4be9c198-c571-4217-ac72-8a3417dcbc42
+      - 711f40f6-cb1c-4778-ae94-49ed5e94bf84
       X-Runtime:
-      - '0.003024'
+      - '0.002791'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"message":"your request cannot be completed","error":"You must select
         at least one purpose"}'
-  recorded_at: Thu, 22 Apr 2021 04:13:49 GMT
+  recorded_at: Thu, 22 Apr 2021 04:43:11 GMT
 recorded_with: VCR 6.0.0
