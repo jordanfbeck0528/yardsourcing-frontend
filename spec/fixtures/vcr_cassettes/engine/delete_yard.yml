@@ -1,0 +1,78 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:3001/api/v1/yards?availability=availability&city=city&description=description&email=email@email.com&host_id=123545&name=name&payment=payment&photo_url_1=https://photo.com/path&photo_url_2=&photo_url_3=&price=25.2&purposes%5B%5D=1&purposes%5B%5D=3&state=state&street_address=street_address&zipcode=zipcode
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"4b75b7f1647d75bdecb8d92d6e0fbba3"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 2a2fccc1-51f5-4776-901e-700f557e05e9
+      X-Runtime:
+      - '0.017572'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"10","type":"yard","attributes":{"host_id":123545,"name":"name","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"payment","photo_url_1":"https://photo.com/path","photo_url_2":"","photo_url_3":"","price":25.2,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
+        rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}}}}'
+  recorded_at: Thu, 22 Apr 2021 16:51:18 GMT
+- request:
+    method: delete
+    uri: http://localhost:3001/api/v1/yards/10?id=10
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"4a0dad0ea9ed7c8398558e8b9b5865f9"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 1b14bdd4-a5e0-46bb-8916-0ffa1e5ada67
+      X-Runtime:
+      - '0.007168'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"id":10,"host_id":123545,"name":"name","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","price":"25.2","description":"description","availability":"availability","payment":"payment","photo_url_1":"https://photo.com/path","photo_url_2":"","photo_url_3":"","created_at":"2021-04-22T16:51:18.052Z","updated_at":"2021-04-22T16:51:18.052Z","email":"email@email.com"}'
+  recorded_at: Thu, 22 Apr 2021 16:51:18 GMT
+recorded_with: VCR 6.0.0

@@ -6,4 +6,4 @@
               yard: @yard,
               method: :get} %>
 
-<%= button_to "Delete Yard", host_yards(@yard.id), method: :destroy, class: "btn btn-light" %>
+<%= button_to "Delete Yard", host_yard_path(@yard.id), method: :destroy, class: "btn btn-light" %>
