@@ -35,6 +35,7 @@ RSpec.describe 'Welcome Page' do
         expect(current_path).to eq(renter_dashboard_index_path)
       end
     end
+  end 
 
 
     describe 'After I am logged in, there is a button to logout' do
