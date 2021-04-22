@@ -38,7 +38,7 @@
             No image
           <% end %></p>
           <% if booking.status == 'pending' %>
-          <div>
+          <div class="btn-group">
             <%= button_to("Approve", "/bookings/#{booking.id}", method: :patch, params: {status: :approved}, class: "btn btn-light") %>
             <%= button_to("Reject", "/bookings/#{booking.id}", method: :patch, params: {status: :rejected}, class: "btn btn-light") %>
           </div>

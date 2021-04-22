@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   get 'search/yards', to: 'search#find_yards'
+  
   resources :search, only: [:index]
 
   resources :yards, only: [:show] do
