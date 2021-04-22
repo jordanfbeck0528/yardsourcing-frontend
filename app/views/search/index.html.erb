@@ -1,12 +1,3 @@
 <h3>Find your dream yard:</h3>
-<%= form_with url: 'search/yards', method: :get, local: true do |form| %>
-  <%= form.label "Enter the zipcode where you want to yard." %>
-  <%= form.text_area :location, placeholder: "Zipcode", :required => true, class: "form-control-sm"%><br>
-  <%= form.label "How will you spend your time yarding?" %><br>
-  <%= form.collection_check_boxes(:purposes, @purposes, :name, :name, include_hidden: false) do |purpose| %>
-  <%= purpose.check_box %>
-  <%= purpose.label %>
-  <% end %>
-
-<%= form.submit 'Yard Me', class: "btn btn-secondary" %>
-<% end %>
+<%= render partial: 'shared/search_form',
+    locals: {purposes: @purposes, url: search_yards_path} %>

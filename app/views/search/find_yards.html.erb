@@ -2,6 +2,10 @@
 async
 ></script>
 
+<h3>Search for more dream yards:</h3>
+<%= render partial: 'shared/search_form',
+    locals: {purposes: @purposes, url: search_yards_path} %>
+
 <div id="map" style="width: 1000px; height: 500px; margin: auto;"></div>
 <script type="text/javascript">
   function initMap()
