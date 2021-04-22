@@ -1,6 +1,7 @@
 class BookingFacade
   def self.get_booking(booking_id)
     booking = EngineService.booking_details(booking_id)
+
     return booking = {} if booking == {}
     yard_info = yard_info(booking[:attributes][:yard_id])
     OpenStruct.new({ id:           booking[:id],
@@ -14,6 +15,7 @@ class BookingFacade
                      duration:     booking[:attributes][:duration],
                      description:  booking[:attributes][:description],
                      total_cost:   total_cost(booking[:attributes][:duration], yard_info[:attributes][:price]),
+
                      coords: get_coords(full_address(yard_info)) })
   end
 
