@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <% yards.each do |yard| %>
+      <% cache(yard) do %>
+        <div class= "card dashboard">
+          <div class="card-body">
+            <div class="card-title name"><%= link_to yard.name, "/#{url_string}/#{yard.id}"%></div>
+            Description: <%= yard.description %><br>
+            Address: <%= link_to yard.address, "https://www.google.com/maps/?q=#{yard.address}"%><br>
+            Rate: $<%= yard.price %> per hour <br>
+            Purposes:
+            <ul>
+            <% yard.purposes.each do |purpose| %>
+              <% cache(purpose) do  %>
+                <li><%= purpose.titleize %></li>
+              <% end %>
+            <% end %>
+            </ul>
+            <p><% if !yard.photo_url_1.blank? %>
+               <%= image_tag(yard.photo_url_1, size: '250')  %>
+            <% else %>
+              No image
+            <% end %></p>
+          </div>
+        </div>
+      <%end %>
+    <% end %>
+  </div>
+</div>

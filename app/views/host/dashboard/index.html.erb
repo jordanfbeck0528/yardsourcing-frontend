@@ -9,35 +9,11 @@
     <p>Add some yards to rent! Turn your green into green!</p>
     <%= button_to 'Create Yard', new_host_yard_path, method: :get, class:'btn btn-secondary' %>
   <% else %>
-    <div class="container">
-      <div class="row">
-        <% @host_yards.each do |yard| %>
-          <% cache(yard) do %>
-        <div class= "card dashboard">
-          <div class="card-body">
-            <div class="card-title name"><%= link_to yard.name, host_yard_path(yard.id) %></div>
-            Description: <%= yard.description %><br>
-            Address: <%= yard.address %><br>
-            Rate: $<%= yard.price %> per hour <br>
-            Purposes:
-            <ul>
-            <% yard.purposes.each do |purpose| %>
-              <% cache(purpose) do  %>
-              <li><%= purpose.titleize %></li>
-                <%end %>
-            <% end %>
-            </ul>
-            <p><% if !yard.photo_url_1.blank? %>
-               <%= image_tag(yard.photo_url_1, size: '250')  %>
-            <% else %>
-              No image
-            <% end %></p>
-          </div>
-        </div>
-          <%end %>
-        <% end %>
-      </div>
-    </div>
+
+  <%= render partial: 'shared/yards_cards', locals: {
+          url_string: "host/yards",
+          yards: @host_yards
+  }%>
   <% end %>
 </section>
 
@@ -52,7 +28,7 @@
           <div class="card-title name"><%= link_to "#{booking.name}", booking_path(booking.id) %></div>
           <p>Yard: <%= link_to "#{booking.yard_name}", yard_path(booking.yard_id) %>
           <p>Status: <%= booking.status.titleize %></p>
-          <p>Address: <%= booking.address %></p>
+          <p>Address: <%= link_to booking.address, "https://www.google.com/maps/?q=#{booking.address}"%></p>
           <p>Date: <%= booking.date.strftime('%m/%d/%Y') %></p>
           <p>Time: <%= booking.time.strftime("%I:%M%p") %></p>
           <p>Duration: <%= booking.duration %> hours</p>

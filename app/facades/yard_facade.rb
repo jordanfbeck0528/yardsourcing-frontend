@@ -23,25 +23,24 @@ class YardFacade
 
   def self.yards_in_location(yard_params)
     yards = EngineService.yards_in_location(yard_params)
-    object = OpenStruct.new({yards: yards})
-    return object if yards[:data].nil? || yards[:data].empty?
+    if yards[:error]
+      yards
+    elsif yards[:data].empty?
+      yards = []
+    else
+      object = OpenStruct.new({yards: yards})
+      return object if yards[:data].nil? || yards[:data].empty?
 
-    object[:yards] = yards[:data].map do |yard|
-      yard_object(yard)
+      object[:yards] = yards[:data].map do |yard|
+        yard_object(yard)
+      end
     end
-
-    object[:coords] = get_coords(object[:yards])
-    object
   end
 
-  def self.get_coords(yards)
+  def self.get_coords(full_address)
     Geokit::Geocoders::MapQuestGeocoder.key = ENV['mapquest_key']
     Geokit::Geocoders::provider_order = [:mapquest]
-
-    yards.reduce([]) do |locations, yard|
-      coords = Geokit::Geocoders::MapQuestGeocoder.geocode yard.address
-      locations << [coords.lat, coords.lng]
-    end
+    Geokit::Geocoders::MapQuestGeocoder.geocode full_address
   end
 
   def self.yard_object(yard)
@@ -63,6 +62,7 @@ class YardFacade
                       payment:        yard[:payment],
                       photo_url_1:    yard[:photo_url_1],
                       photo_url_2:    yard[:photo_url_2],
-                      photo_url_3:    yard[:photo_url_3] })
+                      photo_url_3:    yard[:photo_url_3],
+                      coords:         get_coords(full_address(yard)) })
   end
 end

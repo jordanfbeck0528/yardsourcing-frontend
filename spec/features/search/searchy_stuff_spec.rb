@@ -99,5 +99,18 @@ RSpec.describe 'Search Page' do
         expect(page).to have_content("How will you spend your time yarding?")
       end
     end
+    it "shows no results when there aren't any to show" do
+      VCR.use_cassette('all_purposes_create_search_with_purpose_no_yards') do
+        purposes = EngineService.all_purposes
+        visit search_index_path
+        fill_in :location, with: '72801'
+        check "#{purposes[:data][0][:attributes][:name].titleize}"
+        click_button 'Yard Me'
+        expect(current_path).to eq('/search/yards')
+        expect(page).to have_content("No yards match your specific parameters")
+        expect(page).not_to have_content('Large Yard for any Hobby')
+        expect(page).not_to have_content('Multipurpose Yard')
+      end
+    end
   end
 end
