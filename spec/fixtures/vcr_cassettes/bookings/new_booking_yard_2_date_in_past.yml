@@ -27,13 +27,13 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - ffb95e58-d4c5-4317-b941-53874f437fcb
+      - 7f0e4ed4-3ee8-4f81-9db0-17a948ee5cd6
       X-Runtime:
-      - '0.005193'
+      - '0.004721'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"error":"Validation failed: Date Booking Date can''t be in the past"}'
-  recorded_at: Thu, 22 Apr 2021 01:57:53 GMT
+  recorded_at: Thu, 22 Apr 2021 02:34:13 GMT
 recorded_with: VCR 6.0.0

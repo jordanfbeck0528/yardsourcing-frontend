@@ -25,15 +25,15 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 46d24ece-120a-4399-8e7e-7ab9ebaf4a0f
+      - '082ab812-518e-4c97-bfea-339bcd70b7ba'
       X-Runtime:
-      - '0.004231'
+      - '0.003395'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":{}}'
-  recorded_at: Thu, 22 Apr 2021 01:58:04 GMT
+  recorded_at: Thu, 22 Apr 2021 02:34:19 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/renters/200/bookings?status=pending
@@ -59,13 +59,13 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d659d396-9845-43e3-b89a-6e0bc59bcca1
+      - c49d567d-0705-4569-81c6-7df560993e03
       X-Runtime:
-      - '0.003378'
+      - '0.003507'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":{}}'
-  recorded_at: Thu, 22 Apr 2021 01:58:04 GMT
+  recorded_at: Thu, 22 Apr 2021 02:34:19 GMT
 recorded_with: VCR 6.0.0

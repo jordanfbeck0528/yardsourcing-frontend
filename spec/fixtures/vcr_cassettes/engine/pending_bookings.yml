@@ -21,27 +21,24 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"b665d1edd903980e20b8c0e69f583161"
+      - W/"ee469be06958f90261837dba5e846ecb"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 3b33d766-2007-4eca-a4ca-adad3a4f97f8
+      - fd5e6bd5-1431-474d-9583-3fe2637e4fb4
       X-Runtime:
-      - '0.005064'
+      - '0.007104'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":[{"id":"13","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T18:00:00.000Z","duration":2,"description":"description"}},{"id":"14","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"15","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"17","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}},{"id":"22","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"23","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"5","type":"booking","attributes":{"status":"pending","yard_id":4,"booking_name":"Spotlight
+      string: '{"data":[{"id":"5","type":"booking","attributes":{"status":"pending","yard_id":4,"booking_name":"Spotlight
         Tag","renter_id":1,"date":"2021-05-05","time":"2000-01-01T21:00:00.000Z","duration":2,"description":"Wanting
         to have a 50 person game of spotlight tag."}},{"id":"8","type":"booking","attributes":{"status":"pending","yard_id":6,"booking_name":"Country
         Throw Down Part 2","renter_id":1,"date":"2021-04-25","time":"2000-01-01T20:00:00.000Z","duration":5,"description":"Trying
-        to throw a rager with my friends again."}}]}'
-  recorded_at: Thu, 22 Apr 2021 01:58:08 GMT
+        to throw a rager with my friends again."}},{"id":"9","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}},{"id":"14","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"15","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}]}'
+  recorded_at: Thu, 22 Apr 2021 02:34:35 GMT
 recorded_with: VCR 6.0.0

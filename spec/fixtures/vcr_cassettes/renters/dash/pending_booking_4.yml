@@ -21,23 +21,22 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"698d0fc3328c2926b4322d3cdd7bce79"
+      - W/"c04bcc35ff4fc8813b57538f31715c37"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d8b404e1-9350-4b16-b150-531e2e928a0d
+      - d2ca6327-075c-4a83-98f7-6cef615feb08
       X-Runtime:
-      - '0.003949'
+      - '0.004835'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":[{"id":"9","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"18","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"1","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"Pet
+      string: '{"data":[{"id":"1","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"Pet
         Birthday Party","renter_id":1,"date":"2021-04-25","time":"2000-01-01T14:00:00.000Z","duration":3,"description":"Throwing
-        a bday party for my pet."}}]}'
-  recorded_at: Thu, 22 Apr 2021 01:58:04 GMT
+        a bday party for my pet."}},{"id":"10","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}}]}'
+  recorded_at: Thu, 22 Apr 2021 02:34:20 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/renters/1/bookings?status=pending
@@ -59,25 +58,22 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"260a12108cae4a5a569559fbd7eea614"
+      - W/"86f4d98d370b9758a3365c5d6fa738dd"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 5c5e3370-1457-41b2-be6b-7eb90e5cebe6
+      - 45ccdda8-1ef9-4426-bc01-512c2a53a12b
       X-Runtime:
-      - '0.004518'
+      - '0.004524'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":[{"id":"13","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T18:00:00.000Z","duration":2,"description":"description"}},{"id":"14","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"15","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"17","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}},{"id":"5","type":"booking","attributes":{"status":"pending","yard_id":4,"booking_name":"Spotlight
+      string: '{"data":[{"id":"5","type":"booking","attributes":{"status":"pending","yard_id":4,"booking_name":"Spotlight
         Tag","renter_id":1,"date":"2021-05-05","time":"2000-01-01T21:00:00.000Z","duration":2,"description":"Wanting
         to have a 50 person game of spotlight tag."}},{"id":"8","type":"booking","attributes":{"status":"pending","yard_id":6,"booking_name":"Country
         Throw Down Part 2","renter_id":1,"date":"2021-04-25","time":"2000-01-01T20:00:00.000Z","duration":5,"description":"Trying
-        to throw a rager with my friends again."}}]}'
-  recorded_at: Thu, 22 Apr 2021 01:58:04 GMT
+        to throw a rager with my friends again."}},{"id":"9","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}}]}'
+  recorded_at: Thu, 22 Apr 2021 02:34:20 GMT
 recorded_with: VCR 6.0.0

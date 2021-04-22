@@ -25,15 +25,15 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 961f213f-c7d9-4fd6-a9ce-d0cf556849f1
+      - 0341dbc4-260d-4f96-9b49-ed51423af939
       X-Runtime:
-      - '0.004348'
+      - '0.003193'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[]}'
-  recorded_at: Thu, 22 Apr 2021 01:57:53 GMT
+  recorded_at: Thu, 22 Apr 2021 02:34:14 GMT
 - request:
     method: get
     uri: http://localhost:3001/api/v1/hosts/100/bookings
@@ -59,13 +59,13 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 6b50b21f-4e34-44d7-88b7-46c06bd781c3
+      - 59de2218-bc36-4523-948b-68e347026dec
       X-Runtime:
-      - '0.005411'
+      - '0.005902'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":{}}'
-  recorded_at: Thu, 22 Apr 2021 01:57:53 GMT
+  recorded_at: Thu, 22 Apr 2021 02:34:14 GMT
 recorded_with: VCR 6.0.0

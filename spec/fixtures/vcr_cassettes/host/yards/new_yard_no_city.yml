@@ -27,13 +27,13 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - '087362dc-5d97-4106-9524-7518b0965954'
+      - 4e18b0a1-d821-4365-93f1-cd05644e4c96
       X-Runtime:
-      - '0.004858'
+      - '0.004623'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"error":"Validation failed: City can''t be blank"}'
-  recorded_at: Thu, 22 Apr 2021 01:58:03 GMT
+  recorded_at: Thu, 22 Apr 2021 02:34:18 GMT
 recorded_with: VCR 6.0.0

@@ -27,13 +27,13 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - c39a03f1-83d7-4251-896d-dfee4c125426
+      - 8c748822-ac5f-496b-9bc9-e3efcf3c584d
       X-Runtime:
-      - '0.004376'
+      - '0.004973'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"error":"Validation failed: Zipcode can''t be blank"}'
-  recorded_at: Thu, 22 Apr 2021 01:58:03 GMT
+  recorded_at: Thu, 22 Apr 2021 02:34:18 GMT
 recorded_with: VCR 6.0.0

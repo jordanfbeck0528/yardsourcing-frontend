@@ -21,33 +21,28 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"817b11f9ba1d04c578016512fc1fbef6"
+      - W/"a9f7f59c4540fdfa22484c9a29efabfe"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - dc0b5147-70fa-4f00-8953-1cdcdb884144
+      - 9ebac5ce-884f-4d78-adf4-0286eb6a4f50
       X-Runtime:
-      - '0.007257'
+      - '0.006050'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":[{"id":"9","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"10","type":"booking","attributes":{"status":"rejected","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"13","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T18:00:00.000Z","duration":2,"description":"description"}},{"id":"14","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"15","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"17","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}},{"id":"18","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"19","type":"booking","attributes":{"status":"rejected","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"22","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"23","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
-        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"1","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"Pet
+      string: '{"data":[{"id":"1","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"Pet
         Birthday Party","renter_id":1,"date":"2021-04-25","time":"2000-01-01T14:00:00.000Z","duration":3,"description":"Throwing
         a bday party for my pet."}},{"id":"3","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"3
         Year Old Birthday Party","renter_id":3,"date":"2021-04-30","time":"2000-01-01T10:00:00.000Z","duration":4,"description":"Needs
-        a space for my 3 year olds birthday party"}},{"id":"4","type":"booking","attributes":{"status":"approved","yard_id":3,"booking_name":"Barbeque
+        a space for my 3 year olds birthday party"}},{"id":"9","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T12:00:00.000Z","duration":2,"description":"description"}},{"id":"10","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"11","type":"booking","attributes":{"status":"rejected","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"14","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"15","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"A
+        new booking!!","renter_id":1,"date":"2021-05-05","time":"2000-01-01T17:00:00.000Z","duration":2,"description":"description"}},{"id":"4","type":"booking","attributes":{"status":"approved","yard_id":3,"booking_name":"Barbeque
         with Friends","renter_id":4,"date":"2021-04-25","time":"2000-01-01T18:00:00.000Z","duration":2,"description":"Wanting
         to grill out with my friends."}}]}'
-  recorded_at: Thu, 22 Apr 2021 01:58:08 GMT
+  recorded_at: Thu, 22 Apr 2021 02:34:34 GMT
 recorded_with: VCR 6.0.0

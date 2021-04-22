@@ -27,13 +27,13 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 9b96f73f-1086-44e6-8d12-8d9b664441c8
+      - b7c054f5-348a-4976-8043-d446e403e98a
       X-Runtime:
-      - '0.005962'
+      - '0.006272'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"error":"Validation failed: Duration can''t be blank"}'
-  recorded_at: Thu, 22 Apr 2021 01:57:52 GMT
+  recorded_at: Thu, 22 Apr 2021 02:34:13 GMT
 recorded_with: VCR 6.0.0
