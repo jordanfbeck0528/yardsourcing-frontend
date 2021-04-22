@@ -6,6 +6,12 @@ class SessionsController < ApplicationController
     redirect_to host_dashboard_index_path
   end
 
+  def destroy
+  session.delete :user_id
+  flash[:message] = 'You have been logged out.'
+  redirect_to root_path
+end
+
   def bad
     flash[:error] = "Sorry, your credentials are bad."
     redirect_to root_path
