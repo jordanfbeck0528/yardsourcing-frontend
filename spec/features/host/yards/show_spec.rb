@@ -55,4 +55,77 @@ RSpec.describe "As an authenticated user when I visit the Yard Show Page" do
       end
     end
   end
+
+  describe "I can delete yard" do
+    it "I see the Delete yard button where I can delete a yard " do
+      VCR.use_cassette('host/yards/delete_yard') do
+        yard_params = { :name=>"DELETE THIS YARD",
+                        :email=>"email@email.com",
+                        :host_id=>"123545",
+                        :description=>"description",
+                        :availability=>"availability",
+                        :payment=>"payment",
+                        :price=>"25.2",
+                        :street_address=>"street_address",
+                        :city=>"city",
+                        :state=>"state",
+                        :zipcode=>"zipcode",
+                        :photo_url_1=>"https://photo.com/path",
+                        :photo_url_2=>"",
+                        :photo_url_3=>"",
+                        :purposes=>["1", "3"]}
+
+        es = EngineService.create_yard(yard_params)
+        visit host_yard_path(es[:data][:id])
+        expect(page).to have_button("Delete Yard")
+        click_button "Delete Yard"
+
+        expect(current_path).to eq host_dashboard_index_path
+        expect(page).to_not have_content("DELETE THIS YARD")
+      end
+    end
+  end
+
+  describe "I can't delete yard with active bookings" do
+    it "I see the Delete yard button where I can delete a yard " do
+      VCR.use_cassette('host/yards/delete_yard_active_bookings') do
+        yard_params = { :name=>"DELETE THIS YARD",
+                        :email=>"email@email.com",
+                        :host_id=>"123545",
+                        :description=>"description",
+                        :availability=>"availability",
+                        :payment=>"payment",
+                        :price=>"25.2",
+                        :street_address=>"street_address",
+                        :city=>"city",
+                        :state=>"state",
+                        :zipcode=>"zipcode",
+                        :photo_url_1=>"https://photo.com/path",
+                        :photo_url_2=>"",
+                        :photo_url_3=>"",
+                        :purposes=>["1", "3"]}
+
+        yard = EngineService.create_yard(yard_params)
+
+        booking_params = {:renter_id=>"1",
+                        :renter_email=>"renter@renter.com",
+                        :yard_id=>"#{yard[:data][:id]}",
+                        :booking_name=>"A new booking!!",
+                        :status=>"approved",
+                        :date=>"2021-05-05",
+                        :time=>"2021-05-05 12:00:00 -0500",
+                        :duration=>"2",
+                        :description=>"description"}
+
+        booking = EngineService.create_booking(booking_params)
+
+        visit host_yard_path(yard[:data][:id])
+        expect(page).to have_button("Delete Yard")
+        click_button "Delete Yard"
+
+        expect(current_path).to eq host_yard_path(yard[:data][:id])
+        expect(page).to have_content("Can't delete a yard with active bookings")
+      end
+    end
+  end
 end

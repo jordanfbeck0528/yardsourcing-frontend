@@ -38,7 +38,12 @@ class Host::YardsController < ApplicationController
 
   def destroy
     yard = EngineService.delete_yard({id: params[:id]})
-    redirect_to host_dashboard_index_path
+    if yard[:error]
+      flash[:error] = yard[:error]
+      redirect_to host_yard_path(params[:id])
+    else
+      redirect_to host_dashboard_index_path
+    end
   end
 
   private

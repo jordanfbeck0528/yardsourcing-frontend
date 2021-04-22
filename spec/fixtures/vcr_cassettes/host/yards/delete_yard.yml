@@ -1,0 +1,383 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:3001/api/v1/yards?availability=availability&city=city&description=description&email=email@email.com&host_id=123545&name=DELETE%20THIS%20YARD&payment=payment&photo_url_1=https://photo.com/path&photo_url_2=&photo_url_3=&price=25.2&purposes%5B%5D=1&purposes%5B%5D=3&state=state&street_address=street_address&zipcode=zipcode
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"35a78efa7d2ab6151b9dc24e3aeeebce"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 7606a5ea-2d18-4e6d-95de-96cb73917c8c
+      X-Runtime:
+      - '0.031001'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"15","type":"yard","attributes":{"host_id":123545,"name":"DELETE
+        THIS YARD","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"payment","photo_url_1":"https://photo.com/path","photo_url_2":"","photo_url_3":"","price":25.2,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
+        rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}}}}'
+  recorded_at: Thu, 22 Apr 2021 17:59:16 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/v1/yards/15
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"35a78efa7d2ab6151b9dc24e3aeeebce"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 04a9ad2f-81bd-4497-bae1-784f89eff765
+      X-Runtime:
+      - '0.004425'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"15","type":"yard","attributes":{"host_id":123545,"name":"DELETE
+        THIS YARD","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","description":"description","availability":"availability","payment":"payment","photo_url_1":"https://photo.com/path","photo_url_2":"","photo_url_3":"","price":25.2,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
+        rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}}}}'
+  recorded_at: Thu, 22 Apr 2021 17:59:16 GMT
+- request:
+    method: get
+    uri: https://www.mapquestapi.com/geocoding/v1/address?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&location=street_address%20city,%20state%20zipcode
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 22 Apr 2021 17:59:17 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '7529'
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET,POST
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Expires:
+      - Mon, 20 Dec 1998 01:00:00 GMT
+      Geocodetransactioncount:
+      - '1'
+      Last-Modified:
+      - Thu, 22 Apr 2021 17:59:17 GMT
+      Pragma:
+      - no-cache
+      Reversegeocodetransactioncount:
+      - '0'
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - JSESSIONID=12664503A78EE8CC8F6109E8B73563EB; Path=/; HttpOnly; Secure
+      Status:
+      - success
+      Transactionweight:
+      - '1.0'
+      Strict-Transport-Security:
+      - max-age=0
+    body:
+      encoding: UTF-8
+      string: '{"info":{"statuscode":0,"copyright":{"text":"\u00A9 2021 MapQuest,
+        Inc.","imageUrl":"http://api.mqcdn.com/res/mqlogo.gif","imageAltText":"\u00A9
+        2021 MapQuest, Inc."},"messages":[]},"options":{"maxResults":-1,"thumbMaps":true,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"street_address
+        city, state zipcode"},"locations":[{"street":"State Street","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Montgomery
+        City","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"MO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"63361","geocodeQualityCode":"B3CCA","geocodeQuality":"STREET","dragPoint":false,"sideOfStreet":"N","linkId":"US/STR/p0/415823","unknownInput":"","type":"s","latLng":{"lat":38.97872,"lng":-91.51231},"displayLatLng":{"lat":38.97872,"lng":-91.51231},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=38.97872,-91.51231|marker-sm-50318A-1&scalebar=true&zoom=15&rand=-1161331239"},{"street":"State
+        Street","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Scott
+        City","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"MO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"63780","geocodeQualityCode":"B3CCA","geocodeQuality":"STREET","dragPoint":false,"sideOfStreet":"N","linkId":"US/STR/p0/415835","unknownInput":"","type":"s","latLng":{"lat":37.22207,"lng":-89.50916},"displayLatLng":{"lat":37.22207,"lng":-89.50916},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=37.22207,-89.50916|marker-sm-50318A-2&scalebar=true&zoom=15&rand=-1871434061"},{"street":"State
+        Street","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Bay
+        City","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"MI","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"B3CCA","geocodeQuality":"STREET","dragPoint":false,"sideOfStreet":"N","linkId":"US/STR/p0/1560550","unknownInput":"","type":"s","latLng":{"lat":43.61547,"lng":-83.8946},"displayLatLng":{"lat":43.61547,"lng":-83.8946},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=43.61547,-83.8946|marker-sm-50318A-3&scalebar=true&zoom=15&rand=716985002"},{"street":"State
+        Street","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Rogers
+        City","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"MI","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"49779","geocodeQualityCode":"B3CCA","geocodeQuality":"STREET","dragPoint":false,"sideOfStreet":"N","linkId":"US/STR/p0/1560715","unknownInput":"","type":"s","latLng":{"lat":45.4222,"lng":-83.82466},"displayLatLng":{"lat":45.4222,"lng":-83.82466},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=45.4222,-83.82466|marker-sm-50318A-4&scalebar=true&zoom=15&rand=181398059"},{"street":"State
+        Street","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Crescent
+        City","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"CA","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"B3CCA","geocodeQuality":"STREET","dragPoint":false,"sideOfStreet":"N","linkId":"US/STR/p0/2857002","unknownInput":"","type":"s","latLng":{"lat":41.7547,"lng":-124.16322},"displayLatLng":{"lat":41.7547,"lng":-124.16322},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=41.7547,-124.16322|marker-sm-50318A-5&scalebar=true&zoom=15&rand=117427223"},{"street":"State
+        Street","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Dade
+        City","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"FL","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"33523","geocodeQualityCode":"B3CCA","geocodeQuality":"STREET","dragPoint":false,"sideOfStreet":"N","linkId":"US/STR/p0/4796632","unknownInput":"","type":"s","latLng":{"lat":28.37346,"lng":-82.19817},"displayLatLng":{"lat":28.37346,"lng":-82.19817},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=28.37346,-82.19817|marker-sm-50318A-6&scalebar=true&zoom=15&rand=-658646168"},{"street":"State
+        Street","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Central
+        City","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"KY","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"42330","geocodeQualityCode":"B3CCA","geocodeQuality":"STREET","dragPoint":false,"sideOfStreet":"N","linkId":"US/STR/p1/3039915","unknownInput":"","type":"s","latLng":{"lat":37.31164,"lng":-87.13117},"displayLatLng":{"lat":37.31164,"lng":-87.13117},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=37.31164,-87.13117|marker-sm-50318A-7&scalebar=true&zoom=15&rand=1903765383"},{"street":"State
+        Street","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Grove
+        City","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"PA","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"16127","geocodeQualityCode":"B3CCA","geocodeQuality":"STREET","dragPoint":false,"sideOfStreet":"N","linkId":"US/STR/p2/5490204","unknownInput":"","type":"s","latLng":{"lat":41.16588,"lng":-80.08454},"displayLatLng":{"lat":41.16588,"lng":-80.08454},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=41.16588,-80.08454|marker-sm-50318A-8&scalebar=true&zoom=15&rand=60423087"},{"street":"State
+        Street","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Oil
+        City","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"PA","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"16301","geocodeQualityCode":"B3CCA","geocodeQuality":"STREET","dragPoint":false,"sideOfStreet":"N","linkId":"US/STR/p2/5490227","unknownInput":"","type":"s","latLng":{"lat":41.4285,"lng":-79.70954},"displayLatLng":{"lat":41.4285,"lng":-79.70954},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=41.4285,-79.70954|marker-sm-50318A-9&scalebar=true&zoom=15&rand=660322393"},{"street":"Zip
+        Code Place & Okeechobee Boulevard","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"West
+        Palm Beach","adminArea5Type":"City","adminArea4":"","adminArea4Type":"County","adminArea3":"FL","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"33409","geocodeQualityCode":"I1CCA","geocodeQuality":"INTERSECTION","dragPoint":false,"sideOfStreet":"N","linkId":"US/XSTR/p0/1791612","unknownInput":"","type":"s","latLng":{"lat":26.70694,"lng":-80.10949},"displayLatLng":{"lat":26.70694,"lng":-80.10949},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=26.70694,-80.10949|marker-sm-50318A-10&scalebar=true&zoom=15&rand=-950037476"}]}]}'
+  recorded_at: Thu, 22 Apr 2021 17:59:17 GMT
+- request:
+    method: delete
+    uri: http://localhost:3001/api/v1/yards/15?id=15
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"b90e48373ae619112d68f3142282afe9"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - aa1b8be5-9b8b-4322-a673-707cf6b6365a
+      X-Runtime:
+      - '0.008168'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"id":15,"host_id":123545,"name":"DELETE THIS YARD","street_address":"street_address","city":"city","state":"state","zipcode":"zipcode","price":"25.2","description":"description","availability":"availability","payment":"payment","photo_url_1":"https://photo.com/path","photo_url_2":"","photo_url_3":"","created_at":"2021-04-22T17:59:16.689Z","updated_at":"2021-04-22T17:59:16.689Z","email":"email@email.com"}'
+  recorded_at: Thu, 22 Apr 2021 17:59:17 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/v1/yards/15
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"7fb9d166d1a15bce0b9f085f3818946f"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 0435c3c0-8b50-41c7-8a13-d2e1d117f8e7
+      X-Runtime:
+      - '0.013746'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{}}'
+  recorded_at: Thu, 22 Apr 2021 17:59:17 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/v1/hosts/1/yards
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"63031cda0192eacfe6e793967b01c2c0"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - ff40df71-7dee-4a90-8c67-09057ba5b85f
+      X-Runtime:
+      - '0.006192'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"2","type":"yard","attributes":{"host_id":1,"name":"Ultimate
+        Party Yard","street_address":"2001 Blake St","city":"Denver","state":"CO","zipcode":"80205","description":"This
+        yard is equiped with a firepit, a pool, and a pool house to accommodate all
+        your party needs.","availability":"Available on weekends in May","payment":"Venmo","photo_url_1":"https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg","photo_url_2":"","photo_url_3":"","price":20.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
+        rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}},{"id":"3","type":"yard","attributes":{"host_id":1,"name":"Large
+        Yard for any Hobby","street_address":"2300 Steele St","city":"Denver","state":"CO","zipcode":"80205","description":"A
+        large backyard close to the city. Equiped with a barbeque.","availability":"NEW
+        - Most days are available","payment":"Venmo,Paypal","photo_url_1":"","photo_url_2":"","photo_url_3":"","price":25.5,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
+        rental"}}]}}}]}'
+  recorded_at: Thu, 22 Apr 2021 17:59:17 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/v1/hosts/1/bookings
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"72b05ec5ebb0f3fcc42f04ee54518d6b"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - '0558c591-e076-4759-a9e3-d9aa2deb2e74'
+      X-Runtime:
+      - '0.005310'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"1","type":"booking","attributes":{"status":"approved","yard_id":2,"booking_name":"Pet
+        Birthday Party","renter_id":1,"date":"2021-04-25","time":"2000-01-01T14:00:00.000Z","duration":3,"description":"Throwing
+        a bday party for my pet."}},{"id":"4","type":"booking","attributes":{"status":"approved","yard_id":3,"booking_name":"Barbeque
+        with Friends","renter_id":4,"date":"2021-04-25","time":"2000-01-01T18:00:00.000Z","duration":2,"description":"Wanting
+        to grill out with my friends."}},{"id":"3","type":"booking","attributes":{"status":"pending","yard_id":2,"booking_name":"3
+        Year Old Birthday Party","renter_id":3,"date":"2021-04-30","time":"2000-01-01T10:00:00.000Z","duration":4,"description":"Needs
+        a space for my 3 year olds birthday party"}}]}'
+  recorded_at: Thu, 22 Apr 2021 17:59:17 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/v1/yards/2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"05899a4b6bd5366751e2b5fc0e2839d7"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - e3462eca-5e35-496e-ab67-b12957d10a67
+      X-Runtime:
+      - '0.004530'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"2","type":"yard","attributes":{"host_id":1,"name":"Ultimate
+        Party Yard","street_address":"2001 Blake St","city":"Denver","state":"CO","zipcode":"80205","description":"This
+        yard is equiped with a firepit, a pool, and a pool house to accommodate all
+        your party needs.","availability":"Available on weekends in May","payment":"Venmo","photo_url_1":"https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg","photo_url_2":"","photo_url_3":"","price":20.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
+        rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}}}'
+  recorded_at: Thu, 22 Apr 2021 17:59:17 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/v1/yards/3
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"d7bfa457b1b33db5a9350ffd99db21b5"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - da1fea54-5665-459d-9fa1-0fc14d607c6e
+      X-Runtime:
+      - '0.004249'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"3","type":"yard","attributes":{"host_id":1,"name":"Large
+        Yard for any Hobby","street_address":"2300 Steele St","city":"Denver","state":"CO","zipcode":"80205","description":"A
+        large backyard close to the city. Equiped with a barbeque.","availability":"NEW
+        - Most days are available","payment":"Venmo,Paypal","photo_url_1":"","photo_url_2":"","photo_url_3":"","price":25.5,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
+        rental"}}]}}}}'
+  recorded_at: Thu, 22 Apr 2021 17:59:17 GMT
+recorded_with: VCR 6.0.0
