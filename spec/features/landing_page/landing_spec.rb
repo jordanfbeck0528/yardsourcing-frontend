@@ -27,12 +27,12 @@ RSpec.describe 'Welcome Page' do
       user_1 = User.from_omniauth(omniauth_response)
       response = File.open("spec/fixtures/host_yards.json")
 
-      VCR.use_cassette('host_yards') do
+      VCR.use_cassette('renters/dash/landing_page') do
         visit root_path
 
         click_button 'Login through Google'
-        expect(page).to have_content('Welcome Dominic Padula')
-        expect(current_path).to eq('/host/dashboard')
+        expect(page).to have_content("Welcome #{user_1.username}")
+        expect(current_path).to eq(renter_dashboard_index_path)
       end
     end
   end

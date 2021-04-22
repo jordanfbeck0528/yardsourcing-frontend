@@ -9,20 +9,8 @@ RSpec.describe 'Search Page' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
     end
 
-    it 'displays text and form' do
-      VCR.use_cassette('all_purposes') do
-        visit search_index_path
-        expect(page).to have_content("Find your dream yard:")
-        expect(page).to have_content("Where will you yard?")
-        expect(page).to have_content("How will you spend your time yarding?")
-        expect(page).to have_content('Pet Rental')
-        expect(page).to have_content('Party Rental')
-        expect(page).to have_content('Hobby Rental')
-      end
-    end
-
     it 'displays form with location prefilled in' do
-      VCR.use_cassette('all_purposes2') do
+      VCR.use_cassette('search/search_yard') do
         purposes = EngineService.all_purposes
         visit search_index_path
         expect(page).to have_field('location')
@@ -33,8 +21,20 @@ RSpec.describe 'Search Page' do
       end
     end
 
+    it 'displays text and form' do
+      VCR.use_cassette('search/search_yard') do
+        visit search_index_path
+        expect(page).to have_content("Find your dream yard:")
+        expect(page).to have_content("Where will you yard?")
+        expect(page).to have_content("How will you spend your time yarding?")
+        expect(page).to have_content('Pet Rental')
+        expect(page).to have_content('Party Rental')
+        expect(page).to have_content('Hobby Rental')
+      end
+    end
+
     it "when filled in the form brings you to the yards/search" do
-      VCR.use_cassette('all_purposes_create_search') do
+      VCR.use_cassette('search/search_yard_results') do
         visit search_index_path
         fill_in :location, with: '80205'
         click_button 'Yard Me'
@@ -45,7 +45,7 @@ RSpec.describe 'Search Page' do
     end
 
     it 'slims the data with purposes' do
-      VCR.use_cassette('all_purposes_create_search_with_purpose') do
+      VCR.use_cassette('search/search_yard_results_purposes') do
         purposes = EngineService.all_purposes
         visit search_index_path
         fill_in :location, with: '80205'
@@ -61,7 +61,7 @@ RSpec.describe 'Search Page' do
 
   describe 'sad path' do
     it 'errors out when you do not enter valid zip code' do
-      VCR.use_cassette('all_purposes_bad_zip_search') do
+      VCR.use_cassette('search/search_yard_results_bad_zip') do
         purposes = EngineService.all_purposes
         visit search_index_path
         fill_in :location, with: '802'
@@ -75,7 +75,7 @@ RSpec.describe 'Search Page' do
     end
 
     it 'errors out when you enter a zipcode that is too long' do
-      VCR.use_cassette('all_purposes_long_search_zip') do
+      VCR.use_cassette('search/search_yard_results_long_zip') do
         purposes = EngineService.all_purposes
         visit search_index_path
         fill_in :location, with: '8021902'

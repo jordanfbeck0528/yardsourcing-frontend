@@ -23,7 +23,7 @@ describe 'As an authenticated user when I visit the renters dashboard' do
   end
   describe 'Happy Path' do
     it 'I see an upcoming booking section' do
-      VCR.use_cassette('upcoming_bookings') do
+      VCR.use_cassette('renters/dash/landing_page') do
         visit renter_dashboard_index_path
 
         within('.upcoming-bookings') do
@@ -33,7 +33,7 @@ describe 'As an authenticated user when I visit the renters dashboard' do
     end
 
     it 'I see a pending bookings section' do
-      VCR.use_cassette('pending_booking') do
+      VCR.use_cassette('renters/dash/landing_page') do
         visit renter_dashboard_index_path
 
         within('.pending-bookings') do
@@ -43,7 +43,7 @@ describe 'As an authenticated user when I visit the renters dashboard' do
     end
 
     it 'I click on the find your next yard button, and it takes you to the search index path' do
-      VCR.use_cassette('search_yards') do
+      VCR.use_cassette('renters/dash/search_yards') do
         visit renter_dashboard_index_path
 
         click_on 'Find your next yard'
@@ -52,7 +52,7 @@ describe 'As an authenticated user when I visit the renters dashboard' do
     end
 
     it 'I see a list of approved upcoming boookings' do
-      VCR.use_cassette('approved_bookings') do
+      VCR.use_cassette('renters/dash/approved_booking_1') do
         visit renter_dashboard_index_path
 
         within('.upcoming-bookings') do
@@ -65,7 +65,7 @@ describe 'As an authenticated user when I visit the renters dashboard' do
     end
 
     it 'I see a list of attributes for approved upcoming boookings' do
-      VCR.use_cassette('approved_bookings') do
+      VCR.use_cassette('renters/dash/landing_page') do
         visit renter_dashboard_index_path
 
         within('.upcoming-bookings') do
@@ -79,7 +79,7 @@ describe 'As an authenticated user when I visit the renters dashboard' do
     end
 
     it 'I see a list of pending boookings' do
-      VCR.use_cassette('pending_bookings') do
+      VCR.use_cassette('renters/dash/pending_booking_5') do
         visit renter_dashboard_index_path
 
         within('.pending-bookings') do
@@ -92,7 +92,7 @@ describe 'As an authenticated user when I visit the renters dashboard' do
     end
 
     it 'I see a list of attributes for pending boookings' do
-      VCR.use_cassette('pending_bookings') do
+      VCR.use_cassette('renters/dash/pending_booking') do
         visit renter_dashboard_index_path
 
         within('.pending-bookings') do
@@ -105,7 +105,7 @@ describe 'As an authenticated user when I visit the renters dashboard' do
       end
     end
     it 'I can click on the yard link' do
-      VCR.use_cassette('pending_bookings') do
+      VCR.use_cassette('renters/dash/pending_booking_4') do
         visit renter_dashboard_index_path
         within('.pending-bookings') do
           expect(page).to have_link('Multipurpose Yard')

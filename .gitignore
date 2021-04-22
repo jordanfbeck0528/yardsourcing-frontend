@@ -30,6 +30,3 @@
 
 # Ignore application configuration
 /config/application.yml
-
-# Ignore cassettes as api call should be made on local for starting up test suite
-/spec/fixtures/vcr_cassettes
