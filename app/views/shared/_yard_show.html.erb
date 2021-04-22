@@ -4,7 +4,7 @@
     <h2><%= yard.name %></h2>
   </header>
   <section class="yard-details">
-    <p>Address: <%= yard.address %></p>
+    <p>Address: <%= link_to yard.address, "https://www.google.com/maps/?q=#{yard.address}"%></p>
     <p>Description: <%= yard.description %></p>
     <p>Availability: <%= yard.availability %></p>
     <p>Price per Hour: <%= number_to_currency(yard.price) %></p>
