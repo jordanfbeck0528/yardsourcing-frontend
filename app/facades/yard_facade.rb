@@ -25,6 +25,8 @@ class YardFacade
     yards = EngineService.yards_in_location(yard_params)
     if yards[:error]
       yards
+    elsif yards[:data].empty?
+      yards = []
     else
       object = OpenStruct.new({yards: yards})
       return object if yards[:data].nil? || yards[:data].empty?
