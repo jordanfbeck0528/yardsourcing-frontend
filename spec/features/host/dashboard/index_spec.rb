@@ -109,7 +109,7 @@ describe 'As an authenticated user when I visit the host dashboard' do
           booking_params = {:renter_id=>"1",
                           :renter_email=>"renter@renter.com",
                           :yard_id=>"2",
-                          :booking_name=>"A new booking!!",
+                          :booking_name=>"Rejected booking!",
                           :date=>"2021-05-05",
                           :time=>"2021-05-05 12:00:00 -0500",
                           :duration=>"2",
@@ -122,11 +122,7 @@ describe 'As an authenticated user when I visit the host dashboard' do
             expect(page).to have_button("Reject")
             click_on "Reject"
           end
-          within "#booking-#{es[:data][:id]}" do
-            expect(page).to have_content("Rejected")
-            expect(page).to_not have_button("Approve")
-            expect(page).to_not have_button("Reject")
-          end
+          expect(page).to_not have_content("Rejected booking!")
         end
       end
 
@@ -142,12 +138,13 @@ describe 'As an authenticated user when I visit the host dashboard' do
       end
     end
     describe "I see a button for cancel booking if the booking is more than 48 hours away" do
-      it "If not within 48 hours, I see the Cancle Booking button" do
+      it "If not within 48 hours, I see the Cancel Booking button" do
         VCR.use_cassette('bookings/host_bookings_cancel') do
           booking_params = {:renter_id=>"1",
                           :renter_email=>"renter@renter.com",
                           :yard_id=>"2",
-                          :booking_name=>"DELETE THIS BOOKING",
+                          :status=>"approved",
+                          :booking_name=>"DELETE THIS BOOKING!",
                           :date=>"2021-05-05",
                           :time=>"2021-05-05 12:00:00 -0500",
                           :duration=>"2",
@@ -159,7 +156,7 @@ describe 'As an authenticated user when I visit the host dashboard' do
             expect(page).to have_button("Cancel Booking")
             click_button "Cancel Booking"
           end
-          expect(page).to_not have_content("DELETE THIS BOOKING")
+          expect(page).to_not have_content("DELETE THIS BOOKING!")
         end
       end
     end
