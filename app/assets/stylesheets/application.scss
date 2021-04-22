@@ -61,3 +61,49 @@
   color: white;
   background: $landing_grey;
 }
+
+ .parent {
+   display: table;
+   position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+  width: 100px;
+  height: 100px;
+}
+ .form_login {
+   display: table-cell;
+   text-align: center;
+   vertical-align: middle;
+   top: 15%;
+}
+
+.content {
+  max-width: 500px;
+  margin: auto;
+  background: $background_green;
+  padding: 10px;
+  margin-top: 100px;
+}
+
+.new_font
+{
+ font-family: #BDD9BF;
+ font-size: 22px;
+  margin-top: 100px;
+  padding: 10px;
+}
+ .small{
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  transition: width 0.4s ease-in-out;
+}
