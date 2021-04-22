@@ -9,7 +9,7 @@ RSpec.describe 'Welcome Page' do
     end
   end
 
-  describe 'it has an sad path ' do
+  describe 'sad path ' do
     it 'has returns to home page if credentials are bad' do
       stub_omniauth_sad
       visit root_path
@@ -35,7 +35,10 @@ RSpec.describe 'Welcome Page' do
         expect(current_path).to eq(renter_dashboard_index_path)
       end
     end
+  end 
 
+
+    describe 'After I am logged in, there is a button to logout' do
     it 'logs user out' do
       user = User.create!(id:1, uid: '123545', username: 'Dominic Padula', email:'thisemail@gmail.com')
       omniauth_response = stub_omniauth_happy('123545', 'Dominic Padula', 'thisemail@gmail.com')

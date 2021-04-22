@@ -13,7 +13,7 @@ RSpec.describe 'Search Page' do
       VCR.use_cassette('all_purposes') do
         visit search_index_path
         expect(page).to have_content("Find your dream yard:")
-        expect(page).to have_content("Enter the zipcode where you want to yard.")
+        expect(page).to have_content("Enter the zipcode where you want to yard:")
         expect(page).to have_content("How will you spend your time yarding?")
         expect(page).to have_content('Pet Rental')
         expect(page).to have_content('Party Rental')
@@ -37,7 +37,7 @@ RSpec.describe 'Search Page' do
       VCR.use_cassette('search/search_yard') do
         visit search_index_path
         expect(page).to have_content("Find your dream yard:")
-        expect(page).to have_content("Enter the zipcode where you want to yard.")
+        expect(page).to have_content("Enter the zipcode where you want to yard:")
         expect(page).to have_content("How will you spend your time yarding?")
         expect(page).to have_content('Pet Rental')
         expect(page).to have_content('Party Rental')
@@ -81,7 +81,7 @@ RSpec.describe 'Search Page' do
         click_button 'Yard Me'
         expect(page).to have_content('Invalid zipcode')
         expect(page).to have_content("Find your dream yard:")
-        expect(page).to have_content("Enter the zipcode where you want to yard.")
+        expect(page).to have_content("Enter the zipcode where you want to yard:")
         expect(page).to have_content("How will you spend your time yarding?")
       end
     end
@@ -95,7 +95,7 @@ RSpec.describe 'Search Page' do
         click_button 'Yard Me'
         expect(page).to have_content('Invalid zipcode')
         expect(page).to have_content("Find your dream yard:")
-        expect(page).to have_content("Enter the zipcode where you want to yard.")
+        expect(page).to have_content("Enter the zipcode where you want to yard:")
         expect(page).to have_content("How will you spend your time yarding?")
       end
     end

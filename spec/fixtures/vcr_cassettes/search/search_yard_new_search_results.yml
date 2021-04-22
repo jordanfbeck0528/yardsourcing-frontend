@@ -1,0 +1,406 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3001/api/v1/purposes
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"070dbb270781e3a382e773147c03b939"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 934e6080-eb16-452f-9281-f35be440c237
+      X-Runtime:
+      - '0.075805'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
+        rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
+  recorded_at: Thu, 22 Apr 2021 07:28:46 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/v1/yards/yard_search?location=80205
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"e984792e1a1f94aafd78c46c4d8b392f"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - d5a6e1ae-3ba7-4187-b397-a73a7a0764a7
+      X-Runtime:
+      - '0.051807'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"2","type":"yard","attributes":{"host_id":1,"name":"Ultimate
+        Party Yard","street_address":"2001 Blake St","city":"Denver","state":"CO","zipcode":"80205","description":"This
+        yard is equiped with a firepit, a pool, and a pool house to accommodate all
+        your party needs.","availability":"Available on weekends in May","payment":"Venmo","photo_url_1":"https://i.pinimg.com/originals/33/68/61/33686194d9ec6fff887d4a77b33fab26.jpg","photo_url_2":"","photo_url_3":"","price":20.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
+        rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}}]}}},{"id":"3","type":"yard","attributes":{"host_id":1,"name":"Large
+        Yard for any Hobby","street_address":"2300 Steele St","city":"Denver","state":"CO","zipcode":"80205","description":"A
+        large backyard close to the city. Equiped with a barbeque.","availability":"NEW
+        - Most days are available","payment":"Venmo,Paypal","photo_url_1":"","photo_url_2":"","photo_url_3":"","price":25.5,"purposes":{"data":[{"id":"3","type":"purpose","attributes":{"name":"hobby
+        rental"}}]}}},{"id":"4","type":"yard","attributes":{"host_id":2,"name":"Multipurpose
+        Yard","street_address":"3181 E 23rd Ave","city":"Denver","state":"CO","zipcode":"80205","description":"Fenced
+        in yard for privacy.","availability":"Available on Monday, Wednesday, Friday,
+        and Saturdays","payment":"Paypal","photo_url_1":"","photo_url_2":"","photo_url_3":"","price":15.5,"purposes":{"data":[{"id":"2","type":"purpose","attributes":{"name":"party
+        rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}}}]}'
+  recorded_at: Thu, 22 Apr 2021 07:28:46 GMT
+- request:
+    method: get
+    uri: https://www.mapquestapi.com/geocoding/v1/address?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&location=2001%20Blake%20St%20Denver,%20CO%2080205
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 22 Apr 2021 07:28:46 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '1091'
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET,POST
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Expires:
+      - Mon, 20 Dec 1998 01:00:00 GMT
+      Geocodetransactioncount:
+      - '1'
+      Last-Modified:
+      - Thu, 22 Apr 2021 07:28:46 GMT
+      Pragma:
+      - no-cache
+      Reversegeocodetransactioncount:
+      - '0'
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - JSESSIONID=A07671A79837141DD688F86A912FF94F; Path=/; HttpOnly; Secure
+      Status:
+      - success
+      Transactionweight:
+      - '1.0'
+      Strict-Transport-Security:
+      - max-age=0
+    body:
+      encoding: UTF-8
+      string: '{"info":{"statuscode":0,"copyright":{"text":"\u00A9 2021 MapQuest,
+        Inc.","imageUrl":"http://api.mqcdn.com/res/mqlogo.gif","imageAltText":"\u00A9
+        2021 MapQuest, Inc."},"messages":[]},"options":{"maxResults":-1,"thumbMaps":true,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"2001
+        Blake St Denver, CO 80205"},"locations":[{"street":"2001 Blake St","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Denver","adminArea5Type":"City","adminArea4":"Denver","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"80205-2008","geocodeQualityCode":"P1AAA","geocodeQuality":"POINT","dragPoint":false,"sideOfStreet":"L","linkId":"r12614049|p207781704|n15739752","unknownInput":"","type":"s","latLng":{"lat":39.754574,"lng":-104.993946},"displayLatLng":{"lat":39.754733,"lng":-104.994129},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=39.754574,-104.993946|marker-sm-50318A-1&scalebar=true&zoom=15&rand=1332017609"}]}]}'
+  recorded_at: Thu, 22 Apr 2021 07:28:46 GMT
+- request:
+    method: get
+    uri: https://www.mapquestapi.com/geocoding/v1/address?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&location=2300%20Steele%20St%20Denver,%20CO%2080205
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 22 Apr 2021 07:28:46 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '1098'
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET,POST
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Expires:
+      - Mon, 20 Dec 1998 01:00:00 GMT
+      Geocodetransactioncount:
+      - '1'
+      Last-Modified:
+      - Thu, 22 Apr 2021 07:28:46 GMT
+      Pragma:
+      - no-cache
+      Reversegeocodetransactioncount:
+      - '0'
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - JSESSIONID=BA7EB1F19AB8FED5DD8724566993DA7B; Path=/; HttpOnly; Secure
+      Status:
+      - success
+      Transactionweight:
+      - '1.0'
+      Strict-Transport-Security:
+      - max-age=0
+    body:
+      encoding: UTF-8
+      string: '{"info":{"statuscode":0,"copyright":{"text":"\u00A9 2021 MapQuest,
+        Inc.","imageUrl":"http://api.mqcdn.com/res/mqlogo.gif","imageAltText":"\u00A9
+        2021 MapQuest, Inc."},"messages":[]},"options":{"maxResults":-1,"thumbMaps":true,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"2300
+        Steele St Denver, CO 80205"},"locations":[{"street":"2300 Steele St","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Denver","adminArea5Type":"City","adminArea4":"Denver
+        County","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"80205","geocodeQualityCode":"P1AAA","geocodeQuality":"POINT","dragPoint":false,"sideOfStreet":"N","linkId":"af237c7b-cc35-4a05-85f8-4b9c342fe531","unknownInput":"","type":"s","latLng":{"lat":39.75118,"lng":-104.948906},"displayLatLng":{"lat":39.75118,"lng":-104.948906},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=39.75118,-104.948906|marker-sm-50318A-1&scalebar=true&zoom=15&rand=1535507676"}]}]}'
+  recorded_at: Thu, 22 Apr 2021 07:28:46 GMT
+- request:
+    method: get
+    uri: https://www.mapquestapi.com/geocoding/v1/address?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&location=3181%20E%2023rd%20Ave%20Denver,%20CO%2080205
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 22 Apr 2021 07:28:47 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '1087'
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET,POST
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Expires:
+      - Mon, 20 Dec 1998 01:00:00 GMT
+      Geocodetransactioncount:
+      - '1'
+      Last-Modified:
+      - Thu, 22 Apr 2021 07:28:47 GMT
+      Pragma:
+      - no-cache
+      Reversegeocodetransactioncount:
+      - '0'
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - JSESSIONID=C29C404E657F9DCBD781D9EA6C976BF3; Path=/; HttpOnly; Secure
+      Status:
+      - success
+      Transactionweight:
+      - '1.0'
+      Strict-Transport-Security:
+      - max-age=0
+    body:
+      encoding: UTF-8
+      string: '{"info":{"statuscode":0,"copyright":{"text":"\u00A9 2021 MapQuest,
+        Inc.","imageUrl":"http://api.mqcdn.com/res/mqlogo.gif","imageAltText":"\u00A9
+        2021 MapQuest, Inc."},"messages":[]},"options":{"maxResults":-1,"thumbMaps":true,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"3181
+        E 23rd Ave Denver, CO 80205"},"locations":[{"street":"3181 E 23rd Ave","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Denver","adminArea5Type":"City","adminArea4":"Denver","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"80205-5730","geocodeQualityCode":"L1AAA","geocodeQuality":"ADDRESS","dragPoint":false,"sideOfStreet":"L","linkId":"rnr3461631|i13775421","unknownInput":"","type":"s","latLng":{"lat":39.751158,"lng":-104.942377},"displayLatLng":{"lat":39.751358,"lng":-104.942371},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=39.751158,-104.942377|marker-sm-50318A-1&scalebar=true&zoom=15&rand=1063415386"}]}]}'
+  recorded_at: Thu, 22 Apr 2021 07:28:47 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/v1/purposes
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"070dbb270781e3a382e773147c03b939"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - ea311f9d-ec93-4525-bffb-ed93dcae8300
+      X-Runtime:
+      - '0.010631'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet rental"}},{"id":"2","type":"purpose","attributes":{"name":"party
+        rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby rental"}}]}'
+  recorded_at: Thu, 22 Apr 2021 07:28:47 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/api/v1/yards/yard_search?location=72034&purposes%5B%5D=party%20rental
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"e276310e71072a2ceefc23c15d65ebc7"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 313a1563-8155-4f9c-b87b-62b8a6bfe7ea
+      X-Runtime:
+      - '0.013957'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"6","type":"yard","attributes":{"host_id":3,"name":"Country
+        ","street_address":"10 Highway 64","city":"Conway","state":"AR","zipcode":"72034","description":"This
+        yard is on a huge piece of land in the middle of nowhere so there are endless
+        possiblities of events to host for our guests!","availability":"Weekends only","payment":"Venmo,
+        Cashapp","photo_url_1":"https://image.shutterstock.com/image-photo/spacious-yard-home-garden-swing-260nw-1609425607.jpg","photo_url_2":"","photo_url_3":"","price":15.0,"purposes":{"data":[{"id":"1","type":"purpose","attributes":{"name":"pet
+        rental"}},{"id":"2","type":"purpose","attributes":{"name":"party rental"}},{"id":"3","type":"purpose","attributes":{"name":"hobby
+        rental"}}]}}}]}'
+  recorded_at: Thu, 22 Apr 2021 07:28:47 GMT
+- request:
+    method: get
+    uri: https://www.mapquestapi.com/geocoding/v1/address?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&location=10%20Highway%2064%20Conway,%20AR%2072034
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 22 Apr 2021 07:28:47 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '7705'
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET,POST
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Expires:
+      - Mon, 20 Dec 1998 01:00:00 GMT
+      Geocodetransactioncount:
+      - '1'
+      Last-Modified:
+      - Thu, 22 Apr 2021 07:28:47 GMT
+      Pragma:
+      - no-cache
+      Reversegeocodetransactioncount:
+      - '0'
+      Server:
+      - Apache-Coyote/1.1
+      Set-Cookie:
+      - JSESSIONID=B0DFCF21B2DDFFEB7E1334196006274A; Path=/; HttpOnly; Secure
+      Status:
+      - success
+      Transactionweight:
+      - '1.0'
+      Strict-Transport-Security:
+      - max-age=0
+    body:
+      encoding: UTF-8
+      string: '{"info":{"statuscode":0,"copyright":{"text":"\u00A9 2021 MapQuest,
+        Inc.","imageUrl":"http://api.mqcdn.com/res/mqlogo.gif","imageAltText":"\u00A9
+        2021 MapQuest, Inc."},"messages":[]},"options":{"maxResults":-1,"thumbMaps":true,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"10
+        Highway 64 Conway, AR 72034"},"locations":[{"street":"[3800 - 4202] Highway
+        64 W","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Conway","adminArea5Type":"City","adminArea4":"Faulkner","adminArea4Type":"County","adminArea3":"AR","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"72034-9109","geocodeQualityCode":"B3BAA","geocodeQuality":"STREET","dragPoint":false,"sideOfStreet":"L","linkId":"rnr4671226|i8647525","unknownInput":"","type":"s","latLng":{"lat":35.112335,"lng":-92.495443},"displayLatLng":{"lat":35.112534,"lng":-92.495468},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=35.112335,-92.495443|marker-sm-50318A-1&scalebar=true&zoom=15&rand=-1266595861"},{"street":"[200
+        - 200] Highway 64 E","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Conway","adminArea5Type":"City","adminArea4":"Faulkner","adminArea4Type":"County","adminArea3":"AR","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"72032-9410","geocodeQualityCode":"B3BAB","geocodeQuality":"STREET","dragPoint":false,"sideOfStreet":"L","linkId":"rnr4666777|i5054903","unknownInput":"","type":"s","latLng":{"lat":35.090809,"lng":-92.391881},"displayLatLng":{"lat":35.09061,"lng":-92.391893},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=35.090809,-92.391881|marker-sm-50318A-2&scalebar=true&zoom=15&rand=-888196926"},{"street":"[1438
+        - 1566] Highway 64 W","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Conway","adminArea5Type":"City","adminArea4":"Faulkner","adminArea4Type":"County","adminArea3":"AR","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"72032-3513","geocodeQualityCode":"B3BAB","geocodeQuality":"STREET","dragPoint":false,"sideOfStreet":"R","linkId":"rnr4666733|i8866416","unknownInput":"","type":"s","latLng":{"lat":35.111594,"lng":-92.444386},"displayLatLng":{"lat":35.111786,"lng":-92.444333},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=35.111594,-92.444386|marker-sm-50318A-3&scalebar=true&zoom=15&rand=-985843271"},{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Conway","adminArea5Type":"City","adminArea4":"Faulkner
+        County","adminArea4Type":"County","adminArea3":"AR","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"72034","geocodeQualityCode":"Z1XXA","geocodeQuality":"ZIP","dragPoint":false,"sideOfStreet":"N","linkId":"286297922","unknownInput":"","type":"s","latLng":{"lat":35.068877,"lng":-92.474854},"displayLatLng":{"lat":35.068877,"lng":-92.474854},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=35.068877,-92.474854|marker-sm-50318A-4&scalebar=true&zoom=15&rand=445174135"},{"street":"10
+        Highway 64","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Coal
+        Hill","adminArea5Type":"City","adminArea4":"Johnson","adminArea4Type":"County","adminArea3":"AR","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"72832","geocodeQualityCode":"L1ACC","geocodeQuality":"ADDRESS","dragPoint":false,"sideOfStreet":"R","linkId":"rnr4666947|i5206776","unknownInput":"","type":"s","latLng":{"lat":35.437906,"lng":-93.674376},"displayLatLng":{"lat":35.438105,"lng":-93.674359},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=35.437906,-93.674376|marker-sm-50318A-5&scalebar=true&zoom=15&rand=-137665763"},{"street":"10
+        Highway 64","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Altus","adminArea5Type":"City","adminArea4":"Franklin","adminArea4Type":"County","adminArea3":"AR","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"72821","geocodeQualityCode":"L1ACC","geocodeQuality":"ADDRESS","dragPoint":false,"sideOfStreet":"R","linkId":"rnr4666957|i5152910","unknownInput":"","type":"s","latLng":{"lat":35.446612,"lng":-93.761253},"displayLatLng":{"lat":35.446811,"lng":-93.761231},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=35.446612,-93.761253|marker-sm-50318A-6&scalebar=true&zoom=15&rand=-1343415449"},{"street":"10
+        Highway 64","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Atkins","adminArea5Type":"City","adminArea4":"Pope","adminArea4Type":"County","adminArea3":"AR","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"72823-7629","geocodeQualityCode":"L1ACC","geocodeQuality":"ADDRESS","dragPoint":false,"sideOfStreet":"L","linkId":"rnr4667038|i7814126","unknownInput":"","type":"s","latLng":{"lat":35.230598,"lng":-92.853366},"displayLatLng":{"lat":35.230436,"lng":-92.853483},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=35.230598,-92.853366|marker-sm-50318A-7&scalebar=true&zoom=15&rand=1969609567"},{"street":"10
+        Highway 64","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Mc
+        Crory","adminArea5Type":"City","adminArea4":"Woodruff","adminArea4Type":"County","adminArea3":"AR","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"72101-7504","geocodeQualityCode":"L1ACC","geocodeQuality":"ADDRESS","dragPoint":false,"sideOfStreet":"L","linkId":"rnr4667003|i5184583","unknownInput":"","type":"s","latLng":{"lat":35.251743,"lng":-91.040806},"displayLatLng":{"lat":35.251941,"lng":-91.040832},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=35.251743,-91.040806|marker-sm-50318A-8&scalebar=true&zoom=15&rand=65417195"},{"street":"10
+        Highway 64","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Tierra
+        Amarilla","adminArea5Type":"City","adminArea4":"Rio Arriba","adminArea4Type":"County","adminArea3":"NM","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"87575","geocodeQualityCode":"L1ACC","geocodeQuality":"ADDRESS","dragPoint":false,"sideOfStreet":"R","linkId":"rnr4674117|i42987828","unknownInput":"","type":"s","latLng":{"lat":36.685745,"lng":-106.552224},"displayLatLng":{"lat":36.685928,"lng":-106.552144},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=36.685745,-106.552224|marker-sm-50318A-9&scalebar=true&zoom=15&rand=78889078"},{"street":"10
+        Highway 64","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Grand
+        Canyon","adminArea5Type":"City","adminArea4":"Coconino","adminArea4Type":"County","adminArea3":"AZ","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"86023","geocodeQualityCode":"L1ACC","geocodeQuality":"ADDRESS","dragPoint":false,"sideOfStreet":"L","linkId":"rnr4666989|i7590647","unknownInput":"","type":"s","latLng":{"lat":35.968315,"lng":-112.128866},"displayLatLng":{"lat":35.968446,"lng":-112.129017},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=SHKnstA5dZDGGsyGX1AkAan6iEbUWUE8&type=map&size=225,160&locations=35.968315,-112.128866|marker-sm-50318A-10&scalebar=true&zoom=15&rand=1872112428"}]}]}'
+  recorded_at: Thu, 22 Apr 2021 07:28:47 GMT
+recorded_with: VCR 6.0.0
