@@ -13,7 +13,7 @@ class BookingFacade
                        name:         booking[:attributes][:booking_name],
                        address:      full_address(yard_info),
                        date:         booking[:attributes][:date].to_date,
-                       time:         booking[:attributes][:time].to_time,
+                       time:         get_time(booking),
                        duration:     booking[:attributes][:duration],
                        description:  booking[:attributes][:description],
                        total_cost:   total_cost(booking[:attributes][:duration], yard_info[:attributes][:price])})
@@ -30,5 +30,11 @@ class BookingFacade
 
   def self.yard_info(yard_id)
     EngineService.yard_details(yard_id)
+  end
+
+  def self.get_time(booking)
+    d = booking[:attributes][:date].to_date
+    t = booking[:attributes][:time].to_time
+    dt = DateTime.new(d.year, d.month, d.day, t.hour, t.min)
   end
 end

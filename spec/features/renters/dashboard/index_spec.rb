@@ -7,7 +7,20 @@ describe 'As an authenticated user when I visit the renters dashboard' do
     @user_1 = User.from_omniauth(omniauth_response)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
   end
+  it "No bookings available" do
+    user = User.create!(id:200, uid: '899981', username: 'Minnie Mouse', email:'minnie@mouse.com' )
+     omniauth_response_3 = stub_omniauth_happy('899981', 'Minnie Mouse', 'minnie@mouse.com')
+     user_3 = User.from_omniauth(omniauth_response_3)
+     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user_3)
 
+     VCR.use_cassette('bookings/no_bookings') do
+       visit renter_dashboard_index_path
+
+       within('.upcoming-bookings') do
+         expect(page).to have_content("Upcoming Bookings:")
+       end
+     end
+  end
   describe 'Happy Path' do
     it 'I see an upcoming booking section' do
       VCR.use_cassette('upcoming_bookings') do
@@ -100,6 +113,28 @@ describe 'As an authenticated user when I visit the renters dashboard' do
 
         click_link 'Multipurpose Yard'
         expect(current_path).to eq(yard_path(4))
+      end
+    end
+    describe "I see a button for cancel booking if the booking is more than 48 hours away" do
+      it "If not pending, I see the status of Approved or Rejected" do
+        VCR.use_cassette('bookings/renter_bookings_cancel') do
+          booking_params = {:renter_id=>"1",
+                          :renter_email=>"renter@renter.com",
+                          :yard_id=>"2",
+                          :booking_name=>"DLT THIS BOOKING",
+                          :date=>"2021-05-05",
+                          :time=>"2021-05-05 12:00:00 -0500",
+                          :duration=>"2",
+                          :description=>"description"}
+
+          es = EngineService.create_booking(booking_params)
+          visit renter_dashboard_index_path
+          within "#booking-#{es[:data][:id]}" do
+            expect(page).to have_button("Cancel Booking")
+            click_button "Cancel Booking"
+          end
+          expect(page).to_not have_content("DLT THIS BOOKING")
+        end
       end
     end
   end
