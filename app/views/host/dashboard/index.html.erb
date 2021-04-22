@@ -9,31 +9,11 @@
     <p>Add some yards to rent! Turn your green into green!</p>
     <%= button_to 'Create Yard', new_host_yard_path, method: :get, class:'btn btn-secondary' %>
   <% else %>
-    <div class="container">
-      <div class="row">
-        <% @host_yards.each do |yard| %>
-        <div class= "card dashboard">
-          <div class="card-body">
-            <div class="card-title name"><%= link_to yard.name, host_yard_path(yard.id) %></div>
-            Description: <%= yard.description %><br>
-            Address: <%= link_to yard.address, "https://www.google.com/maps/?q=#{yard.address}"%><br>
-            Rate: $<%= yard.price %> per hour <br>
-            Purposes:
-            <ul>
-            <% yard.purposes.each do |purpose| %>
-              <li><%= purpose.titleize %></li>
-            <% end %>
-            </ul>
-            <p><% if !yard.photo_url_1.blank? %>
-               <%= image_tag(yard.photo_url_1, size: '250')  %>
-            <% else %>
-              No image
-            <% end %></p>
-          </div>
-        </div>
-        <% end %>
-      </div>
-    </div>
+
+  <%= render partial: 'shared/yards_cards', locals: {
+          url_string: "host/yards/",
+          yards: @host_yards
+  }%>
   <% end %>
 </section>
 
