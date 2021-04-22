@@ -3,6 +3,7 @@ rbenv:
 - 2.5.3
 addons:
   postgresql: 9.6
+  cache: bundler
 before_install:
 - gem install bundler:2.1.4
 - nvm install --lts
@@ -10,7 +11,6 @@ script:
 - bundle exec rails db:{create,migrate} RAILS_ENV=test
 - bundle exec rspec
 deploy:
-  cache: bundler
   provider: heroku
   api_key:
     secure: rfj7o3eoYDWEDLupRlW5o7aQ7eByfUwMcivfN3i27fdcVEFo6n5fJFdW9paYVe3LP6Yl9cdHNsRtqszVh687eeJ70x5tfdNtvHQlKdS+7db7rqtoBl47Qp/tl+Q0uHMrobP9pcPOIsB14Sp99k1WKH8BgjfeOYZbHoOenxqtPlrZAa9IUaj0FXipZnHUI4crMylJbkhVYM5UBC2QQpvgDIaP9z9GP3evnu036YSquwNxcNiu+o6nhoyl83cPxRgRe0gpuWGYw5lCe12pM8/GurjGsWCoVADFnW3xRgAH/crio36NPP12/8biVx+pY+CbziEhOfElC+hp8+Nx0Hq30teKAKSBuZmw+6EFHd6iwFbD4d5OZ90S4//skWqWgcZd6ZQ6WBounRlflbLRxUgGNdgu7b3f2RDr7+hrnwFE12whsI0b3Bn3idWHPerHh/rK9IoWAcuAYuPJbzwdD2UHRRSh4KVOJ08Qlce7VWGWdOrVNf1hSmfSUjj6QbTTT8Gz0jqpNYAf4Zv4io590P0HDPQHtNPQvgOpr+elp+1MM97KGNhcJAkrGefItHz/TmAqHOrg/Pe9WQEpECiZfnHX+KKSxDaykXN20bKaec9U+2sMd6uCtumu3/jarExlBKIht8eTICJ0rK6JJ96Iy5T7JZ8spzvyejmEnno42+9/m7s=
