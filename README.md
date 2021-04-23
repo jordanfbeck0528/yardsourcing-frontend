@@ -6,6 +6,9 @@ Yardsourcing is a web application that allows users to create accounts via Googl
 
 *Turn your extra green into green.*
 
+### Application Demo
+https://www.loom.com/share/6f5e5e7fe7584e48b9c425c3ca3398a8
+
 #### Related Repos
 To explore the full web application, please visit the built out back end application that hooks into this front end and its views.
  - [Yardsourcing - engine](https://github.com/Yardsourcing/yardsourcing-engine).
